@@ -1,0 +1,298 @@
+/*menuPage.css*/
+
+
+
+/* 🔥 FIX: CANVAS SHOULD BE BACKGROUND */
+#webglBg{
+  position: fixed;
+  inset: 0;
+  z-index: -2;          /* behind everything */
+  pointer-events: none; /* allow clicks */
+}
+
+/************************************************************************************************************************************/
+/* PAGE BASE */
+.menu-page{
+    background:#0b0b0c;
+    color:white;
+    height:100svh;
+    overflow:hidden;
+  
+    display:flex;
+    flex-direction:column;
+  
+    animation:pageIn 0.6s ease forwards;
+  }
+  
+  @keyframes pageIn{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  
+
+/************************************************************************************************************************************/
+  /* HEADER LOAD */
+  .menu-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  
+    padding: var(--space-md) var(--space-md) var(--space-md) var(--space-md);
+  
+    transform:translateY(-100%);
+    animation:headerDrop 0.6s ease forwards;
+  }
+  
+  @keyframes headerDrop{
+    to{transform:translateY(0);}
+  }
+  
+
+/************************************************************************************************************************************/
+  /* BRAND TEXT */
+  .brand-text span{
+    display:block;
+    font-size: var(--fs-h4);
+    color:#aaa;
+  }
+  
+  .brand-text strong{
+
+    display:block;
+    font-size: var(--fs-h2);
+  }
+
+  .brand-text-strong-color{
+    color: var(--orange-500);
+  }
+
+
+/************************************************************************************************************************************/
+  /* MAIN LAYOUT */
+  .menu-main{
+    flex:1;
+    display:flex;
+    justify-content:space-between;
+    padding: var(--space-sm);
+    padding-left: var(--space-full);
+  }
+
+
+/************************************************************************************************************************************/
+  /* LINKS LEFT */
+  .menu-links{
+    display:flex;
+    flex-direction:column;
+    gap:var(--space-xsm);
+    counter-reset: menu-counter;
+  }
+  
+  .menu-links a{
+
+    counter-increment: menu-counter;
+    position: relative;
+    display: block;
+    font-size: var(--fs-h2);
+    padding-left: var(--space-lg);
+
+    font-family:var(--font-mono);
+    font-weight: var(--fw-medium);
+    text-decoration:none;
+
+    color:#ffffff; /* 🔥 FIX: visible */
+  
+    /* 🔥 FAILSAFE */
+    opacity:1;
+    transform:translateY(0);
+
+    /* animation (optional but safe now) */
+    animation:linkFade 0.6s ease forwards;
+  
+    animation:linkFade 0.6s ease forwards;
+
+    /* 🔥 ADD THIS */
+    transition: 
+            color 0.45s ease 0.05s,
+            transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+    /* NUMBER */
+    .menu-links a::before {
+        content: counter(menu-counter, decimal-leading-zero);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        
+        font-size: var(--fs-body);
+        opacity: 0.5;
+        transform: translateY(-50%);
+        
+        transition: all 0.3s ease;
+        }
+  
+  .menu-links a:nth-child(1){animation-delay:0.3s;}
+  .menu-links a:nth-child(2){animation-delay:0.4s;}
+  .menu-links a:nth-child(3){animation-delay:0.5s;}
+  .menu-links a:nth-child(4){animation-delay:0.6s;}
+  .menu-links a:nth-child(5){animation-delay:0.7s;}
+  .menu-links a:nth-child(6){animation-delay:0.8s;}
+  .menu-links a:nth-child(7){animation-delay:0.9s;}
+  
+  @keyframes linkFade{
+    from{
+      opacity:0;
+      transform:translateY(20px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+  .menu-links a:hover{
+    transform:translateX(10px);
+    color:#ff7a00;
+  }
+
+
+/************************************************************************************************************************************/
+  /* TAGLINE RIGHT BOTTOM */
+  .menu-tagline{
+    padding-bottom: var(--space-md);
+    padding-left: var(--space-sm);
+    align-self:flex-end;
+    text-align:right;
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+  }
+  
+  .menu-tagline span{
+    display:block;
+  }
+
+  .menu-tagline-good{
+    color: var(--orange-500);
+    font-family: var(--font-mono);
+    font-size: var(--fs-h2);
+  }
+
+
+
+/************************************************************************************************************************************/
+  /* ========================= */
+  /* 🔥 BUTTON DESIGN */
+  /* ========================= */
+  
+  .menu-btn{
+    position: relative;
+    width: var(--space-lg);
+    height: var(--space-md);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;
+
+    
+  }
+  
+  /* DIFFERENT LENGTH LINES */
+  .menu-btn span{
+    display:block;
+    height: 0.2rem;
+    background: var(--gray-500);
+    border-radius:var(--radius-sm);
+    transition:0.3s;
+  }
+  
+  .menu-btn span:nth-child(1){ width: var(--space-lg); }
+  .menu-btn span:nth-child(2){ width: var(--space-md); }
+  .menu-btn span:nth-child(3){ width: var(--space-sm); }
+  
+  /* HOVER → ALL SAME + ORANGE */
+  .menu-btn:hover span{
+    width: var(--space-lg);
+    background: var(--orange-500);
+  }
+  
+  /* ========================= */
+  /* 🔥 CLOSE (X STATE) */
+  /* ========================= */
+  
+  .close-btn span{
+    position:absolute;
+    width:100%;
+    background: var(--red-500);
+  }
+  
+  .close-btn span:nth-child(1){
+    transform:rotate(45deg);
+  }
+  
+  .close-btn span:nth-child(2){
+    opacity:0;
+  }
+  
+  .close-btn span:nth-child(3){
+    transform:rotate(-45deg);
+  }
+  
+  /* HOVER ON X → BLUE ROTATION */
+  .close-btn:hover{
+    transform:rotate(90deg);
+    transition:0.4s;
+  }
+  
+  .close-btn:hover span{
+    background: var(--teal-500);
+  }
+
+
+
+/************************************************************************************************************************************/
+/* ========================= */
+/* 🔥 BACKGROUND VIDEO LAYER */
+/* ========================= */
+
+.menu-bg{
+    position:fixed;
+    inset:0;
+    z-index: -1;
+    overflow:hidden;
+  }
+  
+  /* ALL VIDEOS STACKED */
+  .bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  
+    opacity:0;
+    transition:opacity 1.5s ease;
+    filter:blur(8px);
+  }
+  
+  /* ACTIVE VIDEO */
+  .bg-video.active{
+    opacity: 1;
+    transform:scale(1.05);
+    transition:opacity 1.5s ease, transform 6s ease;
+    filter:blur(0);
+  }
+  
+  /* DARK OVERLAY (OPTIONAL BUT NICE) */
+  .menu-bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+  }
+
+
+
+
+/************************************************************************************************************************************/
+
+
+/************************************************************************************************************************************/

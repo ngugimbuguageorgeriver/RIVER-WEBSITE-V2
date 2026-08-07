@@ -1,0 +1,176 @@
+/* systemTheme.css*/
+
+
+/* =========================
+   THEME SYSTEM
+========================= */
+
+/* DEFAULT = DARK (BLACK + ORANGE) */
+body[data-theme="dark"]{
+    --bg:#0b0b0c;
+    --card:#111114;
+    --text:#ffffff;
+    --accent:#ff7a00;
+    --nav:#ffffff;
+    --nav-hover:#ff7a00;
+    --border:rgba(255,122,0,0.5);
+  }
+  
+  /* LIGHT = ORANGE + BLACK */
+  body[data-theme="light"]{
+    --bg:#fff3e8;
+    --card:#ffffff;
+    --text:#0b0b0c;
+    --accent:#ff7a00;
+    --nav:#0b0b0c;
+    --nav-hover:#000000;
+    --border:rgba(0,0,0,0.4);
+  }
+  
+  /* APPLY VARIABLES */
+  body{
+    background:var(--bg);
+    color:var(--text);
+    transition: background 0.6s ease, color 0.6s ease;
+  }
+  
+  .header{
+    background:var(--card);
+    transition: background 0.6s ease;
+  }
+  
+  /* NAV LINKS */
+  .nav-links a{
+    color:var(--nav);
+    padding:6px 10px;
+    border-radius:6px;
+    transition: all 0.8s ease;
+  }
+  
+  /* 🔥 HOVER + ACTIVE BORDER EFFECT */
+  .nav-links a:hover{
+    color:var(--nav-hover);
+    border:1px solid var(--border);
+    background:transparent;
+  }
+  
+  /* OPTIONAL ACTIVE LINK */
+  .nav-links a.active{
+    border:1px solid var(--accent);
+  }
+
+
+/* SMOOTH TRANSITION (PREMIUM FEEL) */
+.logo img{
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+
+/**/
+/* =========================
+   CARD VISIBILITY (DARK FIX)
+========================= */
+
+/* ALL CARDS */
+.hero-card,
+.project-card,
+.card,
+.form-card,
+.marquee .item{
+  border: 1px solid transparent;
+  transition: 
+    background 0.6s ease,
+    border 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+/* DARK MODE → visible subtle borders */
+body[data-theme="dark"] .hero-card,
+body[data-theme="dark"] .project-card,
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .form-card,
+body[data-theme="dark"] .marquee .item{
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* LIGHT MODE (clean soft look) */
+body[data-theme="light"] .hero-card,
+body[data-theme="light"] .project-card,
+body[data-theme="light"] .card,
+body[data-theme="light"] .form-card{
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+
+/**/
+/* =========================
+   BACKGROUND IMAGE LAYER
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    opacity:0;
+    transition: opacity 1s ease;
+  }
+  
+  /* DARK BACKGROUND */
+  body[data-theme="dark"]::before{
+    background-image:url("../assets/images/bg-dark.jpg");
+    opacity:0.25; /* subtle */
+  }
+  
+  /* LIGHT BACKGROUND */
+  body[data-theme="light"]::before{
+    background-image:url("../assets/images/bg-light.jpg");
+    opacity:0.35;
+  }
+
+
+/**/
+
+.header::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:1px;
+  
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,122,0,0.7),
+      transparent
+    );
+  
+    opacity:0.6;
+  }
+
+
+
+/**/
+
+.bg-system::after{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle, rgba(255,122,0,0.08), transparent 60%);
+    animation: floatLight 18s linear infinite;
+  }
+  
+  @keyframes floatLight{
+    from{ transform: translate(-20%, -20%);}
+    to{ transform: translate(20%, 20%);}
+  }
+
+
+
+/* GLOBAL SMOOTHNESS */

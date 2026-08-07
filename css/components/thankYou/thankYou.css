@@ -1,0 +1,102 @@
+/* =========================
+BASE
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    }
+  
+  body {
+  height: 100vh;
+  background: var(--gray-900);
+  color: var(--gray-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  }
+  
+  /* =========================
+  BACKGROUND GLOW
+  ========================= */
+  .bg-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--orange-200), transparent 70%);
+  filter: blur(80px);
+  animation: float 8s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  }
+  
+  /* =========================
+  CARD
+  ========================= */
+  .thankYou-container {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--teal-300), var(--lime-700));
+  backdrop-filter: blur(15px);
+  text-align: center;
+  border: 1px solid var(--orange-500);
+  }
+  
+  /* =========================
+  LOGO
+  ========================= */
+
+
+  .thankYou-logo{
+    height: clamp(100px, 6vw, 120px);
+    width: auto;
+    margin-bottom: 10px; /* 👈 adds breathing room */
+  }
+
+
+
+  
+  /* =========================
+  TEXT
+  ========================= */
+  h1 {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-md);
+  }
+  
+  p {
+  font-size: var(--fs-small);
+  opacity: 0.8;
+  margin-bottom: var(--space-md);
+  line-height: var(--lh-normal);
+  }
+  
+  /* =========================
+  BUTTON
+  ========================= */
+
+
+
+  
+  
+  /* =========================
+  FOOTER NOTE
+  ========================= */
+  .small {
+  margin-top: var(--space-md);
+  font-size: var(--fs-small);
+  opacity: 0.6;
+  }
+
+
+
+  

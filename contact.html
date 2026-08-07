@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contact River | River IT Solutions</title>
+
+
+
+
+
+
+
+    <!-- =========================
+         STYLES
+    ========================== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components/intro/intro.css" />
+    <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
+    <link rel="stylesheet" href="css/components/backToTop/backToTop.css" />
+    <link rel="stylesheet" href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css" />
+    <link rel="stylesheet" href="css/components/systemTheme/systemTheme.css" />
+    <link rel="stylesheet" href="css/components/backgroundSystem/backgroundSystem.css" />
+    <link rel="stylesheet" href="css/components/info-trust/infoTrust.css" />
+    <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
+    <link rel="stylesheet" href="css/components/projects/projects.css" />
+    <link rel="stylesheet" href="css/components/footer/footer.css" />
+
+    <!-- Contact Form -->
+    <link rel="stylesheet" href="css/components/contactForm/contactForm.css" />
+
+    <!-- 🟢 UPGRADE: OFFICIAL intl-tel-input (latest stable CDN only ONCE) -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/r logo.png" />
+
+
+
+
+
+</head>
+
+<body>
+
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div id="pageTransition"></div>
+
+
+
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+    <div class="bg-system">
+        <img
+            id="bgImage"
+            src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
+            alt="background"
+        />
+        <div class="bg-gradient"></div>
+    </div>
+
+
+
+    <!-- Header -->
+    <river-header></river-header>
+
+
+    <!-- MAIN -->
+    <main class="main-container">
+
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+        <hero-section
+            title="River — Contact River"
+            subtitle="Get in touch for projects, support or careers.">
+        </hero-section>
+
+        <div class="empty-div-one"></div>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+        <section class="contact-section">
+
+            <div class="form-container contact-grid">
+
+                <!-- =========================
+                     CONTACT FORM
+                ========================== -->
+                <div class="contact-form-card">
+
+                    <h3>Start your Project With Us Today</h3>
+
+                    <!-- 🟢 UPGRADE: CONNECT FORM TO FORMSPREE -->
+                    <form 
+                    id="contactForm" 
+                    class="contact-form"
+                    action="https://formspree.io/f/xaewnlrd"
+                    method="POST"
+                    >
+
+                    <!-- 🟢 UPGRADE: REDIRECT AFTER SUCCESS -->
+                    <input type="hidden" name="_redirect" value="thank-you.html">
+
+
+                    <input type="hidden" name="_subject" value="New Project Request - River IT">
+                    <input type="hidden" name="_captcha" value="false">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- Names -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <input
+                                    class="input"
+                                    name="firstName"
+                                    required
+                                    pattern="[A-Za-z\s]{2,}"
+                                    placeholder=""
+                                />
+                                <label>First Name</label>
+                                <div class="tooltip">
+                                    Only letters, minimum 2 characters - Enter a valid First Name (eg Maya)
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input
+                                    class="input"
+                                    name="lastName"
+                                    required
+                                    pattern="[A-Za-z\s]{2,}"
+                                    placeholder=""
+                                />
+                                <label>Last Name</label>
+                                <div class="tooltip">
+                                    Only letters, minimum 2 characters - Enter a valid Last Name (eg Kayoshi)
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Email -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <input
+                                    class="input"
+                                    type="email"
+                                    name="email"
+                                    required
+                                    placeholder=""
+                                />
+
+                                <label>Email</label>
+
+                                <div class="tooltip">
+                                    Enter a valid email (example@email.com)
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+                        <!-- Phone-Number -->
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <input
+                                    id="phone"
+                                    class="input phoneNumber"
+                                    type="tel"
+                                    name="phone"
+                                    required
+                                    placeholder="0712 345 678"
+                                />
+
+                                <label>Phone Number</label>
+
+                                <div class="tooltip">
+                                    Select country and enter valid number - Select country • auto-format • validated globally
+                                </div>
+                            </div>
+    
+                        </div>
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 PROJECT TYPE -->
+                        <!-- ===================== -->
+                        <div class="form-group">
+
+                            <!-- 🟢 CUSTOM SELECT -->
+                            <div class="custom-select" data-name="projectType">
+                            
+                                <input type="hidden" name="projectType" required />
+                                
+                                <div class="select-trigger"></div>
+                            
+                                <div class="select-dropdown">
+                                    <div class="select-option">Web Development</div>
+                                    <div class="select-option">Enterprise Systems</div>
+                                    <div class="select-option">Cloud & DevOps</div>
+                                    <div class="select-option">AI & Machine Learning</div>
+                                    <div class="select-option">I am not sure / I don't know</div>
+                                </div>
+                            
+                            </div>
+                            
+                            <label>Select Project Type - Project Type</label>
+                            <div class="tooltip">Type of solution you need</div>
+                            
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 URGENCY -->
+                        <!-- ===================== -->
+                        <div class="form-group">
+
+                            <div class="custom-select" data-name="urgency">
+                                <input type="hidden" name="urgency" required />
+                                
+                                <div class="select-trigger"></div>
+                                
+                                <div class="select-dropdown">
+                                    <div class="select-option">ASAP</div>
+                                    <div class="select-option">1–3 Months</div>
+                                    <div class="select-option">3–6 Months</div>
+                                    <div class="select-option">Flexible</div>
+                                </div>
+                            </div>
+                            
+                            <label>Select Urgency - Project Urgency</label>
+                            <div class="tooltip">How soon you want this built</div>
+                            
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 ARCHITECTURE -->
+                        <!-- ===================== -->
+                        <div class="form-group">
+
+                            <div class="custom-select" data-name="architecture">
+                                <input type="hidden" name="architecture" required />
+                                
+                                <div class="select-trigger"></div>
+                                
+                                <div class="select-dropdown">
+                                    <div class="select-option">Basic</div>
+                                    <div class="select-option">Standard</div>
+                                    <div class="select-option">High-performance</div>
+                                </div>
+                            </div>
+                            
+                            <label>Select Architecture - Architectural Strength</label>
+                            
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 SCALABILITY -->
+                        <!-- ===================== -->
+                        <div class="form-group">
+
+                            <div class="custom-select" data-name="scalability">
+                                <input type="hidden" name="scalability" required />
+                                
+                                <div class="select-trigger"></div>
+                                
+                                <div class="select-dropdown">
+                                    <div class="select-option">Small Scale</div>
+                                    <div class="select-option">Growing Business</div>
+                                    <div class="select-option">Enterprise Scale</div>
+                                </div>
+                            </div>
+                            
+                            <label>Select Scalability - Scalability</label>
+                            
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 MODULARITY -->
+                        <!-- ===================== -->
+                        <div class="form-group">
+
+                            <div class="custom-select" data-name="modularity">
+                                <input type="hidden" name="modularity" required />
+                                
+                                <div class="select-trigger"></div>
+                                
+                                <div class="select-dropdown">
+                                    <div class="select-option">Simple</div>
+                                    <div class="select-option">Modular</div>
+                                    <div class="select-option">Highly Modular</div>
+                                </div>
+                            </div>
+                            
+                            <label>Select Modularity - Modularity</label>
+                            
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 IT TEAM -->
+                        <!-- ===================== -->
+                        <div class="form-group">
+
+                            <div class="custom-select" data-name="hasTeam" id="hasTeamSelect">
+                                <input type="hidden" name="hasTeam" required />
+                                
+                                <div class="select-trigger"></div>
+                                
+                                <div class="select-dropdown">
+                                    <div class="select-option">Yes</div>
+                                    <div class="select-option">No</div>
+                                </div>
+                            </div>
+                            
+                            <label>Do you have an IT Team?</label>
+                            
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- ===================== -->
+                        <!-- 🟢 TEAM CAPACITY -->
+                        <!-- ===================== -->
+                        <div class="form-group hidden" id="teamCapacityGroup">
+
+                            <div class="custom-select" data-name="teamCapacity">
+                                <input type="hidden" name="teamCapacity" />
+                                
+                                <div class="select-trigger"></div>
+                                
+                                <div class="select-dropdown">
+                                    <div class="select-option">Junior Team</div>
+                                    <div class="select-option">Mid-level Team</div>
+                                    <div class="select-option">Senior Team</div>
+                                    <div class="select-option">DevOps Ready</div>
+                                </div>
+                            </div>
+                            
+                            <label>Select the Capacity of your Existing Technical Team</label>
+                            
+                        </div>
+
+
+
+
+
+
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <textarea
+                                class="input projectMessage"
+                                name="message"
+                                required
+                                placeholder=" ">
+                            </textarea>
+
+                            <label>Project Details</label>
+                        </div>
+
+
+
+
+
+
+
+                        <button class="btn" type="submit">
+                            Send Request
+                        </button>
+
+
+
+
+                        <p id="formStatus" class="small"></p>
+
+
+
+
+
+
+                    </form>
+
+                </div>
+
+                <div class="empty-div-two"></div>
+
+
+
+
+
+                <!-- =========================
+                     CONTACT INFO
+                ========================== -->
+                <div class="contact-info-card">
+
+                    <h3>Our Offices</h3>
+
+                    <div class="office-block">
+                        <h4>Nairobi (HQ)</h4>
+                        <p class="small">Kenya</p>
+                    </div>
+
+                    <div class="office-block">
+                        <h4>Global</h4>
+                        <p class="small">
+                            Remote-first teams worldwide
+                        </p>
+                    </div>
+
+                    <div class="office-block">
+                        <h4>Email</h4>
+                        <p class="small">contact@river.com</p>
+                    </div>
+
+                    <div class="office-block">
+                        <h4>Response Time</h4>
+                        <p class="small">Within 24 hours</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <river-footer></river-footer>
+
+    <!-- Back To Top -->
+    <river-backtotop></river-backtotop>
+
+    <!-- =========================
+         LIBRARIES
+    ========================== -->
+
+    <!-- Phone Input -->
+
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+
+
+
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+
+    <!-- =========================
+         CORE
+    ========================== -->
+    <script src="js/main.js"></script>
+    <script src="js/additionalfiles.js"></script>
+
+
+
+    <!-- Intro -->
+    <script src="js/components/intro/intro.js"></script>
+    <script src="js/components/intro/riverIntro.js"></script>
+
+    <!-- Header -->
+    <script src="js/components/header/riverHeader.js"></script>
+
+    <!-- Hero -->
+    <script src="js/components/heroSection/heroSection.js"></script>
+
+    <!-- Components -->
+    <script src="js/components/footer/riverFooter.js"></script>
+    <script src="js/components/backToTop/riverBackToTop.js"></script>
+    <script src="js/components/header-logo/header-logo.js"></script>
+    <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+    <script src="js/components/pageTransition/pageTransition.js"></script>
+    <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
+    <script src="js/components/projectCard/projectCard.js"></script>
+
+
+    <!-- Contact Form -->
+
+    <script src="intlTelInput.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"></script>
+    <script src="js/components/contactForm/contactForm.js"></script>
+
+</body>
+
+</html>

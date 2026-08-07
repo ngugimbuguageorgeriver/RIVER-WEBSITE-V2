@@ -1,0 +1,98 @@
+<!--mediaPlayer.html-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>mediaPlayer | River</title>
+
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/styling.css" />
+  <link rel="stylesheet" href="./css/components/mediaPlayer/mediaPlayer.css" />
+
+  <link rel="stylesheet" href="./css/components/pageTransition/pageTransition.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+
+
+
+</head>
+
+<body class="media-page">
+
+
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div id="pageTransition"></div>
+
+  <!-- HEADER -->
+  <header class="media-header">
+
+    <!-- LEFT TEXT (REPLACES LOGO) -->
+    <div class="brand-text">
+      <span>Softwares By</span>
+      <strong class="brand-text-strong-color">River</strong>
+      <strong id="projectTitle">River</strong>
+    </div>
+
+
+    <!-- MENU BUTTON (X STATE) -->
+
+    <a href="index.html" class="media-btn media-close-btn" onclick="goBack()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+
+  </header>
+
+  <!-- MAIN -->
+  <main class="media-main">
+
+    <div class="swiper media-swiper">
+      <div class="swiper-wrapper" id="mediaWrapper"></div>
+    
+      <!-- OPTIONAL UI -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+
+    <!-- 🟢 FULL DESCRIPTION -->
+    <div class="media-description" id="mediaDescription"></div>
+
+
+
+
+    
+
+
+    <!-- RIGHT BOTTOM TEXT -->
+    <div class="media-tagline">
+      <span>we</span>
+      <span>make</span>
+      <span class="media-tagline-good">good</span>
+      <span>stuff</span>
+    </div>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+  <script src="./js/components/pageTransition/pageTransition.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r155/three.min.js"></script>
+
+  <script src="./js/components/mediaPlayer/mediaPlayer.js"></script>
+
+
+
+
+</body>
+</html>

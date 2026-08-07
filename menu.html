@@ -1,0 +1,92 @@
+<!-- menu.html -->
+
+
+<!doctype html> 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu | River</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styling.css" />
+  <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
+
+  <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
+
+
+
+
+</head>
+
+<body class="menu-page">
+
+    <canvas id="webglBg"></canvas>
+
+
+    <!-- 🔥 VIDEO BACKGROUND -->
+    <div class="menu-bg">
+        <video class="bg-video active" src="assets/images/MenuBackGround/1.mp4" autoplay muted loop playsinline></video>
+        <video class="bg-video" src="assets/images/MenuBackGround/1.mp4" autoplay muted loop playsinline></video>
+        <video class="bg-video" src="assets/images/MenuBackGround/1.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- PAGE TRANSITION OVERLAY -->
+    <div id="pageTransition"></div>
+
+  <!-- HEADER -->
+  <header class="menu-header">
+
+    <!-- LEFT TEXT (REPLACES LOGO) -->
+    <div class="brand-text">
+      <span>Softwares By</span>
+      <strong class="brand-text-strong-color">River</strong>
+    </div>
+
+    <!-- MENU BUTTON (X STATE) -->
+    <a href="index.html" class="menu-btn close-btn">
+      <span></span>
+      <span></span>
+      <span></span>
+    </a>
+
+  </header>
+
+  <!-- MAIN -->
+  <main class="menu-main">
+
+    <!-- LEFT LINKS -->
+    <div class="menu-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="productDevProcess.html">Product Development Process</a>
+      <a href="products.html">Our Products</a>
+      <a href="services.html">Our Services</a>
+      <a href="projects.html">Our Portfolio & Current Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- RIGHT BOTTOM TEXT -->
+    <div class="menu-tagline">
+      <span>we</span>
+      <span>make</span>
+      <span class="menu-tagline-good">good</span>
+      <span>stuff</span>
+    </div>
+
+  </main>
+
+
+  <script src="js/components/pageTransition/pageTransition.js"></script>
+
+  <script src="js/components/menuPage/menuBackground.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r155/three.min.js"></script>
+
+
+
+
+</body>
+</html>

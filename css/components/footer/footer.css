@@ -1,0 +1,38 @@
+/* footer.css*/
+
+
+/* FOOTER */
+footer{
+    margin-top:20svh;
+    margin-bottom: 10svh;
+    padding:2svh 0svh;
+    
+    background: var(--gray-900); 
+    border-top-left-radius: 11svh; 
+    border-top-right-radius: 11svh;
+    min-height:40svh; /* 🟢 safer */
+
+    margin-bottom: 0.5%;
+    border-bottom-left-radius: 7svh; 
+    border-bottom-right-radius: 7svh;
+
+    margin-left: 5svh;
+    margin-right: 5svh;
+
+    color:var(--orange-500);
+    text-align:center;
+
+    font-family: var(--font-mono);
+    font-weight: var(--fw-regular);
+
+
+
+
+}
+
+.footer-logo{
+    height: clamp(60px, 4vw, 80px);
+    width: auto;
+    margin-bottom: 10px; /* 👈 adds breathing room */
+  }
+

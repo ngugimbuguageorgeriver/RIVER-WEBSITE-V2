@@ -1,0 +1,52 @@
+/*pageTransition.css*/
+
+
+/*****************************************************************************************************************************************/
+/* ================= PAGE TRANSITIONS ================= */
+
+#pageTransition{
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:99999;
+    pointer-events:none;
+    opacity:0;
+    transform:translateY(100%);
+  }
+  
+  /* ENTER ANIMATION */
+  body.loaded #pageTransition{
+    animation:pageEnter 0.9s ease forwards;
+  }
+  
+  @keyframes pageEnter{
+    0%{
+      opacity:1;
+      transform:translateY(0%);
+    }
+    100%{
+      opacity:0;
+      transform:translateY(-100%);
+    }
+  }
+  
+  /* EXIT ANIMATION */
+  #pageTransition.active{
+    animation:pageExit 0.7s ease forwards;
+  }
+  
+  @keyframes pageExit{
+    0%{
+      opacity:0;
+      transform:translateY(100%);
+    }
+    100%{
+      opacity:1;
+      transform:translateY(0%);
+    }
+  }
+
+
+
+
+/**************************************************************************************************************************************************/

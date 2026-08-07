@@ -1,0 +1,432 @@
+/* mediaPlayer.css*/
+
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+
+body{
+  margin:0;
+  background:#000;
+  color:white;
+  font-family:sans-serif;
+}
+
+
+video{
+  width:100%;
+  max-height:100vh;
+  border-radius:10px;
+}
+
+
+/* MOBILE */
+@media(max-width:900px){
+  .player-page{
+    flex-direction:column;
+  }
+}
+
+
+
+
+
+
+
+/************************************************************************************************************************************/
+/* PAGE BASE */
+.media-page{
+    background:#0b0b0c;
+    color:white;
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+  
+  
+    animation:pageIn 0.6s ease forwards;
+  }
+  
+  @keyframes pageIn{
+    from{opacity:0; transform:translateY(-40px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  
+
+/************************************************************************************************************************************/
+  /* HEADER LOAD */
+  .media-header{
+    position: fixed; /* 🔥 KEY FIX */
+
+    width: 100%;
+  
+    z-index: 3;
+  
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+  
+    padding: var(--space-md) var(--space-md) var(--space-md) var(--space-md);
+  
+    transform:translateY(-100%);
+    animation:headerDrop 0.6s ease forwards;
+  }
+  
+  @keyframes headerDrop{
+    to{transform:translateY(0);}
+  }
+  
+  
+
+  
+
+/************************************************************************************************************************************/
+  /* BRAND TEXT */
+  .brand-text span{
+    display:block;
+    font-size: var(--fs-h4);
+    color:#aaa;
+  }
+  
+  .brand-text strong{
+
+    display:block;
+    font-size: var(--fs-h2);
+  }
+
+ .brand-text-strong-color{
+  color: var(--orange-500);
+ }
+  
+
+
+/************************************************************************************************************************************/
+  /* MAIN LAYOUT */
+  .media-main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  
+    /* 🔥 REMOVE FLEX + PADDING COMPLETELY */
+  }
+
+
+
+/************************************************************************************************************************************/
+  /* TAGLINE RIGHT BOTTOM */
+  .media-tagline{
+    position: fixed; /* 🔥 KEY */
+    
+    bottom: var(--space-md);
+    right: var(--space-md);
+  
+    text-align:right;
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+  
+    z-index: 3;
+  }
+  
+  .media-tagline span{
+    display:block;
+    ;
+  }
+
+  .media-tagline-good{
+    color: var(--orange-500);
+    font-family: var(--font-mono);
+    font-size: var(--fs-h2);
+  }
+
+
+
+
+/************************************************************************************************************************************/
+  /* ========================= */
+  /* 🔥 BUTTON DESIGN */
+  /* ========================= */
+  
+  .media-btn{
+    position: relative;
+    width: var(--space-lg);
+    height: var(--space-md);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;
+  }
+  
+  /* DIFFERENT LENGTH LINES */
+  .media-btn span{
+    display:block;
+    height: 0.2rem;
+    background: var(--gray-500);
+    border-radius:var(--radius-sm);
+    transition:0.3s;
+  }
+  
+  .media-btn span:nth-child(1){ width:100%; }
+  .media-btn span:nth-child(2){ width:70%; }
+  .media-btn span:nth-child(3){ width:40%; }
+  
+  /* HOVER → ALL SAME + ORANGE */
+  .media-btn:hover span{
+    width: var(--space-lg);
+    background: var(--orange-500);
+  }
+  
+  /* ========================= */
+  /* 🔥 CLOSE (X STATE) */
+  /* ========================= */
+  
+  .media-close-btn span{
+    position:absolute;
+    width:100%;
+    background: var(--red-500);
+  }
+  
+  .media-close-btn span:nth-child(1){
+    transform:rotate(45deg);
+  }
+  
+  .media-close-btn span:nth-child(2){
+    opacity:0;
+  }
+  
+  .media-close-btn span:nth-child(3){
+    transform:rotate(-45deg);
+  }
+  
+  /* HOVER ON X → BLUE ROTATION */
+  .media-close-btn:hover{
+    transform:rotate(90deg);
+    transition:0.4s;
+  }
+  
+  .media-close-btn:hover span{
+    background: var(--teal-500);
+  }
+
+
+
+
+
+
+
+
+/************************************************************************************************************************************/
+
+
+/* 🔥 FULLSCREEN BACKGROUND SWIPER */
+.media-swiper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* behind UI */
+}
+
+/* EACH SLIDE FULLSCREEN */
+.swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+
+/* MEDIA FILLS SCREEN */
+.media-img,
+.media-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔥 DARK OVERLAY FOR TEXT */
+.media-swiper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1;
+
+  pointer-events: none; /* 🔥 THIS FIXES YOUR BUTTONS */
+}
+
+/************************************************************************************************************************************/
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.media-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 🔥 Controls UI */
+.video-controls {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+
+  padding: 10px 15px;
+  border-radius: 30px;
+
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+
+  z-index: 10;
+}
+
+/* BUTTONS */
+.video-controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: var(--fs-small);
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.video-controls button:hover {
+  transform: scale(1.2);
+  color: #ff7a00;
+}
+
+/* PROGRESS BAR */
+.video-controls input {
+  appearance: none;
+  width: var(--space-full);
+  height: 0.4svh;
+  border-radius: var(--radius-sm);
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+/* THUMB */
+.video-controls input::-webkit-slider-thumb {
+  appearance: none;
+  width:min(10%, var(--space-xsm)); /* 🟢 modern clamp alternative */
+  height: var(--space-xsm);
+  border-radius: 50%;
+  background: #ff7a00;
+  cursor: pointer;
+
+  transition: transform 0.2s;
+}
+
+.video-controls input::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/************************************************************************************************************************************/
+
+/* 🔥 NAV BUTTONS (MODERN GLASS STYLE) */
+/* 🔥 CLEAN INTRO-STYLE NAV BUTTONS */
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  z-index: 10;
+
+  width: var(--space-md);
+  height: auto;
+  border-radius: var(--radius-full);
+  border:none;
+  font-size: var(--fs-h3);
+
+  background:var(--gray-500);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* 🔥 REMOVE SWIPER DEFAULT */
+  color: transparent !important;
+}
+
+/* REMOVE DEFAULT ICONS COMPLETELY */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none !important;
+  content: "" !important;
+}
+
+/* 🔥 ADD REAL ARROWS (LIKE INTRO) */
+.swiper-button-next::before,
+.swiper-button-prev::before {
+  font-size: var(--fs-h4);
+  color: #fff;
+  transition: 0.3s ease;
+  color: var(--orange-500);
+}
+
+.swiper-button-prev::before { content: "❮"; }
+.swiper-button-next::before { content: "❯"; }
+
+/* EXACT SAME STYLE AS INTRO */
+.swiper-button-prev::before {
+  content: "‹";
+}
+
+.swiper-button-next::before {
+  content: "›";
+}
+
+/* HOVER (same feel as intro) */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* POSITION */
+.swiper-button-prev {
+  left: var(--space-xsm);
+}
+
+.swiper-button-next {
+  right: var(--space-xsm);
+}
+
+
+
+
+
+/*****************************************************************************************/
+.media-description{
+  position: fixed;
+  bottom: var(--space-full);
+  left: var(--space-md);
+  width:min(30%); /* 🟢 modern clamp alternative */;
+  max-width: 500px;
+
+  font-size: var(--fs-small);
+  line-height: var(--lh-tight);
+  color: #ddd;
+
+  z-index: 3;
+}

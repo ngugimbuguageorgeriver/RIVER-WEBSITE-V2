@@ -1,0 +1,89 @@
+/**/
+
+/* ===============================
+   INFO BOX + TRUST
+================================= */
+
+/*Bottom Right Glass Box*/
+.intro-info-box{
+    position:absolute;
+    right: var(--space-sm);
+    bottom: var(--space-sm);
+    width:min(20%, var(--max-width)); /* 🟢 modern clamp alternative */
+  
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(14px);
+    border-radius: var(--radius-md);
+    padding: var(--space-xsm);
+  
+    color:#fff;
+    z-index:4;
+  }
+
+/*Text*/
+.intro-text p{
+    font-family: var(--font-mono);
+    font-size: var(--font-small);
+    line-height: var(--1h-tight);
+    margin-bottom: var(--space-sm);
+    opacity:0.9;
+  }
+
+/*Services*/
+.intro-services{
+    display:flex;
+    flex-direction:column;
+
+    font-family: var(--font-mono);
+    gap: var(--space-xsm);
+    font-size:var(--font-small);
+
+    opacity:0.85;
+  }
+
+.intro-service{
+  color: var(--orange-500);
+}
+
+/*Divider + Software Section*/
+.intro-software{
+    margin-top: var(--space-sm);
+    padding: var(--space-sm);
+    border-top:1px solid rgba(255,255,255,0.15);
+  
+    font-family: var(--font-mono);
+    font-size: var(--font-h3);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--1h-loose);
+    opacity:0.7;
+  }
+
+/*Bottom Left Trust*/
+.intro-trust{
+
+
+    font-family: var(--font-mono);
+    position:absolute;
+    left: var(--space-sm);
+    bottom: var(--space-sm);
+    z-index:4;
+    color:#fff;
+    padding: var(--space-xsm);
+  }
+  
+  .intro-trust .avatars{
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    opacity:0.8;
+  }
+  
+  .intro-trust .rating strong{
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+  }
+  
+  .intro-trust .rating p{
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    opacity:0.7;
+  }

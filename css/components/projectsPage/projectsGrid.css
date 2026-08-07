@@ -1,0 +1,66 @@
+/* =========================
+   🟢 PROJECTS GRID SYSTEM
+========================= */
+
+.projects-section {
+    width: 100%;
+  }
+  
+  /* 🟢 GRID */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🟢 DESKTOP: 2 MAX */
+    gap: 32px;
+  }
+  
+  /* 🟢 MOBILE */
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr; /* 🟢 MOBILE: 1 */
+    }
+  }
+  
+  /* 🟢 CARD */
+  .project-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-item:hover {
+    transform: translateY(-6px);
+  }
+  
+  /* 🟢 TEXT (TOP) */
+  .project-text {
+    margin-bottom: 12px;
+  }
+  
+  .project-text h3 {
+    margin-bottom: 6px;
+  }
+  
+  /* 🟢 MEDIA */
+  .project-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+  }
+  
+  .project-media img,
+  .project-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* 🟢 VIDEO AUTOPLAY PREVIEW */
+  .project-item:hover video {
+    opacity: 1;
+  }
+  
+  .project-media video {
+    transition: opacity 0.3s ease;
+  }

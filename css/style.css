@@ -1,0 +1,745 @@
+/* River. IT Solutions - style.css (adaptive, responsive) */
+
+
+
+
+
+/* ===============================
+   🟢 ROOT SYSTEM (FLUID DESIGN)
+================================= */
+:root{
+
+
+  /* ===============================
+   FONT FAMILIES
+  =============================== */
+
+  --font-body: "Satoshi", "Inter", system-ui, sans-serif;
+
+  --font-heading: "General Sans", "Satoshi", var(--font-body);
+
+  --font-accent: "Clash Display", "General Sans", var(--font-heading);
+
+  --font-mono: "JetBrains Mono", monospace;
+
+
+
+  /* ===============================
+    FONT WEIGHTS
+  =============================== */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+
+  /* ===============================
+    LINE HEIGHT
+  =============================== */
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-loose: 1.7;
+
+
+  /* ===============================
+    LETTER SPACING
+  =============================== */
+
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+
+
+  /* 🟢 FLUID TYPOGRAPHY */
+  --fs-h1: clamp(2.2rem, 5vw, 3.5rem);
+  --fs-h2: clamp(1.75rem, 3vw, 2.4rem);
+  --fs-h3: clamp(1.4rem, 2vw, 1.8rem);
+  --fs-h4: clamp(1.2rem, 1.5vw, 1.4rem);
+  
+  --fs-body-lg: clamp(1.05rem, 1.2vw, 1.2rem);
+  --fs-body: clamp(0.95rem, 1vw, 1.05rem);
+  --fs-small: 0.85rem;
+  --fs-xsmall:0.70rem;
+
+
+/******************************************************************************************/  
+/*
+100–200 → backgrounds
+300–400 → borders / hover
+500+ → buttons / text
+*/
+
+/*Warm Colors (Red → Orange)*/
+        /* ===============================
+          RED / CORAL
+        =============================== */
+        --red-100: #fff5f5;
+        --red-200: #ffebeb;
+        --red-300: #ffd6d6;
+        --red-400: #ffb3b3;
+        --red-500: #ff6b6b;
+        --red-600: #e55353;
+        --red-700: #cc4444;
+        --red-800: #993333;
+        --red-900: #661f1f;
+
+        /* ===============================
+          ROSE
+        =============================== */
+        --rose-100: #fff1f2;
+        --rose-200: #ffe4e6;
+        --rose-300: #fecdd3;
+        --rose-400: #fda4af;
+        --rose-500: #fb7185;
+        --rose-600: #e11d48;
+        --rose-700: #be123c;
+        --rose-800: #9f1239;
+        --rose-900: #881337;
+
+        /* ===============================
+          PINK
+        =============================== */
+        --pink-100: #fdf2f8;
+        --pink-200: #fce7f3;
+        --pink-300: #fbcfe8;
+        --pink-400: #f9a8d4;
+        --pink-500: #ec4899;
+        --pink-600: #db2777;
+        --pink-700: #be185d;
+        --pink-800: #9d174d;
+        --pink-900: #831843;
+
+        /* ===============================
+          ORANGE
+        =============================== */
+        --orange-100: #fff7ed;
+        --orange-200: #ffedd5;
+        --orange-300: #fed7aa;
+        --orange-400: #fdbb74;
+        --orange-500: #fb923c;
+        --orange-600: #f97316;
+        --orange-700: #ea580c;
+        --orange-800: #c2410c;
+        --orange-900: #7c2d12;
+
+        /* ===============================
+          APRICOT
+        =============================== */
+        --apricot-100: #fffaf0;
+        --apricot-200: #fdedec;
+        --apricot-300: #fadbd8;
+        --apricot-400: #f5b7b1;
+        --apricot-500: #f1948a;
+        --apricot-600: #ec7063;
+        --apricot-700: #cd6155;
+        --apricot-800: #a93226;
+        --apricot-900: #7b241c;
+
+/*Yellow Spectrum*/
+      /* ===============================
+        YELLOW
+      =============================== */
+      --yellow-100: #fefce8;
+      --yellow-200: #fef9c3;
+      --yellow-300: #fef08a;
+      --yellow-400: #fde047;
+      --yellow-500: #facc15;
+      --yellow-600: #eab308;
+      --yellow-700: #ca8a04;
+      --yellow-800: #a16207;
+      --yellow-900: #713f12;
+
+      /* ===============================
+        AMBER
+      =============================== */
+      --amber-100: #fffbeb;
+      --amber-200: #fef3c7;
+      --amber-300: #fde68a;
+      --amber-400: #fcd34d;
+      --amber-500: #fbbf24;
+      --amber-600: #f59e0b;
+      --amber-700: #d97706;
+      --amber-800: #b45309;
+      --amber-900: #78350f;
+
+/*Green Spectrum*/
+      /* ===============================
+        LIME
+      =============================== */
+      --lime-100: #f7fee7;
+      --lime-200: #ecfccb;
+      --lime-300: #d9f99d;
+      --lime-400: #bef264;
+      --lime-500: #a3e635;
+      --lime-600: #84cc16;
+      --lime-700: #65a30d;
+      --lime-800: #4d7c0f;
+      --lime-900: #365314;
+
+      /* ===============================
+        GREEN
+      =============================== */
+      --green-100: #f0fdf4;
+      --green-200: #dcfce7;
+      --green-300: #bbf7d0;
+      --green-400: #86efac;
+      --green-500: #4ade80;
+      --green-600: #22c55e;
+      --green-700: #16a34a;
+      --green-800: #15803d;
+      --green-900: #14532d;
+
+      /* ===============================
+        EMERALD / TEAL
+      =============================== */
+      --teal-100: #f0fdfa;
+      --teal-200: #ccfbf1;
+      --teal-300: #99f6e4;
+      --teal-400: #5eead4;
+      --teal-500: #2dd4bf;
+      --teal-600: #14b8a6;
+      --teal-700: #0d9488;
+      --teal-800: #0f766e;
+      --teal-900: #134e4a;
+
+
+/*Blue Spectrum*/
+      /* ===============================
+        CYAN
+      =============================== */
+      --cyan-100: #ecfeff;
+      --cyan-200: #cffafe;
+      --cyan-300: #a5f3fc;
+      --cyan-400: #67e8f9;
+      --cyan-500: #22d3ee;
+      --cyan-600: #06b6d4;
+      --cyan-700: #0891b2;
+      --cyan-800: #0e7490;
+      --cyan-900: #164e63;
+
+      /* ===============================
+        BLUE
+      =============================== */
+      --blue-100: #f0f9ff;
+      --blue-200: #e0f2fe;
+      --blue-300: #bae6fd;
+      --blue-400: #7dd3fc;
+      --blue-500: #38bdf8;
+      --blue-600: #0ea5e9;
+      --blue-700: #0284c7;
+      --blue-800: #0369a1;
+      --blue-900: #0c4a6e;
+
+/*Purple Spectrum*/
+      /* ===============================
+        INDIGO
+      =============================== */
+      --indigo-100: #eef2ff;
+      --indigo-200: #e0e7ff;
+      --indigo-300: #c7d2fe;
+      --indigo-400: #a5b4fc;
+      --indigo-500: #818cf8;
+      --indigo-600: #6366f1;
+      --indigo-700: #4f46e5;
+      --indigo-800: #4338ca;
+      --indigo-900: #312e81;
+
+      /* ===============================
+        VIOLET
+      =============================== */
+      --violet-100: #f5f3ff;
+      --violet-200: #ede9fe;
+      --violet-300: #ddd6fe;
+      --violet-400: #c4b5fd;
+      --violet-500: #a78bfa;
+      --violet-600: #8b5cf6;
+      --violet-700: #7c3aed;
+      --violet-800: #6d28d9;
+      --violet-900: #4c1d95;
+
+      /* ===============================
+        PURPLE
+      =============================== */
+      --purple-100: #faf5ff;
+      --purple-200: #f3e8ff;
+      --purple-300: #e9d5ff;
+      --purple-400: #d8b4fe;
+      --purple-500: #c084fc;
+      --purple-600: #a855f7;
+      --purple-700: #9333ea;
+      --purple-800: #7e22ce;
+      --purple-900: #581c87;
+
+      /* ===============================
+        FUCHSIA
+      =============================== */
+      --fuchsia-100: #fdf4ff;
+      --fuchsia-200: #fae8ff;
+      --fuchsia-300: #f5d0fe;
+      --fuchsia-400: #f0abfc;
+      --fuchsia-500: #e879f9;
+      --fuchsia-600: #d946ef;
+      --fuchsia-700: #c026d3;
+      --fuchsia-800: #a21caf;
+      --fuchsia-900: #701a75;
+
+
+
+  /* ===============================
+   NEUTRAL COLORS
+  =============================== */
+  --white:#ffffff;
+
+
+  --gray-50:#f9fafb;
+  --gray-100:#f3f4f6;
+  --gray-200:#e5e7eb;
+  --gray-300:#d1d5db;
+  --gray-400:#9ca3af;
+  --gray-500:#6b7280;
+  --gray-600:#4b5563;
+  --gray-700:#374151;
+  --gray-800:#1f2937;
+  --gray-900:#111827;
+
+
+
+  /* ===============================
+   BACKGROUNDS
+  =============================== */
+  --bg-page:
+  var(--gray-50);
+
+  --bg-surface:
+  #ffffff;
+
+  --bg-elevated:
+  #ffffff;
+
+  --bg-soft:
+  var(--primary-50);
+
+  --bg-hover:
+  var(--gray-100);
+
+  --bg-active:
+  var(--gray-200);
+
+
+  /* ===============================
+   TEXT
+  =============================== */
+  --text-primary:
+  var(--gray-900);
+
+  --text-secondary:
+  var(--gray-600);
+
+  --text-muted:
+  var(--gray-500);
+
+  --text-disabled:
+  var(--gray-400);
+
+  --text-inverse:
+  white;
+
+
+  /* ===============================
+   BORDER
+  =============================== */
+  --border-default:
+  var(--gray-200);
+
+  --border-hover:
+  var(--primary-300);
+
+  --border-focus:
+  var(--primary-500);
+
+/********************************************************************************************************/ 
+
+
+  /* Z-INDEX SCALE */
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-popover: 500;
+  --z-tooltip: 600;
+  --z-toast: 700;
+
+
+
+  /* 🟢 FLUID SPACING */
+  --space-xsm: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1vw, 1rem); 
+  --space-md: clamp(1rem, 2vw, 2rem);
+  --space-lg: clamp(1.5rem, 4vw, 4rem);
+  --space-full: clamp(2rem, 6vw, 6rem);
+
+  /* 🟢 LAYOUT */
+  --max-width: 1200px;
+  --content-sm: 600px;
+  --content-md: 900px;
+  --content-lg: 1200px;
+
+
+  /*RADIUS*/
+  --radius-xsm: 0.25rem;
+  --radius-sm: 0.5rem; /* ~8px */ 
+  --radius-md: 1rem; /* ~16px */ 
+  --radius-lg: 1.5rem; /* ~24px */ 
+  --radius-full: 9999px; /* pills/circles */
+
+  /*TEXT-WIDTH*/
+  --text-width: 65ch;
+
+  /*BORDER*/
+  --border: 1px solid #e5e7eb;
+
+  /*SHADOW*/
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+
+
+  /* ANIMATION */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* COMMON TRANSITIONS */
+  --transition-fast: all var(--duration-fast) var(--ease-default);
+  --transition-normal: all var(--duration-normal) var(--ease-default);
+  --transition-slow: all var(--duration-slow) var(--ease-default);
+
+
+}
+
+
+
+
+
+
+/*******************************************************************************************************************************************************************************
+*****************************************************************************/
+
+/* RESET */
+*{box-sizing:border-box}
+
+html{
+  font-family: var(--font-body);
+  -webkit-font-smoothing:antialiased;
+}
+body{
+  margin:0;
+  background:var(--orange-200);
+  color:var(--dark);
+
+}
+
+
+
+.empty-div-one{
+  width:min(100%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding-top:var(--space-full);
+}
+
+.empty-div-two{
+  width:min(100%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding-top: var(--space-full);
+}
+
+.empty-div-three{
+  width:min(100%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding-top: var(--space-full);
+}
+
+.empty-div-four{
+  width:min(100%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding-top: var(--space-full);
+
+}
+
+/* ===============================
+   🟢 GLOBAL IMAGE FIX (NO BREAKS)
+================================= */
+img{
+  max-width:100%;
+  height:auto;
+  aspect-ratio:16/9; /* 🟢 prevents layout shift */
+  object-fit:cover;
+}
+
+/* ===============================
+   🟢 CONTAINER (FLUID WIDTH)
+================================= */
+.main-container{
+  margin-top: var(--space-lg);
+  margin-inline:auto;
+  padding: var(--space-sm), var(--space-sm), var(--space-sm), var(--space-sm);
+
+
+}
+
+.hero-container{
+  width:min(50%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding: var(--space-sm), var(--space-sm), var(--space-sm), var(--space-sm);
+  margin-left: var(--space-md);
+
+  gap:var(--space-md);
+  align-items:center;
+}
+
+.industries-container{
+  width:min(90%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding: var(--space-sm), var(--space-sm), var(--space-sm), var(--space-sm);
+
+
+
+}
+
+.info-container{
+  width:min(90%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-inline:auto;
+  padding: var(--space-sm), var(--space-sm), var(--space-sm), var(--space-sm);
+
+}
+
+/* ===============================
+   🟢 HERO (SVH FIX)
+================================= */
+
+
+.hero-card{
+  background:var(--lime-300);
+  padding:var(--space-md);
+  border-radius: var(--space-sm);
+  box-shadow: var(--shadow-lg);
+
+  
+}
+
+
+
+
+
+h1{
+  font-size:var(--fs-h1); /* 🟢 FLUID */
+  margin-bottom:10px;
+}
+
+.lead{
+  font-size:var(--fs-body);
+  color:var(--muted);
+}
+
+/* ===============================
+   🟢 GRID SYSTEM 
+================================= */
+
+
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-2 {
+
+
+
+  display:grid;
+  width:min(90%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-top: var(--space-md);
+  margin-inline: auto;      /* 3. Center horizontally */
+  padding-inline: var(--space); /* 4. Add side spacing */
+  gap:var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+  font-family: var(--font-body);
+
+}
+
+.grid-3 {
+  display:grid;
+  width:min(90%, var(--max-width)); /* 🟢 modern clamp alternative */
+  margin-top: var(--space-md);
+  margin-inline: auto;      /* 3. Center horizontally */
+  padding-inline: var(--space); /* 4. Add side spacing */
+  gap:var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+
+  font-family: var(--font-body);
+
+
+
+
+
+}
+
+.grid-4 {
+  display:grid;
+  gap:var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+
+
+
+
+/* ===============================
+   🟢 CARD
+================================= */
+.card{
+  background:var(--purple-100);
+  padding:var(--space-lg);
+  border-radius: var(--space-sm);
+
+
+  background-color: var(--rose-200);
+  border: 1px dotted var(--orange-500);
+
+  
+}
+
+
+.card:hover{
+  transform: translateY(-6px);
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  transition: 0.4s ease;
+}
+
+
+/***********************************************************************************************************************************************/
+/* ===============================
+   BUTTON
+================================= */
+.btn{
+  position: relative;
+  display:inline-block;
+  padding: clamp(0.5rem, 1.1vw, 2rem);
+  border-radius: var(--radius-sm);
+
+  background: linear-gradient(135deg, var(--orange-300), var(--purple-900));
+  color: var(--gray-800);
+  font-weight: 700;
+  cursor: pointer;
+
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    background var(--duration-normal) var(--ease-default),
+    transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-default),
+    color var(--duration-normal) var(--ease-out);
+}
+
+
+/* 🔥 GRADIENT BORDER LAYER */
+.btn::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px; /* thickness of border */
+
+  /* 🎨 playful gradient */
+  background: linear-gradient(
+    120deg,
+    var(--orange-300),
+    var(--orange-400),
+    var(--yellow-500)
+  );
+
+  /* 🧠 creates "border only" effect */
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* ✨ subtle flicker animation */
+  animation: borderFlicker 2s ease-in-out infinite;
+}
+
+
+/* ✨ IDLE ANIMATION */
+@keyframes borderFlicker{
+  0%,100%{
+    opacity: 0.6;
+    background-position: 0% 50%;
+  }
+  50%{
+    opacity: 1;
+    background-position: 100% 50%;
+  }
+}
+
+
+/* 🚀 HOVER STATE */
+.btn:hover::before{
+  background: linear-gradient(
+    135deg,
+    var(--orange-500),
+    rgba(255,115,0,0.1),
+    transparent
+  );
+  animation: none;
+}
+
+
+/* ✨ YOUR EXISTING HOVER */
+.btn:hover{
+  background: linear-gradient(135deg, var(--teal-300), var(--lime-700));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  color: var(--gray-900);
+  transform: translateY(-6px);
+
+}
+
+/***********************************************************************************************************************************************
+********************************************************************************************************************************************************/
+
+
+
+
+
+
+/* ===============================
+   🟢 MARQUEE FIX (SMOOTH SCROLL)
+================================= */
+.industries-marquee{
+  display:flex;
+  gap:var(--space-md);
+  overflow:auto;
+  padding:var(--space-lg);
+}
+
+.industries-marquee .item{
+  min-width: minmax(350px, 1fr);
+  background:var(--card);
+  border-radius: var(--space-sm);
+
+  padding: var(--space-lg);
+
+
+}
+

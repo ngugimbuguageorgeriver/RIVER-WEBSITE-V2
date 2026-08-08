@@ -17,19 +17,19 @@ class RiverIntro extends HTMLElement {
           <div class="slides">
 
             <!-- 🟢 GREEN: VIDEO 1 -->
-            <div class="slide" data-bg="assets/images/Vids/1.mp4"></div>
+            <div class="slide" data-bg="assets/Media/INTRO/INTRO1.mp4"></div>
 
             <!-- 🟢 GREEN: VIDEO 2 -->
-            <div class="slide" data-bg="assets/images/Vids/2.mp4"></div>
+            <div class="slide" data-bg="assets/Media/INTRO/INTRO2.mp4"></div>
 
             <!-- 🟢 GREEN: VIDEO 3 -->
-            <div class="slide" data-bg="assets/images/Vids/4.mp4"></div>
+            <div class="slide" data-bg="assets/Media/INTRO/INTRO3.mp4"></div>
 
           </div>
 
           <!-- CENTER -->
           <div class="intro-center">
-            <img id="introLogo" src="assets/images/r logo.png" alt="River Logo">
+            <img id="introLogo" src="assets/Media/riverWebsiteLogos/whiter.svg" alt="River Logo">
             <h1 id="introTitle">
               <span id="typedText"></span><span id="caret"></span>
             </h1>

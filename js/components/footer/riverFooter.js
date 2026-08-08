@@ -16,7 +16,7 @@ class RiverFooter extends HTMLElement {
                 
                 <p>
                 <div>
-                    <img src="assets/images/Logo/Logo2.png" alt="River Logo" class="footer-logo">
+                    <img src="assets/Media/riverWebsiteLogos/whiteRiver.svg" alt="River Logo" class="footer-logo">
                 </div>&copyCopyright 
                 <span id="year">
 

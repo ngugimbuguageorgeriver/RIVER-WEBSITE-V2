@@ -21,8 +21,9 @@ class WhatWeDo extends HTMLElement {
           title: "Web & eCommerce",
           desc: "Fast, scalable web systems...",
           media: [
-            { type: "video", src: "/assets/images/Vids/1.mp4"  },
-            { type: "image", src: "assets/images/Background/LightThemeImages/1.jfif" }
+            { type: "image", src: "assets/Media/placeHolderImages/placeHolderImage1.jpg" },
+            { type: "video", src: "assets/Media/placeHolderVideos/placeHolderVideo1.mp4"  },
+            { type: "image", src: "assets/Media/placeHolderImages/placeHolderImage1.jpg" }
           ]
         },
 
@@ -31,8 +32,8 @@ class WhatWeDo extends HTMLElement {
           title: "Enterprise Systems",
           desc: "Custom ERP & CRM platforms...",
           media: [
-            { type: "image", src: "assets/images/WebSite Images/ERP.png" },
-            { type: "video", src: "/assets/images/Vids/4.mp4" }
+            { type: "image", src: "assets/Media/placeHolderImages/placeHolderImage1.jpg" },
+            { type: "video", src: "assets/Media/placeHolderVideos/placeHolderVideo1.mp4" }
           ]
         },
 
@@ -41,8 +42,8 @@ class WhatWeDo extends HTMLElement {
             title: "Cloud & DevOps",
             desc: "Scalable cloud infrastructure...",
             media: [
-              { type: "image", src: "assets/images/Background/LightThemeImages/2.jfif" },
-              { type: "video", src: "assets/images/Vids/4.mp4" }
+              { type: "image", src: "assets/Media/placeHolderImages/placeHolderImage1.jpg" },
+              { type: "video", src: "assets/Media/placeHolderVideos/placeHolderVideo1.mp4" }
             ]
         }
 

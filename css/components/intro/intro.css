@@ -115,7 +115,9 @@
    LOGO
 ================================= */
 #introLogo{
-  width: var(--space-lg);
+  width: 200px;
+  min-height: auto;
+
   margin-bottom: var(--space-md);
 
   animation:float 4s ease-in-out infinite, glow 3s ease-in-out infinite;

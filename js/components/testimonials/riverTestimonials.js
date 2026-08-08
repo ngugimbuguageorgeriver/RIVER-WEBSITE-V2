@@ -32,46 +32,46 @@ class RiverTestimonials extends HTMLElement {
         {
           type: "video",
           company: "Safaricom",
-          logo: "assets/images/logo1.png",
+          logo: "assets/Media/placeHolderClientLogo/placeHolderLogo1.png",
           name: "Jane Smith",
           role: "CTO",
-          video: "assets/images/Vids/2.mp4",
+          video: "assets/Media/placeHolderVideos/placeHolderVideo1.mp4",
           quote: "River transformed our operations."
         },
         {
           type: "quote",
           company: "Equity Bank",
-          logo: "assets/images/logo2.png",
+          logo: "assets/Media/placeHolderClientLogo/placeHolderLogo1.png",
           name: "John Mwangi",
           role: "Managing Director",
-          image: "assets/images/Background/LightThemeImages/5.jfif",
+          image: "assets/Media/placeHolderImages/placeHolderImage1.jpg",
           quote: "The quality was exceptional. Delivery was ahead of schedule."
         },
         {
           type: "video",
           company: "KenGen",
-          logo: "assets/images/pexels-david-sams-2162820829-38499298.jpg",
+          logo: "assets/Media/placeHolderClientLogo/placeHolderLogo1.png",
           name: "Mary Wanjiru",
           role: "Head of IT",
-          video: "assets/images/Vids/1.mp4",
+          video: "assets/Media/placeHolderVideos/placeHolderVideo1.mp4",
           quote: "Scalable, reliable, and extremely fast."
         },
         {
             type: "quote",
             company: "Equity Bank",
-            logo: "assets/images/logo2.png",
+            logo: "assets/Media/placeHolderClientLogo/placeHolderLogo1.png",
             name: "John Mwangi",
             role: "Managing Director",
-            image: "assets/images/Background/LightThemeImages/5.jfif",
+            image: "assets/Media/placeHolderImages/placeHolderImage1.jpg",
             quote: "The quality was exceptional. Delivery was ahead of schedule."
         },
         {
             type: "video",
             company: "KenGen",
-            logo: "assets/images/pexels-david-sams-2162820829-38499298.jpg",
+            logo: "assets/Media/placeHolderClientLogo/placeHolderLogo1.png",
             name: "Mary Wanjiru",
             role: "Head of IT",
-            video: "assets/images/Vids/1.mp4",
+            video: "assets/Media/placeHolderVideos/placeHolderVideo1.mp4",
             quote: "Scalable, reliable, and extremely fast."
         }
       ];

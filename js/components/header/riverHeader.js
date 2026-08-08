@@ -37,7 +37,7 @@ class RiverHeader extends HTMLElement {
             <a href="index.html" class="logo">
               <img class="logo-image"
                 
-                src="assets/images/r logo.png"
+                src="assets/Media/riverWebsiteLogos/blackRiver.svg"
                 alt="River Logo"
                
                 

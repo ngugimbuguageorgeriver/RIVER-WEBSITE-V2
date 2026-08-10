@@ -100,7 +100,7 @@
 
 
     <!---->
-    <!-- 🟢 PROJECTS GRID (CUSTOM ELEMENT) -->
+    <!-- 🟢 PROJECTS GRID (CUSTOM ELEMENT) - The grid is now driven by RIVER_PROJECTS. -->
     <section>
       <div class="info-container">
 
@@ -108,55 +108,7 @@
           Our Portfolio across domains: Retail, Industrial, Energy and IoT.
         </p>
 
-        <projects-grid>
-
-          <script type="application/json">
-          [
-            {
-              "title": "E-commerce Platform",
-              "desc": "Headless commerce with fast CDN delivery.",
-              "media": [
-              { "type": "video", "src": "assets/images/Vids/1.mp4" },
-                { "type": "image", "src": "assets/images/Background/LightThemeImages/1.jfif" },
-                { "type": "video", "src": "assets/images/Vids/1.mp4" }
-              ]
-            },
-
-            {
-              "title": "CRM System",
-              "desc": "Custom CRM for sales & support.",
-              "media": [
-                { "type": "video", "src": "assets/images/Vids/4.mp4" },
-                { "type": "image", "src": "https://via.placeholder.com/800x450" },
-                { "type": "video", "src": "assets/images/Vids/4.mp4" },
-                { "type": "image", "src": "https://via.placeholder.com/800x450" }
-              ]
-            },
-
-            {
-              "title": "ERP Solution",
-              "desc": "Inventory, procurement and manufacturing flows.",
-              "media": [
-                { "type": "image", "src": "assets/images/Background/DarkThemeImages/2.jfif" },
-                { "type": "video", "src": "assets/images/Vids/4.mp4" },
-                { "type": "image", "src": "assets/images/Background/LightThemeImages/5.jfif" }
-              ]
-            },
-
-            {
-              "title": "Mobile App",
-              "desc": "Cross-platform PWA and native variants.",
-              "media": [
-                { "type": "image", "src": "https://via.placeholder.com/800x450" },
-                { "type": "video", "src": "assets/images/Vids/4.mp4" },
-                { "type": "image", "src": "https://via.placeholder.com/800x450" }
-              ]
-            }
-
-          ]
-          </script>
-
-        </projects-grid>
+        <projects-grid></projects-grid>
 
       </div>
     </section>
@@ -170,23 +122,11 @@
     <section>
       <div class="grid-3">
 
-        <div class="card">
-          <h3>E-commerce Platform</h3>
-          <p class="small">Learn more about this topic.</p>
-          <p><a class="btn" href="project1.html">Open</a></p>
-        </div>
+        <div
+            class="grid-3"
+            id="projectQuickLinks"
+        ></div>
 
-        <div class="card">
-          <h3>CRM System</h3>
-          <p class="small">Learn more about this topic.</p>
-          <p><a class="btn" href="project2.html">Open</a></p>
-        </div>
-
-        <div class="card">
-          <h3>ERP Solution</h3>
-          <p class="small">Learn more about this topic.</p>
-          <p><a class="btn" href="project3.html">Open</a></p>
-        </div>
 
       </div>
     </section>
@@ -248,7 +188,7 @@
   <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
   <script src="js/components/projectCard/projectCard.js"></script>
 
-
+  <script src="js/components/mediaPlayer/mediaData.js"></script>
   <script src="js/components/projectsPage/projectsGrid.js"></script>
 
 

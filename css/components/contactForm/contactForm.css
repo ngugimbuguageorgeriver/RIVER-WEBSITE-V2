@@ -1,479 +1,1386 @@
-/* =========================================
-🟢 CONTACT FORM — CLEANED & OPTIMIZED CSS
-Removed duplicates, fixed dropdown stacking,
-improved intl-tel-input compatibility
-========================================= */
+/* =========================================================
+   RIVER IT SOLUTIONS
+   CONTACT FORM SYSTEM
+   ========================================================= */
 
-/* ===============================
-🟢 LAYOUT
-================================= */
+
+/* =========================================================
+   🟢 UPGRADE:
+   CONTACT LAYOUT
+========================================================= */
 
 .contact-section {
+
   width: min(90%, var(--max-width));
+
   margin-inline: auto;
-  overflow: visible; /* allow dropdown escape */
-  }
-  
-  .contact-grid {
-  margin-inline: auto;
-  padding-inline: var(--space-sm);
-  gap: var(--space-md);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax( 70%, 1fr));
-  font-family: var(--font-body);
-  }
-  
-  .contact-form-card,
-  .contact-info-card {
-  padding: var(--space-md);
-  border-radius: var(--space-md);
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-  background-color: var(--rose-200);
-  border: 1px dotted var(--orange-500);
+
   overflow: visible;
-  }
+
+}
 
 
+.contact-grid {
 
-
-
-
-  
-  /* ===============================
-  🟢 FORM STRUCTURE
-  ================================= */
-  
-  .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  }
-  
-  .form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-sm);
-  }
-
-
-
-
-/***************************************************************************************************************************/ 
-
-  
-  /* ===============================
-  🟢 INPUTS
-  ================================= */
-
-
-
-  .input {
   width: 100%;
-  padding: var(--space-sm);
+
+  margin-inline: auto;
+
+  padding-inline: var(--space-sm);
+
+  gap: var(--space-md);
+
+  display: grid;
+
+  grid-template-columns:
+      minmax(0, 1.35fr)
+      minmax(280px, 0.65fr);
+
+  align-items: start;
+
+  font-family: var(--font-body);
+
+}
+
+
+.contact-form-card,
+.contact-info-card {
+
+  padding: var(--space-md);
+
+  border-radius: var(--space-md);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+
+  background-color: var(--rose-200);
+
+  border: 1px dotted var(--orange-500);
+
+  overflow: visible;
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ FORM INTRO
+========================================================= */
+
+.contact-form-intro {
+
+  margin-bottom: var(--space-lg);
+
+}
+
+
+/* =========================================================
+  🟢 UPGRADE:
+  CONTACT PATH INTRO
+========================================================= */
+
+.contact-path-intro {
+
+  margin-top: var(--space-sm);
+
+  color: var(--gray-500);
+
+}
+
+
+.form-eyebrow {
+
+  display: inline-block;
+
+  margin-bottom: var(--space-sm);
+
+  font-family: var(--font-mono);
+
+  font-size: var(--fs-xsmall);
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: var(--orange-500);
+
+}
+
+
+.contact-form-intro h3,
+.contact-info-card h3 {
+
+  margin-bottom: var(--space-sm);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ FORM STRUCTURE
+========================================================= */
+
+.contact-form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: var(--space-md);
+
+}
+
+
+.form-section {
+
+  min-width: 0;
+
+  margin: 0;
+
+  padding: var(--space-md);
+
+  border: 1px solid rgba(128, 128, 128, 0.25);
+
   border-radius: var(--radius-md);
-  border: 1px solid var(--gray-500);
-  background: var(--lime-100);
+
+}
+
+
+.form-section legend {
+
+  width: auto;
+
+  padding-inline: var(--space-sm);
+
+  font-family: var(--font-heading);
+
+  font-weight: 600;
+
+}
+
+
+.section-number {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 30px;
+
+  height: 30px;
+
+  margin-right: var(--space-sm);
+
+  border-radius: 50%;
+
+  background: var(--orange-500);
+
   color: var(--gray-900);
-  outline: none;
-  transition: 0.3s;
-  }
 
+  font-family: var(--font-mono);
 
-/***************************************************************************************************************************/ 
-
-.phoneNumber{
-  width: 75%;
+  font-size: var(--fs-xsmall);
 
 }
 
 
+.form-row {
 
-.projectType{
-  background-color: var(--gray-600);
-  color: white;
+  display: grid;
 
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: var(--space-sm);
 
 }
 
-.projectUrgency{
-  background-color: var(--gray-600);
-  color: white;
-}
 
-
-.projectArchitecture{
-  background-color: var(--gray-600);
-  color: white;
-}
-
-
-.projectScalability{
-  background-color: var(--gray-600);
-  color: white;
-}
-
-
-.projectModularity{
-  background-color: var(--gray-600);
-  color: white;
-}
-
-
-.projectItTeam{
-  background-color: var(--gray-600);
-  color: white;
-}
-
-
-.projectItTeamCapacity{
-  background-color: var(--gray-600);
-  color: white;
-}
-
-
-
-.projectMessage{
-  background-color: var(--gray-600);
-  color: white;
-}
-
-
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24'><path d='M7 10l5 5 5-5z'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 16px;
-}
-
-/***************************************************************************************************************************************/
-
-  
-/* ===============================
-🟢 FLOATING LABEL — UNIFIED
-================================= */
+/* =========================================================
+ 🟢 UPGRADE:
+ FORM GROUP
+========================================================= */
 
 .form-group {
+
   position: relative;
 
+  min-width: 0;
+
+  margin-bottom: var(--space-md);
+
 }
 
-/* LABEL */
-.form-group label {
+
+.form-group:last-child {
+
+  margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+ INPUTS
+========================================================= */
+
+.input {
+
+  width: 100%;
+
+  min-height: 52px;
+
+  padding: var(--space-sm);
+
+  border-radius: var(--radius-md);
+
+  border: 1px solid var(--gray-500);
+
+  background: var(--lime-100);
+
+  color: var(--gray-900);
+
+  outline: none;
+
+  transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.2s ease;
+
+}
+
+
+.input::placeholder {
+
+  color: transparent;
+
+}
+
+
+.input:focus {
+
+  border-color: var(--orange-500);
+
+  box-shadow:
+      0 0 0 3px rgba(249, 115, 22, 0.15);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ TEXTAREAS
+========================================================= */
+
+textarea.input {
+
+  min-height: 140px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+
+}
+
+
+.projectObjective,
+.projectUsers,
+.projectIntegrations,
+.technicalEnvironment,
+.projectMessage {
+
+  min-height: 130px;
+
+}
+
+
+/* =========================================================
+ PHONE
+========================================================= */
+
+.phoneNumber {
+
+  width: 100%;
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ FLOATING LABELS
+========================================================= */
+
+.form-group > label {
+
   position: absolute;
+
   left: var(--space-sm);
+
   top: 50%;
+
   transform: translateY(-50%);
+
+  padding-inline: 4px;
+
   font-size: var(--fs-small);
+
   color: var(--gray-600);
+
   pointer-events: none;
-  transition: 0.25s ease-in-out;
+
+  transition:
+      top 0.25s ease,
+      transform 0.25s ease,
+      font-size 0.25s ease,
+      color 0.25s ease;
+
   background: transparent;
+
+  z-index: 2;
+
 }
 
-/* TEXTAREA adjustment */
+
 .form-group textarea + label {
+
   top: var(--space-md);
+
   transform: none;
+
 }
 
-/* ===============================
-🟢 FLOAT TRIGGER (FIXED)
-================================= */
 
-/* INPUT + TEXTAREA */
 .input:focus + label,
 .input:not(:placeholder-shown) + label,
+.form-group.has-value > label {
 
-/* SELECT (manual trigger) */
-.form-group.has-value label {
-  top: -18px;
+  top: -9px;
+
   transform: none;
+
   font-size: var(--fs-xsmall);
+
   color: var(--orange-500);
+
+  background: var(--rose-200);
+
 }
 
 
-/***********************************************************************************************************************/
+/* =========================================================
+ 🟢 UPGRADE:
+ VALIDATION
+========================================================= */
 
+.input.valid {
 
-
-  
-  /* ===============================
-  🟢 VALIDATION
-  ================================= */
-  
-  .input.valid {
   border-color: var(--green-700);
-  box-shadow: 0 0 8px rgba(0,255,150,0.75);
-  }
-  
-  .input.invalid {
+
+  box-shadow:
+      0 0 8px rgba(0, 255, 150, 0.35);
+
+}
+
+
+.input.invalid {
+
   border-color: var(--red-700);
-  box-shadow: 0 0 8px rgba(255,0,80,0.75);
-  }
+
+  box-shadow:
+      0 0 8px rgba(255, 0, 80, 0.35);
+
+}
 
 
+.custom-select.valid .select-trigger {
 
-/***********************************************************************************************************************/
-  
-  
-  /* ===============================
-  🟢 TOOLTIP
-  ================================= */
-  
-  .tooltip {
+  border-color: var(--green-700);
+
+}
+
+
+.custom-select.invalid .select-trigger {
+
+  border-color: var(--red-700);
+
+}
+
+
+/* =========================================================
+ TOOLTIP
+========================================================= */
+
+.tooltip {
+
   position: absolute;
-  bottom: -var(--space-sm);
+
   left: var(--space-sm);
+
+  bottom: -18px;
+
   font-size: var(--fs-xsmall);
+
   font-family: var(--font-mono);
+
   color: var(--gray-500);
+
   opacity: 0;
-  transition: 0.3s;
-  }
-  
-  .form-group:hover .tooltip {
+
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+
+}
+
+
+.form-group:hover .tooltip,
+.form-group:focus-within .tooltip {
+
   opacity: 1;
-  }
 
+}
 
 
-/***********************************************************************************************************************/
-
-/***********************************************************************************************************************/
-
-/***********************************************************************************************************************/
-
-/***********************************************************************************************************************/
-
-/***********************************************************************************************************************/
-
-
- 
-
-/***********************************************************************************************************************/
-
-
-  
-  /* ===============================
-  🟢 SELECT
-  ================================= */
-  
-  select:invalid {
-  color: rgba(255,255,255,0.5);
-  }
-  
-  /* ===============================
-  🟢 HIDDEN
-  ================================= */
-  
-  .hidden {
-  display: none;
-  }
-
-
-
-
-
-
-
-
-/***********************************************************************************************************************/
-
-
-
-  
-  /* ===============================
-  🟢 HOVER CARD EFFECT
-  ================================= */
-  
-  .contact-form-card:hover,
-  .contact-info-card:hover {
-  transform: translateY(-6px);
-  backdrop-filter: blur(20px);
-  background: rgba(255,255,255,0.08);
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  }
-
-
-
-
-/***********************************************************************************************************************/
-
-
-
-  
-  /* ===============================
-  🟢 RESPONSIVE
-  ================================= */
-  
-  @media (max-width: 900px) {
-  .contact-grid {
-  grid-template-columns: 1fr;
-  }
-  
-  .form-row {
-  grid-template-columns: 1fr;
-  }
-  }
-
-
-
-/***********************************************************************************************************************/
-
-  /* ===============================
-  🟢 INTL TELEPHONE INPUT (FIXED)
-  ================================= */
-  
-  /* container */
-  .iti {
-  width: 75%;
-  position: relative;
-  z-index: 10;
-  }
-
-
-
-  
-  /* input */
-  .iti input {
-  width: 75%;
-
-
-
-  }
-
-
-
-  
-  /* flag button */
-  .iti__flag-container {
-  z-index: 1000;
-
-  }
-
-
-
-  
-  /* dropdown */
-  .iti__country-list {
-  position: absolute !important;
-  z-index: 9999 !important;
-  width:min(300px, var(--max-width)); /* 🟢 modern clamp alternative */
-
-
-  }
-
-
-
-
-  
-  /* dropdown item */
-  .iti__country {
-
-  }
-
-
-
-  
-  .iti__country-name {
-    font-size: var(--fs-small);
-  }
-  
-  .iti__dial-code {
-    font-size: var(--fs-small);
-  }
-  
-  .iti__country:hover {
-
-  }
-  
-  /* scrollbar */
-  .iti__country-list::-webkit-scrollbar {
-
-
-  }
-  .iti__country-list::-webkit-scrollbar-thumb {
-
-  }
-
-
-/***********************************************************************************************************************/
-
-/* =========================
-🟢 CUSTOM SELECT SYSTEM
-========================= */
+/* =========================================================
+ 🟢 UPGRADE:
+ CUSTOM SELECT SYSTEM
+========================================================= */
 
 .custom-select {
+
   position: relative;
-  cursor: pointer;
-  }
-  
-  /* TRIGGER */
-  .select-trigger {
-  padding: var(--space-md);
-  border-radius: var(--radius-md);
-  background: var(--gray-900);
-  color: white;
-  border: 1px solid var(--gray-500);
-  transition: 0.3s;
-  font-size: var(--font-mono);
-  }
-  
-  /* HOVER */
-  .select-trigger:hover {
-  border-color: var(--orange-500);
-  }
-  
-  /* DROPDOWN */
-  .select-dropdown {
-  position: absolute;
-  top: 110%;
-  left: 0;
+
   width: 100%;
-  background: var(--gray-800);
+
+  cursor: pointer;
+
+  z-index: 10;
+
+}
+
+
+.select-trigger {
+
+  width: 100%;
+
+  min-height: 52px;
+
+  padding: var(--space-sm) var(--space-md);
+
   border-radius: var(--radius-md);
-  overflow: hidden;
-  display: none;
-  z-index: 999;
-  }
-  
-  /* OPEN */
-  .custom-select.open .select-dropdown {
-  display: block;
-  }
-  
-  /* OPTIONS */
-  .select-option {
-  padding: var(--space-sm);
+
+  background: var(--gray-900);
+
   color: white;
-  transition: 0.2s;
-  }
-  
-  .select-option:hover {
+
+  border: 1px solid var(--gray-500);
+
+  text-align: left;
+
+  font-family: var(--font-body);
+
+  font-size: var(--fs-small);
+
+  cursor: pointer;
+
+  transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+}
+
+
+.select-trigger:hover,
+.select-trigger:focus {
+
+  border-color: var(--orange-500);
+
+  outline: none;
+
+}
+
+
+.select-placeholder {
+
+  opacity: 0.65;
+
+}
+
+
+.custom-select.has-value .select-trigger {
+
+  color: white;
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ CUSTOM SELECT DROPDOWN
+========================================================= */
+
+.select-dropdown {
+
+  position: absolute;
+
+  top: calc(100% + 8px);
+
+  left: 0;
+
+  width: 100%;
+
+  max-height: 360px;
+
+  overflow-y: auto;
+
+  padding: 6px;
+
+  background: var(--gray-800);
+
+  border: 1px solid var(--gray-500);
+
+  border-radius: var(--radius-md);
+
+  box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.35);
+
+  display: none;
+
+  opacity: 0;
+
+  transform: translateY(-8px);
+
+  z-index: 9999;
+
+}
+
+
+.custom-select.open {
+
+  z-index: 10000;
+
+}
+
+
+.custom-select.open .select-dropdown {
+
+  display: block;
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+.select-option {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding: var(--space-sm);
+
+  color: white;
+
+  border-radius: calc(var(--radius-md) - 4px);
+
+  transition:
+      background 0.2s ease,
+      color 0.2s ease;
+
+}
+
+
+.select-option:hover,
+.select-option:focus {
+
   background: var(--orange-500);
-  }
-  
-  /* ARROW */
-  .select-trigger::after {
-  content: "▾";
-  float: right;
-  color: var(--orange-500);
-  }
-  
-  /* =========================
-  🟢 FLOAT LABEL SUPPORT
-  ========================= */
-  
-  .form-group.has-value label {
-  top: -18px;
+
+  color: var(--gray-900);
+
+  outline: none;
+
+}
+
+
+.select-option[aria-selected="true"] {
+
+  background: rgba(249, 115, 22, 0.18);
+
+  border-left: 3px solid var(--orange-500);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ BUDGET SELECT
+========================================================= */
+
+.budget-option {
+
+  gap: 6px;
+
+}
+
+
+.budget-option strong {
+
+  font-size: var(--fs-small);
+
+}
+
+
+.budget-option span {
+
+  font-family: var(--font-mono);
+
   font-size: var(--fs-xsmall);
+
+  opacity: 0.7;
+
+}
+
+
+.budget-guidance {
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  margin-top: 5px;
+
+}
+
+
+/* =========================================================
+ SELECT ARROW
+========================================================= */
+
+.select-trigger::after {
+
+  content: "▾";
+
+  float: right;
+
   color: var(--orange-500);
+
+  transition: transform 0.25s ease;
+
+}
+
+
+.custom-select.open .select-trigger::after {
+
+  transform: rotate(180deg);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ INTL TELEPHONE INPUT
+========================================================= */
+
+.iti {
+
+  width: 100%;
+
+  position: relative;
+
+  z-index: 20;
+
+}
+
+
+.iti input {
+
+  width: 100%;
+
+}
+
+
+.iti__flag-container {
+
+  z-index: 1000;
+
+}
+
+
+.iti__country-list {
+
+  position: absolute !important;
+
+  z-index: 99999 !important;
+
+  width: min(320px, 90vw);
+
+  max-height: 280px;
+
+  overflow-y: auto;
+
+}
+
+
+.iti__country-name {
+
+  font-size: var(--fs-small);
+
+}
+
+
+.iti__dial-code {
+
+  font-size: var(--fs-small);
+
+}
+
+
+.iti__country:hover {
+
+  background: var(--orange-500);
+
+}
+
+
+.iti__country-list::-webkit-scrollbar {
+
+  width: 6px;
+
+}
+
+
+.iti__country-list::-webkit-scrollbar-thumb {
+
+  background: var(--orange-500);
+
+  border-radius: 20px;
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ BUDGET INFORMATION
+========================================================= */
+
+.form-field-description {
+
+  margin-bottom: var(--space-md);
+
+}
+
+
+.form-field-description p {
+
+  margin-bottom: var(--space-sm);
+
+}
+
+
+.budget-section {
+
+  border-color: rgba(249, 115, 22, 0.45);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ CONSENT
+========================================================= */
+
+.consent-control {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: var(--space-sm);
+
+  margin-top: var(--space-md);
+
+  font-size: var(--fs-small);
+
+  line-height: 1.5;
+
+  cursor: pointer;
+
+}
+
+
+.consent-control input {
+
+  width: 18px;
+
+  height: 18px;
+
+  margin-top: 3px;
+
+  flex: 0 0 auto;
+
+  accent-color: var(--orange-500);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ SUBMIT BUTTON
+========================================================= */
+
+.submit-button {
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 54px;
+
+  margin-top: var(--space-md);
+
+}
+
+
+.submit-loading {
+
+  display: none;
+
+}
+
+
+.contact-form.is-submitting .submit-label {
+
+  display: none;
+
+}
+
+
+.contact-form.is-submitting .submit-loading {
+
+  display: inline;
+
+}
+
+
+/* =========================================================
+ FORM STATUS
+========================================================= */
+
+.form-status {
+
+  min-height: 24px;
+
+  margin-top: var(--space-sm);
+
+}
+
+
+.form-status.success {
+
+  color: var(--green-700);
+
+}
+
+
+.form-status.error {
+
+  color: var(--red-700);
+
+}
+
+
+/* =========================================================
+ HIDDEN
+========================================================= */
+
+.hidden {
+
+  display: none !important;
+
+}
+
+
+/* =========================================================
+ CONTACT INFORMATION
+========================================================= */
+
+.contact-info-card {
+
+  position: sticky;
+
+  top: 100px;
+
+}
+
+
+.office-block {
+
+  padding-block: var(--space-sm);
+
+  border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+
+}
+
+
+.office-block:last-of-type {
+
+  border-bottom: 0;
+
+}
+
+
+.office-block h4 {
+
+  margin-bottom: 4px;
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ DISCOVERY NOTE
+========================================================= */
+
+.contact-discovery-note {
+
+  margin-top: var(--space-lg);
+
+  padding: var(--space-md);
+
+  border-left: 3px solid var(--orange-500);
+
+  background: rgba(249, 115, 22, 0.08);
+
+}
+
+
+/* =========================================================
+ HOVER CARD EFFECT
+========================================================= */
+
+.contact-form-card:hover,
+.contact-info-card:hover {
+
+  transform: translateY(-4px);
+
+  backdrop-filter: blur(20px);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.3);
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ ACCESSIBILITY FOCUS
+========================================================= */
+
+.select-trigger:focus-visible,
+.input:focus-visible,
+.consent-control input:focus-visible {
+
+  outline: 2px solid var(--orange-500);
+
+  outline-offset: 3px;
+
+}
+
+
+/* =========================================================
+  🟢 UPGRADE:
+  MULTI-PATH CONTACT OPTIONS
+========================================================= */
+
+.contact-action-paths {
+
+  margin-top: var(--space-md);
+
+  padding-top: var(--space-md);
+
+  border-top:
+      1px solid rgba(128, 128, 128, 0.25);
+
+}
+
+
+.action-divider {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: var(--space-md);
+
+  color: var(--gray-500);
+
+  font-family: var(--font-mono);
+
+  font-size: var(--fs-xsmall);
+
+  letter-spacing: 0.12em;
+
+}
+
+
+.action-divider::before,
+.action-divider::after {
+
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background:
+      rgba(128, 128, 128, 0.25);
+
+}
+
+
+.action-divider span {
+
+  padding-inline: var(--space-sm);
+
+}
+
+
+.contact-path-button {
+
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto;
+
+  align-items: center;
+
+  gap: var(--space-sm);
+
+  width: 100%;
+
+  min-height: 64px;
+
+  margin-top: var(--space-sm);
+
+  padding:
+      var(--space-sm)
+      var(--space-md);
+
+  border:
+      1px solid var(--gray-500);
+
+  border-radius: var(--radius-md);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+
+}
+
+
+.contact-path-button:hover {
+
+  transform: translateY(-2px);
+
+}
+
+
+.contact-path-button:focus-visible {
+
+  outline:
+      2px solid var(--orange-500);
+
+  outline-offset: 3px;
+
+}
+
+
+.contact-path-icon {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+
+  height: 38px;
+
+  border-radius: 50%;
+
+  background:
+      rgba(255, 255, 255, 0.08);
+
+  font-size: 1.1rem;
+
+}
+
+
+.contact-path-copy {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+
+}
+
+
+.contact-path-copy strong {
+
+  font-family: var(--font-heading);
+
+  font-size: var(--fs-small);
+
+  line-height: 1.25;
+
+}
+
+
+.contact-path-copy small {
+
+  color: var(--gray-500);
+
+  font-family: var(--font-body);
+
+  font-size: var(--fs-xsmall);
+
+  line-height: 1.4;
+
+}
+
+
+.contact-path-arrow {
+
+  font-size: 1.1rem;
+
+  transition:
+      transform 0.25s ease;
+
+}
+
+
+.contact-path-button:hover
+.contact-path-arrow {
+
+  transform: translate(2px, -2px);
+
+}
+
+
+/* 🟢 UPGRADE:
+   WhatsApp visual treatment */
+
+.whatsapp-button {
+
+  border-color:
+      rgba(37, 211, 102, 0.55);
+
+  background:
+      rgba(37, 211, 102, 0.08);
+
+}
+
+
+.whatsapp-button:hover {
+
+  border-color:
+      rgba(37, 211, 102, 0.9);
+
+  background:
+      rgba(37, 211, 102, 0.14);
+
+  box-shadow:
+      0 10px 30px rgba(37, 211, 102, 0.12);
+
+}
+
+
+/* 🟢 UPGRADE:
+   Consultation visual treatment */
+
+.consultation-button {
+
+  border-color:
+      rgba(249, 115, 22, 0.55);
+
+  background:
+      rgba(249, 115, 22, 0.06);
+
+}
+
+
+.consultation-button:hover {
+
+  border-color:
+      var(--orange-500);
+
+  background:
+      rgba(249, 115, 22, 0.12);
+
+  box-shadow:
+      0 10px 30px rgba(249, 115, 22, 0.12);
+
+}
+
+
+/* 🟢 UPGRADE:
+   Primary submit hierarchy */
+
+.submit-button {
+
+  min-height: 58px;
+
+}
+
+
+@media (max-width: 600px) {
+
+  .contact-path-button {
+
+      min-height: 60px;
+
+      padding:
+          var(--space-sm);
+
   }
 
 
+  .contact-path-icon {
+
+      width: 34px;
+
+      height: 34px;
+
+  }
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .contact-grid {
+
+      grid-template-columns: 1fr;
+
+  }
+
+
+  .contact-info-card {
+
+      position: relative;
+
+      top: auto;
+
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .form-row {
+
+      grid-template-columns: 1fr;
+
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .contact-section {
+
+      width: 94%;
+
+  }
+
+
+  .contact-grid {
+
+      padding-inline: 0;
+
+  }
+
+
+  .contact-form-card,
+  .contact-info-card {
+
+      padding: var(--space-sm);
+
+  }
+
+
+  .form-section {
+
+      padding: var(--space-sm);
+
+  }
+
+
+  .select-dropdown {
+
+      max-height: 300px;
+
+  }
+
+
+  .iti__country-list {
+
+      width: min(290px, 88vw);
+
+  }
+
+}
+
+
+/* =========================================================
+ 🟢 UPGRADE:
+ REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .contact-form-card,
+  .contact-info-card,
+  .input,
+  .select-trigger,
+  .select-option {
+
+      transition: none;
+
+  }
+
+}

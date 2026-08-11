@@ -2,119 +2,269 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Contact River | River IT Solutions</title>
 
+    <!-- =========================
+         🟢 UPGRADE: SEO
+    ========================== -->
 
+    <meta
+        name="description"
+        content="Tell River what you are trying to build. We design and engineer websites, custom software, business systems, SaaS platforms and scalable digital solutions."
+    />
 
-
-
-
+    <meta
+        name="robots"
+        content="index, follow"
+    />
 
     <!-- =========================
          STYLES
     ========================== -->
+
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/components/intro/intro.css" />
-    <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
-    <link rel="stylesheet" href="css/components/backToTop/backToTop.css" />
-    <link rel="stylesheet" href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css" />
-    <link rel="stylesheet" href="css/components/systemTheme/systemTheme.css" />
-    <link rel="stylesheet" href="css/components/backgroundSystem/backgroundSystem.css" />
-    <link rel="stylesheet" href="css/components/info-trust/infoTrust.css" />
-    <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
-    <link rel="stylesheet" href="css/components/projects/projects.css" />
-    <link rel="stylesheet" href="css/components/footer/footer.css" />
+
+    <link
+        rel="stylesheet"
+        href="css/components/intro/intro.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/menuPage/menuPage.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/backToTop/backToTop.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/systemTheme/systemTheme.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/backgroundSystem/backgroundSystem.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/info-trust/infoTrust.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/pageTransition/pageTransition.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/projects/projects.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="css/components/footer/footer.css"
+    />
 
     <!-- Contact Form -->
-    <link rel="stylesheet" href="css/components/contactForm/contactForm.css" />
 
-    <!-- 🟢 UPGRADE: OFFICIAL intl-tel-input (latest stable CDN only ONCE) -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/contactForm/contactForm.css"
+    />
 
-  <!-- Favicon -->
-  <link rel="icon" class="favicon" type="image" href="assets/Media/riverWebsiteLogos/r logo.png"/>
+    <!-- =========================
+         🟢 UPGRADE:
+         INTL TELEPHONE INPUT
+    ========================== -->
 
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css"
+    />
 
+    <!-- Favicon -->
 
-
+    <link
+        rel="icon"
+        class="favicon"
+        type="image"
+        href="assets/Media/riverWebsiteLogos/r logo.png"
+    />
 
 </head>
 
+
 <body>
 
-
     <!-- PAGE TRANSITION OVERLAY -->
-    <div id="pageTransition"></div>
 
+    <div id="pageTransition"></div>
 
 
     <!-- =========================
          BACKGROUND
     ========================== -->
+
     <div class="bg-system">
+
         <img
             id="bgImage"
             src="assets/Media/BGI/BGI1.jpg"
             alt="background"
         />
+
         <div class="bg-gradient"></div>
+
     </div>
 
 
-
     <!-- Header -->
+
     <river-header></river-header>
 
 
-    <!-- MAIN -->
-    <main class="main-container">
+    <!-- =========================
+         MAIN
+    ========================== -->
 
+    <main class="main-container">
 
 
         <!-- =========================
              HERO
         ========================== -->
+
         <hero-section
-            title="River — Contact River"
-            subtitle="Get in touch for projects, support or careers.">
+            title="River — Start a Project"
+            subtitle="Tell us what you are trying to build, improve or solve."
+        >
         </hero-section>
 
-        <div class="empty-div-one"></div>
 
+        <div class="empty-div-one"></div>
 
 
         <!-- =========================
              CONTACT
         ========================== -->
-        <section class="contact-section">
+
+        <section
+            class="contact-section"
+            aria-labelledby="project-form-title"
+        >
 
             <div class="form-container contact-grid">
 
-                <!-- =========================
-                     CONTACT FORM
-                ========================== -->
+
+                <!-- =================================================
+                     CONTACT FORM CARD
+                ================================================== -->
+
                 <div class="contact-form-card">
 
-                    <h3>Start your Project With Us Today</h3>
 
-                    <!-- 🟢 UPGRADE: CONNECT FORM TO FORMSPREE -->
-                    <form 
-                    id="contactForm" 
-                    class="contact-form"
-                    action="https://formspree.io/f/xaewnlrd"
-                    method="POST"
+                    <div class="contact-form-intro">
+
+                        <span class="form-eyebrow">
+                            PROJECT DISCOVERY
+                        </span>
+
+                        <h3 id="project-form-title">
+                            Start Your Project With Us
+                        </h3>
+
+                        <p class="small">
+                            Give us enough context to understand the problem,
+                            recommend the right technical approach and determine
+                            the appropriate project scope.
+                        </p>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         🟢 UPGRADE:
+                         FORMSPREE FORM
+                    ================================================== -->
+
+                    <form
+                        id="contactForm"
+                        class="contact-form"
+                        action="https://formspree.io/f/xaewnlrd"
+                        method="POST"
+                        novalidate
                     >
 
-                    <!-- 🟢 UPGRADE: REDIRECT AFTER SUCCESS -->
-                    <input type="hidden" name="_redirect" value="thank-you.html">
+
+                        <!-- =================================================
+                             🟢 UPGRADE:
+                             FORM METADATA
+                        ================================================== -->
+
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="New Project Discovery Request — River IT"
+                        />
+
+                        <input
+                            type="hidden"
+                            name="_captcha"
+                            value="false"
+                        />
+
+                        <input
+                            type="hidden"
+                            name="_template"
+                            value="table"
+                        />
+
+                        <input
+                            type="hidden"
+                            name="_redirect"
+                            value="thankYou.html"
+                        />
+
+                        <!-- Populated by JavaScript -->
+
+                        <input
+                            type="hidden"
+                            name="phone_e164"
+                            id="phone_e164"
+                        />
+
+                        <input
+                            type="hidden"
+                            name="form_source"
+                            value="River Website Project Discovery"
+                        />
 
 
-                    <input type="hidden" name="_subject" value="New Project Request - River IT">
-                    <input type="hidden" name="_captcha" value="false">
+                        
+                        <!-- =================================================
+                             🟢 UPGRADE:
+                             CONTACT PATH TRACKING
+                        ================================================== -->
+
+                        <input
+                            type="hidden"
+                            name="contact_path"
+                            id="contact_path"
+                            value="Project Request Form"
+                        />
 
 
 
@@ -122,344 +272,1464 @@
 
 
 
+                        <!-- =================================================
+                             SECTION 01
+                             CONTACT DETAILS
+                        ================================================== -->
+
+                        <fieldset class="form-section">
+
+                            <legend>
+                                <span class="section-number">01</span>
+                                Contact Details
+                            </legend>
 
 
+                            <!-- First Name -->
 
+                            <div class="form-row">
 
+                                <div class="form-group">
 
+                                    <input
+                                        class="input"
+                                        id="firstName"
+                                        name="firstName"
+                                        type="text"
+                                        autocomplete="given-name"
+                                        required
+                                        minlength="2"
+                                        maxlength="60"
+                                        pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}"
+                                        placeholder=" "
+                                    />
 
+                                    <label for="firstName">
+                                        First Name
+                                    </label>
 
+                                    <div class="tooltip">
+                                        Your first name.
+                                    </div>
 
-
-
-
-                        <!-- Names -->
-                        <div class="form-row">
-
-                            <div class="form-group">
-                                <input
-                                    class="input"
-                                    name="firstName"
-                                    required
-                                    pattern="[A-Za-z\s]{2,}"
-                                    placeholder=""
-                                />
-                                <label>First Name</label>
-                                <div class="tooltip">
-                                    Only letters, minimum 2 characters - Enter a valid First Name (eg Maya)
                                 </div>
+
+
+                                <!-- Last Name -->
+
+                                <div class="form-group">
+
+                                    <input
+                                        class="input"
+                                        id="lastName"
+                                        name="lastName"
+                                        type="text"
+                                        autocomplete="family-name"
+                                        required
+                                        minlength="2"
+                                        maxlength="60"
+                                        pattern="[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}"
+                                        placeholder=" "
+                                    />
+
+                                    <label for="lastName">
+                                        Last Name
+                                    </label>
+
+                                    <div class="tooltip">
+                                        Your last name.
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                            <div class="form-group">
-                                <input
-                                    class="input"
-                                    name="lastName"
-                                    required
-                                    pattern="[A-Za-z\s]{2,}"
-                                    placeholder=""
-                                />
-                                <label>Last Name</label>
-                                <div class="tooltip">
-                                    Only letters, minimum 2 characters - Enter a valid Last Name (eg Kayoshi)
-                                </div>
-                            </div>
 
-                        </div>
-
-
-
-                        <!-- Email -->
-                        <div class="form-row">
+                            <!-- Email -->
 
                             <div class="form-group">
+
                                 <input
                                     class="input"
+                                    id="email"
                                     type="email"
                                     name="email"
+                                    autocomplete="email"
                                     required
-                                    placeholder=""
+                                    maxlength="150"
+                                    placeholder=" "
                                 />
 
-                                <label>Email</label>
+                                <label for="email">
+                                    Business / Work Email
+                                </label>
 
                                 <div class="tooltip">
-                                    Enter a valid email (example@email.com)
+                                    Use the email address where we can reach you.
                                 </div>
 
                             </div>
 
 
-
-                        </div>
-
-
-
-
-                        <!-- Phone-Number -->
-                        <div class="form-row">
+                            <!-- Phone -->
 
                             <div class="form-group">
+
                                 <input
                                     id="phone"
                                     class="input phoneNumber"
                                     type="tel"
                                     name="phone"
+                                    autocomplete="tel"
                                     required
                                     placeholder="0712 345 678"
+                                    aria-describedby="phoneHelp"
                                 />
 
-                                <label>Phone Number</label>
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <div
+                                    class="tooltip"
+                                    id="phoneHelp"
+                                >
+                                    Select your country and enter a valid number.
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- =================================================
+                             SECTION 02
+                             WHAT ARE YOU BUILDING?
+                        ================================================== -->
+
+                        <fieldset class="form-section">
+
+                            <legend>
+                                <span class="section-number">02</span>
+                                What Are You Building?
+                            </legend>
+
+
+                            <!-- 🟢 UPGRADE:
+                                 SOLUTION CATEGORY -->
+
+                            <div class="form-group">
+
+                                <div
+                                    class="custom-select"
+                                    data-name="solutionCategory"
+                                    data-required="true"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="solutionCategory"
+                                        required
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Solution Category
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                        tabindex="-1"
+                                    >
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Website"
+                                        >
+                                            Website
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Custom Software"
+                                        >
+                                            Custom Software
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Mobile Application"
+                                        >
+                                            Mobile Application
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Business System"
+                                        >
+                                            Business System
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="SaaS / Digital Product"
+                                        >
+                                            SaaS / Digital Product
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Not Sure"
+                                        >
+                                            I'm not sure yet
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <label>
+                                    What are you looking to build?
+                                </label>
+
+                            </div>
+
+
+                            <!-- 🟢 UPGRADE:
+                                 PROJECT TYPE -->
+
+                            <div class="form-group">
+
+                                <div
+                                    class="custom-select"
+                                    data-name="projectType"
+                                    data-required="true"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="projectType"
+                                        required
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Project Type
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                        tabindex="-1"
+                                    >
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Landing Page"
+                                        >
+                                            Landing Page
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Business Website"
+                                        >
+                                            Business Website
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Corporate Website"
+                                        >
+                                            Corporate Website
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="E-commerce"
+                                        >
+                                            E-commerce
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Booking / Membership Platform"
+                                        >
+                                            Booking / Membership Platform
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Internal Business System"
+                                        >
+                                            Internal Business System
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="CRM"
+                                        >
+                                            CRM
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="ERP"
+                                        >
+                                            ERP
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="POS / Inventory"
+                                        >
+                                            POS / Inventory System
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Customer Portal"
+                                        >
+                                            Customer Portal
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="SaaS MVP"
+                                        >
+                                            SaaS MVP
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Marketplace"
+                                        >
+                                            Marketplace
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="API / Backend"
+                                        >
+                                            API / Backend System
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Mobile App"
+                                        >
+                                            Mobile Application
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Other"
+                                        >
+                                            Other / Custom
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <label>
+                                    What type of project is it?
+                                </label>
+
+                            </div>
+
+
+                            <!-- 🟢 UPGRADE:
+                                 PROJECT OBJECTIVE -->
+
+                            <div class="form-group">
+
+                                <textarea
+                                    class="input projectObjective"
+                                    id="projectObjective"
+                                    name="projectObjective"
+                                    minlength="20"
+                                    maxlength="2000"
+                                    required
+                                    placeholder=" "
+                                ></textarea>
+
+                                <label for="projectObjective">
+                                    What problem are you trying to solve?
+                                </label>
 
                                 <div class="tooltip">
-                                    Select country and enter valid number - Select country • auto-format • validated globally
+                                    Tell us what you want the product or system to achieve.
                                 </div>
+
                             </div>
-    
-                        </div>
-
-     
 
 
+                            <!-- 🟢 UPGRADE:
+                                 INTENDED USERS -->
 
+                            <div class="form-group">
 
+                                <textarea
+                                    class="input projectUsers"
+                                    id="projectUsers"
+                                    name="intendedUsers"
+                                    minlength="5"
+                                    maxlength="1000"
+                                    required
+                                    placeholder=" "
+                                ></textarea>
 
+                                <label for="projectUsers">
+                                    Who will use it?
+                                </label>
 
-
-
-
-
-
-
-
-
-
-
-
-
-                        <!-- ===================== -->
-                        <!-- 🟢 PROJECT TYPE -->
-                        <!-- ===================== -->
-                        <div class="form-group">
-
-                            <!-- 🟢 CUSTOM SELECT -->
-                            <div class="custom-select" data-name="projectType">
-                            
-                                <input type="hidden" name="projectType" required />
-                                
-                                <div class="select-trigger"></div>
-                            
-                                <div class="select-dropdown">
-                                    <div class="select-option">Web Development</div>
-                                    <div class="select-option">Enterprise Systems</div>
-                                    <div class="select-option">Cloud & DevOps</div>
-                                    <div class="select-option">AI & Machine Learning</div>
-                                    <div class="select-option">I am not sure / I don't know</div>
+                                <div class="tooltip">
+                                    Example: customers, staff, administrators, suppliers.
                                 </div>
-                            
+
                             </div>
-                            
-                            <label>Select Project Type - Project Type</label>
-                            <div class="tooltip">Type of solution you need</div>
-                            
-                        </div>
+
+                        </fieldset>
 
 
+                        <!-- =================================================
+                             SECTION 03
+                             PRODUCT CAPABILITIES
+                        ================================================== -->
+
+                        <fieldset class="form-section">
+
+                            <legend>
+                                <span class="section-number">03</span>
+                                Product Capabilities
+                            </legend>
 
 
+                            <!-- 🟢 UPGRADE:
+                                 CAPABILITIES -->
 
+                            <div class="form-group">
 
+                                <div
+                                    class="custom-select"
+                                    data-name="capabilities"
+                                    data-required="true"
+                                >
 
+                                    <input
+                                        type="hidden"
+                                        name="capabilities"
+                                        required
+                                    />
 
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Primary Capability
+                                        </span>
+                                    </button>
 
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                        tabindex="-1"
+                                    >
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Authentication & User Accounts"
+                                        >
+                                            Authentication & User Accounts
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Payments"
+                                        >
+                                            Payments
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Online Booking"
+                                        >
+                                            Online Booking
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Dashboards & Reporting"
+                                        >
+                                            Dashboards & Reporting
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Customer Management"
+                                        >
+                                            Customer Management
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Inventory Management"
+                                        >
+                                            Inventory Management
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Workflow Automation"
+                                        >
+                                            Workflow Automation
+                                        </div>
 
-                        <!-- ===================== -->
-                        <!-- 🟢 URGENCY -->
-                        <!-- ===================== -->
-                        <div class="form-group">
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="AI Features"
+                                        >
+                                            AI Features
+                                        </div>
 
-                            <div class="custom-select" data-name="urgency">
-                                <input type="hidden" name="urgency" required />
-                                
-                                <div class="select-trigger"></div>
-                                
-                                <div class="select-dropdown">
-                                    <div class="select-option">ASAP</div>
-                                    <div class="select-option">1–3 Months</div>
-                                    <div class="select-option">3–6 Months</div>
-                                    <div class="select-option">Flexible</div>
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="API Integrations"
+                                        >
+                                            API Integrations
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Other"
+                                        >
+                                            Other
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+                                <label>
+                                    What capability matters most?
+                                </label>
+
                             </div>
-                            
-                            <label>Select Urgency - Project Urgency</label>
-                            <div class="tooltip">How soon you want this built</div>
-                            
-                        </div>
 
 
+                            <!-- 🟢 UPGRADE:
+                                 INTEGRATIONS -->
 
+                            <div class="form-group">
 
+                                <textarea
+                                    class="input projectIntegrations"
+                                    id="projectIntegrations"
+                                    name="integrations"
+                                    maxlength="1500"
+                                    placeholder=" "
+                                ></textarea>
 
+                                <label for="projectIntegrations">
+                                    Required Integrations
+                                </label>
 
-
-
-
-
-
-                        <!-- ===================== -->
-                        <!-- 🟢 ARCHITECTURE -->
-                        <!-- ===================== -->
-                        <div class="form-group">
-
-                            <div class="custom-select" data-name="architecture">
-                                <input type="hidden" name="architecture" required />
-                                
-                                <div class="select-trigger"></div>
-                                
-                                <div class="select-dropdown">
-                                    <div class="select-option">Basic</div>
-                                    <div class="select-option">Standard</div>
-                                    <div class="select-option">High-performance</div>
+                                <div class="tooltip">
+                                    Example: M-Pesa, Stripe, payment gateways, APIs, accounting systems, CRMs.
                                 </div>
+
                             </div>
-                            
-                            <label>Select Architecture - Architectural Strength</label>
-                            
-                        </div>
 
 
+                            <!-- 🟢 UPGRADE:
+                                 TECHNICAL ENVIRONMENT -->
 
+                            <div class="form-group">
 
+                                <textarea
+                                    class="input technicalEnvironment"
+                                    id="technicalEnvironment"
+                                    name="technicalEnvironment"
+                                    maxlength="1500"
+                                    placeholder=" "
+                                ></textarea>
 
+                                <label for="technicalEnvironment">
+                                    Existing Technical Environment
+                                </label>
 
-
-
-
-
-
-
-
-
-                        <!-- ===================== -->
-                        <!-- 🟢 SCALABILITY -->
-                        <!-- ===================== -->
-                        <div class="form-group">
-
-                            <div class="custom-select" data-name="scalability">
-                                <input type="hidden" name="scalability" required />
-                                
-                                <div class="select-trigger"></div>
-                                
-                                <div class="select-dropdown">
-                                    <div class="select-option">Small Scale</div>
-                                    <div class="select-option">Growing Business</div>
-                                    <div class="select-option">Enterprise Scale</div>
+                                <div class="tooltip">
+                                    Tell us about existing software, hosting, APIs, databases or infrastructure.
                                 </div>
+
                             </div>
-                            
-                            <label>Select Scalability - Scalability</label>
-                            
-                        </div>
+
+                        </fieldset>
 
 
+                        <!-- =================================================
+                             SECTION 04
+                             TECHNICAL REQUIREMENTS
+                        ================================================== -->
+
+                        <fieldset class="form-section">
+
+                            <legend>
+                                <span class="section-number">04</span>
+                                Technical Requirements
+                            </legend>
 
 
+                            <!-- ARCHITECTURE -->
 
+                            <div class="form-group">
 
+                                <div
+                                    class="custom-select"
+                                    data-name="architecture"
+                                    data-required="true"
+                                >
 
+                                    <input
+                                        type="hidden"
+                                        name="architecture"
+                                        required
+                                    />
 
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Architecture
+                                        </span>
+                                    </button>
 
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Standard"
+                                        >
+                                            Standard
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="High Performance"
+                                        >
+                                            High Performance
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Distributed / Cloud"
+                                        >
+                                            Distributed / Cloud
+                                        </div>
 
-                        <!-- ===================== -->
-                        <!-- 🟢 MODULARITY -->
-                        <!-- ===================== -->
-                        <div class="form-group">
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Enterprise Architecture"
+                                        >
+                                            Enterprise Architecture
+                                        </div>
 
-                            <div class="custom-select" data-name="modularity">
-                                <input type="hidden" name="modularity" required />
-                                
-                                <div class="select-trigger"></div>
-                                
-                                <div class="select-dropdown">
-                                    <div class="select-option">Simple</div>
-                                    <div class="select-option">Modular</div>
-                                    <div class="select-option">Highly Modular</div>
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Not Sure"
+                                        >
+                                            I'm not sure
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+                                <label>
+                                    Technical Architecture
+                                </label>
+
                             </div>
-                            
-                            <label>Select Modularity - Modularity</label>
-                            
-                        </div>
 
 
+                            <!-- SCALABILITY -->
 
+                            <div class="form-group">
 
+                                <div
+                                    class="custom-select"
+                                    data-name="scalability"
+                                    data-required="true"
+                                >
 
+                                    <input
+                                        type="hidden"
+                                        name="scalability"
+                                        required
+                                    />
 
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Scalability
+                                        </span>
+                                    </button>
 
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Small Scale"
+                                        >
+                                            Small Scale
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Growing Business"
+                                        >
+                                            Growing Business
+                                        </div>
 
-                        <!-- ===================== -->
-                        <!-- 🟢 IT TEAM -->
-                        <!-- ===================== -->
-                        <div class="form-group">
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="High Growth"
+                                        >
+                                            High Growth
+                                        </div>
 
-                            <div class="custom-select" data-name="hasTeam" id="hasTeamSelect">
-                                <input type="hidden" name="hasTeam" required />
-                                
-                                <div class="select-trigger"></div>
-                                
-                                <div class="select-dropdown">
-                                    <div class="select-option">Yes</div>
-                                    <div class="select-option">No</div>
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Enterprise Scale"
+                                        >
+                                            Enterprise Scale
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+                                <label>
+                                    Expected Scale
+                                </label>
+
                             </div>
-                            
-                            <label>Do you have an IT Team?</label>
-                            
-                        </div>
 
 
+                            <!-- MODULARITY -->
 
+                            <div class="form-group">
 
+                                <div
+                                    class="custom-select"
+                                    data-name="modularity"
+                                    data-required="true"
+                                >
 
+                                    <input
+                                        type="hidden"
+                                        name="modularity"
+                                        required
+                                    />
 
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Modularity
+                                        </span>
+                                    </button>
 
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Simple"
+                                        >
+                                            Simple
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Modular"
+                                        >
+                                            Modular
+                                        </div>
 
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Highly Modular"
+                                        >
+                                            Highly Modular
+                                        </div>
 
-                        <!-- ===================== -->
-                        <!-- 🟢 TEAM CAPACITY -->
-                        <!-- ===================== -->
-                        <div class="form-group hidden" id="teamCapacityGroup">
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Platform Architecture"
+                                        >
+                                            Platform Architecture
+                                        </div>
 
-                            <div class="custom-select" data-name="teamCapacity">
-                                <input type="hidden" name="teamCapacity" />
-                                
-                                <div class="select-trigger"></div>
-                                
-                                <div class="select-dropdown">
-                                    <div class="select-option">Junior Team</div>
-                                    <div class="select-option">Mid-level Team</div>
-                                    <div class="select-option">Senior Team</div>
-                                    <div class="select-option">DevOps Ready</div>
+                                    </div>
+
                                 </div>
+
+                                <label>
+                                    System Modularity
+                                </label>
+
                             </div>
-                            
-                            <label>Select the Capacity of your Existing Technical Team</label>
-                            
-                        </div>
+
+                        </fieldset>
+
+
+                        <!-- =================================================
+                             SECTION 05
+                             🟢 PROJECT INVESTMENT
+                        ================================================== -->
+
+                        <fieldset class="form-section budget-section">
+
+                            <legend>
+                                <span class="section-number">05</span>
+                                Project Investment
+                            </legend>
+
+
+                            <div class="form-field-description">
+
+                                <p>
+                                    <strong>Estimated Project Investment</strong>
+                                </p>
+
+                                <p class="small">
+                                    Select the range that best represents the level
+                                    of investment you are considering. This helps us
+                                    recommend an appropriate solution and scope.
+                                </p>
+
+                            </div>
+
+
+                            <!-- 🟢 UPGRADE:
+                                 BUDGET SELECT -->
+
+                            <div class="form-group">
+
+                                <div
+                                    class="custom-select budget-select"
+                                    data-name="budget"
+                                    data-required="true"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="budget"
+                                        required
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Estimated Investment
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="Under KSh 50,000"
+                                        >
+                                            <strong>
+                                                Under KSh 50,000
+                                            </strong>
+                                            <span>
+                                                Approx. USD $390
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="KSh 50,000 – 100,000"
+                                        >
+                                            <strong>
+                                                KSh 50,000 – 100,000
+                                            </strong>
+                                            <span>
+                                                Approx. USD $390 – $775
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="KSh 100,000 – 250,000"
+                                        >
+                                            <strong>
+                                                KSh 100,000 – 250,000
+                                            </strong>
+                                            <span>
+                                                Approx. USD $775 – $1,940
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="KSh 250,000 – 500,000"
+                                        >
+                                            <strong>
+                                                KSh 250,000 – 500,000
+                                            </strong>
+                                            <span>
+                                                Approx. USD $1,940 – $3,875
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="KSh 500,000 – 1,000,000"
+                                        >
+                                            <strong>
+                                                KSh 500,000 – 1,000,000
+                                            </strong>
+                                            <span>
+                                                Approx. USD $3,875 – $7,750
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="KSh 1,000,000 – 3,000,000"
+                                        >
+                                            <strong>
+                                                KSh 1,000,000 – 3,000,000
+                                            </strong>
+                                            <span>
+                                                Approx. USD $7,750 – $23,250
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option"
+                                            role="option"
+                                            data-value="KSh 3,000,000+"
+                                        >
+                                            <strong>
+                                                KSh 3,000,000+
+                                            </strong>
+                                            <span>
+                                                Approx. USD $23,250+
+                                            </span>
+                                        </div>
+
+
+                                        <div
+                                            class="select-option budget-option budget-guidance"
+                                            role="option"
+                                            data-value="I'm not sure — help me estimate"
+                                        >
+                                            <strong>
+                                                I'm not sure — help me estimate
+                                            </strong>
+                                            <span>
+                                                We'll help determine the appropriate scope.
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <label>
+                                    Estimated Project Investment
+                                </label>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- =================================================
+                             SECTION 06
+                             TIMELINE & TEAM
+                        ================================================== -->
+
+                        <fieldset class="form-section">
+
+                            <legend>
+                                <span class="section-number">06</span>
+                                Timeline & Team
+                            </legend>
+
+
+                            <!-- TIMELINE -->
+
+                            <div class="form-group">
+
+                                <div
+                                    class="custom-select"
+                                    data-name="urgency"
+                                    data-required="true"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="urgency"
+                                        required
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Desired Timeline
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="ASAP"
+                                        >
+                                            ASAP
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="1–3 Months"
+                                        >
+                                            1–3 Months
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="3–6 Months"
+                                        >
+                                            3–6 Months
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="6–12 Months"
+                                        >
+                                            6–12 Months
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Flexible"
+                                        >
+                                            Flexible
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <label>
+                                    Desired Timeline
+                                </label>
+
+                            </div>
+
+
+                            <!-- IT TEAM -->
+
+                            <div class="form-group">
+
+                                <div
+                                    class="custom-select"
+                                    data-name="hasTeam"
+                                    id="hasTeamSelect"
+                                    data-required="true"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="hasTeam"
+                                        required
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Option
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Yes"
+                                        >
+                                            Yes
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="No"
+                                        >
+                                            No
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <label>
+                                    Do You Have an Existing IT Team?
+                                </label>
+
+                            </div>
+
+
+                            <!-- TEAM CAPACITY -->
+
+                            <div
+                                class="form-group hidden"
+                                id="teamCapacityGroup"
+                            >
+
+                                <div
+                                    class="custom-select"
+                                    data-name="teamCapacity"
+                                    data-required="false"
+                                >
+
+                                    <input
+                                        type="hidden"
+                                        name="teamCapacity"
+                                    />
+
+                                    <button
+                                        type="button"
+                                        class="select-trigger"
+                                        aria-haspopup="listbox"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="select-placeholder">
+                                            Select Team Capacity
+                                        </span>
+                                    </button>
+
+                                    <div
+                                        class="select-dropdown"
+                                        role="listbox"
+                                    >
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Junior Team"
+                                        >
+                                            Junior Team
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Mid-level Team"
+                                        >
+                                            Mid-level Team
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="Senior Team"
+                                        >
+                                            Senior Team
+                                        </div>
+
+                                        <div
+                                            class="select-option"
+                                            role="option"
+                                            data-value="DevOps Ready"
+                                        >
+                                            DevOps Ready
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <label>
+                                    Existing Technical Team Capacity
+                                </label>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- =================================================
+                             SECTION 07
+                             FINAL DETAILS
+                        ================================================== -->
+
+                        <fieldset class="form-section">
+
+                            <legend>
+                                <span class="section-number">07</span>
+                                Final Details
+                            </legend>
+
+
+                            <!-- MESSAGE -->
+
+                            <div class="form-group">
+
+                                <textarea
+                                    class="input projectMessage"
+                                    id="message"
+                                    name="message"
+                                    minlength="20"
+                                    maxlength="5000"
+                                    required
+                                    placeholder=" "
+                                ></textarea>
+
+                                <label for="message">
+                                    Tell Us About The Project
+                                </label>
+
+                                <div class="tooltip">
+                                    Include anything else we should know - 20 CHAR MIN
+                                </div>
+
+                            </div>
+
+
+                            <!-- 🟢 UPGRADE:
+                                 CONSENT -->
+
+                            <label class="consent-control">
+
+                                <input
+                                    type="checkbox"
+                                    name="projectContactConsent"
+                                    value="I agree to be contacted regarding this project."
+                                    required
+                                />
+
+                                <span>
+                                    I agree that River may contact me regarding
+                                    this project enquiry.
+                                </span>
+
+                            </label>
+
+
+                            <!-- =================================================
+                                 🟢 UPGRADE:
+                                 PRIMARY PROJECT SUBMISSION
+                            ================================================== -->
+
+                            <button
+                                class="btn submit-button"
+                                type="submit"
+                            >
+                                <span class="submit-label">
+                                    Send Project Request
+                                </span>
+
+                                <span
+                                    class="submit-loading"
+                                    aria-hidden="true"
+                                >
+                                    Sending…
+                                </span>
+
+                            </button>
+
+
+                            <p
+                                id="formStatus"
+                                class="small form-status"
+                                role="status"
+                                aria-live="polite"
+                            ></p>
+
+
+
+                            <!-- =================================================
+                                 🟢 UPGRADE:
+                                 MULTI-PATH CONTACT OPTIONS
+                            ================================================== -->
+
+                            <div
+                                class="contact-action-paths"
+                                aria-label="Other ways to contact River"
+                            >
+
+                                <div class="action-divider" aria-hidden="true">
+                                    <span>OR</span>
+                                </div>
+
+
+                                <!-- 🟢 UPGRADE:
+                                     WHATSAPP FAST-TRACK -->
+
+                                <button
+                                    type="button"
+                                    id="whatsappContactButton"
+                                    class="btn contact-path-button whatsapp-button"
+                                >
+                                    <span class="contact-path-icon" aria-hidden="true">💬</span>
+
+                                    <span class="contact-path-copy">
+                                        <strong>Chat on WhatsApp</strong>
+                                        <small>
+                                            Prefer a quick conversation? Chat with us directly.
+                                        </small>
+                                    </span>
+
+                                    <span class="contact-path-arrow" aria-hidden="true">↗</span>
+                                </button>
+
+
+                                <!-- 🟢 UPGRADE:
+                                     CONSULTATION PATH -->
+
+                                <button
+                                    type="button"
+                                    id="consultationButton"
+                                    class="btn contact-path-button consultation-button"
+                                >
+                                    <span class="contact-path-icon" aria-hidden="true">◌</span>
+
+                                    <span class="contact-path-copy">
+                                        <strong>Book a Consultation</strong>
+                                        <small>
+                                            Best for larger projects that need discovery.
+                                        </small>
+                                    </span>
+
+                                    <span class="contact-path-arrow" aria-hidden="true">↗</span>
+                                </button>
+
+                            </div>
 
 
 
@@ -467,75 +1737,105 @@
 
 
 
-                        <!-- Message -->
-                        <div class="form-group">
-                            <textarea
-                                class="input projectMessage"
-                                name="message"
-                                required
-                                placeholder=" ">
-                            </textarea>
-
-                            <label>Project Details</label>
-                        </div>
 
 
-
-
-
-
-
-                        <button class="btn" type="submit">
-                            Send Request
-                        </button>
-
-
-
-
-                        <p id="formStatus" class="small"></p>
-
-
-
-
+                        </fieldset>
 
 
                     </form>
 
                 </div>
 
-                <div class="empty-div-two"></div>
 
+                <!-- =================================================
+                     CONTACT INFORMATION
+                ================================================== -->
 
-
-
-
-                <!-- =========================
-                     CONTACT INFO
-                ========================== -->
                 <div class="contact-info-card">
 
-                    <h3>Our Offices</h3>
+                    <span class="form-eyebrow">
+                        RIVER / CONTACT
+                    </span>
+
+                    <h3>
+                        Let's Build Something That Matters.
+                    </h3>
+
+                    <p class="small">
+                        Whether you need a high-converting website,
+                        internal business system, SaaS product or
+                        enterprise platform, start by telling us what
+                        you are trying to achieve.
+                    </p>
+
 
                     <div class="office-block">
-                        <h4>Nairobi (HQ)</h4>
-                        <p class="small">Kenya</p>
+
+                        <h4>
+                            Nairobi (HQ)
+                        </h4>
+
+                        <p class="small">
+                            Kenya
+                        </p>
+
                     </div>
 
+
                     <div class="office-block">
-                        <h4>Global</h4>
+
+                        <h4>
+                            Global
+                        </h4>
+
                         <p class="small">
                             Remote-first teams worldwide
                         </p>
+
                     </div>
 
-                    <div class="office-block">
-                        <h4>Email</h4>
-                        <p class="small">contact@river.com</p>
-                    </div>
 
                     <div class="office-block">
-                        <h4>Response Time</h4>
-                        <p class="small">Within 24 hours</p>
+
+                        <h4>
+                            Email
+                        </h4>
+
+                        <p class="small">
+                            yaseiriver@gmail.com
+                        </p>
+
+                    </div>
+
+
+                    <div class="office-block">
+
+                        <h4>
+                            Response Time
+                        </h4>
+
+                        <p class="small">
+                            Within 24 hours
+                        </p>
+
+                    </div>
+
+
+                    <!-- 🟢 UPGRADE:
+                         POSITIONING -->
+
+                    <div class="contact-discovery-note">
+
+                        <strong>
+                            What happens next?
+                        </strong>
+
+                        <p class="small">
+                            We review your requirements, assess the
+                            likely scope and get back to you with the
+                            appropriate next step.
+                        </p>
+
                     </div>
 
                 </div>
@@ -546,11 +1846,16 @@
 
     </main>
 
+
     <!-- Footer -->
+
     <river-footer></river-footer>
 
+
     <!-- Back To Top -->
+
     <river-backtotop></river-backtotop>
+
 
     <!-- =========================
          LIBRARIES
@@ -558,50 +1863,78 @@
 
     <!-- Phone Input -->
 
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
-
-
+    <script
+        src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"
+    ></script>
 
 
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    ></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+    ></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"
+    ></script>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"
+    ></script>
+
 
     <!-- =========================
          CORE
     ========================== -->
+
     <script src="js/main.js"></script>
+
     <script src="js/additionalfiles.js"></script>
 
 
-
     <!-- Intro -->
+
     <script src="js/components/intro/intro.js"></script>
+
     <script src="js/components/intro/riverIntro.js"></script>
 
+
     <!-- Header -->
+
     <script src="js/components/header/riverHeader.js"></script>
 
+
     <!-- Hero -->
+
     <script src="js/components/heroSection/heroSection.js"></script>
 
+
     <!-- Components -->
+
     <script src="js/components/footer/riverFooter.js"></script>
+
     <script src="js/components/backToTop/riverBackToTop.js"></script>
+
     <script src="js/components/header-logo/header-logo.js"></script>
+
     <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+
     <script src="js/components/pageTransition/pageTransition.js"></script>
+
     <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
+
     <script src="js/components/projectCard/projectCard.js"></script>
 
 
-    <!-- Contact Form -->
+    <!-- =========================
+         🟢 UPGRADE:
+         CONTACT FORM SYSTEM
+    ========================== -->
 
-    <script src="intlTelInput.min.js"></script>
-    <script src="utils.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/utils.js"></script>
     <script src="js/components/contactForm/contactForm.js"></script>
 
 </body>

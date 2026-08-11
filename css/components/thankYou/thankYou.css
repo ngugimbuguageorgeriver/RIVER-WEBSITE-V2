@@ -93,7 +93,7 @@ BASE
   ========================= */
   .small {
   margin-top: var(--space-md);
-  font-size: var(--fs-small);
+  font-size: var(--fs-md);
   opacity: 0.6;
   }
 

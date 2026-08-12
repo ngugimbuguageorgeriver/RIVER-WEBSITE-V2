@@ -1,201 +1,472 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <!-- Meta -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <title>Projects & Case Studies | River IT Solutions</title>
 
-  <!-- Title -->
-  <title>Projects & Case Studies | River IT Solutions</title>
+    <!-- 🟢 UPGRADE: SEO -->
+    <meta
+        name="description"
+        content="Explore River IT Solutions projects, software systems, digital products, automation platforms, APIs, dashboards and engineered solutions."
+    />
 
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styling.css" />
 
+    <link
+        rel="stylesheet"
+        href="css/components/intro/intro.css"
+    />
 
+    <link
+        rel="stylesheet"
+        href="css/components/menuPage/menuPage.css"
+    />
 
+    <link
+        rel="stylesheet"
+        href="css/components/backToTop/backToTop.css"
+    />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/styling.css" />
-  <link rel="stylesheet" href="css/components/intro/intro.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css"
+    />
 
-  <!-- Components -->
-  <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
-  <link rel="stylesheet" href="css/components/backToTop/backToTop.css" />
-  <link rel="stylesheet" href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css" />
-  <link rel="stylesheet" href="css/components/systemTheme/systemTheme.css" />
-  <link rel="stylesheet" href="css/components/backgroundSystem/backgroundSystem.css" />
-  <link rel="stylesheet" href="css/components/info-trust/infoTrust.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/systemTheme/systemTheme.css"
+    />
 
-  <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/backgroundSystem/backgroundSystem.css"
+    />
 
+    <link
+        rel="stylesheet"
+        href="css/components/info-trust/infoTrust.css"
+    />
 
-  <link rel="stylesheet" href="css/components/projects/projects.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/pageTransition/pageTransition.css"
+    />
 
-  <link rel="stylesheet" href="css/components/projectsPage/projectsGrid.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/projects/projects.css"
+    />
 
-  <link rel="stylesheet" href="css/components/footer/footer.css" />
+    <link
+        rel="stylesheet"
+        href="css/components/projectsPage/projectsGrid.css"
+    />
 
+    <!-- 🟢 UPGRADE: Project intelligence styling -->
+    <link
+        rel="stylesheet"
+        href="css/components/projectsPage/projectIntelligence.css"
+    />
 
+    <link
+        rel="stylesheet"
+        href="css/components/footer/footer.css"
+    />
 
-
-  <!-- Favicon -->
-  <link rel="icon" class="favicon" type="image" href="assets/Media/riverWebsiteLogos/r logo.png"/>
-
-
-
-
+    <link
+        rel="icon"
+        class="favicon"
+        type="image"
+        href="assets/Media/riverWebsiteLogos/r logo.png"
+    />
 
 </head>
 
+
 <body>
 
+    <!-- PAGE TRANSITION -->
+    <div id="pageTransition"></div>
 
 
+    <!-- BACKGROUND -->
+    <div class="bg-system">
 
+        <img
+            id="bgImage"
+            src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
+            alt="background"
+        />
 
+        <div class="bg-gradient"></div>
 
+    </div>
 
-  <!-- PAGE TRANSITION OVERLAY -->
-  <div id="pageTransition"></div>
 
-  <!-- 🌌 BACKGROUND -->
-  <div class="bg-system">
-    <img
-      id="bgImage"
-      src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
-      alt="background"
-    />
-    <div class="bg-gradient"></div>
-  </div>
+    <!-- HEADER -->
+    <river-header></river-header>
 
 
-  <!-- HEADER -->
-  <!-- HEADER COMPONENT -->
-  <river-header></river-header>
+    <main class="main-container">
 
 
+        <!-- HERO -->
+        <hero-section
+            title="River — Projects & Case Studies"
+            subtitle="Real problems. Engineered systems. Measurable solutions."
+        ></hero-section>
 
 
+        <div class="empty-div-one"></div>
 
 
+        <!-- =========================================================
+             🟢 UPGRADE: PROJECT INTRODUCTION
+             ========================================================= -->
 
+        <section class="project-introduction">
 
-  <!-- Main Content -->
-  <main class="main-container">
+            <div class="info-container">
 
+                <p class="eyebrow">
+                    ENGINEERED DIGITAL SOLUTIONS
+                </p>
 
+                <h1>
+                    We don't just show what we built.
+                    We show why we built it.
+                </h1>
 
+                <p class="small">
+                    Explore the problems, architecture, technology,
+                    development process, capabilities and outcomes
+                    behind River projects.
+                </p>
 
+            </div>
 
-    <!-- HERO-SECTION -->
-    <hero-section
-    title="River — Projects & Case Studies"
-    subtitle="Recent deliveries and deep dives."
-    ></hero-section>
+        </section>
 
-    <div class="empty-div-one"></div>
 
+        <div class="empty-div-two"></div>
 
 
+        <!-- =========================================================
+             🟢 UPGRADE: PROJECT FILTER SYSTEM
+             ========================================================= -->
 
-    <!---->
-    <!-- 🟢 PROJECTS GRID (CUSTOM ELEMENT) - The grid is now driven by RIVER_PROJECTS. -->
-    <section>
-      <div class="info-container">
+        <section class="project-filter-section">
 
-        <p class="small">
-          Our Portfolio across domains: Retail, Industrial, Energy and IoT.
-        </p>
+            <div class="info-container">
 
-        <projects-grid></projects-grid>
+                <div class="project-filter-header">
 
-      </div>
-    </section>
+                    <div>
 
-    <div class="empty-div-two"></div>
+                        <p class="eyebrow">
+                            EXPLORE OUR WORK
+                        </p>
 
+                        <h2>
+                            Projects & Case Studies
+                        </h2>
 
+                    </div>
 
+                    <div
+                        class="project-results-count"
+                        id="projectResultsCount"
+                    >
+                        0 projects
+                    </div>
 
-    <!-- Quick Links Section -->
-    <section>
-      <div class="grid-3">
+                </div>
 
-        <div
-            class="grid-3"
-            id="projectQuickLinks"
-        ></div>
 
+                <div
+                    class="project-filters"
+                    id="projectFilters"
+                ></div>
 
-      </div>
-    </section>
 
+                <div class="project-search">
 
-    <div class="empty-div-four"></div>
+                    <input
+                        type="search"
+                        id="projectSearch"
+                        placeholder="Search projects, technologies, capabilities..."
+                        autocomplete="off"
+                    />
 
-  </main>
+                </div>
 
+            </div>
 
+        </section>
 
 
+        <div class="empty-div-two"></div>
 
 
+        <!-- =========================================================
+             🟢 UPGRADE: FEATURED CASE STUDY
+             ========================================================= -->
 
-  <!-- FOOTER -->
-  <river-footer></river-footer>
+        <section class="featured-case-study">
 
-  <!-- BACK TO TOP -->
-  <river-backtotop></river-backtotop>
+            <div
+                class="info-container"
+                id="featuredCaseStudy"
+            ></div>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+        </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
-  <script src="js/additionalfiles.js"></script>
+        <div class="empty-div-two"></div>
 
-  <!-- Intro -->
-  <script src="js/components/intro/intro.js"></script>
-  <script src="js/components/intro/riverIntro.js"></script>
 
+        <!-- =========================================================
+             🟢 UPGRADE: PROJECT GRID
+             ========================================================= -->
 
+        <section>
 
+            <div class="info-container">
 
-  <!-- Header -->
-  <script src="js/components/header/riverHeader.js"></script>
+                <div
+                    id="projectGridStatus"
+                    class="project-grid-status"
+                ></div>
 
-  <!-- HERO-SECTION -->
-  <script src="js/components/heroSection/heroSection.js"></script>
+                <projects-grid></projects-grid>
 
+            </div>
 
+        </section>
 
-  <!-- Components -->
-  <script src="js/components/footer/riverFooter.js"></script>
-  <script src="js/components/backToTop/riverBackToTop.js"></script>
-  <script src="js/components/header-logo/header-logo.js"></script>
-  <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
 
+        <div class="empty-div-two"></div>
 
-  <script src="js/components/pageTransition/pageTransition.js"></script>
 
+        <!-- =========================================================
+             🟢 UPGRADE: WHAT WE SOLVE
+             ========================================================= -->
 
+        <section class="what-we-solve-section">
 
-  <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
-  <script src="js/components/projectCard/projectCard.js"></script>
+            <div class="info-container">
 
-  <script src="js/components/mediaPlayer/mediaData.js"></script>
-  <script src="js/components/projectsPage/projectsGrid.js"></script>
+                <p class="eyebrow">
+                    WHAT WE SOLVE
+                </p>
 
+                <h2>
+                    Business problems we engineer around
+                </h2>
 
+                <div
+                    id="problemMatrix"
+                    class="problem-matrix"
+                ></div>
 
+            </div>
 
+        </section>
 
 
+        <div class="empty-div-two"></div>
+
+
+        <!-- =========================================================
+             🟢 UPGRADE: DEVELOPMENT PROCESS
+             ========================================================= -->
+
+        <section class="project-process-section">
+
+            <div class="info-container">
+
+                <p class="eyebrow">
+                    HOW WE BUILD
+                </p>
+
+                <h2>
+                    From problem to production
+                </h2>
+
+                <div
+                    id="projectProcess"
+                    class="project-process"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <div class="empty-div-two"></div>
+
+
+        <!-- =========================================================
+             🟢 UPGRADE: TECHNOLOGY MATRIX
+             ========================================================= -->
+
+        <section class="technology-matrix-section">
+
+            <div class="info-container">
+
+                <p class="eyebrow">
+                    TECHNOLOGY & CAPABILITIES
+                </p>
+
+                <h2>
+                    Engineering capabilities
+                </h2>
+
+                <div
+                    id="technologyMatrix"
+                    class="technology-matrix"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <div class="empty-div-two"></div>
+
+
+        <!-- =========================================================
+             🟢 UPGRADE: QUICK LINKS / RELATED PROJECTS
+             ========================================================= -->
+
+        <section>
+
+            <div class="info-container">
+
+                <p class="eyebrow">
+                    EXPLORE MORE
+                </p>
+
+                <div
+                    id="projectQuickLinks"
+                    class="grid-3"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <div class="empty-div-four"></div>
+
+
+        <!-- =========================================================
+             🟢 UPGRADE: FINAL CTA
+             ========================================================= -->
+
+        <section class="project-final-cta">
+
+            <div class="info-container">
+
+                <p class="eyebrow">
+                    HAVE A PROBLEM TO SOLVE?
+                </p>
+
+                <h2>
+                    Let's engineer the right system for it.
+                </h2>
+
+                <p class="small">
+                    Tell us what you're trying to achieve,
+                    what is currently getting in the way,
+                    and where you want to go next.
+                </p>
+
+                <a
+                    href="contact.html"
+                    class="btn"
+                >
+                    Start a Project
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <river-footer></river-footer>
+
+    <river-backtotop></river-backtotop>
+
+
+    <!-- GSAP -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+
+
+    <!-- CORE -->
+
+    <script src="js/main.js"></script>
+
+    <script src="js/additionalfiles.js"></script>
+
+
+    <!-- INTRO -->
+
+    <script src="js/components/intro/intro.js"></script>
+
+    <script src="js/components/intro/riverIntro.js"></script>
+
+
+    <!-- HEADER -->
+
+    <script src="js/components/header/riverHeader.js"></script>
+
+
+    <!-- HERO -->
+
+    <script src="js/components/heroSection/heroSection.js"></script>
+
+
+    <!-- COMPONENTS -->
+
+    <script src="js/components/footer/riverFooter.js"></script>
+
+    <script src="js/components/backToTop/riverBackToTop.js"></script>
+
+    <script src="js/components/header-logo/header-logo.js"></script>
+
+    <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+
+    <script src="js/components/pageTransition/pageTransition.js"></script>
+
+
+    <!-- =========================================================
+         🟢 UPGRADE: CENTRAL DATA MUST LOAD BEFORE COMPONENTS
+         ========================================================= -->
+
+    <script src="js/components/mediaPlayer/mediaData.js"></script>
+
+    <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
+
+    <script src="js/components/projectCard/projectCard.js"></script>
+
+    <script src="js/components/projectsPage/projectsGrid.js"></script>
 
 </body>
+
 </html>

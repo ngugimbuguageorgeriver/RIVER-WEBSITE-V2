@@ -10,7 +10,7 @@
   background: linear-gradient(to bottom, #e81414 0%, #e47e10 100%);
   transition: background-position 0.6s ease;
 
-  height: 15svh;
+  height: 10svh;
 
   border-bottom: 1px solid var(--orange-500);
 }
@@ -23,9 +23,9 @@
   width:min(99%, var(--max-width)); /* 🟢 modern clamp alternative */
   margin-inline:auto;
 
-  padding-top: var(--space-md);
+  padding-top: var(--space-sm);
   padding-right: var(--space-lg);
-  padding-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
   padding-left: var(--space-lg);
 
 

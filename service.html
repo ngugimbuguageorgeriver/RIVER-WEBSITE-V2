@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <!-- =========================================================
+       META
+  ========================================================== -->
+
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <meta
+    name="description"
+    content="River IT Solutions — Digital service."
+  />
+
+  <meta
+    name="theme-color"
+    content="#000000"
+  />
+
+
+  <!-- =========================================================
+       TITLE
+  ========================================================== -->
+
+  <title>Service | River IT Solutions</title>
+
+
+  <!-- =========================================================
+       MAIN STYLES
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/styling.css"
+  />
+
+
+  <!-- =========================================================
+       INTRO
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/intro/intro.css"
+  />
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css"
+  />
+
+
+  <!-- =========================================================
+       SYSTEM
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/systemTheme/systemTheme.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/backgroundSystem/backgroundSystem.css"
+  />
+
+
+  <!-- =========================================================
+       PAGE TRANSITION
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/pageTransition/pageTransition.css"
+  />
+
+
+  <!-- =========================================================
+       BACK TO TOP
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/backToTop/backToTop.css"
+  />
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/footer/footer.css"
+  />
+
+
+  <!-- =========================================================
+       SERVICE PAGE
+  ========================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/servicesPage/serviceDetail.css"
+  />
+
+
+  <!-- =========================================================
+       FAVICON
+  ========================================================== -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       PAGE TRANSITION
+  ========================================================== -->
+
+  <div id="pageTransition"></div>
+
+
+  <!-- =========================================================
+       BACKGROUND
+  ========================================================== -->
+
+  <div class="bg-system">
+
+    <img
+      id="bgImage"
+      src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
+      alt=""
+    />
+
+    <div class="bg-gradient"></div>
+
+  </div>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <river-header></river-header>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+
+  <main class="main-container service-main">
+
+    <service-page></service-page>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+  <river-footer></river-footer>
+
+
+  <!-- =========================================================
+       BACK TO TOP
+  ========================================================== -->
+
+  <river-backtotop></river-backtotop>
+
+
+  <!-- =========================================================
+       GSAP
+  ========================================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+
+
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
+
+  <script src="js/main.js"></script>
+
+  <script src="js/additionalfiles.js"></script>
+
+
+  <!-- =========================================================
+       INTRO
+  ========================================================== -->
+
+  <script src="js/components/intro/intro.js"></script>
+
+  <script src="js/components/intro/riverIntro.js"></script>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
+
+  <script src="js/components/header/riverHeader.js"></script>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+
+  <script src="js/components/footer/riverFooter.js"></script>
+
+
+  <!-- =========================================================
+       BACK TO TOP
+  ========================================================== -->
+
+  <script src="js/components/backToTop/riverBackToTop.js"></script>
+
+
+  <!-- =========================================================
+       HEADER LOGO
+  ========================================================== -->
+
+  <script src="js/components/header-logo/header-logo.js"></script>
+
+
+  <!-- =========================================================
+       THEME
+  ========================================================== -->
+
+  <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+
+
+  <!-- =========================================================
+       PAGE TRANSITION
+  ========================================================== -->
+
+  <script src="js/components/pageTransition/pageTransition.js"></script>
+
+
+  <!-- =========================================================
+       SERVICES DATA
+  ========================================================== -->
+
+  <!--
+    IMPORTANT:
+
+    This MUST load before servicePage.js.
+
+    serviceDetail.js uses the same catalogue
+    created for services.html.
+  -->
+
+  <script src="js/components/servicesPage/servicesData.js"></script>
+
+
+  <!-- =========================================================
+       SERVICE PAGE
+  ========================================================== -->
+
+  <script src="js/components/servicesPage/serviceDetail.js"></script>
+
+
+</body>
+
+</html>

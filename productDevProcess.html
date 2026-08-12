@@ -1,17 +1,24 @@
-
-
-
 <!doctype html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
 
   <title>Product Development Process | River. IT Solutions</title>
 
+  <!-- 🟢 UPGRADE: SEO / accessibility metadata -->
+  <meta
+    name="description"
+    content="Discover how River transforms ideas into validated, scalable digital products through discovery, strategy, design, engineering, testing, launch and continuous improvement."
+  />
 
+  <meta
+    name="theme-color"
+    content="#050505"
+  />
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css" />
@@ -25,129 +32,195 @@
   <link rel="stylesheet" href="css/components/systemTheme/systemTheme.css" />
   <link rel="stylesheet" href="css/components/backgroundSystem/backgroundSystem.css" />
   <link rel="stylesheet" href="css/components/info-trust/infoTrust.css" />
-
   <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
-
-
-
   <link rel="stylesheet" href="css/components/projects/projects.css" />
 
-  <link rel="stylesheet" href="css/components/productDevelopmentProcess/productDevelopmentProcess.css" />
-
+  <!-- 🟢 UPGRADE: Complete Product Development Process styling -->
+  <link
+    rel="stylesheet"
+    href="css/components/productDevelopmentProcess/productDevelopmentProcess.css"
+  />
 
   <link rel="stylesheet" href="css/components/footer/footer.css" />
 
-
-
-
   <!-- Favicon -->
-  <link rel="icon" class="favicon" type="image" href="assets/Media/riverWebsiteLogos/r logo.png"/>
-
-
-
-
+  <link
+    rel="icon"
+    class="favicon"
+    type="image/png"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
 
 </head>
 
+
 <body>
-
-
-
-
-
 
   <!-- PAGE TRANSITION OVERLAY -->
   <div id="pageTransition"></div>
 
+
   <!-- 🌌 BACKGROUND -->
   <div class="bg-system">
+
     <img
       id="bgImage"
       src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
-      alt="background"
+      alt=""
     />
+
     <div class="bg-gradient"></div>
+
   </div>
 
 
-
   <!-- HEADER -->
-  <!-- HEADER COMPONENT -->
   <river-header></river-header>
-
-
-
-
 
 
   <!-- MAIN -->
   <main class="main-container">
 
 
-
-
-
-    <!-- HERO-SECTION -->
+    <!-- HERO SECTION -->
     <hero-section
-    title="River — Product Development Process"
-    subtitle="Learn how we build innovative solutions for our clients."
+      title="River — Product Development Process"
+      subtitle="We turn ideas into products, products into systems, and systems into measurable value."
     ></hero-section>
+
 
     <div class="empty-div-one"></div>
 
 
+    <!-- 🟢 UPGRADE: PRODUCT JOURNEY INTRODUCTION -->
+    <section
+      class="product-journey-intro"
+      aria-labelledby="productJourneyTitle"
+    >
+
+      <div class="product-journey-intro-inner">
+
+        <div class="product-journey-kicker">
+          HOW RIVER BUILDS
+        </div>
+
+        <h1 id="productJourneyTitle">
+          Ideas don't become products
+          <span>by accident.</span>
+        </h1>
+
+        <p class="product-journey-intro-copy">
+          We move deliberately from problem discovery to product strategy,
+          design, engineering, validation, launch and continuous evolution.
+        </p>
 
 
+        <!-- 🟢 UPGRADE: Journey overview -->
+        <div
+          class="journey-overview"
+          aria-label="Product development journey"
+        >
+
+          <div class="journey-overview-line"></div>
+
+          <div class="journey-overview-stage active">
+            <span>01</span>
+            <strong>DISCOVER</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>02</span>
+            <strong>DEFINE</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>03</span>
+            <strong>DESIGN</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>04</span>
+            <strong>BUILD</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>05</span>
+            <strong>VALIDATE</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>06</span>
+            <strong>LAUNCH</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>07</span>
+            <strong>LEARN</strong>
+          </div>
+
+          <div class="journey-overview-stage">
+            <span>08</span>
+            <strong>EVOLVE</strong>
+          </div>
+
+        </div>
 
 
+        <div class="journey-scroll-hint">
+          <span>SCROLL TO ENTER THE JOURNEY</span>
+          <span class="journey-scroll-arrow">↓</span>
+        </div>
+
+      </div>
+
+    </section>
 
 
+    <!-- 🟢 UPGRADE:
+         COMPLETE INTERACTIVE PRODUCT DEVELOPMENT EXPERIENCE -->
     <process-horizontal></process-horizontal>
 
 
     <div class="empty-div-four"></div>
 
 
-
-
   </main>
-
-
 
 
   <!-- FOOTER -->
   <river-footer></river-footer>
 
+
   <!-- BACK TO TOP -->
   <river-backtotop></river-backtotop>
 
-  <!-- GSAP -->
+
+  <!-- 🟢 UPGRADE:
+       GSAP loaded ONCE.
+       Removed duplicate CDN GSAP instances from the original file. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/additionalfiles.js"></script>
+
 
   <!-- Intro -->
   <script src="js/components/intro/intro.js"></script>
   <script src="js/components/intro/riverIntro.js"></script>
 
 
-
-
   <!-- Header -->
   <script src="js/components/header/riverHeader.js"></script>
 
-  <!-- HERO-SECTION -->
-  <script src="js/components/heroSection/heroSection.js"></script>
 
+  <!-- Hero -->
+  <script src="js/components/heroSection/heroSection.js"></script>
 
 
   <!-- Components -->
@@ -155,23 +228,16 @@
   <script src="js/components/backToTop/riverBackToTop.js"></script>
   <script src="js/components/header-logo/header-logo.js"></script>
   <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
-
-
   <script src="js/components/pageTransition/pageTransition.js"></script>
-
-
 
   <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
   <script src="js/components/projectCard/projectCard.js"></script>
 
 
+  <!-- 🟢 UPGRADE: Product Development Process engine -->
   <script src="js/components/productDevelopmentProcess/productDevelopmentProcess.js"></script>
 
 
-
-
-
-
-
 </body>
+
 </html>

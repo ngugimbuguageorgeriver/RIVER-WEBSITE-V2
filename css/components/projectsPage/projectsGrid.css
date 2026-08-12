@@ -1,74 +1,495 @@
-/* =========================
-   🟢 PROJECTS GRID SYSTEM
-========================= */
+/* ============================================================
+   RIVER PROJECT INTELLIGENCE
+   🟢 UPGRADE
+   ============================================================ */
 
-.projects-section {
-    width: 100%;
-  }
-  
-  /* 🟢 GRID */
-  .projects-grid {
-  display:grid;
-  width:min(90%, var(--max-width)); /* 🟢 modern clamp alternative */
-  margin-top: var(--space-md);
-  margin-inline: auto;      /* 3. Center horizontally */
-  padding-inline: var(--space); /* 4. Add side spacing */
-  gap:var(--space-md);
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 
-  font-family: var(--font-body);
-  }
-  
-  /* 🟢 MOBILE */
-  @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: 1fr; /* 🟢 MOBILE: 1 */
-    }
-  }
-  
-  /* 🟢 CARD */
-  .project-item {
+/* ============================================================
+   INTRO
+   ============================================================ */
+
+   .project-introduction {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.project-introduction h1 {
+    max-width: 850px;
+    margin: 15px 0;
+}
+
+
+/* ============================================================
+   EYEBROW
+   ============================================================ */
+
+.eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+/* ============================================================
+   FILTERS
+   ============================================================ */
+
+.project-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+.project-filter {
+    border: 1px solid currentColor;
+    background: transparent;
+    padding: 10px 16px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .project-item:hover {
-    transform: translateY(-6px);
-  }
-  
-  /* 🟢 TEXT (TOP) */
-  .project-text {
-    margin-bottom: 12px;
-  }
-  
-  .project-text h3 {
-    margin-bottom: 6px;
-  }
-  
-  /* 🟢 MEDIA */
-  .project-media {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #000;
-  }
-  
-  .project-media img,
-  .project-media video {
+    font: inherit;
+}
 
+
+.project-filter.active {
+    background: currentColor;
+    color: #fff;
+}
+
+
+.project-search input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 18px;
+    border: 1px solid rgba(128,128,128,.35);
+    background: transparent;
+    font: inherit;
+}
+
+
+/* ============================================================
+   PROJECT GRID
+   ============================================================ */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                280px,
+                1fr
+            )
+        );
+
+    gap: 24px;
+}
+
+
+.project-grid-card {
+    cursor: pointer;
+    border: 1px solid rgba(128,128,128,.18);
+    transition:
+        transform .35s ease,
+        border-color .35s ease;
+}
+
+
+.project-grid-card:hover,
+.project-grid-card:focus {
+    transform: translateY(-5px);
+    border-color: currentColor;
+    outline: none;
+}
+
+
+.project-grid-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+
+.project-grid-media img,
+.project-grid-media video {
     width: 100%;
     height: 100%;
-    object-fit:cover;
-    display: block;   
-  }
-  
-  /* 🟢 VIDEO AUTOPLAY PREVIEW */
-  .project-item:hover video {
-    opacity: 1;
-  }
-  
-  .project-media video {
-    transition: opacity 0.3s ease;
-  }
+    object-fit: cover;
+    display: block;
+}
+
+
+.project-status {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 9px;
+    font-size: .65rem;
+    font-weight: 800;
+    background: rgba(0,0,0,.75);
+    color: #fff;
+}
+
+
+.project-grid-content {
+    padding: 22px;
+}
+
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: .68rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+
+.project-grid-content h3 {
+    margin: 12px 0;
+}
+
+
+.case-study-preview {
+    margin: 20px 0;
+}
+
+
+.project-capability-tags,
+.technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+
+.project-capability-tags span,
+.technology-tags span {
+    padding: 6px 9px;
+    border: 1px solid rgba(128,128,128,.3);
+    font-size: .68rem;
+}
+
+
+.project-technologies {
+    margin: 16px 0;
+    font-size: .72rem;
+    opacity: .7;
+}
+
+
+/* ============================================================
+   FEATURED CASE STUDY
+   ============================================================ */
+
+.featured-case-study-card {
+    display: grid;
+    grid-template-columns:
+        minmax(250px, .8fr)
+        minmax(300px, 1.2fr);
+
+    gap: 50px;
+
+    padding: 45px;
+
+    border: 1px solid rgba(128,128,128,.25);
+}
+
+
+.featured-case-study-content {
+    display: grid;
+    gap: 25px;
+}
+
+
+.featured-case-study-content > div {
+    border-bottom: 1px solid rgba(128,128,128,.2);
+    padding-bottom: 18px;
+}
+
+
+/* ============================================================
+   PROBLEM MATRIX
+   ============================================================ */
+
+.problem-matrix {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                200px,
+                1fr
+            )
+        );
+
+    gap: 10px;
+    margin-top: 30px;
+}
+
+
+.problem-item {
+    text-align: left;
+    padding: 18px;
+    border: 1px solid rgba(128,128,128,.25);
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+}
+
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+
+.project-process {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                150px,
+                1fr
+            )
+        );
+
+    gap: 12px;
+    margin-top: 30px;
+}
+
+
+.process-step {
+    min-height: 140px;
+    padding: 20px;
+    border: 1px solid rgba(128,128,128,.25);
+}
+
+
+.process-step span {
+    font-size: .7rem;
+    font-weight: 800;
+}
+
+
+.process-step h3 {
+    margin-top: 35px;
+}
+
+
+/* ============================================================
+   TECHNOLOGY MATRIX
+   ============================================================ */
+
+.technology-matrix {
+    display: grid;
+    gap: 35px;
+    margin-top: 30px;
+}
+
+
+.technology-group {
+    padding: 25px;
+    border: 1px solid rgba(128,128,128,.25);
+}
+
+
+.technology-group h3 {
+    margin-top: 0;
+}
+
+
+.technology-tags {
+    gap: 9px;
+}
+
+
+/* ============================================================
+   CTA
+   ============================================================ */
+
+.project-final-cta {
+    text-align: center;
+}
+
+
+.project-final-cta .info-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* ============================================================
+   MEDIA PLAYER CASE STUDY
+   ============================================================ */
+
+.river-case-study {
+    margin-top: 70px;
+}
+
+
+.river-case-study-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.case-study-header {
+    margin-bottom: 40px;
+}
+
+
+.case-study-story {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                250px,
+                1fr
+            )
+        );
+
+    gap: 25px;
+}
+
+
+.case-study-story > div {
+    padding: 25px;
+    border: 1px solid rgba(128,128,128,.2);
+}
+
+
+.case-study-data {
+    display: grid;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+
+.architecture-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.architecture-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid rgba(128,128,128,.25);
+}
+
+
+.architecture-step span {
+    font-size: .65rem;
+    opacity: .6;
+}
+
+
+.related-projects {
+    margin-top: 50px;
+}
+
+
+.related-project-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                220px,
+                1fr
+            )
+        );
+
+    gap: 15px;
+}
+
+
+.related-project {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 20px;
+    border: 1px solid rgba(128,128,128,.25);
+    text-decoration: none;
+}
+
+
+.related-project span {
+    font-size: .7rem;
+    opacity: .65;
+}
+
+
+/* ============================================================
+   MEDIA CAPTION
+   ============================================================ */
+
+.media-caption {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 13px;
+    background: rgba(0,0,0,.72);
+    color: #fff;
+}
+
+
+.media-caption span {
+    font-size: .68rem;
+    opacity: .75;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .project-filter-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    .featured-case-study-card {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+
+    .project-grid-content {
+        padding: 18px;
+    }
+
+
+    .project-process {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .architecture-flow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}

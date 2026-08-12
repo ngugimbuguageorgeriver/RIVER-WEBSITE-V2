@@ -358,7 +358,7 @@ textarea.input {
 .input:not(:placeholder-shown) + label,
 .form-group.has-value > label {
 
-  top: -9px;
+  top: -12px;
 
   transform: none;
 

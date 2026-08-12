@@ -3,152 +3,299 @@
  * projectsGrid.js
  * ============================================================
  *
- * PROJECTS GRID
- *
  * 🟢 UPGRADE:
+ * Full project intelligence interface.
  *
- * The grid no longer stores project/media data locally.
+ * Features:
  *
- * It reads everything from:
- *
- *     window.RIVER_PROJECTS
- *
- * This makes the Projects page use the exact same data
- * as the Index page and Media Player.
+ * - Central registry
+ * - Search
+ * - Type filtering
+ * - Industry filtering
+ * - Technology filtering
+ * - Problem filtering
+ * - Featured project
+ * - Case-study cards
+ * - Problem matrix
+ * - Process
+ * - Technology/capability matrix
+ * - Related projects
+ * - Media player deep linking
  *
  * ============================================================
  */
 
-
 class ProjectsGrid extends HTMLElement {
-
 
     connectedCallback() {
 
+        this.projects =
+            window.getRiverProjects
+                ? window.getRiverProjects()
+                : [];
 
-        /* ====================================================
-           🟢 UPGRADE:
-           CHECK CENTRAL REGISTRY
-           ==================================================== */
+        this.activeFilter = "ALL";
+
+        this.searchQuery = "";
+
+        this.render();
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: MASTER RENDER
+       ========================================================= */
+
+    render() {
+
+        if (!this.projects.length) {
+
+            this.innerHTML = `
+                <div class="projects-grid-error">
+                    <p>No projects available.</p>
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        this.renderFilters();
+
+        this.renderProjects();
+
+        this.renderFeatured();
+
+        this.renderProblems();
+
+        this.renderProcess();
+
+        this.renderTechnologyMatrix();
+
+        this.renderQuickLinks();
+
+        this.bindEvents();
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: FILTERS
+       ========================================================= */
+
+    renderFilters() {
+
+        const container =
+            document.getElementById(
+                "projectFilters"
+            );
+
+        if (!container) {
+            return;
+        }
+
+
+        const types = [
+
+            "ALL",
+
+            ...new Set(
+                this.projects
+                    .map(
+                        project =>
+                            project.type
+                    )
+                    .filter(Boolean)
+            ),
+
+            "CASE STUDIES"
+
+        ];
+
+
+        container.innerHTML =
+            types
+                .map(
+                    filter => `
+
+                        <button
+                            type="button"
+                            class="project-filter ${
+                                this.activeFilter === filter
+                                    ? "active"
+                                    : ""
+                            }"
+                            data-filter="${filter}"
+                        >
+                            ${filter}
+                        </button>
+
+                    `
+                )
+                .join("");
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: FILTER PROJECTS
+       ========================================================= */
+
+    getFilteredProjects() {
+
+        let results =
+            [...this.projects];
+
 
         if (
-            !window.RIVER_PROJECTS
+            this.activeFilter !== "ALL"
         ) {
 
-            console.error(
-                "River: RIVER_PROJECTS is not available."
-            );
+            if (
+                this.activeFilter ===
+                "CASE STUDIES"
+            ) {
 
+                results =
+                    results.filter(
+                        project =>
+                            project.caseStudy
+                    );
 
-            this.innerHTML = `
+            } else {
 
-                <div class="projects-grid-error">
+                results =
+                    results.filter(
+                        project =>
+                            project.type ===
+                            this.activeFilter
+                    );
 
-                    <p>
-                        Project data could not be loaded.
-                    </p>
-
-                </div>
-
-            `;
-
-
-            return;
-
-        }
-
-
-
-        /* ====================================================
-           GET PROJECTS
-           ==================================================== */
-
-        const projects =
-            Object.values(
-                window.RIVER_PROJECTS
-            );
-
-
-
-        /* ====================================================
-           EMPTY PROJECT REGISTRY
-           ==================================================== */
-
-        if (!projects.length) {
-
-            this.innerHTML = `
-
-                <div class="projects-grid-empty">
-
-                    <p>
-                        No projects available.
-                    </p>
-
-                </div>
-
-            `;
-
-
-            return;
+            }
 
         }
 
 
+        if (this.searchQuery) {
 
-        /* ====================================================
-           BUILD GRID
-           ==================================================== */
+            const query =
+                this.searchQuery
+                    .toLowerCase();
+
+
+            results =
+                results.filter(
+                    project => {
+
+                        const content = [
+
+                            project.title,
+
+                            project.desc,
+
+                            project.type,
+
+                            ...(project.industry || []),
+
+                            ...(project.technologies || []),
+
+                            ...(project.capabilities || []),
+
+                            ...(project.problems || [])
+
+                        ]
+                            .join(" ")
+                            .toLowerCase();
+
+
+                        return content.includes(
+                            query
+                        );
+
+                    }
+                );
+
+        }
+
+
+        return results;
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: PROJECT GRID
+       ========================================================= */
+
+    renderProjects() {
+
+        const filtered =
+            this.getFilteredProjects();
+
+
+        const count =
+            document.getElementById(
+                "projectResultsCount"
+            );
+
+
+        if (count) {
+
+            count.textContent =
+                `${filtered.length} ${
+                    filtered.length === 1
+                        ? "project"
+                        : "projects"
+                }`;
+
+        }
+
+
+        const status =
+            document.getElementById(
+                "projectGridStatus"
+            );
+
+
+        if (status) {
+
+            status.textContent =
+                filtered.length
+                    ? ""
+                    : "No projects match your search.";
+
+        }
+
 
         this.innerHTML = `
 
             <div class="projects-grid">
 
-                ${projects
-                    .map(
-                        project =>
-                            this.createProjectCard(
-                                project
-                            )
-                    )
-                    .join("")
+                ${
+                    filtered
+                        .map(
+                            project =>
+                                this.createProjectCard(
+                                    project
+                                )
+                        )
+                        .join("")
                 }
 
             </div>
 
         `;
 
-
-
-        /* ====================================================
-           🟢 UPGRADE:
-           ADD CLICK EVENTS
-           ==================================================== */
-
-        this.bindProjectEvents();
-
-
-
-        /* ====================================================
-           🟢 UPGRADE:
-           BUILD QUICK LINKS
-           ==================================================== */
-
-        this.buildQuickLinks(
-            projects
-        );
-
     }
 
 
+    /* =========================================================
+       🟢 UPGRADE: CASE STUDY CARD
+       ========================================================= */
 
-    /* ========================================================
-       CREATE PROJECT CARD
-       ======================================================== */
-
-    createProjectCard(
-        project
-    ) {
-
+    createProjectCard(project) {
 
         const firstMedia =
             Array.isArray(project.media) &&
@@ -157,13 +304,33 @@ class ProjectsGrid extends HTMLElement {
                 : null;
 
 
-
-        const mediaHTML =
+        const media =
             this.createPreviewMedia(
                 firstMedia,
                 project.title
             );
 
+
+        const capabilities =
+            (
+                project.capabilities ||
+                []
+            )
+                .slice(0, 4)
+                .map(
+                    item =>
+                        `<span>${item}</span>`
+                )
+                .join("");
+
+
+        const technologies =
+            (
+                project.technologies ||
+                []
+            )
+                .slice(0, 4)
+                .join(" · ");
 
 
         return `
@@ -174,61 +341,91 @@ class ProjectsGrid extends HTMLElement {
 
                 data-project-slug="${project.slug}"
 
+                tabindex="0"
+
             >
-
-
-                <!-- ==========================================
-                     MEDIA PREVIEW
-                     ========================================== -->
 
                 <div class="project-grid-media">
 
-                    ${mediaHTML}
+                    ${media}
+
+                    <span class="project-status">
+                        ${project.status || "PROJECT"}
+                    </span>
 
                 </div>
 
-
-
-                <!-- ==========================================
-                     CONTENT
-                     ========================================== -->
 
                 <div class="project-grid-content">
 
+                    <div class="project-meta">
+
+                        <span>
+                            ${project.type || "PROJECT"}
+                        </span>
+
+                        <span>
+                            ${
+                                project.industry?.[0] ||
+                                ""
+                            }
+                        </span>
+
+                    </div>
+
 
                     <h3>
-
                         ${project.title}
-
                     </h3>
 
 
-
                     <p class="small">
-
                         ${project.desc || ""}
-
                     </p>
 
 
+                    ${
+                        project.caseStudy
+                            ? `
+                                <div class="case-study-preview">
+
+                                    <strong>
+                                        Client challenge
+                                    </strong>
+
+                                    <p class="small">
+                                        ${project.caseStudy.challenge}
+                                    </p>
+
+                                </div>
+                            `
+                            : ""
+                    }
+
+
+                    <div class="project-capability-tags">
+
+                        ${capabilities}
+
+                    </div>
+
+
+                    <div class="project-technologies">
+
+                        ${technologies}
+
+                    </div>
+
 
                     <button
-
                         class="btn project-media-btn"
-
                         type="button"
-
                         data-project-slug="${project.slug}"
-
                     >
-
-                        View Media
-
+                        Explore Project
                     </button>
 
-
                 </div>
-
 
             </article>
 
@@ -237,51 +434,34 @@ class ProjectsGrid extends HTMLElement {
     }
 
 
-
-    /* ========================================================
-       CREATE PREVIEW MEDIA
-       ======================================================== */
+    /* =========================================================
+       CREATE MEDIA PREVIEW
+       ========================================================= */
 
     createPreviewMedia(
         media,
         title
     ) {
 
-
         if (!media) {
 
             return `
-
                 <div class="project-media-placeholder">
-
                     No media
-
                 </div>
-
             `;
 
         }
 
 
-
-        /* ====================================================
-           IMAGE
-           ==================================================== */
-
-        if (
-            media.type === "image"
-        ) {
+        if (media.type === "image") {
 
             return `
 
                 <img
-
                     src="${media.src}"
-
                     alt="${title}"
-
                     loading="lazy"
-
                 />
 
             `;
@@ -289,25 +469,14 @@ class ProjectsGrid extends HTMLElement {
         }
 
 
-
-        /* ====================================================
-           VIDEO
-           ==================================================== */
-
-        if (
-            media.type === "video"
-        ) {
+        if (media.type === "video") {
 
             return `
 
                 <video
-
                     muted
-
                     playsinline
-
                     preload="metadata"
-
                 >
 
                     <source
@@ -322,12 +491,134 @@ class ProjectsGrid extends HTMLElement {
         }
 
 
-
         return `
-
             <div class="project-media-placeholder">
-
                 Media unavailable
+            </div>
+        `;
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: FEATURED CASE STUDY
+       ========================================================= */
+
+    renderFeatured() {
+
+        const container =
+            document.getElementById(
+                "featuredCaseStudy"
+            );
+
+        if (!container) {
+            return;
+        }
+
+
+        const featured =
+            this.projects.find(
+                project =>
+                    project.featured
+            ) ||
+            this.projects[0];
+
+
+        const caseStudy =
+            featured.caseStudy;
+
+
+        if (!caseStudy) {
+
+            container.innerHTML = "";
+
+            return;
+
+        }
+
+
+        container.innerHTML = `
+
+            <div class="featured-case-study-card">
+
+                <div>
+
+                    <p class="eyebrow">
+                        FEATURED CASE STUDY
+                    </p>
+
+                    <h2>
+                        ${featured.title}
+                    </h2>
+
+                    <p class="small">
+                        ${featured.desc}
+                    </p>
+
+                    <button
+                        class="btn featured-project-btn"
+                        data-project-slug="${featured.slug}"
+                    >
+                        Watch Case Study
+                    </button>
+
+                </div>
+
+
+                <div class="featured-case-study-content">
+
+                    <div>
+
+                        <strong>
+                            THE PROBLEM
+                        </strong>
+
+                        <p class="small">
+                            ${caseStudy.challenge}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            THE APPROACH
+                        </strong>
+
+                        <p class="small">
+                            ${caseStudy.approach}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            THE SOLUTION
+                        </strong>
+
+                        <p class="small">
+                            ${caseStudy.solution}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            THE RESULT
+                        </strong>
+
+                        <p class="small">
+                            ${caseStudy.result}
+                        </p>
+
+                    </div>
+
+                </div>
 
             </div>
 
@@ -336,62 +627,352 @@ class ProjectsGrid extends HTMLElement {
     }
 
 
+    /* =========================================================
+       🟢 UPGRADE: WHAT WE SOLVE
+       ========================================================= */
 
-    /* ========================================================
-       🟢 UPGRADE:
-       PROJECT CLICK EVENTS
-       ======================================================== */
+    renderProblems() {
 
-    bindProjectEvents() {
+        const container =
+            document.getElementById(
+                "problemMatrix"
+            );
+
+        if (!container) {
+            return;
+        }
 
 
-        const cards =
-            this.querySelectorAll(
-                ".project-grid-card"
+        const problems = [
+
+            ...new Set(
+
+                this.projects.flatMap(
+                    project =>
+                        project.problems || []
+                )
+
+            )
+
+        ];
+
+
+        container.innerHTML =
+            problems
+                .map(
+                    problem => `
+
+                        <button
+                            type="button"
+                            class="problem-item"
+                            data-search="${problem}"
+                        >
+                            ${problem}
+                        </button>
+
+                    `
+                )
+                .join("");
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: DEVELOPMENT PROCESS
+       ========================================================= */
+
+    renderProcess() {
+
+        const container =
+            document.getElementById(
+                "projectProcess"
+            );
+
+        if (!container) {
+            return;
+        }
+
+
+        const process = [
+
+            "Discovery",
+            "Architecture",
+            "UX & Interface",
+            "Development",
+            "Testing",
+            "Deployment",
+            "Optimization"
+
+        ];
+
+
+        container.innerHTML =
+            process
+                .map(
+                    (step, index) => `
+
+                        <div
+                            class="process-step"
+                        >
+
+                            <span>
+                                ${String(index + 1).padStart(2, "0")}
+                            </span>
+
+                            <h3>
+                                ${step}
+                            </h3>
+
+                        </div>
+
+                    `
+                )
+                .join("");
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: TECHNOLOGY MATRIX
+       ========================================================= */
+
+    renderTechnologyMatrix() {
+
+        const container =
+            document.getElementById(
+                "technologyMatrix"
+            );
+
+        if (!container) {
+            return;
+        }
+
+
+        const technologies = [
+
+            ...new Set(
+
+                this.projects.flatMap(
+                    project =>
+                        project.technologies || []
+                )
+
+            )
+
+        ];
+
+
+        const capabilities = [
+
+            ...new Set(
+
+                this.projects.flatMap(
+                    project =>
+                        project.capabilities || []
+                )
+
+            )
+
+        ];
+
+
+        container.innerHTML = `
+
+            <div class="technology-group">
+
+                <h3>
+                    Technologies
+                </h3>
+
+                <div class="technology-tags">
+
+                    ${
+                        technologies
+                            .map(
+                                item =>
+                                    `<span>${item}</span>`
+                            )
+                            .join("")
+                    }
+
+                </div>
+
+            </div>
+
+
+            <div class="technology-group">
+
+                <h3>
+                    System Capabilities
+                </h3>
+
+                <div class="technology-tags">
+
+                    ${
+                        capabilities
+                            .map(
+                                item =>
+                                    `<span>${item}</span>`
+                            )
+                            .join("")
+                    }
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: QUICK LINKS
+       ========================================================= */
+
+    renderQuickLinks() {
+
+        const container =
+            document.getElementById(
+                "projectQuickLinks"
+            );
+
+        if (!container) {
+            return;
+        }
+
+
+        container.innerHTML =
+            this.projects
+                .slice(0, 3)
+                .map(
+                    project => `
+
+                        <div class="card">
+
+                            <h3>
+                                ${project.title}
+                            </h3>
+
+                            <p class="small">
+                                ${project.desc || ""}
+                            </p>
+
+                            <button
+                                class="btn"
+                                data-project-slug="${project.slug}"
+                            >
+                                Explore
+                            </button>
+
+                        </div>
+
+                    `
+                )
+                .join("");
+
+    }
+
+
+    /* =========================================================
+       🟢 UPGRADE: EVENTS
+       ========================================================= */
+
+    bindEvents() {
+
+        /* FILTERS */
+
+        document
+            .querySelectorAll(
+                ".project-filter"
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            this.activeFilter =
+                                button.dataset.filter;
+
+                            this.render();
+
+                        }
+                    );
+
+                }
             );
 
 
-        cards.forEach(
-            card => {
+        /* SEARCH */
 
+        const search =
+            document.getElementById(
+                "projectSearch"
+            );
+
+
+        if (search) {
+
+            search.value =
+                this.searchQuery;
+
+
+            search.addEventListener(
+                "input",
+                event => {
+
+                    this.searchQuery =
+                        event.target.value;
+
+                    this.render();
+
+                    const newSearch =
+                        document.getElementById(
+                            "projectSearch"
+                        );
+
+                    if (newSearch) {
+
+                        newSearch.focus();
+
+                        newSearch.setSelectionRange(
+                            newSearch.value.length,
+                            newSearch.value.length
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* PROJECT CARDS */
+
+        this.querySelectorAll(
+            ".project-grid-card"
+        )
+        .forEach(
+            card => {
 
                 const slug =
                     card.dataset.projectSlug;
 
 
-                if (!slug) {
-
-                    return;
-
-                }
-
-
-
-                /* ============================================
-                   CARD CLICK
-                   ============================================ */
-
                 card.addEventListener(
                     "click",
                     event => {
 
-
-                        /*
-                         * If user clicked the actual button,
-                         * the button handler below will take
-                         * care of navigation.
-                         */
-
                         if (
                             event.target.closest(
-                                ".project-media-btn"
+                                "button"
                             )
                         ) {
-
                             return;
-
                         }
-
 
                         this.openMediaPlayer(
                             slug
@@ -401,50 +982,107 @@ class ProjectsGrid extends HTMLElement {
                 );
 
 
+                card.addEventListener(
+                    "keydown",
+                    event => {
 
-                /* ============================================
-                   BUTTON CLICK
-                   ============================================ */
+                        if (
+                            event.key === "Enter" ||
+                            event.key === " "
+                        ) {
 
-                const button =
-                    card.querySelector(
-                        ".project-media-btn"
-                    );
-
-
-                if (button) {
-
-                    button.addEventListener(
-                        "click",
-                        event => {
-
-                            event.stopPropagation();
+                            event.preventDefault();
 
                             this.openMediaPlayer(
                                 slug
                             );
 
                         }
-                    );
 
-                }
+                    }
+                );
 
             }
         );
 
+
+        /* ALL PROJECT BUTTONS */
+
+        document
+            .querySelectorAll(
+                "[data-project-slug]"
+            )
+            .forEach(
+                element => {
+
+                    element.addEventListener(
+                        "click",
+                        event => {
+
+                            const slug =
+                                element.dataset.projectSlug;
+
+                            if (slug) {
+
+                                event.stopPropagation();
+
+                                this.openMediaPlayer(
+                                    slug
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        /* PROBLEM BUTTONS */
+
+        document
+            .querySelectorAll(
+                "[data-search]"
+            )
+            .forEach(
+                button => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            const search =
+                                document.getElementById(
+                                    "projectSearch"
+                                );
+
+                            if (search) {
+
+                                search.value =
+                                    button.dataset.search;
+
+                                this.searchQuery =
+                                    button.dataset.search;
+
+                                this.render();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
     }
 
 
+    /* =========================================================
+       🟢 UPGRADE: OPEN PROJECT
+       ========================================================= */
 
-    /* ========================================================
-       🟢 UPGRADE:
-       OPEN CENTRAL MEDIA PLAYER
-       ======================================================== */
-
-    openMediaPlayer(
-        slug
-    ) {
-
+    openMediaPlayer(slug) {
 
         const project =
             window.getRiverProject(
@@ -455,58 +1093,37 @@ class ProjectsGrid extends HTMLElement {
         if (!project) {
 
             console.error(
-                "River: Cannot open media player. Project not found:",
+                "River: Project not found:",
                 slug
             );
-
 
             return;
 
         }
 
 
-
-        /* ====================================================
-           OPTIONAL FALLBACK SESSION DATA
-           ==================================================== */
-
         try {
 
             sessionStorage.setItem(
-
                 "river_project_slug",
-
                 project.slug
-
             );
 
-
             sessionStorage.setItem(
-
                 "river_project_title",
-
                 project.title
-
             );
 
-
             sessionStorage.setItem(
-
                 "river_full_desc",
-
                 project.desc || ""
-
             );
 
-
             sessionStorage.setItem(
-
                 "river_media",
-
                 JSON.stringify(
                     project.media || []
                 )
-
             );
 
         } catch (error) {
@@ -519,11 +1136,6 @@ class ProjectsGrid extends HTMLElement {
         }
 
 
-
-        /* ====================================================
-           PAGE TRANSITION
-           ==================================================== */
-
         document
             .getElementById(
                 "pageTransition"
@@ -533,24 +1145,13 @@ class ProjectsGrid extends HTMLElement {
             );
 
 
-
-        /* ====================================================
-           🟢 UPGRADE:
-           DEEP LINK TO CENTRAL MEDIA PLAYER
-           ==================================================== */
-
-        const url =
-            `mediaPlayer.html?project=${encodeURIComponent(
-                project.slug
-            )}`;
-
-
-
         setTimeout(
             () => {
 
                 window.location.href =
-                    url;
+                    `mediaPlayer.html?project=${encodeURIComponent(
+                        project.slug
+                    )}`;
 
             },
             400
@@ -558,135 +1159,8 @@ class ProjectsGrid extends HTMLElement {
 
     }
 
-
-
-    /* ========================================================
-       🟢 UPGRADE:
-       QUICK LINKS
-       ======================================================== */
-
-    buildQuickLinks(
-        projects
-    ) {
-
-
-        const container =
-            document.getElementById(
-                "projectQuickLinks"
-            );
-
-
-        if (!container) {
-
-            return;
-
-        }
-
-
-
-        /*
-         * Clear existing content.
-         */
-
-        container.innerHTML = "";
-
-
-
-        /*
-         * We can show the first three projects,
-         * matching the original design.
-         */
-
-        projects
-            .slice(0, 3)
-            .forEach(
-                project => {
-
-
-                    const card =
-                        document.createElement(
-                            "div"
-                        );
-
-
-                    card.className =
-                        "card";
-
-
-
-                    card.innerHTML = `
-
-                        <h3>
-
-                            ${project.title}
-
-                        </h3>
-
-
-                        <p class="small">
-
-                            ${project.desc || ""}
-
-                        </p>
-
-
-                        <p>
-
-                            <button
-
-                                class="btn"
-
-                                type="button"
-
-                                data-project-slug="${project.slug}"
-
-                            >
-
-                                Open
-
-                            </button>
-
-                        </p>
-
-                    `;
-
-
-
-                    const button =
-                        card.querySelector(
-                            "button"
-                        );
-
-
-                    button.addEventListener(
-                        "click",
-                        () => {
-
-                            this.openMediaPlayer(
-                                project.slug
-                            );
-
-                        }
-                    );
-
-
-
-                    container.appendChild(
-                        card
-                    );
-
-                }
-            );
-
-    }
-
 }
 
-
-
-/* ============================================================
-   REGISTER CUSTOM ELEMENT
-   ============================================================ */
 
 customElements.define(
     "projects-grid",

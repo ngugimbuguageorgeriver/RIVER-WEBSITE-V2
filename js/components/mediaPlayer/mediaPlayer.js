@@ -3,39 +3,20 @@
  * mediaPlayer.js
  * ============================================================
  *
- * RIVER SMART PROJECT MEDIA PLAYER
+ * RIVER SMART PROJECT + PRODUCT MEDIA PLAYER
  *
  * 🟢 UPGRADE:
  *
- * The player now automatically:
+ * The player now understands:
  *
- * 1. Detects project from URL
- * 2. Finds project in RIVER_PROJECTS
- * 3. Extracts project media
- * 4. Creates a media queue
- * 5. Validates queue items
- * 6. Preloads media
- * 7. Builds Swiper slides
- * 8. Initializes Swiper
- * 9. Plays the active item
+ * PROJECT
+ * PRODUCT
  *
- * Example:
+ * URL examples:
  *
  * mediaPlayer.html?project=web-ecommerce
  *
- *                    ↓
- *
- * RIVER_PROJECTS["web-ecommerce"]
- *
- *                    ↓
- *
- * media queue:
- *
- * [image, video, image]
- *
- *                    ↓
- *
- * ready for playback
+ * mediaPlayer.html?product=inventory-os
  *
  * ============================================================
  */
@@ -44,11 +25,6 @@
 document.addEventListener(
     "DOMContentLoaded",
     async () => {
-
-
-        /* ====================================================
-           ELEMENTS
-           ==================================================== */
 
         const wrapper =
             document.getElementById(
@@ -74,11 +50,6 @@ document.addEventListener(
             );
 
 
-
-        /* ====================================================
-           SAFETY CHECK
-           ==================================================== */
-
         if (!wrapper) {
 
             console.error(
@@ -90,10 +61,8 @@ document.addEventListener(
         }
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           READ PROJECT FROM URL
+           🟢 UPGRADE: DETECT PROJECT OR PRODUCT
            ==================================================== */
 
         const params =
@@ -102,78 +71,111 @@ document.addEventListener(
             );
 
 
-        let projectSlug =
-            params.get("project");
+        const requestedProject =
+            params.get(
+                "project"
+            );
 
+
+        const requestedProduct =
+            params.get(
+                "product"
+            );
+
+
+        let entityType =
+            requestedProduct
+                ? "product"
+                : "project";
+
+
+        let entitySlug =
+            requestedProduct ||
+            requestedProject;
 
 
         /* ====================================================
-           🟢 UPGRADE:
-           SESSION STORAGE FALLBACK
+           🟢 UPGRADE: SESSION FALLBACK
            ==================================================== */
 
-        if (!projectSlug) {
+        if (!entitySlug) {
 
-            projectSlug =
+            entityType =
                 sessionStorage.getItem(
-                    "river_project_slug"
+                    "river_media_entity_type"
+                ) ||
+                "project";
+
+
+            entitySlug =
+                sessionStorage.getItem(
+                    "river_media_entity_slug"
                 );
 
         }
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           NORMALIZE SLUG
+           🟢 UPGRADE: NORMALIZE
            ==================================================== */
 
-        if (projectSlug) {
+        if (entitySlug) {
 
-            projectSlug =
-                projectSlug
-                    .toLowerCase()
-                    .trim();
+            entitySlug =
+                entityType === "product"
+
+                    ? (
+                        window.normalizeRiverProductSlug
+                            ? window.normalizeRiverProductSlug(
+                                entitySlug
+                            )
+                            : entitySlug
+                    )
+
+                    : (
+                        window.normalizeRiverProjectSlug
+                            ? window.normalizeRiverProjectSlug(
+                                entitySlug
+                            )
+                            : entitySlug
+                    );
 
         }
 
 
-
-        /* ====================================================
-           PROJECT DETECTION
-           ==================================================== */
-
         console.log(
-            "River Media Player: Detecting project:",
-            projectSlug
+            "River Media Player:",
+            entityType,
+            entitySlug
         );
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           PROJECT LOOKUP
+           🟢 UPGRADE: LOOKUP
            ==================================================== */
 
-        let project = null;
+        let entity =
+            entityType === "product"
 
+                ? (
+                    window.getRiverProduct
+                        ? window.getRiverProduct(
+                            entitySlug
+                        )
+                        : null
+                )
 
-        if (
-            projectSlug &&
-            typeof window.getRiverProject === "function"
-        ) {
-
-            project =
-                window.getRiverProject(
-                    projectSlug
+                : (
+                    window.getRiverProject
+                        ? window.getRiverProject(
+                            entitySlug
+                        )
+                        : null
                 );
-
-        }
-
 
 
         /* ====================================================
-           FALLBACK PROJECT DATA
+           FALLBACK MEDIA
            ==================================================== */
 
         let fallbackMedia = [];
@@ -199,26 +201,27 @@ document.addEventListener(
         } catch (error) {
 
             console.warn(
-                "River Media Player: Could not parse fallback media.",
+                "River Media Player: fallback media unavailable.",
                 error
             );
 
         }
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           BUILD PROJECT OBJECT FROM FALLBACK
+           🟢 UPGRADE: SESSION FALLBACK ENTITY
            ==================================================== */
 
-        if (!project && fallbackMedia.length) {
+        if (
+            !entity &&
+            fallbackMedia.length
+        ) {
 
-            project = {
+            entity = {
 
                 slug:
-                    projectSlug ||
-                    "session-project",
+                    entitySlug ||
+                    "session-entity",
 
                 title:
                     sessionStorage.getItem(
@@ -232,6 +235,11 @@ document.addEventListener(
                     ) ||
                     "",
 
+                type:
+                    entityType === "product"
+                        ? "PRODUCT"
+                        : "PROJECT",
+
                 media:
                     fallbackMedia
 
@@ -240,15 +248,12 @@ document.addEventListener(
         }
 
 
-
-        /* ====================================================
-           PROJECT NOT FOUND
-           ==================================================== */
-
-        if (!project) {
+        if (!entity) {
 
             showPlayerError(
-                "No project was found."
+                entityType === "product"
+                    ? "No product was found."
+                    : "No project was found."
             );
 
             return;
@@ -256,66 +261,66 @@ document.addEventListener(
         }
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           UPDATE PROJECT HEADER
+           🟢 UPGRADE: HEADER
            ==================================================== */
 
         if (titleEl) {
 
             titleEl.textContent =
-                project.title ||
+                entity.title ||
                 "River";
 
         }
 
 
-
-        /* ====================================================
-           DESCRIPTION
-           ==================================================== */
-
         if (descEl) {
 
             descEl.textContent =
-                project.desc ||
-                sessionStorage.getItem(
-                    "river_full_desc"
-                ) ||
+                entity.tagline ||
+                entity.desc ||
                 "";
 
         }
 
 
+        /* ====================================================
+           🟢 UPGRADE: PRODUCT / PROJECT INFORMATION
+           ==================================================== */
+
+        if (
+            entityType ===
+            "product"
+        ) {
+
+            injectProductInformation(
+                entity
+            );
+
+        } else {
+
+            injectCaseStudy(
+                entity
+            );
+
+        }
+
 
         /* ====================================================
-           🟢 UPGRADE:
-           CREATE MEDIA QUEUE
+           🟢 UPGRADE: MEDIA QUEUE
            ==================================================== */
 
         const mediaQueue =
             buildMediaQueue(
-                project
+                entity,
+                entityType
             );
 
-
-
-        console.log(
-            "River Media Player: Media queue created:",
-            mediaQueue
-        );
-
-
-
-        /* ====================================================
-           QUEUE EMPTY
-           ==================================================== */
 
         if (!mediaQueue.length) {
 
             showPlayerError(
-                `No media found for "${project.title}".`
+                `No media found for "${entity.title}".`
             );
 
             return;
@@ -323,23 +328,13 @@ document.addEventListener(
         }
 
 
-
-        /* ====================================================
-           🟢 UPGRADE:
-           DISPLAY QUEUE SIZE
-           ==================================================== */
-
         updateQueueStatus(
-            `Preparing ${mediaQueue.length} media item${
-                mediaQueue.length === 1 ? "" : "s"
-            }...`
+            `Preparing ${mediaQueue.length} media items...`
         );
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           PRELOAD MEDIA
+           PRELOAD
            ==================================================== */
 
         await preloadMediaQueue(
@@ -348,10 +343,19 @@ document.addEventListener(
         );
 
 
+        if (!mediaQueue.length) {
+
+            showPlayerError(
+                "Media could not be loaded."
+            );
+
+            return;
+
+        }
+
 
         /* ====================================================
-           🟢 UPGRADE:
-           BUILD SWIPER SLIDES
+           BUILD
            ==================================================== */
 
         buildMediaSlides(
@@ -360,23 +364,13 @@ document.addEventListener(
         );
 
 
-
-        /* ====================================================
-           🟢 UPGRADE:
-           QUEUE IS READY
-           ==================================================== */
-
         updateQueueStatus(
-            `${mediaQueue.length} media item${
-                mediaQueue.length === 1 ? "" : "s"
-            } ready`
+            `${mediaQueue.length} media items ready`
         );
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           INITIALIZE PLAYER
+           PLAYER
            ==================================================== */
 
         initializePlayer(
@@ -384,94 +378,770 @@ document.addEventListener(
         );
 
 
-
         /* ====================================================
-           🟢 UPGRADE:
-           PLAYER IS READY
-           ==================================================== */
-
-        setTimeout(() => {
-
-            updateQueueStatus(
-                "Ready"
-            );
-
-        }, 500);
-
-
-
-        /* ====================================================
-           🟢 UPGRADE:
-           EXPOSE PLAYER QUEUE GLOBALLY
-           
-           Useful later if you want:
-           
-           - external play button
-           - next project
-           - queue UI
-           - playlist
-           - analytics
+           🟢 UPGRADE: GLOBAL PLAYER STATE
            ==================================================== */
 
         window.RIVER_MEDIA_PLAYER = {
 
-            project: project,
+            entity,
 
-            projectSlug:
-                project.slug,
+            entityType,
+
+            entitySlug:
+                entity.slug,
 
             queue:
                 mediaQueue
 
         };
 
-
     }
 );
 
 
+/* ============================================================
+   🟢 UPGRADE: PRODUCT INFORMATION
+   ============================================================ */
+
+function injectProductInformation(
+    product
+) {
+
+    let container =
+        document.getElementById(
+            "riverProductInformation"
+        );
+
+
+    if (!container) {
+
+        container =
+            document.createElement(
+                "section"
+            );
+
+        container.id =
+            "riverProductInformation";
+
+        container.className =
+            "river-product-information";
+
+
+        const mediaPlayer =
+            document.querySelector(
+                ".media-player"
+            ) ||
+            document.querySelector(
+                "main"
+            ) ||
+            document.body;
+
+
+        mediaPlayer.appendChild(
+            container
+        );
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="river-product-information-inner">
+
+            <p class="eyebrow">
+                RIVER PRODUCT
+            </p>
+
+            <h2>
+                ${escapeHTML(
+                    product.title
+                )}
+            </h2>
+
+            ${
+                product.tagline
+                    ? `
+                        <p class="product-player-tagline">
+                            ${escapeHTML(
+                                product.tagline
+                            )}
+                        </p>
+                    `
+                    : ""
+            }
+
+
+            <div class="product-player-meta">
+
+                <span>
+                    ${
+                        escapeHTML(
+                            product.category ||
+                            "PRODUCT"
+                        )
+                    }
+                </span>
+
+                <span>
+                    ${
+                        escapeHTML(
+                            product.status ||
+                            ""
+                        )
+                    }
+                </span>
+
+                <span>
+                    ${
+                        escapeHTML(
+                            (
+                                product.deployment ||
+                                []
+                            ).join(
+                                " · "
+                            )
+                        )
+                    }
+                </span>
+
+            </div>
+
+
+            <div class="product-player-story">
+
+                ${
+                    product.problemStatement
+                        ? `
+                            <div>
+
+                                <strong>
+                                    THE PROBLEM
+                                </strong>
+
+                                <p>
+                                    ${escapeHTML(
+                                        product.problemStatement
+                                    )}
+                                </p>
+
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                ${
+                    product.outcome
+                        ? `
+                            <div>
+
+                                <strong>
+                                    THE OUTCOME
+                                </strong>
+
+                                <p>
+                                    ${escapeHTML(
+                                        product.outcome
+                                    )}
+                                </p>
+
+                            </div>
+                        `
+                        : ""
+                }
+
+            </div>
+
+
+            <div class="product-player-data">
+
+                <div>
+
+                    <h3>
+                        Capabilities
+                    </h3>
+
+                    <div class="technology-tags">
+
+                        ${
+                            (
+                                product.capabilities ||
+                                []
+                            )
+                                .map(
+                                    item =>
+                                        `<span>${escapeHTML(item)}</span>`
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Features
+                    </h3>
+
+                    <div class="technology-tags">
+
+                        ${
+                            (
+                                product.features ||
+                                []
+                            )
+                                .map(
+                                    item =>
+                                        `<span>${escapeHTML(item)}</span>`
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Architecture
+                    </h3>
+
+                    <div class="architecture-flow">
+
+                        ${
+                            (
+                                product.architecture ||
+                                []
+                            )
+                                .map(
+                                    (item, index) => `
+
+                                        <div class="architecture-step">
+
+                                            <span>
+                                                ${String(
+                                                    index + 1
+                                                ).padStart(
+                                                    2,
+                                                    "0"
+                                                )}
+                                            </span>
+
+                                            <strong>
+                                                ${escapeHTML(
+                                                    item
+                                                )}
+                                            </strong>
+
+                                        </div>
+
+                                    `
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-player-actions">
+
+                <a
+                    href="product.html?product=${encodeURIComponent(
+                        product.slug
+                    )}"
+                    class="btn"
+                >
+                    View Product
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="btn"
+                >
+                    Request Demo
+                </a>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
 
 
 /* ============================================================
-   🟢 UPGRADE:
-   BUILD MEDIA QUEUE
+   🟢 UPGRADE: CASE STUDY
    ============================================================ */
 
-function buildMediaQueue(project) {
+function injectCaseStudy(
+    project
+) {
+
+    let container =
+        document.getElementById(
+            "riverCaseStudy"
+        );
 
 
-    if (!project) {
-        return [];
-    }
+    if (!container) {
 
-
-    if (!Array.isArray(project.media)) {
-        return [];
-    }
-
-
-    return project.media
-
-        .filter(item => {
-
-            return (
-                item &&
-                item.src &&
-                (
-                    item.type === "image" ||
-                    item.type === "video"
-                )
+        container =
+            document.createElement(
+                "section"
             );
 
-        })
+        container.id =
+            "riverCaseStudy";
 
-        .map((item, index) => {
+        container.className =
+            "river-case-study";
 
-            return {
+
+        const mediaPlayer =
+            document.querySelector(
+                ".media-player"
+            ) ||
+            document.querySelector(
+                "main"
+            ) ||
+            document.body;
+
+
+        mediaPlayer.appendChild(
+            container
+        );
+
+    }
+
+
+    const study =
+        project.caseStudy ||
+        {};
+
+
+    container.innerHTML = `
+
+        <div class="river-case-study-inner">
+
+            <div class="case-study-header">
+
+                <p class="eyebrow">
+                    PROJECT CASE STUDY
+                </p>
+
+                <h2>
+                    ${escapeHTML(
+                        project.title
+                    )}
+                </h2>
+
+                <div class="project-meta">
+
+                    <span>
+                        ${
+                            escapeHTML(
+                                project.type ||
+                                "PROJECT"
+                            )
+                        }
+                    </span>
+
+                    <span>
+                        ${
+                            escapeHTML(
+                                project.status ||
+                                ""
+                            )
+                        }
+                    </span>
+
+                    <span>
+                        ${
+                            escapeHTML(
+                                (
+                                    project.industry ||
+                                    []
+                                ).join(
+                                    " · "
+                                )
+                            )
+                        }
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="case-study-story">
+
+                ${
+                    renderStoryBlock(
+                        "THE PROBLEM",
+                        study.challenge
+                    )
+                }
+
+                ${
+                    renderStoryBlock(
+                        "OUR APPROACH",
+                        study.approach
+                    )
+                }
+
+                ${
+                    renderStoryBlock(
+                        "THE SOLUTION",
+                        study.solution
+                    )
+                }
+
+                ${
+                    renderStoryBlock(
+                        "THE RESULT",
+                        study.result
+                    )
+                }
+
+            </div>
+
+
+            <div class="case-study-data">
+
+                <div>
+
+                    <h3>
+                        Technologies
+                    </h3>
+
+                    <div class="technology-tags">
+
+                        ${
+                            (
+                                project.technologies ||
+                                []
+                            )
+                                .map(
+                                    item =>
+                                        `<span>${escapeHTML(item)}</span>`
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Capabilities
+                    </h3>
+
+                    <div class="technology-tags">
+
+                        ${
+                            (
+                                project.capabilities ||
+                                []
+                            )
+                                .map(
+                                    item =>
+                                        `<span>${escapeHTML(item)}</span>`
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Architecture
+                    </h3>
+
+                    <div class="architecture-flow">
+
+                        ${
+                            (
+                                project.architecture ||
+                                []
+                            )
+                                .map(
+                                    (item, index) => `
+
+                                        <div class="architecture-step">
+
+                                            <span>
+                                                ${String(
+                                                    index + 1
+                                                ).padStart(
+                                                    2,
+                                                    "0"
+                                                )}
+                                            </span>
+
+                                            <strong>
+                                                ${escapeHTML(
+                                                    item
+                                                )}
+                                            </strong>
+
+                                        </div>
+
+                                    `
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Development Process
+                    </h3>
+
+                    <div class="architecture-flow">
+
+                        ${
+                            (
+                                project.process ||
+                                []
+                            )
+                                .map(
+                                    (item, index) => `
+
+                                        <div class="architecture-step">
+
+                                            <span>
+                                                ${String(
+                                                    index + 1
+                                                ).padStart(
+                                                    2,
+                                                    "0"
+                                                )}
+                                            </span>
+
+                                            <strong>
+                                                ${escapeHTML(
+                                                    item
+                                                )}
+                                            </strong>
+
+                                        </div>
+
+                                    `
+                                )
+                                .join("")
+                        }
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="riverRelatedProjects"
+                class="related-projects"
+            ></div>
+
+        </div>
+
+    `;
+
+
+    renderRelatedProjects(
+        project
+    );
+
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: STORY BLOCK
+   ============================================================ */
+
+function renderStoryBlock(
+    title,
+    content
+) {
+
+    if (!content) {
+        return "";
+    }
+
+
+    return `
+
+        <div>
+
+            <strong>
+                ${title}
+            </strong>
+
+            <p>
+                ${escapeHTML(
+                    content
+                )}
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* ============================================================
+   RELATED PROJECTS
+   ============================================================ */
+
+function renderRelatedProjects(
+    project
+) {
+
+    const container =
+        document.getElementById(
+            "riverRelatedProjects"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    const related =
+        window.getRelatedRiverProjects
+            ? window.getRelatedRiverProjects(
+                project.slug,
+                3
+            )
+            : [];
+
+
+    if (!related.length) {
+
+        container.innerHTML =
+            "";
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <h3>
+            Related Projects
+        </h3>
+
+        <div class="related-project-grid">
+
+            ${
+                related
+                    .map(
+                        item => `
+
+                            <a
+                                href="mediaPlayer.html?project=${encodeURIComponent(
+                                    item.slug
+                                )}"
+                                class="related-project"
+                            >
+
+                                <strong>
+                                    ${escapeHTML(
+                                        item.title
+                                    )}
+                                </strong>
+
+                                <span>
+                                    ${
+                                        escapeHTML(
+                                            item.type ||
+                                            "PROJECT"
+                                        )
+                                    }
+                                </span>
+
+                            </a>
+
+                        `
+                    )
+                    .join("")
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: MEDIA QUEUE
+   ============================================================ */
+
+function buildMediaQueue(
+    entity,
+    entityType
+) {
+
+    if (
+        !entity ||
+        !Array.isArray(
+            entity.media
+        )
+    ) {
+
+        return [];
+
+    }
+
+
+    return entity.media
+
+        .filter(
+            window.isValidRiverMedia ||
+            (
+                item =>
+                    item &&
+                    item.src &&
+                    (
+                        item.type === "image" ||
+                        item.type === "video"
+                    )
+            )
+        )
+
+        .map(
+            (item, index) => ({
 
                 id:
                     item.id ||
-                    `${project.slug}-media-${index + 1}`,
+                    `${entity.slug}-media-${index + 1}`,
 
                 type:
                     item.type,
@@ -479,118 +1149,128 @@ function buildMediaQueue(project) {
                 src:
                     item.src,
 
-                index:
-                    index,
+                title:
+                    item.title ||
+                    `Media ${index + 1}`,
 
-                project:
-                    project.slug
+                category:
+                    item.category ||
+                    (
+                        entityType ===
+                        "product"
+                            ? "Product"
+                            : "Project"
+                    ),
 
-            };
+                index,
 
-        });
+                entity:
+                    entity.slug,
+
+                entityType
+
+            })
+        );
 
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
-   PRELOAD ENTIRE MEDIA QUEUE
+   PRELOAD
    ============================================================ */
 
 async function preloadMediaQueue(
-    queue,
-    statusElement
+    queue
 ) {
-
-
-    const preloadPromises =
-        queue.map(
-            async (item, index) => {
-
-
-                updateQueueStatus(
-                    `Loading ${index + 1} of ${queue.length}...`
-                );
-
-
-                try {
-
-                    if (
-                        item.type === "image"
-                    ) {
-
-                        await preloadImage(
-                            item.src
-                        );
-
-                    }
-
-
-                    if (
-                        item.type === "video"
-                    ) {
-
-                        await preloadVideo(
-                            item.src
-                        );
-
-                    }
-
-
-                    return {
-
-                        ...item,
-
-                        ready: true
-
-                    };
-
-                } catch (error) {
-
-                    console.warn(
-                        `River: Media failed to preload: ${item.src}`,
-                        error
-                    );
-
-
-                    return {
-
-                        ...item,
-
-                        ready: false
-
-                    };
-
-                }
-
-            }
-        );
-
 
     const results =
         await Promise.all(
-            preloadPromises
+
+            queue.map(
+                async (
+                    item,
+                    index
+                ) => {
+
+                    updateQueueStatus(
+                        `Loading ${index + 1} of ${queue.length}...`
+                    );
+
+
+                    try {
+
+                        if (
+                            item.type ===
+                            "image"
+                        ) {
+
+                            await preloadImage(
+                                item.src
+                            );
+
+                        }
+
+
+                        if (
+                            item.type ===
+                            "video"
+                        ) {
+
+                            await preloadVideo(
+                                item.src
+                            );
+
+                        }
+
+
+                        return {
+
+                            ...item,
+
+                            ready:
+                                true
+
+                        };
+
+                    } catch (error) {
+
+                        console.warn(
+                            "River: Media failed:",
+                            item.src
+                        );
+
+
+                        return {
+
+                            ...item,
+
+                            ready:
+                                false
+
+                        };
+
+                    }
+
+                }
+            )
+
         );
 
 
-    /* ========================================================
-       🟢 UPGRADE:
-       REMOVE FAILED ITEMS
-       ======================================================== */
-
-    queue.length = 0;
+    queue.length =
+        0;
 
 
     results
-
         .filter(
-            item => item.ready
+            item =>
+                item.ready
         )
-
         .forEach(
-            item => queue.push(item)
+            item =>
+                queue.push(
+                    item
+                )
         );
 
 
@@ -599,29 +1279,32 @@ async function preloadMediaQueue(
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
-   IMAGE PRELOADER
+   IMAGE PRELOAD
    ============================================================ */
 
-function preloadImage(src) {
-
+function preloadImage(
+    src
+) {
 
     return new Promise(
-        (resolve, reject) => {
+        (
+            resolve,
+            reject
+        ) => {
 
-
-            const img =
+            const image =
                 new Image();
 
 
-            img.onload =
-                () => resolve(img);
+            image.onload =
+                () =>
+                    resolve(
+                        image
+                    );
 
 
-            img.onerror =
+            image.onerror =
                 () =>
                     reject(
                         new Error(
@@ -630,7 +1313,8 @@ function preloadImage(src) {
                     );
 
 
-            img.src = src;
+            image.src =
+                src;
 
         }
     );
@@ -638,19 +1322,19 @@ function preloadImage(src) {
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
-   VIDEO PRELOADER
+   VIDEO PRELOAD
    ============================================================ */
 
-function preloadVideo(src) {
-
+function preloadVideo(
+    src
+) {
 
     return new Promise(
-        (resolve, reject) => {
-
+        (
+            resolve,
+            reject
+        ) => {
 
             const video =
                 document.createElement(
@@ -658,75 +1342,75 @@ function preloadVideo(src) {
                 );
 
 
-            let finished = false;
+            let finished =
+                false;
 
 
-            const cleanup = () => {
+            const cleanup =
+                () => {
 
-                video.removeEventListener(
-                    "loadedmetadata",
-                    onReady
-                );
+                    video.removeEventListener(
+                        "loadedmetadata",
+                        onReady
+                    );
 
-                video.removeEventListener(
-                    "error",
-                    onError
-                );
+                    video.removeEventListener(
+                        "error",
+                        onError
+                    );
 
-            };
-
-
-            const onReady = () => {
-
-                if (finished) {
-                    return;
-                }
+                };
 
 
-                finished = true;
+            const onReady =
+                () => {
+
+                    if (finished) {
+                        return;
+                    }
 
 
-                cleanup();
+                    finished =
+                        true;
 
 
-                video.remove();
-
-                resolve();
-
-            };
+                    cleanup();
 
 
-            const onError = () => {
+                    resolve();
 
-                if (finished) {
-                    return;
-                }
+                };
 
 
-                finished = true;
+            const onError =
+                () => {
+
+                    if (finished) {
+                        return;
+                    }
 
 
-                cleanup();
+                    finished =
+                        true;
 
 
-                video.remove();
+                    cleanup();
 
-                reject(
-                    new Error(
-                        `Video failed: ${src}`
-                    )
-                );
 
-            };
+                    reject(
+                        new Error(
+                            `Video failed: ${src}`
+                        )
+                    );
+
+                };
 
 
             video.preload =
                 "metadata";
 
-
             video.muted =
                 true;
-
 
             video.playsInline =
                 true;
@@ -756,11 +1440,8 @@ function preloadVideo(src) {
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
-   BUILD MEDIA SLIDES
+   BUILD SLIDES
    ============================================================ */
 
 function buildMediaSlides(
@@ -768,13 +1449,12 @@ function buildMediaSlides(
     wrapper
 ) {
 
-
-    wrapper.innerHTML = "";
+    wrapper.innerHTML =
+        "";
 
 
     queue.forEach(
         item => {
-
 
             const slide =
                 document.createElement(
@@ -798,75 +1478,62 @@ function buildMediaSlides(
                 item.index;
 
 
-
-            /* =================================================
-               IMAGE
-               ================================================= */
-
             if (
-                item.type === "image"
+                item.type ===
+                "image"
             ) {
 
                 slide.innerHTML = `
 
                     <img
-
-                        src="${item.src}"
-
+                        src="${escapeHTML(item.src)}"
                         class="media-img"
-
-                        alt="River project media"
-
+                        alt="${escapeHTML(item.title)}"
                         draggable="false"
-
                     />
+
+                    <div class="media-caption">
+
+                        <strong>
+                            ${escapeHTML(item.title)}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(item.category)}
+                        </span>
+
+                    </div>
 
                 `;
 
             }
 
 
-
-            /* =================================================
-               VIDEO
-               ================================================= */
-
             if (
-                item.type === "video"
+                item.type ===
+                "video"
             ) {
 
                 slide.innerHTML = `
 
                     <div class="video-container">
 
-
                         <video
-
                             class="media-video"
-
                             playsinline
-
                             muted
-
                             preload="auto"
-
                         >
 
                             <source
-                                src="${item.src}"
+                                src="${escapeHTML(item.src)}"
                                 type="video/mp4"
-                            >
+                            />
 
                         </video>
 
 
-
-                        <!-- ====================================
-                             CUSTOM CONTROLS
-                             ==================================== -->
-
                         <div class="video-controls">
-
 
                             <button
                                 class="play-btn"
@@ -876,23 +1543,14 @@ function buildMediaSlides(
                             </button>
 
 
-
                             <input
-
                                 type="range"
-
                                 class="progress"
-
                                 min="0"
-
                                 max="100"
-
                                 value="0"
-
                                 step="0.1"
-
-                            >
-
+                            />
 
 
                             <button
@@ -902,16 +1560,26 @@ function buildMediaSlides(
                                 🔇
                             </button>
 
-
                         </div>
 
+
+                        <div class="media-caption">
+
+                            <strong>
+                                ${escapeHTML(item.title)}
+                            </strong>
+
+                            <span>
+                                ${escapeHTML(item.category)}
+                            </span>
+
+                        </div>
 
                     </div>
 
                 `;
 
             }
-
 
 
             wrapper.appendChild(
@@ -924,16 +1592,26 @@ function buildMediaSlides(
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
    INITIALIZE SWIPER
    ============================================================ */
 
 function initializePlayer(
     mediaQueue
 ) {
+
+    if (
+        typeof Swiper ===
+        "undefined"
+    ) {
+
+        console.error(
+            "River Media Player: Swiper is not loaded."
+        );
+
+        return;
+
+    }
 
 
     const swiper =
@@ -960,7 +1638,6 @@ function initializePlayer(
 
                 },
 
-
                 autoplay: {
 
                     delay:
@@ -970,7 +1647,6 @@ function initializePlayer(
                         false
 
                 },
-
 
                 pagination: {
 
@@ -982,11 +1658,6 @@ function initializePlayer(
 
                 },
 
-
-                watchSlidesProgress:
-                    true,
-
-
                 navigation: {
 
                     nextEl:
@@ -997,11 +1668,12 @@ function initializePlayer(
 
                 },
 
+                watchSlidesProgress:
+                    true,
 
                 on: {
 
-
-                    init: function() {
+                    init() {
 
                         handleMedia(
                             this
@@ -1009,15 +1681,13 @@ function initializePlayer(
 
                     },
 
+                    slideChangeTransitionStart() {
 
-                    slideChangeTransitionStart:
-                        function() {
+                        handleMedia(
+                            this
+                        );
 
-                            handleMedia(
-                                this
-                            );
-
-                        }
+                    }
 
                 }
 
@@ -1025,25 +1695,19 @@ function initializePlayer(
         );
 
 
+    if (
+        window.RIVER_MEDIA_PLAYER
+    ) {
 
-    /* ========================================================
-       🟢 UPGRADE:
-       STORE SWIPER INSTANCE
-       ======================================================== */
+        window.RIVER_MEDIA_PLAYER.swiper =
+            swiper;
 
-    window.RIVER_MEDIA_PLAYER.swiper =
-        swiper;
+    }
 
-
-
-    /* ========================================================
-       VIDEO / PLAYER CONTROLS
-       ======================================================== */
 
     document.addEventListener(
         "click",
         event => {
-
 
             const activeSlide =
                 document.querySelector(
@@ -1067,11 +1731,6 @@ function initializePlayer(
             }
 
 
-
-            /* =================================================
-               PLAY BUTTON
-               ================================================= */
-
             if (
                 event.target.classList.contains(
                     "play-btn"
@@ -1093,23 +1752,16 @@ function initializePlayer(
 
                 }
 
-
                 return;
 
             }
 
-
-
-            /* =================================================
-               MUTE BUTTON
-               ================================================= */
 
             if (
                 event.target.classList.contains(
                     "mute-btn"
                 )
             ) {
-
 
                 video.muted =
                     !video.muted;
@@ -1125,11 +1777,6 @@ function initializePlayer(
 
             }
 
-
-
-            /* =================================================
-               TAP VIDEO / MEDIA AREA
-               ================================================= */
 
             if (
                 !event.target.closest(
@@ -1157,25 +1804,16 @@ function initializePlayer(
         }
     );
 
-
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
-   SMART MEDIA CONTROL
+   SMART MEDIA
    ============================================================ */
 
 function handleMedia(
     swiper
 ) {
-
-
-    /* ========================================================
-       PAUSE EVERY VIDEO
-       ======================================================== */
 
     document
         .querySelectorAll(
@@ -1190,11 +1828,6 @@ function handleMedia(
         );
 
 
-
-    /* ========================================================
-       GET ACTIVE SLIDE
-       ======================================================== */
-
     const activeSlide =
         swiper.slides[
             swiper.activeIndex
@@ -1206,36 +1839,16 @@ function handleMedia(
     }
 
 
-
-    /* ========================================================
-       ACTIVE VIDEO
-       ======================================================== */
-
     const video =
         activeSlide.querySelector(
             "video"
         );
 
 
-
-    /* ========================================================
-       VIDEO MODE
-       ======================================================== */
-
     if (video) {
-
-
-        /* ================================================
-           STOP IMAGE AUTOPLAY
-           ================================================ */
 
         swiper.autoplay.stop();
 
-
-
-        /* ================================================
-           RESET VIDEO
-           ================================================ */
 
         video.currentTime =
             0;
@@ -1245,20 +1858,11 @@ function handleMedia(
             true;
 
 
-        /* ================================================
-           PLAY
-           ================================================ */
-
         video.play()
             .catch(
                 () => {}
             );
 
-
-
-        /* ================================================
-           CONTROLS
-           ================================================ */
 
         setupVideoControls(
             activeSlide,
@@ -1266,26 +1870,13 @@ function handleMedia(
         );
 
 
-
-        /* ================================================
-           WHEN VIDEO ENDS
-           ================================================ */
-
         if (
             !video.dataset.endHandlerAttached
         ) {
 
-
             video.addEventListener(
                 "ended",
                 () => {
-
-
-                    /*
-                     * 🟢 UPGRADE:
-                     * Automatically advance to the
-                     * next queued media item.
-                     */
 
                     swiper.slideNext();
 
@@ -1298,13 +1889,7 @@ function handleMedia(
 
         }
 
-
     } else {
-
-
-        /* =================================================
-           IMAGE MODE
-           ================================================= */
 
         swiper.autoplay.start();
 
@@ -1313,10 +1898,7 @@ function handleMedia(
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
    VIDEO CONTROLS
    ============================================================ */
 
@@ -1324,7 +1906,6 @@ function setupVideoControls(
     slide,
     video
 ) {
-
 
     const progress =
         slide.querySelector(
@@ -1344,11 +1925,6 @@ function setupVideoControls(
         );
 
 
-
-    /* ========================================================
-       PREVENT DUPLICATE EVENT LISTENERS
-       ======================================================== */
-
     if (
         video.dataset.controlsAttached
     ) {
@@ -1362,15 +1938,9 @@ function setupVideoControls(
         "true";
 
 
-
-    /* ========================================================
-       TIME UPDATE
-       ======================================================== */
-
     video.addEventListener(
         "timeupdate",
         () => {
-
 
             if (
                 !video.duration ||
@@ -1390,58 +1960,30 @@ function setupVideoControls(
 
 
             progress.value =
-                percent || 0;
-
-
-            /*
-             * 🟢 UPGRADE:
-             * Keep progress visual without requiring
-             * a separate CSS system.
-             */
-
-            progress.style.background =
-                `linear-gradient(
-                    to right,
-                    #ff7a00 ${percent}%,
-                    rgba(255,255,255,0.3) ${percent}%
-                )`;
+                percent ||
+                0;
 
         }
     );
 
 
-
-    /* ========================================================
-       SEEK
-       ======================================================== */
-
     if (progress) {
-
 
         progress.addEventListener(
             "input",
             () => {
 
-
-                if (
-                    !video.duration
-                ) {
-
+                if (!video.duration) {
                     return;
-
                 }
 
 
-                const time =
+                video.currentTime =
                     (
                         progress.value /
                         100
                     ) *
                     video.duration;
-
-
-                video.currentTime =
-                    time;
 
             }
         );
@@ -1449,15 +1991,9 @@ function setupVideoControls(
     }
 
 
-
-    /* ========================================================
-       PLAY STATE
-       ======================================================== */
-
     video.addEventListener(
         "play",
         () => {
-
 
             if (playBtn) {
 
@@ -1470,11 +2006,9 @@ function setupVideoControls(
     );
 
 
-
     video.addEventListener(
         "pause",
         () => {
-
 
             if (playBtn) {
 
@@ -1487,15 +2021,9 @@ function setupVideoControls(
     );
 
 
-
-    /* ========================================================
-       MUTE STATE
-       ======================================================== */
-
     video.addEventListener(
         "volumechange",
         () => {
-
 
             if (!muteBtn) {
                 return;
@@ -1513,17 +2041,13 @@ function setupVideoControls(
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
    QUEUE STATUS
    ============================================================ */
 
 function updateQueueStatus(
     message
 ) {
-
 
     const element =
         document.getElementById(
@@ -1542,17 +2066,13 @@ function updateQueueStatus(
 }
 
 
-
-
 /* ============================================================
-   🟢 UPGRADE:
    PLAYER ERROR
    ============================================================ */
 
 function showPlayerError(
     message
 ) {
-
 
     const wrapper =
         document.getElementById(
@@ -1564,19 +2084,17 @@ function showPlayerError(
 
         wrapper.innerHTML = `
 
-            <div
-                class="media-player-error"
-            >
+            <div class="media-player-error">
 
                 <p>
-                    ${message}
+                    ${escapeHTML(message)}
                 </p>
 
                 <a
-                    href="index.html"
+                    href="products.html"
                     class="btn"
                 >
-                    Back to River
+                    Back to Products
                 </a>
 
             </div>
@@ -1595,5 +2113,40 @@ function showPlayerError(
         "River Media Player:",
         message
     );
+
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: HTML ESCAPING
+   ============================================================ */
+
+function escapeHTML(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }

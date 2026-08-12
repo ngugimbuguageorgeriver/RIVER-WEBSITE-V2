@@ -1,0 +1,2613 @@
+/* ============================================================
+   RIVER — SINGLE SERVICE DETAIL PAGE
+   serviceDetail.css
+
+   MATCHES:
+   - serviceDetail.js
+   - servicesPage.js
+   - servicesData.js
+
+   ============================================================ */
+
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+   .service-main {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+}
+
+
+/* ============================================================
+   SERVICE PAGE
+   ============================================================ */
+
+.service-page {
+
+    width: 100%;
+
+}
+
+
+/* ============================================================
+   COMMON WIDTH
+   ============================================================ */
+
+.service-product-hero,
+.service-overview,
+.service-problems,
+.service-deliverables,
+.service-technology,
+.service-capabilities,
+.service-process,
+.service-product-cta,
+.service-navigation {
+
+    width:
+        min(
+            1400px,
+            calc(100% - 48px)
+        );
+
+    margin:
+        0 auto;
+
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.service-product-hero {
+
+    min-height:
+        calc(100vh - 80px);
+
+    padding:
+        45px
+        0
+        80px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+}
+
+
+/* ============================================================
+   HERO TOP
+   ============================================================ */
+
+.service-product-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+}
+
+
+.service-back {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.08em;
+
+    opacity:
+        0.5;
+
+    transition:
+        opacity
+        0.25s ease,
+        transform
+        0.25s ease;
+
+}
+
+
+.service-back:hover {
+
+    opacity:
+        1;
+
+    transform:
+        translateX(4px);
+
+}
+
+
+.service-back:focus-visible {
+
+    outline:
+        1px solid
+        currentColor;
+
+    outline-offset:
+        5px;
+
+}
+
+
+.service-back span {
+
+    font-size:
+        16px;
+
+}
+
+
+.service-breadcrumb {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.08em;
+
+    opacity:
+        0.35;
+
+}
+
+
+.service-breadcrumb span {
+
+    opacity:
+        0.5;
+
+}
+
+
+/* ============================================================
+   HERO CONTENT
+   ============================================================ */
+
+.service-product-hero-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        120px
+        minmax(0, 1fr)
+        100px;
+
+    align-items:
+        end;
+
+    gap:
+        40px;
+
+}
+
+
+.service-product-index {
+
+    align-self:
+        start;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+
+    padding-top:
+        15px;
+
+}
+
+
+.service-product-index span:first-child {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        12px;
+
+    opacity:
+        0.5;
+
+}
+
+
+.service-product-index span:last-child {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.1em;
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-product-title-wrap {
+
+    max-width:
+        1100px;
+
+}
+
+
+.service-product-title-wrap .services-eyebrow {
+
+    margin:
+        0
+        0
+        20px;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.12em;
+
+    opacity:
+        0.4;
+
+}
+
+
+.service-product-title-wrap h1 {
+
+    margin:
+        0
+        0
+        35px;
+
+    font-family:
+        "General Sans",
+        "Satoshi",
+        sans-serif;
+
+    font-size:
+        clamp(
+            65px,
+            10vw,
+            160px
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.82;
+
+    letter-spacing:
+        -0.07em;
+
+    text-wrap:
+        balance;
+
+}
+
+
+.service-product-lead {
+
+    max-width:
+        720px;
+
+    margin:
+        0;
+
+    font-family:
+        "Satoshi",
+        "Inter",
+        sans-serif;
+
+    font-size:
+        clamp(
+            17px,
+            2vw,
+            24px
+        );
+
+    line-height:
+        1.5;
+
+    opacity:
+        0.55;
+
+}
+
+
+.service-product-arrow {
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    padding:
+        0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    border-radius:
+        50%;
+
+    background:
+        transparent;
+
+    color:
+        inherit;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform
+        0.4s ease,
+        background
+        0.4s ease,
+        border-color
+        0.4s ease;
+
+}
+
+
+.service-product-arrow:hover {
+
+    transform:
+        translateY(6px);
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border-color:
+        rgba(255,255,255,0.4);
+
+}
+
+
+.service-product-arrow:focus-visible {
+
+    outline:
+        1px solid
+        currentColor;
+
+    outline-offset:
+        5px;
+
+}
+
+
+.service-product-arrow span {
+
+    font-size:
+        20px;
+
+}
+
+
+/* ============================================================
+   SECTION COMMON
+   ============================================================ */
+
+.service-overview,
+.service-problems,
+.service-deliverables,
+.service-technology,
+.service-capabilities,
+.service-process {
+
+    padding:
+        130px
+        0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.service-section-label {
+
+    width:
+        100%;
+
+    margin-bottom:
+        80px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.1em;
+
+    opacity:
+        0.4;
+
+}
+
+
+.service-section-label span:first-child {
+
+    opacity:
+        0.7;
+
+}
+
+
+/* ============================================================
+   OVERVIEW
+   ============================================================ */
+
+.service-overview-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        300px;
+
+    gap:
+        100px;
+
+}
+
+
+.service-overview-statement {
+
+    max-width:
+        1000px;
+
+    margin:
+        0;
+
+    font-family:
+        "General Sans",
+        "Satoshi",
+        sans-serif;
+
+    font-size:
+        clamp(
+            32px,
+            5vw,
+            70px
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        1.02;
+
+    letter-spacing:
+        -0.05em;
+
+    text-wrap:
+        balance;
+
+}
+
+
+.service-overview-tags {
+
+    display:
+        flex;
+
+    align-content:
+        flex-start;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+}
+
+
+.service-overview-tags span {
+
+    height:
+        fit-content;
+
+    padding:
+        9px 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    border-radius:
+        100px;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    line-height:
+        1.3;
+
+    opacity:
+        0.5;
+
+    transition:
+        border-color
+        0.25s ease,
+        opacity
+        0.25s ease,
+        transform
+        0.25s ease;
+
+}
+
+
+.service-overview-tags span:hover {
+
+    opacity:
+        0.9;
+
+    border-color:
+        rgba(255,255,255,0.3);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* ============================================================
+   PROBLEMS WE SOLVE
+   ============================================================ */
+
+.service-problems-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
+    gap:
+        100px;
+
+}
+
+
+.service-problems-heading h2 {
+
+    margin:
+        0;
+
+    font-family:
+        "General Sans",
+        "Satoshi",
+        sans-serif;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            85px
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.92;
+
+    letter-spacing:
+        -0.06em;
+
+}
+
+
+.service-problems-heading h2 span {
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-problems-list {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.service-problem {
+
+    min-height:
+        88px;
+
+    padding:
+        20px
+        0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        50px
+        minmax(0,1fr)
+        40px;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    transition:
+        padding
+        0.35s ease,
+        opacity
+        0.35s ease,
+        background
+        0.35s ease;
+
+}
+
+
+.service-problem > span:first-child {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-problem strong {
+
+    font-family:
+        "Satoshi",
+        "Inter",
+        sans-serif;
+
+    font-size:
+        16px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.4;
+
+}
+
+
+.service-problem > span:last-child {
+
+    text-align:
+        right;
+
+    font-size:
+        17px;
+
+    opacity:
+        0.25;
+
+    transition:
+        transform
+        0.35s ease,
+        opacity
+        0.35s ease;
+
+}
+
+
+.service-problem:hover {
+
+    padding-left:
+        15px;
+
+}
+
+
+.service-problem:hover > span:last-child {
+
+    opacity:
+        1;
+
+    transform:
+        translate(
+            4px,
+            -4px
+        );
+
+}
+
+
+/* ============================================================
+   DELIVERABLES
+   ============================================================ */
+
+.service-deliverables-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
+    gap:
+        100px;
+
+}
+
+
+.service-deliverables-heading h2,
+.service-technology-content h2,
+.service-process-intro h2 {
+
+    margin:
+        0;
+
+    font-family:
+        "General Sans",
+        "Satoshi",
+        sans-serif;
+
+    font-size:
+        clamp(
+            42px,
+            6vw,
+            85px
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.92;
+
+    letter-spacing:
+        -0.06em;
+
+    text-wrap:
+        balance;
+
+}
+
+
+.service-deliverables-heading h2 span,
+.service-technology-content h2 span,
+.service-process-intro h2 span {
+
+    opacity:
+        0.3;
+
+}
+
+
+/* ============================================================
+   DELIVERABLE LIST
+   ============================================================ */
+
+.service-deliverables-list {
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.service-deliverable {
+
+    min-height:
+        82px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        50px
+        minmax(0,1fr)
+        40px;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    cursor:
+        default;
+
+    transition:
+        padding
+        0.35s ease,
+        opacity
+        0.35s ease;
+
+}
+
+
+.service-deliverable > span:first-child {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-deliverable strong {
+
+    font-family:
+        "Satoshi",
+        "Inter",
+        sans-serif;
+
+    font-size:
+        16px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.4;
+
+}
+
+
+.service-deliverable-arrow {
+
+    text-align:
+        right;
+
+    font-size:
+        17px;
+
+    opacity:
+        0.3;
+
+    transition:
+        transform
+        0.35s ease,
+        opacity
+        0.35s ease;
+
+}
+
+
+.service-deliverable.is-hovered {
+
+    padding-left:
+        15px;
+
+}
+
+
+.service-deliverable.is-hovered
+.service-deliverable-arrow {
+
+    opacity:
+        1;
+
+    transform:
+        translate(
+            4px,
+            -4px
+        );
+
+}
+
+
+/* ============================================================
+   TECHNOLOGY
+   ============================================================ */
+
+.service-technology-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.8fr
+        1.2fr;
+
+    gap:
+        100px;
+
+}
+
+
+.service-tech-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-left:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.service-tech-item {
+
+    min-height:
+        130px;
+
+    padding:
+        25px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    transition:
+        background
+        0.3s ease,
+        transform
+        0.3s ease;
+
+}
+
+
+.service-tech-item:hover {
+
+    background:
+        rgba(255,255,255,0.05);
+
+}
+
+
+.service-tech-item span {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-tech-item strong {
+
+    font-family:
+        "Satoshi",
+        "Inter",
+        sans-serif;
+
+    font-size:
+        18px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.3;
+
+}
+
+
+/* ============================================================
+   CAPABILITIES
+   ============================================================ */
+
+.service-capabilities-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-left:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.service-capabilities-grid article {
+
+    min-height:
+        190px;
+
+    padding:
+        28px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    gap:
+        40px;
+
+    border-right:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    transition:
+        background
+        0.3s ease;
+
+}
+
+
+.service-capabilities-grid article:hover {
+
+    background:
+        rgba(255,255,255,0.045);
+
+}
+
+
+.service-capabilities-grid article > span {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-capabilities-grid h3 {
+
+    margin:
+        0;
+
+    font-family:
+        "Satoshi",
+        "Inter",
+        sans-serif;
+
+    font-size:
+        21px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.25;
+
+    letter-spacing:
+        -0.02em;
+
+}
+
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+
+.service-process-content {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        0.75fr
+        1.25fr;
+
+    gap:
+        100px;
+
+}
+
+
+.service-process-intro {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        35px;
+
+}
+
+
+.service-process-intro p {
+
+    max-width:
+        430px;
+
+    margin:
+        0;
+
+    font-size:
+        15px;
+
+    line-height:
+        1.7;
+
+    opacity:
+        0.5;
+
+}
+
+
+.service-process-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:
+        2px;
+
+}
+
+
+.service-process-grid article {
+
+    min-height:
+        280px;
+
+    padding:
+        30px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        space-between;
+
+    gap:
+        35px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    transition:
+        background
+        0.3s ease,
+        transform
+        0.3s ease;
+
+}
+
+
+.service-process-grid article:hover {
+
+    background:
+        rgba(255,255,255,0.06);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.service-process-grid article > span {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        10px;
+
+    opacity:
+        0.35;
+
+}
+
+
+.service-process-grid h3 {
+
+    margin:
+        0;
+
+    font-family:
+        "Satoshi",
+        "Inter",
+        sans-serif;
+
+    font-size:
+        26px;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -0.03em;
+
+}
+
+
+.service-process-grid p {
+
+    margin:
+        0;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+    opacity:
+        0.45;
+
+}
+
+
+/* ============================================================
+   CTA
+   ============================================================ */
+
+.service-product-cta {
+
+    margin:
+        60px auto
+        130px;
+
+    padding:
+        70px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        90px
+        minmax(0,1fr)
+        auto;
+
+    align-items:
+        center;
+
+    gap:
+        50px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        rgba(255,255,255,0.035);
+
+}
+
+
+.service-cta-mark {
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.2);
+
+    border-radius:
+        50%;
+
+    font-size:
+        22px;
+
+}
+
+
+.service-cta-content > span {
+
+    display:
+        block;
+
+    margin-bottom:
+        15px;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.1em;
+
+    opacity:
+        0.4;
+
+}
+
+
+.service-cta-content h2 {
+
+    margin:
+        0
+        0
+        15px;
+
+    font-family:
+        "General Sans",
+        "Satoshi",
+        sans-serif;
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            70px
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.055em;
+
+}
+
+
+.service-cta-content h2 span {
+
+    opacity:
+        0.3;
+
+}
+
+
+.service-cta-content p {
+
+    max-width:
+        550px;
+
+    margin:
+        0;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+
+    opacity:
+        0.45;
+
+}
+
+
+.service-cta-button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        30px;
+
+    padding:
+        16px
+        20px;
+
+    background:
+        #fff;
+
+    color:
+        #000;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    white-space:
+        nowrap;
+
+    transition:
+        transform
+        0.3s ease;
+
+}
+
+
+.service-cta-button:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.service-cta-button:focus-visible {
+
+    outline:
+        2px solid
+        #fff;
+
+    outline-offset:
+        4px;
+
+}
+
+
+.service-cta-button span {
+
+    font-size:
+        17px;
+
+}
+
+
+/* ============================================================
+   SERVICE NAVIGATION
+   ============================================================ */
+
+.service-navigation {
+
+    padding:
+        45px
+        0
+        120px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        40px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+}
+
+
+.service-navigation-all,
+.service-nav-link {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        8px;
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+}
+
+
+.service-navigation-all span,
+.service-nav-link span {
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        9px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.08em;
+
+    opacity:
+        0.35;
+
+}
+
+
+.service-navigation-all strong,
+.service-nav-link strong {
+
+    max-width:
+        380px;
+
+    font-size:
+        16px;
+
+    font-weight:
+        400;
+
+    line-height:
+        1.4;
+
+}
+
+
+.service-navigation-next {
+
+    display:
+        flex;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        70px;
+
+    text-align:
+        right;
+
+}
+
+
+.service-nav-link {
+
+    transition:
+        opacity
+        0.25s ease,
+        transform
+        0.25s ease;
+
+}
+
+
+.service-nav-link:hover {
+
+    opacity:
+        0.55;
+
+}
+
+
+.service-nav-link:first-child:hover {
+
+    transform:
+        translateX(-4px);
+
+}
+
+
+.service-nav-link:last-child:hover {
+
+    transform:
+        translateX(4px);
+
+}
+
+
+.service-nav-link:focus-visible,
+.service-navigation-all:focus-visible {
+
+    outline:
+        1px solid
+        currentColor;
+
+    outline-offset:
+        5px;
+
+}
+
+
+/* ============================================================
+   NOT FOUND
+   ============================================================ */
+
+.service-not-found {
+
+    width:
+        min(
+            1000px,
+            calc(100% - 48px)
+        );
+
+    min-height:
+        70vh;
+
+    margin:
+        0 auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+}
+
+
+.service-not-found > span {
+
+    margin-bottom:
+        25px;
+
+    font-family:
+        "JetBrains Mono",
+        monospace;
+
+    font-size:
+        11px;
+
+    opacity:
+        0.4;
+
+}
+
+
+.service-not-found h1 {
+
+    margin:
+        0
+        0
+        20px;
+
+    font-family:
+        "General Sans",
+        "Satoshi",
+        sans-serif;
+
+    font-size:
+        clamp(
+            50px,
+            8vw,
+            110px
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.9;
+
+    letter-spacing:
+        -0.06em;
+
+}
+
+
+.service-not-found p {
+
+    max-width:
+        600px;
+
+    margin:
+        0
+        0
+        35px;
+
+    line-height:
+        1.6;
+
+    opacity:
+        0.5;
+
+}
+
+
+.service-not-found a {
+
+    width:
+        fit-content;
+
+    padding:
+        14px
+        18px;
+
+    background:
+        #fff;
+
+    color:
+        #000;
+
+    text-decoration:
+        none;
+
+    font-size:
+        12px;
+
+    transition:
+        transform
+        0.3s ease;
+
+}
+
+
+.service-not-found a:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.service-not-found a:focus-visible {
+
+    outline:
+        2px solid
+        #fff;
+
+    outline-offset:
+        4px;
+
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    .service-product-hero-content {
+
+        grid-template-columns:
+            80px
+            minmax(0,1fr)
+            70px;
+
+        gap:
+            30px;
+
+    }
+
+
+    .service-overview-content,
+    .service-problems-content,
+    .service-deliverables-content,
+    .service-technology-content,
+    .service-process-content {
+
+        gap:
+            60px;
+
+    }
+
+
+    .service-capabilities-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+    }
+
+
+    .service-product-cta {
+
+        grid-template-columns:
+            75px
+            minmax(0,1fr);
+
+        gap:
+            35px;
+
+    }
+
+
+    .service-cta-button {
+
+        grid-column:
+            2;
+
+        justify-self:
+            start;
+
+    }
+
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .service-product-hero {
+
+        width:
+            calc(100% - 30px);
+
+        min-height:
+            80vh;
+
+        padding:
+            35px
+            0
+            70px;
+
+    }
+
+
+    .service-product-hero-content {
+
+        grid-template-columns:
+            70px
+            minmax(0,1fr);
+
+    }
+
+
+    .service-product-arrow {
+
+        display:
+            none;
+
+    }
+
+
+    .service-overview,
+    .service-problems,
+    .service-deliverables,
+    .service-technology,
+    .service-capabilities,
+    .service-process,
+    .service-navigation {
+
+        width:
+            calc(100% - 30px);
+
+    }
+
+
+    .service-overview-content,
+    .service-problems-content,
+    .service-deliverables-content,
+    .service-technology-content,
+    .service-process-content {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            60px;
+
+    }
+
+
+    .service-capabilities-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+    }
+
+
+    .service-product-cta {
+
+        width:
+            calc(100% - 30px);
+
+        grid-template-columns:
+            70px
+            minmax(0,1fr);
+
+        padding:
+            50px
+            35px;
+
+    }
+
+
+    .service-cta-button {
+
+        grid-column:
+            2;
+
+        justify-self:
+            start;
+
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .service-product-hero {
+
+        width:
+            calc(100% - 24px);
+
+        min-height:
+            75vh;
+
+        padding:
+            30px
+            0
+            55px;
+
+    }
+
+
+    .service-product-top {
+
+        align-items:
+            flex-start;
+
+    }
+
+
+    .service-breadcrumb {
+
+        display:
+            none;
+
+    }
+
+
+    .service-product-hero-content {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            25px;
+
+    }
+
+
+    .service-product-index {
+
+        padding:
+            0;
+
+    }
+
+
+    .service-product-title-wrap .services-eyebrow {
+
+        margin-bottom:
+            15px;
+
+    }
+
+
+    .service-product-title-wrap h1 {
+
+        margin-bottom:
+            25px;
+
+        font-size:
+            clamp(
+                55px,
+                17vw,
+                90px
+            );
+
+        line-height:
+            0.86;
+
+    }
+
+
+    .service-product-lead {
+
+        font-size:
+            16px;
+
+        line-height:
+            1.55;
+
+    }
+
+
+    .service-overview,
+    .service-problems,
+    .service-deliverables,
+    .service-technology,
+    .service-capabilities,
+    .service-process {
+
+        width:
+            calc(100% - 24px);
+
+        padding:
+            85px
+            0;
+
+    }
+
+
+    .service-section-label {
+
+        margin-bottom:
+            50px;
+
+    }
+
+
+    .service-overview-content {
+
+        gap:
+            45px;
+
+    }
+
+
+    .service-overview-statement {
+
+        font-size:
+            36px;
+
+        line-height:
+            1.02;
+
+    }
+
+
+    .service-problems-content {
+
+        gap:
+            45px;
+
+    }
+
+
+    .service-problems-heading h2,
+    .service-deliverables-heading h2,
+    .service-technology-content h2,
+    .service-process-intro h2 {
+
+        font-size:
+            48px;
+
+    }
+
+
+    .service-problem {
+
+        grid-template-columns:
+            35px
+            minmax(0,1fr)
+            25px;
+
+        gap:
+            12px;
+
+        min-height:
+            80px;
+
+    }
+
+
+    .service-problem strong {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .service-deliverable {
+
+        grid-template-columns:
+            35px
+            minmax(0,1fr)
+            25px;
+
+        gap:
+            12px;
+
+        min-height:
+            75px;
+
+    }
+
+
+    .service-deliverable strong {
+
+        font-size:
+            14px;
+
+    }
+
+
+    .service-tech-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .service-tech-item {
+
+        min-height:
+            115px;
+
+        padding:
+            22px;
+
+    }
+
+
+    .service-capabilities-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .service-capabilities-grid article {
+
+        min-height:
+            150px;
+
+        padding:
+            24px;
+
+    }
+
+
+    .service-process-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .service-process-grid article {
+
+        min-height:
+            230px;
+
+        padding:
+            25px;
+
+    }
+
+
+    .service-product-cta {
+
+        width:
+            calc(100% - 24px);
+
+        margin:
+            30px auto
+            80px;
+
+        padding:
+            35px
+            25px;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            25px;
+
+    }
+
+
+    .service-cta-mark {
+
+        width:
+            55px;
+
+        height:
+            55px;
+
+    }
+
+
+    .service-cta-button {
+
+        grid-column:
+            auto;
+
+        width:
+            100%;
+
+    }
+
+
+    .service-navigation {
+
+        width:
+            calc(100% - 24px);
+
+        padding:
+            35px
+            0
+            80px;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .service-navigation-next {
+
+        width:
+            100%;
+
+        justify-content:
+            space-between;
+
+        gap:
+            20px;
+
+        text-align:
+            left;
+
+    }
+
+
+    .service-navigation-all strong,
+    .service-nav-link strong {
+
+        max-width:
+            250px;
+
+    }
+
+
+    .service-not-found {
+
+        width:
+            calc(100% - 24px);
+
+        min-height:
+            70vh;
+
+    }
+
+
+    .service-not-found h1 {
+
+        font-size:
+            clamp(
+                50px,
+                15vw,
+                80px
+            );
+
+    }
+
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 400px) {
+
+    .service-product-title-wrap h1 {
+
+        font-size:
+            52px;
+
+    }
+
+
+    .service-overview-statement {
+
+        font-size:
+            32px;
+
+    }
+
+
+    .service-problems-heading h2,
+    .service-deliverables-heading h2,
+    .service-technology-content h2,
+    .service-process-intro h2 {
+
+        font-size:
+            42px;
+
+    }
+
+
+    .service-navigation-next {
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .service-nav-link {
+
+        text-align:
+            left;
+
+    }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .service-product-arrow,
+    .service-cta-button,
+    .service-nav-link,
+    .service-back,
+    .service-deliverable,
+    .service-deliverable-arrow,
+    .service-overview-tags span,
+    .service-tech-item,
+    .service-capabilities-grid article,
+    .service-process-grid article,
+    .service-not-found a {
+
+        transition:
+            none;
+
+    }
+
+}
+
+
+/* ============================================================
+   HIGH CONTRAST / FOCUS
+   ============================================================ */
+
+@media (prefers-contrast: more) {
+
+    .service-section-label,
+    .service-back,
+    .service-breadcrumb,
+    .service-product-lead,
+    .service-overview-tags span,
+    .service-process-grid p,
+    .service-process-grid article > span {
+
+        opacity:
+            0.75;
+
+    }
+
+
+    .service-deliverable,
+    .service-problem,
+    .service-tech-item,
+    .service-capabilities-grid article,
+    .service-process-grid article {
+
+        border-color:
+            rgba(255,255,255,0.25);
+
+    }
+
+}

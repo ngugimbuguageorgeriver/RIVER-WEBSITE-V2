@@ -1,79 +1,336 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thank You | River IT Solutions</title>
 
-  <link rel="icon" type="image/png" href="assets/images/r logo.png" />
+  <!-- 🟢 UPGRADE: More intentional browser/page title -->
+  <title>Enquiry Received | River — Software Engineering & Technology</title>
 
-  <!-- 🟢 Fonts -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/images/r logo.png"
+  />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- 🟢 UPGRADE: Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-  <!-- 🟢 Styles -->
+  <!-- ============================================================
+       GLOBAL STYLES
+  ============================================================ -->
+
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- ============================================================
+       COMPONENT STYLES
+  ============================================================ -->
 
-  <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css">
-  <link rel="stylesheet" href="css/components/thankYou/thankYou.css">
-  <link rel="stylesheet" href="css/components/backgroundSystem/backgroundSystem.css">
+  <link
+    rel="stylesheet"
+    href="css/components/pageTransition/pageTransition.css"
+  >
 
+  <link
+    rel="stylesheet"
+    href="css/components/thankYou/thankYou.css"
+  >
 
+  <link
+    rel="stylesheet"
+    href="css/components/backgroundSystem/backgroundSystem.css"
+  >
 
-  <!-- 🟢 GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- ============================================================
+       GSAP
+  ============================================================ -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    defer
+  ></script>
 
 </head>
 
 <body>
 
-   <!-- PAGE TRANSITION OVERLAY -->
+  <!-- ============================================================
+       PAGE TRANSITION
+  ============================================================ -->
+
   <div id="pageTransition"></div>
 
-  <!-- 🌌 BACKGROUND -->
-  <div class="bg-system">
+  <!-- ============================================================
+       BACKGROUND SYSTEM
+  ============================================================ -->
+
+  <div class="bg-system" aria-hidden="true">
+
     <img
       id="bgImage"
       src="assets/Media/BGI/BGI4.jpg"
-      alt="background"
+      alt=""
     />
+
     <div class="bg-gradient"></div>
+
   </div>
 
-  <div class="bg-glow"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
 
-  <div class="thankYou-container">
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+
+  <main class="thankYou-page">
+
+    <section
+      class="thankYou-container"
+      aria-labelledby="thankYou-title"
+    >
+
+      <!-- ========================================================
+           BRAND
+      ======================================================== -->
+
+      <div class="thankYou-brand">
+
+        <!-- 🟢 UPGRADE: Logo now acts as a clear brand anchor -->
+        <a
+          href="index.html"
+          class="thankYou-logo-link"
+          aria-label="River home"
+        >
+
+          <img
+            src="assets/Media/riverWebsiteLogos/blackRiver.svg"
+            alt="River"
+            class="thankYou-logo"
+          >
+
+        </a>
+
+      </div>
 
 
-        <div>
+      <!-- ========================================================
+           CONFIRMATION
+      ======================================================== -->
 
-            <img 
-            src="assets/Media/riverWebsiteLogos/blackRiver.svg" 
-            alt="River Logo" 
-            class="thankYou-logo ">
+      <div class="thankYou-confirmation">
 
+        <!-- 🟢 UPGRADE: Real checkmark element for JS animation -->
+        <div
+          class="thankYou-check"
+          id="checkmark"
+          aria-hidden="true"
+        >
+          <span class="checkmark-line checkmark-line-one"></span>
+          <span class="checkmark-line checkmark-line-two"></span>
         </div>
 
+        <div class="thankYou-eyebrow">
+          ENQUIRY RECEIVED
+        </div>
 
-        <h1>Request Sent Successfully</h1>
+        <!-- 🟢 UPGRADE: Stronger River-specific headline -->
+        <h1 id="thankYou-title">
+          Your project brief is in.
+        </h1>
 
-        <p>
-        Thank you for reaching out to <strong>River for your Software Solutions</strong>.<br>
-        Our team has received your request and will get back to you within 24 hours.
+        <p class="thankYou-intro">
+          Thank you for reaching out to River.
+          We've received your enquiry and our team will review
+          what you've shared before getting back to you.
         </p>
 
-        <a href="index.html" class="btn">Back to Home</a>
+        <div class="thankYou-response">
 
-        <div class="small">
-        Need urgent help? <br> Email us at <strong>yaseiriver@gmail.com</strong>
+          <span class="response-dot" aria-hidden="true"></span>
+
+          <span>
+            We aim to respond within <strong>24 hours.</strong>
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- ========================================================
+           WHAT HAPPENS NEXT
+      ======================================================== -->
+
+      <section class="thankYou-next">
+
+        <div class="thankYou-section-heading">
+
+          <span class="thankYou-section-number">
+            01
+          </span>
+
+          <h2>
+            What happens next
+          </h2>
+
         </div>
 
 
-  </div>
+        <div class="thankYou-steps">
 
-  <!-- 🟢 Script -->
+          <!-- 🟢 UPGRADE: Step 01 -->
+          <article class="thankYou-step">
+
+            <div class="thankYou-step-number">
+              01
+            </div>
+
+            <div class="thankYou-step-content">
+
+              <h3>
+                We review
+              </h3>
+
+              <p>
+                We look through your goals, requirements,
+                constraints and the information you've provided.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 🟢 UPGRADE: Step 02 -->
+          <article class="thankYou-step">
+
+            <div class="thankYou-step-number">
+              02
+            </div>
+
+            <div class="thankYou-step-content">
+
+              <h3>
+                We understand
+              </h3>
+
+              <p>
+                We consider the problem behind the request
+                and what the right technical approach may involve.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- 🟢 UPGRADE: Step 03 -->
+          <article class="thankYou-step">
+
+            <div class="thankYou-step-number">
+              03
+            </div>
+
+            <div class="thankYou-step-content">
+
+              <h3>
+                We get in touch
+              </h3>
+
+              <p>
+                We'll contact you to discuss the opportunity,
+                answer questions and determine the right next step.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================================
+           EXPLORE RIVER
+      ======================================================== -->
+
+      <section class="thankYou-explore">
+
+        <div class="thankYou-section-heading">
+
+          <span class="thankYou-section-number">
+            02
+          </span>
+
+          <h2>
+            While you wait
+          </h2>
+
+        </div>
+
+
+        <p class="thankYou-explore-text">
+          See how River approaches software, systems and
+          digital products — and explore some of the work we've built.
+        </p>
+
+
+        <div class="thankYou-actions">
+
+          <!-- 🟢 UPGRADE: Primary action -->
+          <a
+            href="projects.html"
+            class="thankYou-btn thankYou-btn-primary"
+          >
+            <span>Explore our work</span>
+            <span class="btn-arrow" aria-hidden="true">↗</span>
+          </a>
+
+
+          <!-- 🟢 UPGRADE: Secondary action -->
+          <a
+            href="index.html"
+            class="thankYou-btn thankYou-btn-secondary"
+          >
+            <span>Back to River</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- ========================================================
+           FOOTER
+      ======================================================== -->
+
+      <footer class="thankYou-footer">
+
+        <p>
+          River — Software Engineering &amp; Technology
+        </p>
+
+        <!-- 🟢 UPGRADE: Avoid presenting personal/free email as
+             the primary company contact -->
+        <span>
+          We'll be in touch soon.
+        </span>
+
+      </footer>
+
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
 
   <script src="js/components/pageTransition/pageTransition.js"></script>
 

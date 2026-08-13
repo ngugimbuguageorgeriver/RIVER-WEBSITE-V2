@@ -493,3 +493,164 @@
     }
 
 }
+
+
+/*********************************************************************************************************************************************************************/
+/* ============================================================
+   🟢 UPGRADE: PROJECT PAGE SECTION RHYTHM
+   Gives the Projects page intentional breathing room instead
+   of relying on generic empty spacer elements.
+   ============================================================ */
+
+   main.main-container > section {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: INTRODUCTION
+   ============================================================ */
+
+.project-introduction {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: FILTER SECTION
+   ============================================================ */
+
+.project-filter-section {
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: FEATURED CASE STUDY
+   ============================================================ */
+
+.featured-case-study {
+    padding-top: 55px;
+    padding-bottom: 90px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: PROJECT GRID
+   ============================================================ */
+
+main.main-container > section:has(.projects-grid) {
+    padding-top: 45px;
+    padding-bottom: 100px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: WHAT WE SOLVE
+   ============================================================ */
+
+.what-we-solve-section {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: DEVELOPMENT PROCESS
+   ============================================================ */
+
+.project-process-section {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: TECHNOLOGY
+   ============================================================ */
+
+.technology-matrix-section {
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: EXPLORE MORE
+   ============================================================ */
+
+main.main-container > section:has(#projectQuickLinks) {
+    padding-top: 70px;
+    padding-bottom: 110px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: FINAL CTA
+   ============================================================ */
+
+.project-final-cta {
+    padding-top: 100px;
+    padding-bottom: 120px;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: REMOVE GENERIC SPACERS
+   The actual sections now control their own vertical rhythm.
+   ============================================================ */
+
+main.main-container > .empty-div-one,
+main.main-container > .empty-div-two,
+main.main-container > .empty-div-four {
+    display: none;
+}
+
+
+/* ============================================================
+   🟢 UPGRADE: MOBILE SPACING
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .project-introduction {
+        padding-top: 25px;
+        padding-bottom: 55px;
+    }
+
+    .project-filter-section {
+        padding-top: 35px;
+        padding-bottom: 60px;
+    }
+
+    .featured-case-study {
+        padding-top: 40px;
+        padding-bottom: 65px;
+    }
+
+    main.main-container > section:has(.projects-grid) {
+        padding-top: 35px;
+        padding-bottom: 70px;
+    }
+
+    .what-we-solve-section,
+    .project-process-section,
+    .technology-matrix-section {
+        padding-top: 60px;
+        padding-bottom: 70px;
+    }
+
+    main.main-container > section:has(#projectQuickLinks) {
+        padding-top: 55px;
+        padding-bottom: 75px;
+    }
+
+    .project-final-cta {
+        padding-top: 70px;
+        padding-bottom: 85px;
+    }
+
+}

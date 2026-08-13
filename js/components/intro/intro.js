@@ -1,802 +1,2216 @@
 /**
- * intro.js
+ * ============================================================
+ * RIVER — INTRO ENGINE
+ * ============================================================
+ *
+ * River — Software Engineering & Technology
+ *
+ * Narrative:
+ *
+ * 01 — RIVER
+ * 02 — WE FLOW
+ * 03 — IDEAS → SYSTEMS
+ * 04 — SYSTEMS → OUTCOMES
+ * 05 — WE DESIGN / ENGINEER / BUILD
+ * 06 — ENTER RIVER
+ *
+ * ============================================================
  */
-
-
 
 function initIntro() {
 
-        const intro = document.getElementById("intro");
-
-
-        const hero = document.getElementById("hero");
-        const logo = document.getElementById("introLogo");
-        const proceedBtn = document.getElementById("proceedBtn");
-      
-        const introSound = document.getElementById("introSound");
-        const typeSound = document.getElementById("typeSound");
-      
-        const hoverSound = document.getElementById("hoverSound");
-        const clickSound = document.getElementById("clickSound");
-      
-        const typedText = document.getElementById("typedText");
-
-        // 🟢 DOTS CONTAINER (NEW)
-        const dotsContainer = document.querySelector(".intro-dots");
-      
-        let introActive = true; // 🟢 GREEN: master state control
-      
-        /* ---------------- */
-        /* 🎬 INTRO ANIMATION */
-        /* ---------------- */
-        gsap.to(intro, {opacity:1, duration:1.2});
-      
-        gsap.from(logo, {
-          scale:0.6,
-          opacity:0,
-          duration:1.2,
-          ease:"power3.out"
-        });
-      
-        gsap.from("#introTitle", {
-          y:40,
-          opacity:0,
-          duration:1,
-          delay:0.5
-        });
-      
-        /* ---------------- */
-        /* 🔊 SOUND SYSTEM */
-        /* ---------------- */
-      
-        // 🟢 GREEN: PLAY INTRO SOUND
-        introSound.volume = 0;
-        introSound.play().catch(()=>{});
-        gsap.to(introSound, { volume:0.25, duration:2 });
-      
-        // 🟢 GREEN: FADE OUT
-        function fadeOutAudio(){
-          gsap.to(introSound, { volume:0, duration:0.8 });
-        }
-      
-        // 🟢 GREEN: HARD STOP EVERYTHING
-        function stopAllSounds(){
-          [introSound, typeSound, hoverSound, clickSound].forEach(a=>{
-            if(!a) return;
-            a.pause();
-            a.currentTime = 0;
-          });
-        }
-      
-        // 🟢 GREEN: SAFE CLICK SOUND
-        function playClickSound(){
-          if(!introActive) return; // prevent after intro
-          clickSound.currentTime = 0;
-          clickSound.volume = 0.2;
-          clickSound.play().catch(()=>{});
-        }
-      
-        // 🟢 GREEN: SAFE TYPE SOUND
-        function playTypeSound(){
-          if(!introActive) return;
-          typeSound.currentTime = 0;
-          typeSound.volume = 0.12;
-          typeSound.play().catch(()=>{});
-        }
-
-
-
-
-
-
-
-
-
-
-
-        /* ---------------- */
-        /* ✍️ PRECISION TYPE FLOW (YOUR EXACT LOGIC) */
-        /* ---------------- */
-
-        const TEXT_1 = "Welcome to River";
-        const BASE = "If you like ";
-        const TEXT_2 = "websites or softwares that convert to more sales — you are home";
-        const TEXT_3 = "peace of mind when managing your business — you are home";
-        const TEXT_4 = "systems that scale with you — you are home";
-        const TEXT_5 = "We are River, we flow — go with the flow";
-
-        let phase = 0;
-        /*
-        0 = type TEXT 1
-        1 = delete all
-        2 = type TEXT 2 (full)
-        3 = delete to BASE
-        4 = type TEXT 3 ending
-        5 = delete to BASE
-        6 = type TEXT 4 ending
-        7 = delete all
-        8 = type TEXT 5 (final)
-        */
-
-        let charIndex = 0;
-        let currentText = "";
-        let deleting = false;
-
-        /* 🟢 HIGHLIGHT WORDS */
-        const highlightWords = ["sales", "scale", "flow", "business", "River"];
-
-        /* 🟢 RENDER */
-        function renderText(rawText){
-          let formatted = rawText;
-
-          highlightWords.forEach(word => {
-            const regex = new RegExp(`\\b(${word})\\b`, "gi");
-            formatted = formatted.replace(regex, `<span class="highlight">$1</span>`);
-          });
-
-          typedText.innerHTML = formatted;
-        }
-
-        function typeFlow(){
-
-          if(!introActive) return;
-
-          /* ---------------- */
-          /* PHASE 0 → TEXT 1 */
-          /* ---------------- */
-          if(phase === 0){
-            currentText = TEXT_1;
-
-            if(charIndex < currentText.length){
-              renderText(currentText.substring(0, charIndex + 1));
-              playTypeSound();
-              charIndex++;
-              return setTimeout(typeFlow, 60);
-            }
-
-            phase = 1;
-            return setTimeout(typeFlow, 1200);
-          }
-
-          /* ---------------- */
-          /* PHASE 1 → DELETE ALL */
-          /* ---------------- */
-          if(phase === 1){
-            if(charIndex > 0){
-              renderText(currentText.substring(0, charIndex - 1));
-              charIndex--;
-              return setTimeout(typeFlow, 30);
-            }
-
-            phase = 2;
-            charIndex = 0;
-            return setTimeout(typeFlow, 300);
-          }
-
-          /* ---------------- */
-          /* PHASE 2 → TEXT 2 (FULL) */
-          /* ---------------- */
-          if(phase === 2){
-            currentText = BASE + TEXT_2;
-
-            if(charIndex < currentText.length){
-              renderText(currentText.substring(0, charIndex + 1));
-              playTypeSound();
-              charIndex++;
-              return setTimeout(typeFlow, 50);
-            }
-
-            // show button here 🔥
-            // 🟢 SHOW PROCEED BUTTON
-            gsap.to(proceedBtn, {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: "power3.out"
-            });
-
-            // 🟢 SHOW SLIDE BUTTONS (NEW)
-            gsap.to(["#prevSlide", "#nextSlide"], {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: 0.2,
-              ease: "power3.out",
-              stagger: 0.1
-            });
-            
-
-
-            phase = 3;
-            return setTimeout(typeFlow, 1400);
-          }
-
-          /* ---------------- */
-          /* PHASE 3 → DELETE TO BASE */
-          /* ---------------- */
-          if(phase === 3){
-            if(charIndex > BASE.length){
-              renderText(currentText.substring(0, charIndex - 1));
-              charIndex--;
-              return setTimeout(typeFlow, 25);
-            }
-
-            phase = 4;
-            return setTimeout(typeFlow, 400);
-          }
-
-          /* ---------------- */
-          /* PHASE 4 → TEXT 3 ENDING */
-          /* ---------------- */
-          if(phase === 4){
-            const full = BASE + TEXT_3;
+  /* ==========================================================
+     ELEMENTS
+  ========================================================== */
 
-            if(charIndex < full.length){
-              renderText(full.substring(0, charIndex + 1));
-              playTypeSound();
-              charIndex++;
-              return setTimeout(typeFlow, 50);
-            }
+  const intro = document.getElementById("intro");
 
-            phase = 5;
-            return setTimeout(typeFlow, 1400);
-          }
+  if (!intro) return;
 
-          /* ---------------- */
-          /* PHASE 5 → DELETE TO BASE */
-          /* ---------------- */
-          if(phase === 5){
-            if(charIndex > BASE.length){
-              renderText((BASE + TEXT_3).substring(0, charIndex - 1));
-              charIndex--;
-              return setTimeout(typeFlow, 25);
-            }
 
-            phase = 6;
-            return setTimeout(typeFlow, 400);
-          }
+  const hero = document.getElementById("hero");
 
-          /* ---------------- */
-          /* PHASE 6 → TEXT 4 ENDING */
-          /* ---------------- */
-          if(phase === 6){
-            const full = BASE + TEXT_4;
+  const logo = document.getElementById("introLogo");
 
-            if(charIndex < full.length){
-              renderText(full.substring(0, charIndex + 1));
-              playTypeSound();
-              charIndex++;
-              return setTimeout(typeFlow, 50);
-            }
+  const proceedBtn =
+    document.getElementById("proceedBtn");
 
-            phase = 7;
-            return setTimeout(typeFlow, 1400);
-          }
+  const introSound =
+    document.getElementById("introSound");
 
-          /* ---------------- */
-          /* PHASE 7 → DELETE ALL */
-          /* ---------------- */
-          if(phase === 7){
-            if(charIndex > 0){
-              renderText((BASE + TEXT_4).substring(0, charIndex - 1));
-              charIndex--;
-              return setTimeout(typeFlow, 25);
-            }
+  const typeSound =
+    document.getElementById("typeSound");
 
-            phase = 8;
-            charIndex = 0;
-            return setTimeout(typeFlow, 400);
-          }
+  const typedText =
+    document.getElementById("typedText");
 
-          /* ---------------- */
-          /* PHASE 8 → FINAL TEXT 5 */
-          /* ---------------- */
-          if(phase === 8){
-            currentText = TEXT_5;
+  const caret =
+    document.getElementById("caret");
 
-            if(charIndex < currentText.length){
-              renderText(currentText.substring(0, charIndex + 1));
-              playTypeSound();
-              charIndex++;
-              return setTimeout(typeFlow, 60);
-            }
+  const stageLabel =
+    document.getElementById("introStageLabel");
 
-            return; // 🔥 STOP on final message (no delete)
-          }
-        }
+  const subtitle =
+    document.getElementById("introSubtitle");
 
-        /* 🚀 START */
-        typeFlow();
+  const webglCanvas =
+    document.getElementById("webglCanvas");
 
+  const liquidCanvas =
+    document.getElementById("liquidCanvas");
 
-        
+  const nextBtn =
+    document.getElementById("nextSlide");
 
+  const prevBtn =
+    document.getElementById("prevSlide");
 
+  const progressItems =
+    Array.from(
+      document.querySelectorAll(
+        ".intro-progress-item"
+      )
+    );
 
+  const slides =
+    Array.from(
+      document.querySelectorAll(".slide")
+    );
 
 
+  /* ==========================================================
+     SAFETY
+  ========================================================== */
 
+  if (!typedText || !slides.length) return;
 
 
+  /* ==========================================================
+     MASTER STATE
+  ========================================================== */
 
+  let introActive = true;
 
+  let exiting = false;
 
+  let currentSlide = 0;
 
+  let slideInterval = null;
 
+  let typingTimer = null;
 
+  let animationFrame = null;
 
+  let slideshowPaused = false;
 
+  let userInteracted = false;
 
 
+  /* ==========================================================
+     REDUCED MOTION
+  ========================================================== */
 
+  const prefersReducedMotion =
+    window.matchMedia &&
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
 
+  /* ==========================================================
+     🟢 UPGRADE — INTRO CONTENT
+  ========================================================== */
+
+  const INTRO_SEQUENCE = [
+
+    {
+      text: "RIVER",
+      subtitle:
+        "Software Engineering & Technology",
+      hold: 1500,
+      typeSpeed: 80
+    },
+
+    {
+      text: "WE FLOW.",
+      subtitle:
+        "Ideas move. Problems change. Technology should move with them.",
+      hold: 1400,
+      typeSpeed: 72
+    },
+
+    {
+      text: "IDEAS → SYSTEMS",
+      subtitle:
+        "We turn ideas and problems into engineered digital systems.",
+      hold: 1600,
+      typeSpeed: 65
+    },
+
+    {
+      text: "SYSTEMS → OUTCOMES",
+      subtitle:
+        "Technology should create measurable value — not just exist.",
+      hold: 1600,
+      typeSpeed: 65
+    },
+
+    {
+      text: "WE DESIGN. WE ENGINEER. WE BUILD.",
+      subtitle:
+        "From digital experiences to software and connected systems.",
+      hold: 1800,
+      typeSpeed: 55
+    },
+
+    {
+      text: "ENTER RIVER",
+      subtitle:
+        "Build something that moves.",
+      hold: 0,
+      typeSpeed: 70
+    }
+
+  ];
+
+
+  /* ==========================================================
+     🟢 UPGRADE — VIDEO MEANINGS
+  ========================================================== */
+
+  const SLIDE_CONTENT = [
+
+    {
+      number: "01 / 03",
+      subtitle:
+        "Digital experiences built around people and purpose."
+    },
+
+    {
+      number: "02 / 03",
+      subtitle:
+        "Software systems engineered for real operational needs."
+    },
+
+    {
+      number: "03 / 03",
+      subtitle:
+        "Connected technology designed to create lasting outcomes."
+    }
+
+  ];
+
+
+  /* ==========================================================
+     AUDIO
+  ========================================================== */
+
+  function safePlay(audio, volume = 0.1) {
+
+    if (!audio || !introActive) return;
+
+    try {
+
+      audio.volume = volume;
+
+      audio.currentTime = 0;
+
+      const promise = audio.play();
+
+      if (
+        promise &&
+        typeof promise.catch === "function"
+      ) {
+
+        promise.catch(() => {});
 
-        /* =============================== */
-        /* 🟢 DOT ROTATION SYSTEM (NEW)   */
-        /* =============================== */
-
-          let rotationTween;
-          let isSpinning = false;
-
-          function startDotRotation() {
-            if (!dotsContainer) return;
-
-            isSpinning = true;
-
-            if (rotationTween) rotationTween.kill();
-
-            rotationTween = gsap.to(dotsContainer, {
-              rotation: "+=720",     // 🔥 faster initial spin
-              duration: 2,
-              ease: "power2.out"
-            });
-          }
-
-          function stopDotRotation() {
-            if (!dotsContainer) return;
-
-            isSpinning = false;
-
-            // 🔥 INERTIA EFFECT (keeps spinning after hover)
-            gsap.to(dotsContainer, {
-              rotation: "+=1080",   // 🔥 continues spinning
-              duration: 3.5,        // 🔥 longer spin AFTER hover
-              ease: "power3.out"
-            });
-          }
-
-
-        //
-        /* =============================== */
-        /* 🟢 EVENT BINDING (NEW)         */
-        /* =============================== */
-
-        proceedBtn.addEventListener("mouseenter", () => {
-          startDotRotation();
-        });
-
-        proceedBtn.addEventListener("mouseleave", () => {
-          stopDotRotation();
-        });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-         /**
-          *         function typeLoop(){
-      
-          if(!introActive) return; // 🟢 GREEN STOP LOOP
-      
-          if(!deleting){
-            if(i < text.length){
-              typedText.textContent += text[i];
-              playTypeSound();
-              i++;
-              setTimeout(typeLoop, 60);
-            } else {
-              deleting = true;
-      
-              gsap.to(proceedBtn, {
-                opacity:1,
-                y:0,
-                duration:0.8
-              });
-      
-              setTimeout(typeLoop, 1400);
-            }
-          } else {
-            if(i > 0){
-              typedText.textContent = text.substring(0, i - 1);
-              i--;
-              setTimeout(typeLoop, 30);
-            } else {
-              deleting = false;
-              setTimeout(typeLoop, 500);
-            }
-          }
-        }
-      
-        typeLoop();
-          */
-
-
-
-
-      
-        /* ---------------- */
-        /* 🌊 LIQUID CANVAS */
-        /* ---------------- */
-      
-        const webglCanvas = document.getElementById("webglCanvas");
-        const ctx = webglCanvas.getContext("2d");
-      
-        webglCanvas.width = window.innerWidth;
-        webglCanvas.height = window.innerHeight;
-      
-        let time = 0;
-      
-        function drawLiquid(){
-          if(!introActive) return; // 🟢 GREEN STOP RENDER
-      
-          ctx.clearRect(0,0,webglCanvas.width,webglCanvas.height);
-      
-          for(let i=0;i<6;i++){
-            ctx.beginPath();
-      
-            for(let x=0;x<webglCanvas.width;x+=10){
-              let y = webglCanvas.height/2 +
-                Math.sin(x*0.01 + time + i)*20;
-      
-              ctx.lineTo(x,y);
-            }
-      
-            ctx.strokeStyle = `rgba(255,255,255,0.05)`;
-            ctx.stroke();
-          }
-      
-          time += 0.02;
-          requestAnimationFrame(drawLiquid);
-        }
-      
-        drawLiquid();
-
-
-
-
-
-
-
-
-      
-        /* ---------------- */
-        /* 🎞️ MEDIA SLIDES  */
-        /* ---------------- */
-
-        /* ---------------- */
-        /* 🎞️ VIDEO SLIDES ONLY SYSTEM */
-        /* ---------------- */
-
-        let slides = Array.from(document.querySelectorAll(".slide"));
-        let current = 0;
-        let slideInterval;
-
-        /* 🟢 GREEN: FORCE VIDEO CREATION ONLY */
-        slides.forEach((slide, i) => {
-
-          const bg = slide.dataset.bg;
-
-          const video = document.createElement("video");
-
-          video.src = bg;
-
-          video.muted = true;
-          video.loop = true;
-          video.playsInline = true;
-          video.autoplay = false; // 🟢 GREEN: prevent multi-play
-          video.preload = "auto";
-
-          video.style.width = "100%";
-          video.style.height = "100%";
-          video.style.objectFit = "cover";
-
-          slide.appendChild(video);
-
-          slide.style.opacity = i === 0 ? 1 : 0;
-          slide.style.zIndex = i === 0 ? 2 : 1;
-        });
-
-        /* 🟢 GREEN: STRICT SINGLE VIDEO CONTROL */
-        function controlVideos() {
-
-          slides.forEach((slide, i) => {
-
-            const video = slide.querySelector("video");
-            if (!video) return;
-
-            if (i === current) {
-              video.currentTime = 0;
-
-              // 🟢 GREEN: ensure ONLY ONE plays
-              video.play().catch(()=>{});
-            } else {
-              video.pause();
-              video.currentTime = 0; // 🟢 GREEN: reset others
-            }
-          });
-        }
-
-        /* 🟢 GREEN: TRANSITION */
-        function transitionTo(nextIndex){
-
-          if(nextIndex === current) return;
-
-          const currentSlide = slides[current];
-          const nextSlide = slides[nextIndex];
-
-          nextSlide.style.zIndex = 2;
-          currentSlide.style.zIndex = 1;
-
-          gsap.fromTo(nextSlide,
-            { opacity:0, scale:1.1 },
-            { opacity:1, scale:1, duration:1.4 }
-          );
-
-          gsap.to(currentSlide, {
-            opacity:0,
-            scale:1.05,
-            duration:1.2
-          });
-
-          current = nextIndex;
-
-          controlVideos(); // 🟢 GREEN KEY
-        }
-
-        function nextSlide(){
-          let next = (current + 1) % slides.length;
-          transitionTo(next);
-        }
-
-        function prevSlide(){
-          let prev = (current - 1 + slides.length) % slides.length;
-          transitionTo(prev);
-        }
-
-        /* 🟢 GREEN: LOOP */
-        function startSlideshow(){
-          slideInterval = setInterval(()=>{
-            if(introActive){
-              nextSlide();
-            }
-          }, 5000);
-        }
-
-        function stopSlideshow(){
-          clearInterval(slideInterval);
-        }
-
-        startSlideshow();
-        controlVideos();
-
-        document.getElementById("nextSlide").addEventListener("click", nextSlide);
-        document.getElementById("prevSlide").addEventListener("click", prevSlide);
-
-        intro.addEventListener("mouseenter", stopSlideshow);
-        intro.addEventListener("mouseleave", startSlideshow);
-
-    
-        /* ---------------- */
-        /* 🎯 BUTTONS */
-        /* ---------------- */
-    
-        const nextBtn = document.getElementById("nextSlide");
-        const prevBtn = document.getElementById("prevSlide");
-    
-        nextBtn.addEventListener("click", nextSlide);
-        prevBtn.addEventListener("click", prevSlide);
-    
-        /* 🟢 PAUSE ON HOVER */
-        const introEl = document.getElementById("intro");
-    
-        introEl.addEventListener("mouseenter", stopSlideshow);
-        introEl.addEventListener("mouseleave", startSlideshow);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-      
-        /* ---------------- */
-        /* ⏱️ AUTO TIMEOUT EXIT */
-        /* ---------------- */
-      
-        // 🟢 GREEN: AUTO EXIT AFTER 10s
-        setTimeout(()=>{
-          if(introActive){
-            exitIntro();
-          }
-        }, 100000);
-      
-        /* ---------------- */
-        /* 🎯 EXIT INTRO */
-        /* ---------------- */
-      
-        function exitIntro(){
-      
-          if(!introActive) return;
-          introActive = false; // 🟢 GREEN LOCK
-      
-          fadeOutAudio();
-      
-          setTimeout(()=>{
-            stopAllSounds(); // 🟢 GREEN HARD STOP
-          }, 800);
-      
-          gsap.to(intro, {
-            scale:1.2,
-            opacity:0,
-            filter:"blur(30px)",
-            duration:1.2
-          });
-      
-          setTimeout(()=>{
-            hero.classList.add("reveal");
-          }, 400);
-      
-          setTimeout(()=>{
-            intro.style.display = "none";
-          }, 1400);
-        }
-      
-        /* ---------------- */
-        /* 🧠 EVENTS */
-        /* ---------------- */
-      
-        proceedBtn.addEventListener("click", ()=>{
-          playClickSound(); // 🟢 GREEN
-          exitIntro();
-        });
-      
-        // 🟢 GREEN: STOP ON SCROLL
-        window.addEventListener("scroll", ()=>{
-          if(window.scrollY > 40){
-            exitIntro();
-          }
-        });
-      
-        // 🟢 GREEN: PREVENT AUDIO LEAK FOREVER
-        document.addEventListener("visibilitychange", ()=>{
-          if(document.hidden){
-            stopAllSounds();
-          }
-        });
-
-        
-      
-      
-    
-    
-    //
-    gsap.from([
-        ".intro-top-brand",
-        ".intro-dots",
-        ".intro-info-box",
-        ".intro-trust"
-      ], {
-        opacity:0,
-        y:20,
-        duration:1,
-        delay:1,
-        stagger:0.2
-      });
-
-
-    /*
-    proceedBtn.addEventListener("click", () => {
-
-      if (!introActive) return;
-      introActive = false;
-    
-      playClickSound();
-    
-      fadeOutAudio();
-      stopAllSounds();
-    
-      clearTimeout(typingTimeout);
-      clearInterval(slideInterval);
-    
-      // 🔥 FADE OUT INTRO
-      gsap.to(intro, {
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-        onComplete: () => {
-          intro.style.display = "none";
-        }
-      });
-    
-      // 🔥 REVEAL HERO
-      gsap.to(hero, {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: "power3.out"
-      });
-    
-    });
-    */
-
-
-    /* ---------------- */
-  /* 🎯 PROCEED BUTTON FIX */
-  /* ---------------- */
-
-  // 🟢 FIX: SINGLE CLEAN HANDLER
-  proceedBtn.addEventListener("click", () => {
-
-    if (!introActive) return;
-    introActive = false;
-
-    playClickSound();
-
-    fadeOutAudio();
-    stopAllSounds();
-
-    stopSlideshow();
-
-    // 🟢 EXIT ANIMATION
-    gsap.to(intro, {
-      opacity: 0,
-      scale: 1.15,
-      filter: "blur(20px)",
-      duration: 1,
-      ease: "power3.out",
-      onComplete: () => {
-        intro.style.display = "none";
       }
-    });
 
-    // 🟢 HERO REVEAL
-    gsap.to(hero, {
-      opacity: 1,
-      scale: 1,
-      duration: 1.2,
-      ease: "power3.out"
-    });
+    } catch (error) {
 
-  });
-   
+      /* Audio is enhancement only. */
+
+    }
+
   }
 
 
+  function fadeOutAudio() {
 
+    if (!introSound) return;
+
+    if (
+      typeof gsap !== "undefined"
+    ) {
+
+      gsap.to(
+        introSound,
+        {
+          volume: 0,
+          duration: .7,
+          ease: "power2.out"
+        }
+      );
+
+    } else {
+
+      introSound.volume = 0;
+
+    }
+
+  }
+
+
+  function stopAllAudio() {
+
+    [
+      introSound,
+      typeSound
+    ].forEach(audio => {
+
+      if (!audio) return;
+
+      try {
+
+        audio.pause();
+
+        audio.currentTime = 0;
+
+      } catch (error) {}
+
+    });
+
+  }
+
+
+  /* ==========================================================
+     🟢 UPGRADE — SAFE TYPE SOUND
+  ========================================================== */
+
+  function playTypeSound() {
+
+    if (!introActive) return;
+
+    if (!typeSound) return;
+
+    safePlay(
+      typeSound,
+      prefersReducedMotion ? 0 : 0.045
+    );
+
+  }
+
+
+  /* ==========================================================
+     INTRO AUDIO START
+  ========================================================== */
+
+  function startIntroAudio() {
+
+    if (!introSound) return;
+
+    if (prefersReducedMotion) return;
+
+    try {
+
+      introSound.volume = 0;
+
+      const promise =
+        introSound.play();
+
+      if (
+        promise &&
+        typeof promise.catch === "function"
+      ) {
+
+        promise.catch(() => {});
+
+      }
+
+      if (
+        typeof gsap !== "undefined"
+      ) {
+
+        gsap.to(
+          introSound,
+          {
+            volume: .13,
+            duration: 2.5,
+            ease: "power2.out"
+          }
+        );
+
+      } else {
+
+        introSound.volume = .13;
+
+      }
+
+    } catch (error) {}
+
+  }
+
+
+  /* ==========================================================
+     🟢 UPGRADE — TEXT RENDER
+  ========================================================== */
+
+  function escapeHTML(value) {
+
+    return value
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  }
+
+
+  function renderText(text) {
+
+    const safe =
+      escapeHTML(text);
+
+    const words = [
+      "RIVER",
+      "FLOW",
+      "IDEAS",
+      "SYSTEMS",
+      "OUTCOMES",
+      "DESIGN",
+      "ENGINEER",
+      "BUILD"
+    ];
+
+
+    let formatted = safe;
+
+
+    words.forEach(word => {
+
+      const regex =
+        new RegExp(
+          `\\b(${word})\\b`,
+          "gi"
+        );
+
+      formatted =
+        formatted.replace(
+          regex,
+          `<span class="highlight">$1</span>`
+        );
+
+    });
+
+
+    typedText.innerHTML =
+      formatted;
+
+  }
+
+
+  /* ==========================================================
+     🟢 UPGRADE — TYPEWRITER ENGINE
+  ========================================================== */
+
+  function clearTypingTimer() {
+
+    if (typingTimer) {
+
+      clearTimeout(
+        typingTimer
+      );
+
+      typingTimer = null;
+
+    }
+
+  }
+
+
+  function typeText(
+    text,
+    speed = 60
+  ) {
+
+    return new Promise(resolve => {
+
+      clearTypingTimer();
+
+      let index = 0;
+
+      typedText.innerHTML = "";
+
+      function step() {
+
+        if (!introActive) {
+
+          resolve();
+
+          return;
+
+        }
+
+
+        if (
+          index >= text.length
+        ) {
+
+          resolve();
+
+          return;
+
+        }
+
+
+        renderText(
+          text.substring(
+            0,
+            index + 1
+          )
+        );
+
+
+        if (
+          !prefersReducedMotion
+        ) {
+
+          playTypeSound();
+
+        }
+
+
+        index++;
+
+
+        typingTimer =
+          setTimeout(
+            step,
+            prefersReducedMotion
+              ? 0
+              : speed
+          );
+
+      }
+
+
+      step();
+
+    });
+
+  }
+
+
+  /* ==========================================================
+     DELETE TEXT
+  ========================================================== */
+
+  function deleteText(
+    speed = 30
+  ) {
+
+    return new Promise(resolve => {
+
+      clearTypingTimer();
+
+
+      let current =
+        typedText.textContent || "";
+
+
+      function step() {
+
+        if (!introActive) {
+
+          resolve();
+
+          return;
+
+        }
+
+
+        if (!current.length) {
+
+          resolve();
+
+          return;
+
+        }
+
+
+        current =
+          current.substring(
+            0,
+            current.length - 1
+          );
+
+
+        renderText(current);
+
+
+        typingTimer =
+          setTimeout(
+            step,
+            prefersReducedMotion
+              ? 0
+              : speed
+          );
+
+      }
+
+
+      step();
+
+    });
+
+  }
+
+
+  /* ==========================================================
+     WAIT
+  ========================================================== */
+
+  function wait(duration) {
+
+    return new Promise(resolve => {
+
+      if (!introActive) {
+
+        resolve();
+
+        return;
+
+      }
+
+
+      setTimeout(
+        resolve,
+        prefersReducedMotion
+          ? Math.min(duration, 150)
+          : duration
+      );
+
+    });
+
+  }
+
+
+  /* ==========================================================
+     🟢 UPGRADE — NARRATIVE FLOW
+  ========================================================== */
+
+  async function runIntroSequence() {
+
+    if (!introActive) return;
+
+
+    for (
+      let i = 0;
+      i < INTRO_SEQUENCE.length;
+      i++
+    ) {
+
+      if (!introActive) return;
+
+
+      const item =
+        INTRO_SEQUENCE[i];
+
+
+      await typeText(
+        item.text,
+        item.typeSpeed
+      );
+
+
+      if (!introActive) return;
+
+
+      updateSubtitle(
+        item.subtitle
+      );
+
+
+      if (
+        i === 1 ||
+        i === 2 ||
+        i === 3
+      ) {
+
+        transitionTo(
+          i - 1,
+          true
+        );
+
+      }
+
+
+      if (
+        i === 5
+      ) {
+
+        revealEnter();
+
+        break;
+
+      }
+
+
+      await wait(
+        item.hold
+      );
+
+
+      if (
+        i <
+        INTRO_SEQUENCE.length - 2
+      ) {
+
+        await deleteText(
+          prefersReducedMotion
+            ? 0
+            : 24
+        );
+
+        await wait(180);
+
+      }
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     SUBTITLE
+  ========================================================== */
+
+  function updateSubtitle(text) {
+
+    if (!subtitle) return;
+
+
+    if (
+      typeof gsap !== "undefined" &&
+      !prefersReducedMotion
+    ) {
+
+      gsap.to(
+        subtitle,
+        {
+          opacity: 0,
+          y: 6,
+          duration: .2,
+          onComplete: () => {
+
+            subtitle.textContent =
+              text;
+
+            gsap.to(
+              subtitle,
+              {
+                opacity: 1,
+                y: 0,
+                duration: .45,
+                ease: "power3.out"
+              }
+            );
+
+          }
+        }
+      );
+
+    } else {
+
+      subtitle.textContent =
+        text;
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     ENTER BUTTON
+  ========================================================== */
+
+  function revealEnter() {
+
+    if (!proceedBtn) return;
+
+    proceedBtn.classList.add(
+      "visible"
+    );
+
+  }
+
+
+  /* ==========================================================
+     SLIDES — CREATE VIDEOS
+  ========================================================== */
+
+  slides.forEach(
+    (slide, index) => {
+
+      const source =
+        slide.dataset.bg;
+
+
+      if (!source) return;
+
+
+      const video =
+        document.createElement(
+          "video"
+        );
+
+
+      video.src =
+        source;
+
+      video.muted = true;
+
+      video.loop = true;
+
+      video.playsInline = true;
+
+      video.preload =
+        index === 0
+          ? "auto"
+          : "metadata";
+
+      video.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+
+      slide.appendChild(
+        video
+      );
+
+
+      slide.style.opacity =
+        index === 0 ? "1" : "0";
+
+      slide.style.zIndex =
+        index === 0 ? "2" : "1";
+
+
+      if (index === 0) {
+
+        slide.classList.add(
+          "active"
+        );
+
+      }
+
+    }
+  );
+
+
+  /* ==========================================================
+     VIDEO CONTROL
+  ========================================================== */
+
+  function controlVideos() {
+
+    slides.forEach(
+      (slide, index) => {
+
+        const video =
+          slide.querySelector(
+            "video"
+          );
+
+
+        if (!video) return;
+
+
+        if (
+          index === currentSlide
+        ) {
+
+          try {
+
+            video.currentTime = 0;
+
+          } catch (error) {}
+
+
+          if (!prefersReducedMotion) {
+
+            const promise =
+              video.play();
+
+            if (
+              promise &&
+              typeof promise.catch ===
+                "function"
+            ) {
+
+              promise.catch(
+                () => {}
+              );
+
+            }
+
+          }
+
+        } else {
+
+          try {
+
+            video.pause();
+
+            video.currentTime = 0;
+
+          } catch (error) {}
+
+        }
+
+      }
+    );
+
+  }
+
+
+  /* ==========================================================
+     🟢 UPGRADE — SLIDE UI
+  ========================================================== */
+
+  function updateSlideUI(index) {
+
+    const content =
+      SLIDE_CONTENT[index];
+
+
+    if (stageLabel) {
+
+      stageLabel.textContent =
+        content
+          ? content.number
+          : `0${index + 1} / 03`;
+
+    }
+
+
+    if (subtitle && content) {
+
+      updateSubtitle(
+        content.subtitle
+      );
+
+    }
+
+
+    progressItems.forEach(
+      (item, itemIndex) => {
+
+        item.classList.toggle(
+          "active",
+          itemIndex === index
+        );
+
+        item.setAttribute(
+          "aria-current",
+          itemIndex === index
+            ? "true"
+            : "false"
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ==========================================================
+     SLIDE TRANSITION
+  ========================================================== */
+
+  function transitionTo(
+    nextIndex,
+    silent = false
+  ) {
+
+    if (
+      nextIndex === currentSlide ||
+      !slides[nextIndex]
+    ) {
+
+      return;
+
+    }
+
+
+    const currentSlideEl =
+      slides[currentSlide];
+
+    const nextSlideEl =
+      slides[nextIndex];
+
+
+    nextSlideEl.style.zIndex =
+      "3";
+
+    currentSlideEl.style.zIndex =
+      "2";
+
+
+    nextSlideEl.classList.add(
+      "active"
+    );
+
+
+    if (
+      typeof gsap !== "undefined" &&
+      !prefersReducedMotion
+    ) {
+
+      gsap.killTweensOf([
+        currentSlideEl,
+        nextSlideEl
+      ]);
+
+
+      gsap.fromTo(
+        nextSlideEl,
+        {
+          opacity: 0,
+          scale: 1.07
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.35,
+          ease: "power3.out"
+        }
+      );
+
+
+      gsap.to(
+        currentSlideEl,
+        {
+          opacity: 0,
+          scale: 1.035,
+          duration: 1.15,
+          ease: "power2.out"
+        }
+      );
+
+    } else {
+
+      currentSlideEl.style.opacity =
+        "0";
+
+      nextSlideEl.style.opacity =
+        "1";
+
+      nextSlideEl.style.transform =
+        "scale(1)";
+
+    }
+
+
+    currentSlide =
+      nextIndex;
+
+
+    slides.forEach(
+      (slide, index) => {
+
+        if (
+          index !== currentSlide
+        ) {
+
+          slide.classList.remove(
+            "active"
+          );
+
+        }
+
+      }
+    );
+
+
+    updateSlideUI(
+      currentSlide
+    );
+
+
+    controlVideos();
+
+
+    if (!silent) {
+
+      safePlay(
+        typeSound,
+        .045
+      );
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     NEXT / PREVIOUS
+  ========================================================== */
+
+  function nextSlide() {
+
+    const next =
+      (
+        currentSlide + 1
+      ) %
+      slides.length;
+
+
+    transitionTo(next);
+
+  }
+
+
+  function prevSlide() {
+
+    const previous =
+      (
+        currentSlide -
+        1 +
+        slides.length
+      ) %
+      slides.length;
+
+
+    transitionTo(previous);
+
+  }
+
+
+  /* ==========================================================
+     SLIDESHOW
+  ========================================================== */
+
+  function startSlideshow() {
+
+    if (
+      prefersReducedMotion ||
+      slideshowPaused ||
+      !introActive
+    ) {
+
+      return;
+
+    }
+
+
+    stopSlideshow();
+
+
+    slideInterval =
+      setInterval(
+        () => {
+
+          if (
+            introActive &&
+            !slideshowPaused
+          ) {
+
+            nextSlide();
+
+          }
+
+        },
+        6500
+      );
+
+  }
+
+
+  function stopSlideshow() {
+
+    if (slideInterval) {
+
+      clearInterval(
+        slideInterval
+      );
+
+      slideInterval = null;
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     HOVER PAUSE
+  ========================================================== */
+
+  intro.addEventListener(
+    "mouseenter",
+    () => {
+
+      slideshowPaused = true;
+
+      stopSlideshow();
+
+    }
+  );
+
+
+  intro.addEventListener(
+    "mouseleave",
+    () => {
+
+      slideshowPaused = false;
+
+      startSlideshow();
+
+    }
+  );
+
+
+  /* ==========================================================
+     🟢 UPGRADE — PROGRESS BUTTONS
+  ========================================================== */
+
+  progressItems.forEach(
+    item => {
+
+      item.addEventListener(
+        "click",
+        () => {
+
+          const index =
+            Number(
+              item.dataset.slide
+            );
+
+
+          if (
+            Number.isNaN(index)
+          ) {
+
+            return;
+
+          }
+
+
+          userInteracted = true;
+
+          transitionTo(index);
+
+          stopSlideshow();
+
+          slideshowPaused = true;
+
+        }
+      );
+
+    }
+  );
+
+
+  /* ==========================================================
+     NAVIGATION BUTTONS
+  ========================================================== */
+
+  if (nextBtn) {
+
+    nextBtn.addEventListener(
+      "click",
+      () => {
+
+        userInteracted = true;
+
+        nextSlide();
+
+      }
+    );
+
+  }
+
+
+  if (prevBtn) {
+
+    prevBtn.addEventListener(
+      "click",
+      () => {
+
+        userInteracted = true;
+
+        prevSlide();
+
+      }
+    );
+
+  }
+
+
+  /* ==========================================================
+     KEYBOARD NAVIGATION
+  ========================================================== */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (!introActive) return;
+
+
+      if (
+        event.key === "ArrowRight"
+      ) {
+
+        nextSlide();
+
+      }
+
+
+      if (
+        event.key === "ArrowLeft"
+      ) {
+
+        prevSlide();
+
+      }
+
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        if (
+          proceedBtn &&
+          proceedBtn.classList.contains(
+            "visible"
+          )
+        ) {
+
+          exitIntro();
+
+        }
+
+      }
+
+
+      if (
+        event.key === "Escape"
+      ) {
+
+        exitIntro();
+
+      }
+
+    }
+  );
+
+
+  /* ==========================================================
+     🟢 UPGRADE — TOUCH SWIPE
+  ========================================================== */
+
+  let touchStartX = 0;
+
+  let touchEndX = 0;
+
+
+  intro.addEventListener(
+    "touchstart",
+    event => {
+
+      if (
+        !event.touches.length
+      ) return;
+
+
+      touchStartX =
+        event.touches[0].clientX;
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  intro.addEventListener(
+    "touchend",
+    event => {
+
+      if (
+        !event.changedTouches.length
+      ) return;
+
+
+      touchEndX =
+        event.changedTouches[0].clientX;
+
+
+      const distance =
+        touchEndX -
+        touchStartX;
+
+
+      if (
+        Math.abs(distance) < 45
+      ) {
+
+        return;
+
+      }
+
+
+      userInteracted = true;
+
+
+      if (distance < 0) {
+
+        nextSlide();
+
+      } else {
+
+        prevSlide();
+
+      }
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  /* ==========================================================
+     LIQUID CANVAS
+  ========================================================== */
+
+  const liquidContext =
+    liquidCanvas
+      ? liquidCanvas.getContext(
+          "2d"
+        )
+      : null;
+
+
+  let liquidWidth = 0;
+
+  let liquidHeight = 0;
+
+
+  function resizeLiquidCanvas() {
+
+    if (
+      !liquidCanvas ||
+      !liquidContext
+    ) {
+
+      return;
+
+    }
+
+
+    const dpr =
+      Math.min(
+        window.devicePixelRatio ||
+          1,
+        2
+      );
+
+
+    liquidWidth =
+      window.innerWidth;
+
+    liquidHeight =
+      window.innerHeight;
+
+
+    liquidCanvas.width =
+      liquidWidth * dpr;
+
+    liquidCanvas.height =
+      liquidHeight * dpr;
+
+
+    liquidCanvas.style.width =
+      `${liquidWidth}px`;
+
+    liquidCanvas.style.height =
+      `${liquidHeight}px`;
+
+
+    liquidContext.setTransform(
+      dpr,
+      0,
+      0,
+      dpr,
+      0,
+      0
+    );
+
+  }
+
+
+  resizeLiquidCanvas();
+
+
+  window.addEventListener(
+    "resize",
+    resizeLiquidCanvas,
+    {
+      passive: true
+    }
+  );
+
+
+  /* ==========================================================
+     🟢 UPGRADE — MORE ORGANIC LIQUID MOTION
+  ========================================================== */
+
+  let liquidTime = 0;
+
+
+  function drawLiquid() {
+
+    if (!introActive) {
+
+      return;
+
+    }
+
+
+    if (
+      !liquidContext
+    ) {
+
+      return;
+
+    }
+
+
+    liquidContext.clearRect(
+      0,
+      0,
+      liquidWidth,
+      liquidHeight
+    );
+
+
+    if (
+      prefersReducedMotion
+    ) {
+
+      return;
+
+    }
+
+
+    liquidTime += .006;
+
+
+    const centerY =
+      liquidHeight * .52;
+
+
+    for (
+      let layer = 0;
+      layer < 4;
+      layer++
+    ) {
+
+      liquidContext.beginPath();
+
+
+      for (
+        let x = 0;
+        x <= liquidWidth;
+        x += 16
+      ) {
+
+        const waveOne =
+          Math.sin(
+            x * .007 +
+            liquidTime * 1.3 +
+            layer
+          ) *
+          (18 + layer * 4);
+
+
+        const waveTwo =
+          Math.sin(
+            x * .013 -
+            liquidTime * .8 +
+            layer * 2
+          ) *
+          8;
+
+
+        const y =
+          centerY +
+          waveOne +
+          waveTwo;
+
+
+        if (x === 0) {
+
+          liquidContext.moveTo(
+            x,
+            y
+          );
+
+        } else {
+
+          liquidContext.lineTo(
+            x,
+            y
+          );
+
+        }
+
+      }
+
+
+      liquidContext.strokeStyle =
+        `rgba(255,255,255,${.025 + layer * .012})`;
+
+      liquidContext.lineWidth =
+        1;
+
+
+      liquidContext.stroke();
+
+    }
+
+
+    animationFrame =
+      requestAnimationFrame(
+        drawLiquid
+      );
+
+  }
+
+
+  drawLiquid();
+
+
+  /* ==========================================================
+     WEBGL/CANVAS LIGHT LAYER
+  ========================================================== */
+
+  const lightContext =
+    webglCanvas
+      ? webglCanvas.getContext(
+          "2d"
+        )
+      : null;
+
+
+  let lightWidth = 0;
+
+  let lightHeight = 0;
+
+
+  function resizeLightCanvas() {
+
+    if (
+      !webglCanvas ||
+      !lightContext
+    ) {
+
+      return;
+
+    }
+
+
+    const dpr =
+      Math.min(
+        window.devicePixelRatio ||
+          1,
+        2
+      );
+
+
+    lightWidth =
+      window.innerWidth;
+
+    lightHeight =
+      window.innerHeight;
+
+
+    webglCanvas.width =
+      lightWidth * dpr;
+
+    webglCanvas.height =
+      lightHeight * dpr;
+
+
+    webglCanvas.style.width =
+      `${lightWidth}px`;
+
+    webglCanvas.style.height =
+      `${lightHeight}px`;
+
+
+    lightContext.setTransform(
+      dpr,
+      0,
+      0,
+      dpr,
+      0,
+      0
+    );
+
+  }
+
+
+  resizeLightCanvas();
+
+
+  window.addEventListener(
+    "resize",
+    resizeLightCanvas,
+    {
+      passive: true
+    }
+  );
+
+
+  let lightTime = 0;
+
+
+  function drawLight() {
+
+    if (!introActive) {
+
+      return;
+
+    }
+
+
+    if (
+      !lightContext
+    ) {
+
+      return;
+
+    }
+
+
+    lightContext.clearRect(
+      0,
+      0,
+      lightWidth,
+      lightHeight
+    );
+
+
+    if (
+      prefersReducedMotion
+    ) {
+
+      return;
+
+    }
+
+
+    lightTime += .008;
+
+
+    for (
+      let layer = 0;
+      layer < 3;
+      layer++
+    ) {
+
+      lightContext.beginPath();
+
+
+      for (
+        let x = 0;
+        x <= lightWidth;
+        x += 14
+      ) {
+
+        const y =
+          lightHeight * .5 +
+          Math.sin(
+            x * .008 +
+            lightTime +
+            layer
+          ) *
+          (24 + layer * 6);
+
+
+        if (x === 0) {
+
+          lightContext.moveTo(
+            x,
+            y
+          );
+
+        } else {
+
+          lightContext.lineTo(
+            x,
+            y
+          );
+
+        }
+
+      }
+
+
+      lightContext.strokeStyle =
+        `rgba(255,255,255,${.018 + layer * .008})`;
+
+      lightContext.lineWidth =
+        1;
+
+
+      lightContext.stroke();
+
+    }
+
+
+    requestAnimationFrame(
+      drawLight
+    );
+
+  }
+
+
+  drawLight();
+
+
+  /* ==========================================================
+     INITIAL SLIDE
+  ========================================================== */
+
+  updateSlideUI(
+    currentSlide
+  );
+
+
+  controlVideos();
+
+
+  /* ==========================================================
+     INTRO ENTRANCE
+  ========================================================== */
+
+  if (
+    typeof gsap !== "undefined"
+  ) {
+
+    gsap.set(
+      intro,
+      {
+        opacity: 0
+      }
+    );
+
+
+    gsap.to(
+      intro,
+      {
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out"
+      }
+    );
+
+
+    if (logo) {
+
+      gsap.fromTo(
+        logo,
+        {
+          opacity: 0,
+          scale: .72,
+          y: 20
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1.3,
+          delay: .25,
+          ease: "power3.out"
+        }
+      );
+
+    }
+
+
+    gsap.fromTo(
+      [
+        ".intro-header",
+        ".intro-philosophy",
+        ".intro-progress",
+        ".intro-slide-nav"
+      ],
+      {
+        opacity: 0,
+        y: 15
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: .9,
+        delay: .7,
+        stagger: .1,
+        ease: "power3.out"
+      }
+    );
+
+  } else {
+
+    intro.style.opacity = "1";
+
+  }
+
+
+  /* ==========================================================
+     AUDIO
+  ========================================================== */
+
+  startIntroAudio();
+
+
+  /* ==========================================================
+     START SLIDESHOW
+  ========================================================== */
+
+  startSlideshow();
+
+
+  /* ==========================================================
+     START NARRATIVE
+  ========================================================== */
+
+  runIntroSequence();
+
+
+  /* ==========================================================
+     🟢 UPGRADE — ENTER BUTTON
+  ========================================================== */
+
+  if (proceedBtn) {
+
+    proceedBtn.addEventListener(
+      "mouseenter",
+      () => {
+
+        if (!introActive) return;
+
+        safePlay(
+          typeSound,
+          .025
+        );
+
+      }
+    );
+
+
+    proceedBtn.addEventListener(
+      "click",
+      () => {
+
+        exitIntro();
+
+      }
+    );
+
+  }
+
+
+  /* ==========================================================
+     SCROLL EXIT
+  ========================================================== */
+
+  function handleScrollExit() {
+
+    if (
+      window.scrollY > 35 &&
+      introActive
+    ) {
+
+      exitIntro();
+
+    }
+
+  }
+
+
+  window.addEventListener(
+    "scroll",
+    handleScrollExit,
+    {
+      passive: true
+    }
+  );
+
+
+  /* ==========================================================
+     VISIBILITY CHANGE
+  ========================================================== */
+
+  function handleVisibility() {
+
+    if (
+      document.hidden
+    ) {
+
+      stopAllAudio();
+
+      stopSlideshow();
+
+    } else if (
+      introActive
+    ) {
+
+      startSlideshow();
+
+      controlVideos();
+
+    }
+
+  }
+
+
+  document.addEventListener(
+    "visibilitychange",
+    handleVisibility
+  );
+
+
+  /* ==========================================================
+     🟢 UPGRADE — EXIT CLEANUP
+  ========================================================== */
+
+  function cleanupIntro() {
+
+    clearTypingTimer();
+
+    stopSlideshow();
+
+    stopAllAudio();
+
+
+    if (
+      animationFrame
+    ) {
+
+      cancelAnimationFrame(
+        animationFrame
+      );
+
+      animationFrame = null;
+
+    }
+
+
+    slides.forEach(
+      slide => {
+
+        const video =
+          slide.querySelector(
+            "video"
+          );
+
+
+        if (!video) return;
+
+
+        try {
+
+          video.pause();
+
+          video.removeAttribute(
+            "src"
+          );
+
+          video.load();
+
+        } catch (error) {}
+
+      }
+    );
+
+
+    window.removeEventListener(
+      "scroll",
+      handleScrollExit
+    );
+
+
+    document.removeEventListener(
+      "visibilitychange",
+      handleVisibility
+    );
+
+  }
+
+
+  /* ==========================================================
+     EXIT INTRO
+  ========================================================== */
+
+  function exitIntro() {
+
+    if (
+      !introActive ||
+      exiting
+    ) {
+
+      return;
+
+    }
+
+
+    exiting = true;
+
+    introActive = false;
+
+
+    clearTypingTimer();
+
+    stopSlideshow();
+
+    fadeOutAudio();
+
+
+    if (
+      typeof gsap !== "undefined"
+    ) {
+
+      intro.classList.add(
+        "is-exiting"
+      );
+
+
+      gsap.to(
+        intro,
+        {
+          opacity: 0,
+          scale: 1.035,
+          filter: "blur(18px)",
+          duration: 1.15,
+          ease: "power3.inOut",
+          onComplete: () => {
+
+            intro.style.display =
+              "none";
+
+            cleanupIntro();
+
+          }
+        }
+      );
+
+
+      if (hero) {
+
+        gsap.to(
+          hero,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.25,
+            delay: .25,
+            ease: "power3.out"
+          }
+        );
+
+
+        hero.classList.add(
+          "reveal"
+        );
+
+      }
+
+    } else {
+
+      intro.style.display =
+        "none";
+
+      cleanupIntro();
+
+      if (hero) {
+
+        hero.classList.add(
+          "reveal"
+        );
+
+      }
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     🟢 UPGRADE — AUTO EXIT
+     ========================================================== */
+
+  const AUTO_EXIT_TIME =
+    prefersReducedMotion
+      ? 12000
+      : 30000;
+
+
+  setTimeout(
+    () => {
+
+      if (
+        introActive
+      ) {
+
+        exitIntro();
+
+      }
+
+    },
+    AUTO_EXIT_TIME
+  );
+
+
+  /* ==========================================================
+     🟢 UPGRADE — INITIAL PLAYBACK
+  ========================================================== */
+
+  if (
+    slides.length
+  ) {
+
+    transitionTo(
+      0,
+      true
+    );
+
+  }
+
+
+  /* ==========================================================
+     DEBUG / DEVELOPMENT HANDLE
+  ========================================================== */
+
+  window.RIVER_INTRO = {
+
+    next: nextSlide,
+
+    previous: prevSlide,
+
+    enter: exitIntro,
+
+    current: () =>
+      currentSlide,
+
+    isActive: () =>
+      introActive
+
+  };
+
+}

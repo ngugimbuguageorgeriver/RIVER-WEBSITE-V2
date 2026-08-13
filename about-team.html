@@ -1,132 +1,404 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meet the Team | River IT Solutions</title>
 
-  <!-- Styles -->
+  <title>Meet the Team | River - Software Engineering & Technology</title>
+  <meta
+    name="description"
+    content="Meet the people behind River — engineers, designers, product thinkers and technology professionals building systems that solve real problems."
+  />
+
+  <!-- ============================================================
+       MAIN STYLES
+  ============================================================ -->
+
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/styling.css" />
-  <link rel="stylesheet" href="css/components/intro/intro.css" />
 
-  <!-- Components -->
+  <!-- ============================================================
+       COMPONENT STYLES
+  ============================================================ -->
+
+  <link rel="stylesheet" href="css/components/intro/intro.css" />
   <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
   <link rel="stylesheet" href="css/components/backToTop/backToTop.css" />
   <link rel="stylesheet" href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css" />
   <link rel="stylesheet" href="css/components/systemTheme/systemTheme.css" />
   <link rel="stylesheet" href="css/components/backgroundSystem/backgroundSystem.css" />
   <link rel="stylesheet" href="css/components/info-trust/infoTrust.css" />
-
   <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
-
-
   <link rel="stylesheet" href="css/components/projects/projects.css" />
-
   <link rel="stylesheet" href="css/components/footer/footer.css" />
 
+  <!-- 🟢 UPGRADE -->
+  <link rel="stylesheet" href="css/components/about/about.css" />
 
+  <!-- 🟢 UPGRADE -->
+  <link rel="stylesheet" href="css/components/about/team.css" />
 
+  <!-- ============================================================
+       FAVICON
+  ============================================================ -->
 
-  <!-- Favicon -->
-  <link rel="icon" class="favicon" type="image" href="assets/Media/riverWebsiteLogos/r logo.png"/>
-
-
+  <link
+    rel="icon"
+    class="favicon"
+    type="image"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
 </head>
 
 <body>
 
-  <!-- PAGE TRANSITION OVERLAY -->
+  <!-- ============================================================
+       PAGE TRANSITION
+  ============================================================ -->
+
   <div id="pageTransition"></div>
 
-  <!-- 🌌 BACKGROUND -->
+  <!-- ============================================================
+       BACKGROUND
+  ============================================================ -->
+
   <div class="bg-system">
     <img
       id="bgImage"
-      src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
-      alt="background"
+      src="assets/Media/BGI/BGI1.jpg"
+      alt=""
     />
     <div class="bg-gradient"></div>
   </div>
 
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
 
-  <!-- HEADER -->
-  <!-- HEADER COMPONENT -->
   <river-header></river-header>
 
-  <!-- MAIN CONTENT -->
-  <main class="main-container">
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
 
-    <!-- HERO-SECTION -->
+  <main class="main-container team-page">
+
+    <!-- ==========================================================
+         HERO
+    =========================================================== -->
+
     <hero-section
-    title="River — Meet the Team"
-    subtitle="Profiles of our leadership and engineering teams.."
+      title="River — Meet the Team"
+      subtitle="The people behind the systems, products and decisions."
     ></hero-section>
 
     <div class="empty-div-one"></div>
 
-    
-    <!-- LEADERSHIP -->
-    <section >
-      <div class="info-container">
-        <div class="card">
-          <h2>Leadership</h2>
-          <p class="small">CEO, CTO, Head of Engineering and Product.</p>
-          <p class="small">CEO, CTO, Head of Engineering and Product.</p>
-          <p class="small">CEO, CTO, Head of Engineering and Product.</p>
+    <!-- ==========================================================
+         🟢 UPGRADE — TEAM INTRODUCTION
+    =========================================================== -->
+
+    <section class="team-introduction">
+
+      <div class="container team-introduction-grid">
+
+        <div class="about-section-marker">
+          <span>THE PEOPLE BEHIND RIVER</span>
+          <strong>Different disciplines. One engineering mindset.</strong>
         </div>
+
+        <div>
+
+          <p class="about-eyebrow">
+            Our Team
+          </p>
+
+          <h1>
+            River is built by people who solve problems.
+          </h1>
+
+          <p class="about-lead">
+            We bring together different disciplines because real systems
+            rarely fit neatly inside one discipline.
+          </p>
+
+          <p>
+            Engineering, product thinking, design, data, infrastructure
+            and operations all have a role to play in creating technology
+            that works in the real world.
+          </p>
+
+        </div>
+
       </div>
+
     </section>
 
     <div class="empty-div-two"></div>
 
+    <!-- ==========================================================
+         🟢 UPGRADE — TEAM FILTER
+    =========================================================== -->
+
+    <section class="team-directory">
+
+      <div class="container">
+
+        <div class="team-directory-header">
+
+          <div>
+            <p class="about-eyebrow">
+              The People
+            </p>
+
+            <h2>
+              Meet the people behind River.
+            </h2>
+          </div>
+
+          <div
+            id="teamFilters"
+            class="team-filters"
+            aria-label="Filter team members"
+          >
+
+            <button
+              class="team-filter active"
+              type="button"
+              data-team-filter="all"
+            >
+              Everyone
+            </button>
+
+            <button
+              class="team-filter"
+              type="button"
+              data-team-filter="leadership"
+            >
+              Leadership
+            </button>
+
+            <button
+              class="team-filter"
+              type="button"
+              data-team-filter="engineering"
+            >
+              Engineering
+            </button>
+
+            <button
+              class="team-filter"
+              type="button"
+              data-team-filter="product"
+            >
+              Product
+            </button>
+
+            <button
+              class="team-filter"
+              type="button"
+              data-team-filter="design"
+            >
+              Design
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- 🟢 UPGRADE — DYNAMIC TEAM REGISTRY OUTPUT -->
+
+        <div
+          id="teamGrid"
+          class="team-grid"
+          data-team-grid="true"
+        ></div>
+
+        <noscript>
+          <div class="card">
+            <h3>JavaScript is required</h3>
+            <p>
+              Team profiles are dynamically loaded to keep River's people
+              directory maintained from one central registry.
+            </p>
+          </div>
+        </noscript>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         🟢 UPGRADE — TEAM PHILOSOPHY
+    =========================================================== -->
+
+    <section class="team-philosophy">
+
+      <div class="container">
+
+        <div class="about-section-heading">
+
+          <span class="about-number">
+            01
+          </span>
+
+          <div>
+
+            <p class="about-eyebrow">
+              How We Work
+            </p>
+
+            <h2>
+              Different specialties.
+              Shared standards.
+            </h2>
+
+          </div>
+
+        </div>
+
+        <div class="team-philosophy-grid">
+
+          <article class="team-philosophy-card">
+            <span>01</span>
+            <h3>Understand first.</h3>
+            <p>
+              We seek context before proposing solutions.
+            </p>
+          </article>
+
+          <article class="team-philosophy-card">
+            <span>02</span>
+            <h3>Challenge assumptions.</h3>
+            <p>
+              Good teams should be able to question ideas constructively.
+            </p>
+          </article>
+
+          <article class="team-philosophy-card">
+            <span>03</span>
+            <h3>Own the outcome.</h3>
+            <p>
+              Responsibility does not end when the code is deployed.
+            </p>
+          </article>
+
+          <article class="team-philosophy-card">
+            <span>04</span>
+            <h3>Keep learning.</h3>
+            <p>
+              Better systems require better thinking.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         🟢 UPGRADE — CTA
+    =========================================================== -->
+
+    <section class="team-closing">
+
+      <div class="container">
+
+        <p class="about-eyebrow">
+          Work with River
+        </p>
+
+        <h2>
+          Have a problem worth solving?
+        </h2>
+
+        <p>
+          Tell us what needs to change.
+        </p>
+
+        <a
+          class="btn"
+          href="contact.html"
+        >
+          Start a conversation
+        </a>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-three"></div>
 
   </main>
 
-<!-- FOOTER -->
-<river-footer></river-footer>
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
 
-<!-- BACK TO TOP -->
-<river-backtotop></river-backtotop>
+  <river-footer></river-footer>
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- ============================================================
+       BACK TO TOP
+  ============================================================ -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
+  <river-backtotop></river-backtotop>
 
-<!-- Scripts -->
-<script src="js/main.js"></script>
-<script src="js/additionalfiles.js"></script>
+  <!-- ============================================================
+       GSAP
+  ============================================================ -->
 
-<!-- Intro -->
-<script src="js/components/intro/intro.js"></script>
-<script src="js/components/intro/riverIntro.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
 
+  <!-- ============================================================
+       CORE
+  ============================================================ -->
 
+  <script src="js/main.js"></script>
+  <script src="js/additionalfiles.js"></script>
 
+  <!-- ============================================================
+       INTRO
+  ============================================================ -->
 
-<!-- Header -->
-<script src="js/components/header/riverHeader.js"></script>
+  <script src="js/components/intro/intro.js"></script>
+  <script src="js/components/intro/riverIntro.js"></script>
 
-<!-- HERO-SECTION -->
-<script src="js/components/heroSection/heroSection.js"></script>
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
 
-<!-- Components -->
-<script src="js/components/footer/riverFooter.js"></script>
-<script src="js/components/backToTop/riverBackToTop.js"></script>
-<script src="js/components/header-logo/header-logo.js"></script>
-<script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+  <script src="js/components/header/riverHeader.js"></script>
 
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
 
-<script src="js/components/pageTransition/pageTransition.js"></script>
+  <script src="js/components/heroSection/heroSection.js"></script>
 
+  <!-- ============================================================
+       COMPONENTS
+  ============================================================ -->
 
+  <script src="js/components/footer/riverFooter.js"></script>
+  <script src="js/components/backToTop/riverBackToTop.js"></script>
+  <script src="js/components/header-logo/header-logo.js"></script>
+  <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+  <script src="js/components/pageTransition/pageTransition.js"></script>
+  <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
+  <script src="js/components/projectCard/projectCard.js"></script>
 
-<script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
-<script src="js/components/projectCard/projectCard.js"></script>
+  <!-- 🟢 UPGRADE — CENTRAL TEAM SYSTEM -->
+
+  <script src="js/components/about/teamRegistry.js"></script>
+  <script src="js/components/about/teamRenderer.js"></script>
 
 </body>
 </html>

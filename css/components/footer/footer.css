@@ -1,38 +1,376 @@
-/* footer.css*/
+/* ================================================================
+   RIVER FOOTER
+   ================================================================ */
 
 
-/* FOOTER */
-footer{
-    margin-top:20svh;
-    margin-bottom: 10svh;
-    padding:2svh 0svh;
-    
-    background: var(--gray-900); 
-    border-top-left-radius: 11svh; 
-    border-top-right-radius: 11svh;
-    min-height:40svh; /* 🟢 safer */
+/* ================================================================
+   🟢 UPGRADE: Footer shell
+   ---------------------------------------------------------------
+   The old footer used:
+   - 40svh minimum height
+   - 20svh top margin
+   - extremely large corner radii
+   - large internal spacing
+     
+   The new footer is intentionally compact.
+   ================================================================ */
 
-    margin-bottom: 0.5%;
-    border-bottom-left-radius: 7svh; 
-    border-bottom-right-radius: 7svh;
+   .river-footer {
 
-    margin-left: 5svh;
-    margin-right: 5svh;
+    width: calc(100% - 2rem);
 
-    color:var(--orange-500);
-    text-align:center;
+    margin-top: 12svh;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+
+    padding: clamp(2.5rem, 6vw, 5rem)
+             clamp(1.25rem, 5vw, 4rem);
+
+    background: var(--gray-900);
+
+    color: var(--white, #ffffff);
+
+    border-top-left-radius: clamp(2rem, 5vw, 4rem);
+    border-top-right-radius: clamp(2rem, 5vw, 4rem);
+
+    border-bottom-left-radius: clamp(1rem, 2vw, 2rem);
+    border-bottom-right-radius: clamp(1rem, 2vw, 2rem);
+
+    box-sizing: border-box;
 
     font-family: var(--font-mono);
-    font-weight: var(--fw-regular);
 
-
-
+    overflow: hidden;
 
 }
 
-.footer-logo{
-    height: clamp(60px, 4vw, 80px);
-    width: auto;
-    margin-bottom: 10px; /* 👈 adds breathing room */
-  }
 
+/* ================================================================
+   🟢 UPGRADE: Footer inner container
+   ================================================================ */
+
+.river-footer__inner {
+
+    width: min(100%, 1200px);
+
+    margin: 0 auto;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Brand section
+   ================================================================ */
+
+.river-footer__brand {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 1rem;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Logo link
+   ================================================================ */
+
+.river-footer__logo-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+    line-height: 0;
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Logo interaction
+   ================================================================ */
+
+.river-footer__logo-link:hover {
+
+    opacity: 0.8;
+
+    transform: translateY(-2px);
+
+}
+
+
+.river-footer__logo-link:focus-visible {
+
+    outline: 2px solid var(--orange-500);
+
+    outline-offset: 8px;
+
+    border-radius: 4px;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Logo sizing
+   ---------------------------------------------------------------
+   Smaller and more controlled than the original.
+   ================================================================ */
+
+.river-footer__logo {
+
+    display: block;
+
+    width: auto;
+
+    height: clamp(42px, 5vw, 64px);
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Footer positioning statement
+   ================================================================ */
+
+.river-footer__tagline {
+
+    margin: 0;
+
+    max-width: 520px;
+
+    color: var(--gray-300, #d1d5db);
+
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+
+    line-height: 1.7;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Divider
+   ================================================================ */
+
+.river-footer__divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+
+    margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+
+    background: rgba(255, 255, 255, 0.14);
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Bottom information row
+   ================================================================ */
+
+.river-footer__bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Copyright
+   ================================================================ */
+
+.river-footer__copyright {
+
+    margin: 0;
+
+    color: var(--gray-400, #9ca3af);
+
+    font-size: clamp(0.68rem, 1vw, 0.78rem);
+
+    line-height: 1.6;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Descriptor
+   ================================================================ */
+
+.river-footer__descriptor {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.6rem;
+
+    margin: 0;
+
+    color: var(--gray-400, #9ca3af);
+
+    font-size: clamp(0.68rem, 1vw, 0.78rem);
+
+    line-height: 1.6;
+
+    text-align: right;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Orange accent
+   ---------------------------------------------------------------
+   Instead of making the whole footer orange, River's orange is
+   reserved for the small separator. This keeps the footer quiet.
+   ================================================================ */
+
+.river-footer__descriptor span {
+
+    color: var(--orange-500);
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Tablet / smaller desktop
+   ================================================================ */
+
+@media (max-width: 800px) {
+
+    .river-footer {
+
+        width: calc(100% - 1.5rem);
+
+        margin-right: 0.75rem;
+        margin-left: 0.75rem;
+
+    }
+
+
+    .river-footer__bottom {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 0.5rem;
+
+    }
+
+
+    .river-footer__descriptor {
+
+        text-align: left;
+
+    }
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Mobile
+   ================================================================ */
+
+@media (max-width: 560px) {
+
+    .river-footer {
+
+        width: calc(100% - 1rem);
+
+        margin-top: 8svh;
+
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0.5rem;
+
+        padding:
+            2.5rem
+            1.25rem
+            2rem;
+
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+
+    }
+
+
+    .river-footer__logo {
+
+        height: 42px;
+
+    }
+
+
+    .river-footer__tagline {
+
+        max-width: 280px;
+
+        font-size: 0.75rem;
+
+    }
+
+
+    .river-footer__divider {
+
+        margin-top: 2.25rem;
+        margin-bottom: 1.25rem;
+
+    }
+
+
+    .river-footer__copyright,
+    .river-footer__descriptor {
+
+        font-size: 0.65rem;
+
+    }
+
+}
+
+
+/* ================================================================
+   🟢 UPGRADE: Reduced motion accessibility
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .river-footer__logo-link {
+
+        transition: none;
+
+    }
+
+    .river-footer__logo-link:hover {
+
+        transform: none;
+
+    }
+
+}

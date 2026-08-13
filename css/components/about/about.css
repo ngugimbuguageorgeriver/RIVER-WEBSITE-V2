@@ -1,0 +1,903 @@
+ /*
+============================================================
+RIVER — ABOUT PAGE SYSTEM
+============================================================
+
+🟢 UPGRADE
+Complete About / Origin visual system.
+
+Designed for:
+- about.html
+- about-history.html
+- about-team.html
+
+The system intentionally uses existing River primitives
+where possible while providing dedicated About layouts.
+============================================================
+*/
+
+/* ============================================================
+   🟢 UPGRADE — ROOT
+============================================================ */
+
+.about-page,
+.origin-page,
+.team-page {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   🟢 UPGRADE — CONTAINER
+============================================================ */
+
+.about-page .container,
+.origin-page .container,
+.team-page .container {
+  width: min(1400px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* ============================================================
+   🟢 UPGRADE — TYPOGRAPHY
+============================================================ */
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.origin-page h1,
+.origin-page h2,
+.origin-page h3,
+.team-page h1,
+.team-page h2,
+.team-page h3 {
+  margin-top: 0;
+}
+
+.about-page p,
+.origin-page p,
+.team-page p {
+  max-width: 75ch;
+}
+
+/* ============================================================
+   🟢 UPGRADE — EYEBROW
+============================================================ */
+
+.about-eyebrow {
+  margin: 0 0 14px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+/* ============================================================
+   🟢 UPGRADE — LARGE STATEMENT
+============================================================ */
+
+.about-large-statement {
+  max-width: 850px !important;
+  margin: 0;
+  font-size: clamp(1.7rem, 3vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+
+/* ============================================================
+   🟢 UPGRADE — LEAD
+============================================================ */
+
+.about-lead {
+  max-width: 760px !important;
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   🟢 UPGRADE — SECTION MARKER
+============================================================ */
+
+.about-section-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.about-section-marker span {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  font-weight: 700;
+}
+
+.about-section-marker strong {
+  max-width: 240px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   🟢 UPGRADE — SECTION HEADING
+============================================================ */
+
+.about-section-heading {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 30px;
+  align-items: start;
+  margin-bottom: 70px;
+}
+
+.about-section-heading .about-number {
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  opacity: 0.55;
+}
+
+.about-section-heading h2 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+/* ============================================================
+   🟢 UPGRADE — INTRODUCTION
+============================================================ */
+
+.about-introduction,
+.origin-introduction,
+.team-introduction {
+  padding: 80px 0;
+}
+
+.about-introduction-grid,
+.origin-introduction-grid,
+.team-introduction-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1.55fr);
+  gap: 80px;
+  align-items: start;
+}
+
+.about-introduction-content h1,
+.origin-introduction-grid h1,
+.team-introduction-grid h1 {
+  max-width: 1050px;
+  margin-bottom: 30px;
+  font-size: clamp(3rem, 7vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.about-introduction-content p,
+.origin-introduction-grid p,
+.team-introduction-grid p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   🟢 UPGRADE — STORY SECTION
+============================================================ */
+
+.about-story-section,
+.origin-section {
+  padding: 100px 0;
+}
+
+/* ============================================================
+   🟢 UPGRADE — WHY RIVER
+============================================================ */
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 8vw, 140px);
+  align-items: start;
+}
+
+.about-story-statement {
+  max-width: 720px;
+}
+
+.about-story-statement p:first-child {
+  font-size: clamp(2rem, 4vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.about-story-statement p {
+  line-height: 1.55;
+}
+
+.about-story-copy {
+  padding-top: 12px;
+}
+
+.about-story-copy p {
+  margin-bottom: 28px;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.about-story-copy strong {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+/* ============================================================
+   🟢 UPGRADE — RIVER PRINCIPLES
+============================================================ */
+
+.about-principle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 100px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.about-principle-card {
+  min-height: 250px;
+  padding: 32px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+  transition:
+    transform 220ms ease,
+    background 220ms ease;
+}
+
+.about-principle-card:hover {
+  transform: translateY(-6px);
+  background: rgba(127, 127, 127, 0.06);
+}
+
+.about-principle-card > span {
+  display: block;
+  margin-bottom: 45px;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+}
+
+.about-principle-card h3 {
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+}
+
+.about-principle-card p {
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0.72;
+}
+
+/* ============================================================
+   🟢 UPGRADE — MISSION
+============================================================ */
+
+.about-mission-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  gap: 70px;
+  margin-bottom: 90px;
+}
+
+.about-mission-intro > p:last-child {
+  align-self: end;
+  line-height: 1.8;
+  opacity: 0.75;
+}
+
+.about-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-mission-card {
+  min-height: 280px;
+  padding: 35px;
+  border: 1px solid rgba(127, 127, 127, 0.22);
+}
+
+.about-mission-card span {
+  display: block;
+  margin-bottom: 65px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  opacity: 0.5;
+}
+
+.about-mission-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.55rem;
+}
+
+.about-mission-card p {
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   🟢 UPGRADE — OUTCOMES
+============================================================ */
+
+.about-outcomes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 70px;
+  margin-top: 110px;
+  padding: 55px 0;
+  border-top: 1px solid rgba(127, 127, 127, 0.25);
+  border-bottom: 1px solid rgba(127, 127, 127, 0.25);
+}
+
+.about-outcomes h3 {
+  max-width: 600px;
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.about-outcome-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.about-outcome-list span {
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  font-weight: 600;
+}
+
+/* ============================================================
+   🟢 UPGRADE — TEAM PHILOSOPHY
+============================================================ */
+
+.about-team-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+  gap: 80px;
+  margin-bottom: 90px;
+}
+
+.about-team-intro > p:last-child {
+  align-self: end;
+  line-height: 1.8;
+  opacity: 0.72;
+}
+
+.about-character-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-character-card {
+  min-height: 250px;
+  padding: 30px;
+  border-top: 2px solid currentColor;
+}
+
+.about-character-card span {
+  display: block;
+  margin-bottom: 45px;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.about-character-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+}
+
+.about-character-card p {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   🟢 UPGRADE — TEAM PREVIEW
+============================================================ */
+
+.about-team-preview-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 55px;
+}
+
+.about-team-preview-intro p {
+  margin: 0;
+  max-width: 700px;
+  line-height: 1.75;
+}
+
+/* ============================================================
+   🟢 UPGRADE — TEAM PREVIEW GRID
+============================================================ */
+
+.about-team-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* ============================================================
+   🟢 UPGRADE — ORIGIN PREVIEW
+============================================================ */
+
+.about-origin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 8vw, 120px);
+}
+
+.about-origin-grid > div:last-child {
+  padding-top: 10px;
+}
+
+.about-origin-grid p {
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+/* ============================================================
+   🟢 UPGRADE — BELIEFS
+============================================================ */
+
+.about-beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.about-belief-card {
+  min-height: 260px;
+  padding: 35px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.about-belief-card span {
+  display: block;
+  margin-bottom: 55px;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.about-belief-card h3 {
+  max-width: 500px;
+  margin-bottom: 15px;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  line-height: 1.1;
+}
+
+.about-belief-card p {
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   🟢 UPGRADE — RIVER TODAY
+============================================================ */
+
+.about-today-intro {
+  margin-bottom: 75px;
+}
+
+.about-today-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.about-today-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  padding: 30px;
+  border: 1px solid rgba(127, 127, 127, 0.22);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 220ms ease,
+    background 220ms ease;
+}
+
+.about-today-card:hover {
+  transform: translateY(-7px);
+  background: rgba(127, 127, 127, 0.06);
+}
+
+.about-today-card span {
+  margin-bottom: 65px;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+}
+
+.about-today-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+
+.about-today-card p {
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0.7;
+}
+
+.about-today-card strong {
+  margin-top: auto;
+  padding-top: 30px;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   🟢 UPGRADE — CLOSING
+============================================================ */
+
+.about-closing,
+.origin-closing,
+.team-closing {
+  padding: 130px 0;
+  text-align: center;
+}
+
+.about-closing h2,
+.origin-closing h2,
+.team-closing h2 {
+  max-width: 1000px;
+  margin: 0 auto 35px;
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.about-closing p:last-child,
+.origin-closing p:last-child,
+.team-closing p {
+  margin: 0 auto 35px;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   🟢 UPGRADE — ORIGIN PAGE
+============================================================ */
+
+.origin-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 8vw, 130px);
+}
+
+.origin-content-grid > div:last-child {
+  padding-top: 10px;
+}
+
+.origin-content-grid p {
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+/* ============================================================
+   🟢 UPGRADE — ORIGIN PROBLEMS
+============================================================ */
+
+.origin-problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.origin-problem-card {
+  min-height: 280px;
+  padding: 32px;
+  border: 1px solid rgba(127, 127, 127, 0.2);
+}
+
+.origin-problem-card span {
+  display: block;
+  margin-bottom: 55px;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.origin-problem-card h3 {
+  margin-bottom: 14px;
+}
+
+.origin-problem-card p {
+  margin: 0;
+  line-height: 1.65;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   🟢 UPGRADE — REALIZATION
+============================================================ */
+
+.origin-realization {
+  padding: 150px 0;
+}
+
+.origin-realization-content {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.origin-realization h2 {
+  margin: 0 0 60px;
+  font-size: clamp(2.7rem, 6vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.origin-realization-content > p:not(.about-eyebrow) {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.origin-question {
+  margin-top: 35px;
+  font-size: clamp(1.2rem, 2vw, 1.7rem) !important;
+}
+
+.origin-question strong {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+}
+
+/* ============================================================
+   🟢 UPGRADE — ORIGIN TODAY
+============================================================ */
+
+.origin-today-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.origin-today-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+  padding: 35px;
+  border: 1px solid rgba(127, 127, 127, 0.22);
+}
+
+.origin-today-card > span {
+  margin-bottom: 65px;
+  font-size: 0.7rem;
+  opacity: 0.5;
+}
+
+.origin-today-card h3 {
+  font-size: 1.8rem;
+}
+
+.origin-today-card p {
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.origin-today-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* ============================================================
+   🟢 UPGRADE — SCROLL REVEAL
+============================================================ */
+
+.about-story-section,
+.origin-section,
+.about-closing,
+.origin-closing,
+.team-closing {
+  animation: riverAboutFadeIn 700ms ease both;
+}
+
+@keyframes riverAboutFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   🟢 UPGRADE — ACCESSIBILITY
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-story-section,
+  .origin-section,
+  .about-closing,
+  .origin-closing,
+  .team-closing {
+    animation: none;
+  }
+
+  .about-principle-card,
+  .about-today-card {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   🟢 UPGRADE — TABLET
+============================================================ */
+
+@media (max-width: 1100px) {
+
+  .about-principle-grid,
+  .about-mission-grid,
+  .origin-problem-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-character-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-today-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-introduction-grid,
+  .origin-introduction-grid,
+  .team-introduction-grid {
+    gap: 45px;
+  }
+}
+
+/* ============================================================
+   🟢 UPGRADE — MOBILE
+============================================================ */
+
+@media (max-width: 760px) {
+
+  .about-page .container,
+  .origin-page .container,
+  .team-page .container {
+    width: min(100% - 30px, 1400px);
+  }
+
+  .about-introduction,
+  .origin-introduction,
+  .team-introduction,
+  .about-story-section,
+  .origin-section {
+    padding: 70px 0;
+  }
+
+  .about-introduction-grid,
+  .origin-introduction-grid,
+  .team-introduction-grid,
+  .about-story-grid,
+  .about-mission-intro,
+  .about-outcomes,
+  .about-team-intro,
+  .about-origin-grid,
+  .origin-content-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-section-heading {
+    grid-template-columns: 45px minmax(0, 1fr);
+    gap: 18px;
+    margin-bottom: 45px;
+  }
+
+  .about-section-heading h2 {
+    font-size: clamp(2.2rem, 11vw, 4rem);
+  }
+
+  .about-introduction-content h1,
+  .origin-introduction-grid h1,
+  .team-introduction-grid h1 {
+    font-size: clamp(2.8rem, 14vw, 5rem);
+  }
+
+  .about-principle-grid,
+  .about-mission-grid,
+  .about-character-grid,
+  .about-beliefs-grid,
+  .origin-problem-grid,
+  .origin-today-grid,
+  .about-today-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-principle-card,
+  .about-mission-card,
+  .about-character-card,
+  .about-belief-card,
+  .origin-problem-card {
+    min-height: auto;
+  }
+
+  .about-story-statement p:first-child {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .about-team-preview-intro {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-closing,
+  .origin-closing,
+  .team-closing {
+    padding: 90px 0;
+  }
+
+  .about-closing h2,
+  .origin-closing h2,
+  .team-closing h2 {
+    font-size: clamp(2.8rem, 13vw, 5rem);
+  }
+
+  .origin-realization {
+    padding: 90px 0;
+  }
+
+  .origin-realization h2 {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+}
+
+/* ============================================================
+   🟢 UPGRADE — SMALL MOBILE
+============================================================ */
+
+@media (max-width: 480px) {
+
+  .about-page .container,
+  .origin-page .container,
+  .team-page .container {
+    width: calc(100% - 24px);
+  }
+
+  .about-section-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section-heading .about-number {
+    margin-bottom: -5px;
+  }
+
+  .about-principle-card,
+  .about-mission-card,
+  .about-character-card,
+  .about-belief-card,
+  .origin-problem-card,
+  .origin-today-card,
+  .about-today-card {
+    padding: 25px;
+  }
+}

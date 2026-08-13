@@ -1,63 +1,257 @@
-/** */
+/**
+ * ============================================================
+ * RIVER HEADER LOGO
+ * header-logo.js
+ *
+ * 🟢 UPGRADE
+ * Controlled River logo entrance and interaction.
+ * ============================================================
+ */
 
-// HEADER LOGO ANIMATION
-document.addEventListener("DOMContentLoaded", () => {
+(function () {
 
-    const logo = document.querySelector(".logo img");
-  
-    if(!logo) return;
-  
-    // 🔥 ENTRY (after intro or page load)
-    gsap.from(logo, {
-      opacity: 0,
-      y: -20,
-      scale: 0.9,
-      duration: 1.2,
-      ease: "power3.out",
-      delay: 0.2
-    });
-  
-    // 🌊 IDLE FLOAT (subtle premium feel)
-    gsap.to(logo, {
-      y: 6,
-      duration: 2.5,
-      ease: "sine.inOut",
-      repeat: -1,
-      yoyo: true
-    });
-  
-  });
+  "use strict";
+
+
+  let initialized = false;
 
 
 
-/** */
-document.addEventListener("introFinished", () => {
-    const logo = document.querySelector(".logo img");
-  
-    gsap.from(logo, {
-      opacity: 0,
-      y: -20,
-      scale: 0.9,
-      duration: 1.2,
-      ease: "power3.out"
-    });
-  });
+  /*
+  ============================================================
+  🟢 INITIALIZE
+  ============================================================
+  */
 
-/** */
+  function initLogo() {
 
-const logo = document.querySelector(".logo");
+    if (initialized) {
+      return;
+    }
 
-document.addEventListener("mousemove", (e) => {
-  const rect = logo.getBoundingClientRect();
 
-  const x = e.clientX - (rect.left + rect.width / 2);
-  const y = e.clientY - (rect.top + rect.height / 2);
+    const logo =
+      document.querySelector(
+        ".logo-image"
+      );
 
-  gsap.to(logo, {
-    x: x * 0.05,
-    y: y * 0.05,
-    duration: 0.3,
-    ease: "power2.out"
-  });
-});
+    const logoLink =
+      document.querySelector(
+        ".logo"
+      );
 
+
+    if (!logo || !logoLink) {
+      return;
+    }
+
+
+    initialized = true;
+
+
+    /*
+    ============================================================
+    🟢 REDUCED MOTION
+    ============================================================
+    */
+
+    const reducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+
+    if (reducedMotion) {
+
+      gsap.set(
+        logo,
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1
+        }
+      );
+
+      return;
+
+    }
+
+
+    /*
+    ============================================================
+    🟢 ENTRY ANIMATION
+    ============================================================
+    */
+
+    gsap.set(
+      logo,
+      {
+        opacity: 0,
+        y: -10,
+        scale: .97
+      }
+    );
+
+
+    gsap.to(
+      logo,
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: .9,
+        delay: .15,
+        ease: "power3.out"
+      }
+    );
+
+
+    /*
+    ============================================================
+    🟢 LOGO HOVER
+    ============================================================
+    */
+
+    logoLink.addEventListener(
+      "mouseenter",
+      () => {
+
+        gsap.to(
+          logo,
+          {
+            scale: 1.035,
+            duration: .3,
+            ease: "power2.out",
+            overwrite: true
+          }
+        );
+
+      }
+    );
+
+
+    logoLink.addEventListener(
+      "mouseleave",
+      () => {
+
+        gsap.to(
+          logo,
+          {
+            scale: 1,
+            duration: .35,
+            ease: "power2.out",
+            overwrite: true
+          }
+        );
+
+      }
+    );
+
+
+    /*
+    ============================================================
+    🟢 KEYBOARD FOCUS
+    ============================================================
+    */
+
+    logoLink.addEventListener(
+      "focus",
+      () => {
+
+        gsap.to(
+          logo,
+          {
+            scale: 1.035,
+            duration: .25,
+            ease: "power2.out",
+            overwrite: true
+          }
+        );
+
+      }
+    );
+
+
+    logoLink.addEventListener(
+      "blur",
+      () => {
+
+        gsap.to(
+          logo,
+          {
+            scale: 1,
+            duration: .25,
+            ease: "power2.out",
+            overwrite: true
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+
+  /*
+  ============================================================
+  🟢 DOM READY
+  ============================================================
+  */
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    initLogo
+  );
+
+
+
+  /*
+  ============================================================
+  🟢 INTRO FINISHED
+  ============================================================
+  */
+
+  document.addEventListener(
+    "introFinished",
+    () => {
+
+      if (!initialized) {
+
+        initLogo();
+
+        return;
+
+      }
+
+
+      const logo =
+        document.querySelector(
+          ".logo-image"
+        );
+
+
+      if (!logo) {
+        return;
+      }
+
+
+      gsap.fromTo(
+        logo,
+        {
+          opacity: .7,
+          y: -4
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: .6,
+          ease: "power2.out",
+          overwrite: true
+        }
+      );
+
+    }
+  );
+
+})();

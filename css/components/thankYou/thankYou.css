@@ -1,102 +1,949 @@
-/* =========================
-BASE
-========================= */
+/* ============================================================
+   RIVER — THANK YOU / ENQUIRY RECEIVED
+   ============================================================ */
 
-* {
+
+/* ============================================================
+   PAGE
+   ============================================================ */
+
+   .thankYou-page {
+
+    position: relative;
+  
+    z-index: 2;
+  
+    width: 100%;
+  
+    min-height: 100vh;
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    padding:
+      clamp(32px, 6vw, 80px)
+      clamp(20px, 5vw, 60px);
+  
+  }
+  
+  
+  /* ============================================================
+     CONTAINER
+     ============================================================ */
+  
+  .thankYou-container {
+  
+    position: relative;
+  
+    width: min(100%, 920px);
+  
+    margin: 0 auto;
+  
+    padding:
+      clamp(32px, 5vw, 64px);
+  
+    border: 1px solid rgba(255, 255, 255, 0.10);
+  
+    border-radius: 24px;
+  
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.075),
+        rgba(255, 255, 255, 0.025)
+      );
+  
+    backdrop-filter: blur(24px);
+  
+    -webkit-backdrop-filter: blur(24px);
+  
+    box-shadow:
+      0 30px 100px rgba(0, 0, 0, 0.28);
+  
+    overflow: hidden;
+  
+  }
+  
+  
+  /* ============================================================
+     TOP ACCENT
+     ============================================================ */
+  
+  .thankYou-container::before {
+  
+    content: "";
+  
+    position: absolute;
+  
+    top: 0;
+  
+    left: 0;
+  
+    width: 100%;
+  
+    height: 2px;
+  
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        var(--orange-500),
+        var(--teal-300),
+        transparent
+      );
+  
+    opacity: 0.9;
+  
+  }
+  
+  
+  /* ============================================================
+     BRAND
+     ============================================================ */
+  
+  .thankYou-brand {
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    margin-bottom:
+      clamp(32px, 5vw, 54px);
+  
+  }
+  
+  
+  .thankYou-logo-link {
+  
+    display: inline-flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    text-decoration: none;
+  
+  }
+  
+  
+  .thankYou-logo {
+  
+    display: block;
+  
+    width: auto;
+  
+    height:
+      clamp(56px, 7vw, 86px);
+  
+    object-fit: contain;
+  
+  }
+  
+  
+  /* ============================================================
+     CONFIRMATION
+     ============================================================ */
+  
+  .thankYou-confirmation {
+  
+    text-align: center;
+  
+    max-width: 720px;
+  
+    margin: 0 auto;
+  
+  }
+  
+  
+  /* ============================================================
+     CHECKMARK
+     ============================================================ */
+  
+  .thankYou-check {
+  
+    position: relative;
+  
+    width: 72px;
+  
+    height: 72px;
+  
+    margin: 0 auto 28px;
+  
+    border-radius: 50%;
+  
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  
+    background:
+      rgba(255, 255, 255, 0.05);
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    transform: scale(0);
+  
+  }
+  
+  
+  .thankYou-check::before {
+  
+    content: "";
+  
+    position: absolute;
+  
+    inset: 8px;
+  
+    border-radius: 50%;
+  
+    border: 1px solid
+      rgba(255, 255, 255, 0.08);
+  
+  }
+  
+  
+  .checkmark-line {
+  
+    position: absolute;
+  
+    display: block;
+  
+    height: 3px;
+  
+    border-radius: 999px;
+  
+    background: var(--teal-300);
+  
+    transform-origin: left center;
+  
+    transform: scaleX(0);
+  
+  }
+  
+  
+  .checkmark-line-one {
+  
+    width: 13px;
+  
+    left: 21px;
+  
+    top: 38px;
+  
+    transform:
+      rotate(45deg)
+      scaleX(0);
+  
+  }
+  
+  
+  .checkmark-line-two {
+  
+    width: 27px;
+  
+    left: 30px;
+  
+    top: 44px;
+  
+    transform:
+      rotate(-45deg)
+      scaleX(0);
+  
+  }
+  
+  
+  /* ============================================================
+     EYEBROW
+     ============================================================ */
+  
+  .thankYou-eyebrow {
+  
+    margin-bottom: 14px;
+  
+    font-size: 11px;
+  
+    font-weight: 700;
+  
+    letter-spacing: 0.20em;
+  
+    color: var(--teal-300);
+  
+  }
+  
+  
+  /* ============================================================
+     HEADING
+     ============================================================ */
+  
+  .thankYou-confirmation h1 {
+  
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  
+    font-size:
+      clamp(38px, 6vw, 72px);
+  
+    line-height: 0.98;
+  
+    letter-spacing: -0.045em;
+  
+    font-weight: 600;
+  
+    color: var(--gray-100);
+  
+  }
+  
+  
+  /* ============================================================
+     INTRO
+     ============================================================ */
+  
+  .thankYou-intro {
+  
+    max-width: 650px;
+  
+    margin:
+      28px auto 0;
+  
+    font-size:
+      clamp(15px, 1.6vw, 18px);
+  
+    line-height: 1.75;
+  
+    font-weight: 400;
+  
+    color:
+      rgba(255, 255, 255, 0.70);
+  
+  }
+  
+  
+  .thankYou-intro strong {
+  
+    color: var(--gray-100);
+  
+    font-weight: 600;
+  
+  }
+  
+  
+  /* ============================================================
+     RESPONSE INDICATOR
+     ============================================================ */
+  
+  .thankYou-response {
+  
+    display: inline-flex;
+  
+    align-items: center;
+  
+    gap: 10px;
+  
+    margin-top: 24px;
+  
+    padding:
+      10px 16px;
+  
+    border:
+      1px solid rgba(255, 255, 255, 0.09);
+  
+    border-radius: 999px;
+  
+    background:
+      rgba(255, 255, 255, 0.035);
+  
+    font-size: 13px;
+  
+    color:
+      rgba(255, 255, 255, 0.62);
+  
+  }
+  
+  
+  .thankYou-response strong {
+  
+    color: var(--gray-100);
+  
+    font-weight: 600;
+  
+  }
+  
+  
+  .response-dot {
+  
+    width: 7px;
+  
+    height: 7px;
+  
+    border-radius: 50%;
+  
+    background: var(--teal-300);
+  
+    box-shadow:
+      0 0 12px
+      rgba(0, 212, 255, 0.45);
+  
+  }
+  
+  
+  /* ============================================================
+     SECTION DIVIDER
+     ============================================================ */
+  
+  .thankYou-next,
+  .thankYou-explore {
+  
+    margin-top:
+      clamp(50px, 7vw, 76px);
+  
+    padding-top:
+      clamp(30px, 4vw, 44px);
+  
+    border-top:
+      1px solid
+      rgba(255, 255, 255, 0.09);
+  
+  }
+  
+  
+  /* ============================================================
+     SECTION HEADING
+     ============================================================ */
+  
+  .thankYou-section-heading {
+  
+    display: flex;
+  
+    align-items: center;
+  
+    gap: 14px;
+  
+    margin-bottom: 28px;
+  
+  }
+  
+  
+  .thankYou-section-number {
+  
+    display: inline-flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    min-width: 32px;
+  
+    height: 24px;
+  
+    padding: 0 7px;
+  
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.12);
+  
+    border-radius: 999px;
+  
+    font-size: 10px;
+  
+    font-weight: 700;
+  
+    letter-spacing: 0.08em;
+  
+    color:
+      rgba(255, 255, 255, 0.48);
+  
+  }
+  
+  
+  .thankYou-section-heading h2 {
+  
+    margin: 0;
+  
+    font-size:
+      clamp(18px, 2vw, 23px);
+  
+    line-height: 1.2;
+  
+    font-weight: 600;
+  
+    letter-spacing: -0.02em;
+  
+    color: var(--gray-100);
+  
+  }
+  
+  
+  /* ============================================================
+     STEPS
+     ============================================================ */
+  
+  .thankYou-steps {
+  
+    display: grid;
+  
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  
+    gap: 1px;
+  
+    background:
+      rgba(255, 255, 255, 0.08);
+  
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.08);
+  
+    border-radius: 16px;
+  
+    overflow: hidden;
+  
+  }
+  
+  
+  .thankYou-step {
+  
+    min-height: 190px;
+  
+    padding: 26px;
+  
+    background:
+      rgba(10, 10, 10, 0.35);
+  
+    transition:
+      background 0.35s ease,
+      transform 0.35s ease;
+  
+  }
+  
+  
+  .thankYou-step:hover {
+  
+    background:
+      rgba(255, 255, 255, 0.055);
+  
+  }
+  
+  
+  .thankYou-step-number {
+  
+    margin-bottom: 32px;
+  
+    font-size: 11px;
+  
+    font-weight: 700;
+  
+    letter-spacing: 0.12em;
+  
+    color: var(--teal-300);
+  
+  }
+  
+  
+  .thankYou-step-content h3 {
+  
+    margin: 0 0 10px;
+  
+    font-size: 17px;
+  
+    font-weight: 600;
+  
+    color: var(--gray-100);
+  
+  }
+  
+  
+  .thankYou-step-content p {
+  
+    margin: 0;
+  
+    font-size: 13px;
+  
+    line-height: 1.7;
+  
+    color:
+      rgba(255, 255, 255, 0.55);
+  
+  }
+  
+  
+  /* ============================================================
+     EXPLORE
+     ============================================================ */
+  
+  .thankYou-explore-text {
+  
+    max-width: 650px;
+  
+    margin:
+      0 0 26px;
+  
+    font-size: 14px;
+  
+    line-height: 1.7;
+  
+    color:
+      rgba(255, 255, 255, 0.55);
+  
+  }
+  
+  
+  /* ============================================================
+     ACTIONS
+     ============================================================ */
+  
+  .thankYou-actions {
+  
+    display: flex;
+  
+    flex-wrap: wrap;
+  
+    gap: 12px;
+  
+  }
+  
+  
+  .thankYou-btn {
+  
+    min-height: 48px;
+  
+    display: inline-flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    gap: 20px;
+  
+    padding:
+      0 20px;
+  
+    border-radius: 999px;
+  
+    text-decoration: none;
+  
+    font-size: 13px;
+  
+    font-weight: 600;
+  
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease;
+  
+  }
+  
+  
+  .thankYou-btn:hover {
+  
+    transform: translateY(-2px);
+  
+  }
+  
+  
+  .thankYou-btn-primary {
+  
+    color: #111;
+  
+    background: var(--gray-100);
+  
+  }
+  
+  
+  .thankYou-btn-primary:hover {
+  
+    background: #fff;
+  
+  }
+  
+  
+  .thankYou-btn-secondary {
+  
+    color:
+      rgba(255, 255, 255, 0.75);
+  
+    border:
+      1px solid
+      rgba(255, 255, 255, 0.12);
+  
+    background:
+      rgba(255, 255, 255, 0.035);
+  
+  }
+  
+  
+  .thankYou-btn-secondary:hover {
+  
+    border-color:
+      rgba(255, 255, 255, 0.25);
+  
+    background:
+      rgba(255, 255, 255, 0.07);
+  
+  }
+  
+  
+  .btn-arrow {
+  
+    font-size: 16px;
+  
+    line-height: 1;
+  
+  }
+  
+  
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  
+  .thankYou-footer {
+  
+    display: flex;
+  
+    align-items: center;
+  
+    justify-content: space-between;
+  
+    gap: 20px;
+  
+    margin-top:
+      clamp(40px, 5vw, 60px);
+  
+    padding-top: 24px;
+  
+    border-top:
+      1px solid
+      rgba(255, 255, 255, 0.07);
+  
+  }
+  
+  
+  .thankYou-footer p,
+  .thankYou-footer span {
+  
+    margin: 0;
+  
+    font-size: 11px;
+  
+    line-height: 1.5;
+  
+  }
+  
+  
+  .thankYou-footer p {
+  
+    color:
+      rgba(255, 255, 255, 0.45);
+  
+  }
+  
+  
+  .thankYou-footer span {
+  
+    color:
+      rgba(255, 255, 255, 0.30);
+  
+  }
+  
+  
+  /* ============================================================
+     BACKGROUND DEPTH
+     ============================================================ */
+  
+  .thankYou-container::after {
+  
+    content: "";
+  
+    position: absolute;
+  
+    width: 300px;
+  
+    height: 300px;
+  
+    right: -150px;
+  
+    bottom: -150px;
+  
+    border-radius: 50%;
+  
+    background:
+      radial-gradient(
+        circle,
+        rgba(0, 212, 255, 0.08),
+        transparent 70%
+      );
+  
+    pointer-events: none;
+  
+  }
+  
+  
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  
+  @media (max-width: 760px) {
+  
+    .thankYou-page {
+  
+      align-items: flex-start;
+  
+      padding:
+        24px 16px 40px;
+  
     }
   
-  body {
-  height: 100vh;
-  background: var(--gray-900);
-  color: var(--gray-900);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  
+    .thankYou-container {
+  
+      padding:
+        34px 22px;
+  
+      border-radius: 18px;
+  
+    }
+  
+  
+    .thankYou-brand {
+  
+      margin-bottom: 38px;
+  
+    }
+  
+  
+    .thankYou-logo {
+  
+      height: 58px;
+  
+    }
+  
+  
+    .thankYou-confirmation h1 {
+  
+      font-size: clamp(38px, 11vw, 56px);
+  
+    }
+  
+  
+    .thankYou-intro {
+  
+      font-size: 15px;
+  
+      line-height: 1.7;
+  
+    }
+  
+  
+    .thankYou-response {
+  
+      font-size: 12px;
+  
+    }
+  
+  
+    .thankYou-steps {
+  
+      grid-template-columns: 1fr;
+  
+    }
+  
+  
+    .thankYou-step {
+  
+      min-height: auto;
+  
+      padding: 22px;
+  
+    }
+  
+  
+    .thankYou-step-number {
+  
+      margin-bottom: 20px;
+  
+    }
+  
+  
+    .thankYou-actions {
+  
+      flex-direction: column;
+  
+    }
+  
+  
+    .thankYou-btn {
+  
+      width: 100%;
+  
+    }
+  
+  
+    .thankYou-footer {
+  
+      flex-direction: column;
+  
+      align-items: flex-start;
+  
+    }
+  
   }
   
-  /* =========================
-  BACKGROUND GLOW
-  ========================= */
-  .bg-glow {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--orange-200), transparent 70%);
-  filter: blur(80px);
-  animation: float 8s ease-in-out infinite;
+  
+  /* ============================================================
+     SMALL MOBILE
+     ============================================================ */
+  
+  @media (max-width: 420px) {
+  
+    .thankYou-container {
+  
+      padding:
+        30px 18px;
+  
+    }
+  
+  
+    .thankYou-check {
+  
+      width: 64px;
+  
+      height: 64px;
+  
+    }
+  
+  
+    .thankYou-eyebrow {
+  
+      font-size: 10px;
+  
+    }
+  
+  
+    .thankYou-confirmation h1 {
+  
+      font-size: 38px;
+  
+    }
+  
   }
   
-  @keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-40px); }
+  
+  /* ============================================================
+     REDUCED MOTION
+     ============================================================ */
+  
+  @media (prefers-reduced-motion: reduce) {
+  
+    .thankYou-container,
+    .thankYou-check,
+    .thankYou-btn,
+    .thankYou-step {
+  
+      transition: none !important;
+  
+      animation: none !important;
+  
+    }
+  
   }
-  
-  /* =========================
-  CARD
-  ========================= */
-  .thankYou-container {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
-  padding: var(--space-lg);
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--teal-300), var(--lime-700));
-  backdrop-filter: blur(15px);
-  text-align: center;
-  border: 1px solid var(--orange-500);
-  }
-  
-  /* =========================
-  LOGO
-  ========================= */
-
-
-  .thankYou-logo{
-    height: clamp(100px, 6vw, 120px);
-    width: auto;
-    margin-bottom: 10px; /* 👈 adds breathing room */
-  }
-
-
-
-  
-  /* =========================
-  TEXT
-  ========================= */
-  h1 {
-  font-size: var(--fs-h2);
-  margin-bottom: var(--space-md);
-  }
-  
-  p {
-  font-size: var(--fs-small);
-  opacity: 0.8;
-  margin-bottom: var(--space-md);
-  line-height: var(--lh-normal);
-  }
-  
-  /* =========================
-  BUTTON
-  ========================= */
-
-
-
-  
-  
-  /* =========================
-  FOOTER NOTE
-  ========================= */
-  .small {
-  margin-top: var(--space-md);
-  font-size: var(--fs-md);
-  opacity: 0.6;
-  }
-
-
-
-  

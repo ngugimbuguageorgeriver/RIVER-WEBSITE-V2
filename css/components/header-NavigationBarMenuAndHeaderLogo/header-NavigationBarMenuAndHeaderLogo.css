@@ -1,70 +1,944 @@
-/*header-NavigationBarMenuAndHeaderLogo.css*/
+/* ============================================================
+   RIVER — HEADER / NAVIGATION / LOGO
+   ============================================================
+
+   🟢 FULL UPGRADE
+
+   HEADER NAVIGATION ARCHITECTURE:
+
+   River
+      |
+      └── Menu
+            |
+            ├── Home
+            ├── About
+            ├── Product Development Process
+            ├── Products
+            ├── Services
+            ├── Portfolio
+            ├── Blog
+            ├── Careers
+            └── Contact
+
+   ============================================================ */
 
 
-/****************************************************************************************************************************************************************************/
-/* HEADER */
-.header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  background: linear-gradient(to bottom, #e81414 0%, #e47e10 100%);
-  transition: background-position 0.6s ease;
+/* ============================================================
+   🟢 HEADER HOST / PAGE CLEARANCE
+   ============================================================ */
 
-  height: 10svh;
+/*
+   🟢 UPGRADE
 
-  border-bottom: 1px solid var(--orange-500);
+   The actual <header> is fixed, so the custom-element host
+   must reserve the same vertical space in normal document flow.
+
+   This prevents homepage content from sitting directly against
+   or underneath the fixed header.
+
+   This is intentionally handled here rather than adding random
+   margin/padding to individual pages.
+*/
+
+river-header{
+  display:block;
+
+  /*
+     🟢 HEADER SYSTEM HEIGHT
+
+     Keep this synchronized with the visual header height below.
+  */
+  height:clamp(
+    5.6rem,
+    8vw,
+    6.8rem
+  );
 }
+
+
+/* ============================================================
+   🟢 HEADER
+   ============================================================ */
+
+.header{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  z-index:1000;
+
+  width:100%;
+
+
+  /*
+     🟢 UPGRADE
+
+     Slightly more transparent at rest so the header feels
+     integrated with the River environment instead of appearing
+     as a solid navigation bar.
+  */
+
+  background:
+    rgba(247,245,239,.72);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+
+  border-bottom:
+    1px solid
+    rgba(16,20,19,.07);
+
+
+  /*
+     🟢 UPGRADE
+
+     Explicit visual height.
+
+     This makes the relationship between the fixed header and
+     the reserved river-header host space predictable.
+  */
+
+  height:clamp(
+    5.6rem,
+    8vw,
+    6.8rem
+  );
+
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+
+  transition:
+
+    background-color
+    .45s ease,
+
+    border-color
+    .45s ease,
+
+    box-shadow
+    .45s ease,
+
+    backdrop-filter
+    .45s ease;
+
+}
+
+
+/* ============================================================
+   🟢 SCROLLED HEADER
+   ============================================================ */
+
+.header.header-scrolled{
+
+  background:
+    rgba(247,245,239,.94);
+
+
+  border-bottom-color:
+    rgba(16,20,19,.12);
+
+
+  box-shadow:
+    0 8px 35px
+    rgba(16,20,19,.055);
+
+}
+
+
+/* ============================================================
+   🟢 HEADER CONTAINER
+   ============================================================ */
 
 .header-container{
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
 
-  width:min(99%, var(--max-width)); /* 🟢 modern clamp alternative */
+
+  width:
+    min(
+      calc(100% - 2rem),
+      1380px
+    );
+
+
+  /*
+     🟢 UPGRADE
+
+     Container now uses the full visual header height rather
+     than independently creating another large vertical rhythm.
+  */
+
+  height:100%;
+
+
   margin-inline:auto;
 
-  padding-top: var(--space-sm);
-  padding-right: var(--space-lg);
-  padding-bottom: var(--space-sm);
-  padding-left: var(--space-lg);
 
-
-  gap:var(--space-md);
+  padding:
+    .65rem 0;
 
 }
 
 
+/* ============================================================
+   🟢 LOGO
+   ============================================================ */
 
-/****************************************************************************************************************************************************************************/
-
-/* LOGO ANIMATION BASE */
 .logo{
-  position: relative;
+
   display:flex;
+
+  align-items:center;
+
+  min-width:0;
+
+  color:
+    var(
+      --river-ink,
+      #101413
+    );
+
+  text-decoration:none;
+
+}
+
+
+/* ============================================================
+   🟢 LOGO MARK
+   ============================================================ */
+
+.logo-mark{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+
+  width:
+    clamp(
+      2.8rem,
+      4vw,
+      3.5rem
+    );
+
+
+  height:
+    clamp(
+      2.8rem,
+      4vw,
+      3.5rem
+    );
+
+
+  flex-shrink:0;
+
+
+  border:
+    1px solid
+    rgba(16,20,19,.12);
+
+
+  border-radius:
+    999px;
+
+
+  background:
+    rgba(255,255,255,.45);
+
+
+  transition:
+
+    background-color
+    .35s ease,
+
+    border-color
+    .35s ease,
+
+    box-shadow
+    .35s ease,
+
+    transform
+    .35s ease;
+
+}
+
+
+/* ============================================================
+   🟢 LOGO HOVER
+   ============================================================ */
+
+.logo:hover .logo-mark{
+
+  background:#fff;
+
+  border-color:
+    rgba(13,148,136,.35);
+
+  box-shadow:
+    0 8px 24px
+    rgba(13,148,136,.09);
+
+  transform:
+    translateY(-1px);
+
+}
+
+
+/* ============================================================
+   🟢 LOGO IMAGE
+   ============================================================ */
+
+.logo-image{
+
+  display:block;
+
+  width:auto;
+
+  height:
+    clamp(
+      1.8rem,
+      2.5vw,
+      2.35rem
+    );
+
+  max-width:
+    2.35rem;
+
+  object-fit:contain;
+
+  transform-origin:center;
+
+  will-change:
+    transform,
+    opacity;
+
+}
+
+
+/* ============================================================
+   🟢 LOGO CONTEXT
+   ============================================================ */
+
+.logo-context{
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  margin-left:.85rem;
+
+  line-height:1;
+
+}
+
+
+/* ============================================================
+   🟢 RIVER NAME
+   ============================================================ */
+
+.logo-context-primary{
+
+  font-family:
+    var(
+      --font-heading,
+      Inter,
+      sans-serif
+    );
+
+  font-size:
+    clamp(
+      1.05rem,
+      1.5vw,
+      1.3rem
+    );
+
+  font-weight:
+    var(
+      --fw-semibold,
+      600
+    );
+
+  letter-spacing:
+    -.035em;
+
+  color:
+    var(
+      --river-ink,
+      #101413
+    );
+
+}
+
+
+/* ============================================================
+   🟢 DESCRIPTOR
+   ============================================================ */
+
+.logo-context-secondary{
+
+  margin-top:.3rem;
+
+  font-family:
+    var(
+      --font-mono,
+      monospace
+    );
+
+  font-size:.52rem;
+
+  line-height:1.1;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+  color:
+    rgba(16,20,19,.46);
+
+  white-space:nowrap;
+
+}
+
+
+/* ============================================================
+   🟢 HEADER NAVIGATION
+   ============================================================ */
+
+.header-navigation{
+
+  display:flex;
+
   align-items:center;
 
 }
 
-.logo-image{
-  height: 5ch;
+
+/* ============================================================
+   🟢 MENU BUTTON
+   ============================================================ */
+
+.menu-btn{
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:.8rem;
+
+
+  min-height:3.2rem;
+
+
+  padding:
+    .55rem
+    .15rem
+    .55rem
+    .8rem;
+
+
+  color:
+    var(
+      --river-ink,
+      #101413
+    );
+
+  text-decoration:none;
+
 }
 
 
+/* ============================================================
+   🟢 MENU LABEL
+   ============================================================ */
+
+.menu-btn-label{
+
+  font-family:
+    var(
+      --font-mono,
+      monospace
+    );
+
+  font-size:.65rem;
+
+  font-weight:
+    var(
+      --fw-medium,
+      500
+    );
+
+  letter-spacing:.11em;
+
+  text-transform:uppercase;
+
+  color:
+    rgba(16,20,19,.58);
 
 
+  transition:
+    color
+    .3s ease;
+
+}
 
 
-/****************************************************************************************************************************************************************************/
+/* ============================================================
+   🟢 MENU LINES CONTAINER
+   ============================================================ */
+
+.menu-btn-lines{
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  align-items:flex-end;
+
+  gap:5px;
+
+  width:2.25rem;
+
+  height:1.5rem;
+
+}
 
 
+/* ============================================================
+   🟢 MENU LINES
+   ============================================================ */
 
-/****************************************************************************************************************************************************************************/
+.menu-btn-lines span{
+
+  display:block;
+
+  height:2px;
+
+  border-radius:999px;
 
 
-/****************************************************************************************************************************************************************************/
+  background:
+    var(
+      --gray-500,
+      #737373
+    );
 
 
+  transform-origin:
+    right center;
 
 
-/****************************************************************************************************************************************************************************/
-/****************************************************************************************************************************************************************************/
+  transition:
+
+    width
+    .4s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    ),
+
+    background-color
+    .35s ease,
+
+    transform
+    .35s
+    cubic-bezier(
+      .22,
+      1,
+      .36,
+      1
+    );
+
+}
+
+
+/* ============================================================
+   🟢 DIFFERENT IDLE LENGTHS
+   ============================================================ */
+
+.menu-btn-lines span:nth-child(1){
+
+  width:2.25rem;
+
+}
+
+
+.menu-btn-lines span:nth-child(2){
+
+  width:1.65rem;
+
+}
+
+
+.menu-btn-lines span:nth-child(3){
+
+  width:1.1rem;
+
+}
+
+
+/* ============================================================
+   🟢 HOVER
+   ============================================================
+
+   ALL THREE LINES:
+
+   - become the same length
+   - turn River orange
+   ============================================================ */
+
+.menu-btn:hover
+.menu-btn-lines span{
+
+  width:2.25rem;
+
+  background:
+    var(
+      --orange-500,
+      #f97316
+    );
+
+}
+
+
+/* ============================================================
+   🟢 HOVER LABEL
+   ============================================================ */
+
+.menu-btn:hover
+.menu-btn-label{
+
+  color:
+    var(
+      --orange-500,
+      #f97316
+    );
+
+}
+
+
+/* ============================================================
+   🟢 SUBTLE HOVER MOVEMENT
+   ============================================================ */
+
+.menu-btn:hover{
+
+  transform:
+    translateX(-2px);
+
+}
+
+
+/* ============================================================
+   🟢 ACTIVE / PRESS
+   ============================================================ */
+
+.menu-btn:active
+.menu-btn-lines span{
+
+  transform:
+    scaleX(.92);
+
+}
+
+
+.menu-btn:active{
+
+  transform:
+    translateX(0);
+
+}
+
+
+/* ============================================================
+   🟢 FOCUS
+   ============================================================ */
+
+.logo:focus-visible,
+.menu-btn:focus-visible{
+
+  outline:
+    2px solid
+    var(
+      --orange-500,
+      #f97316
+    );
+
+  outline-offset:
+    5px;
+
+}
+
+
+/* ============================================================
+   🟢 SYSTEM PROGRESS LINE
+   ============================================================ */
+
+.header-system-line{
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:1px;
+
+  overflow:hidden;
+
+  background:
+    rgba(16,20,19,.04);
+
+}
+
+
+.header-system-line-progress{
+
+  display:block;
+
+  width:0%;
+
+  height:100%;
+
+  background:
+    var(
+      --orange-500,
+      #f97316
+    );
+
+}
+
+
+/* ============================================================
+   🟢 TABLET
+   ============================================================ */
+
+@media (max-width:700px){
+
+  /*
+     🟢 UPGRADE
+
+     Keep host clearance synchronized with the smaller header.
+  */
+
+  river-header{
+
+    height:4.9rem;
+
+  }
+
+
+  .header{
+
+    height:4.9rem;
+
+  }
+
+
+  .header-container{
+
+    width:
+      min(
+        calc(100% - 1.5rem),
+        1380px
+      );
+
+    height:100%;
+
+  }
+
+
+  .logo-context-secondary{
+
+    display:none;
+
+  }
+
+
+  .logo-context{
+
+    margin-left:.7rem;
+
+  }
+
+
+  .logo-context-primary{
+
+    font-size:1rem;
+
+  }
+
+
+  .logo-mark{
+
+    width:2.7rem;
+
+    height:2.7rem;
+
+  }
+
+
+  .logo-image{
+
+    height:1.7rem;
+
+    max-width:2rem;
+
+  }
+
+}
+
+
+/* ============================================================
+   🟢 MOBILE
+   ============================================================ */
+
+@media (max-width:480px){
+
+  /*
+     🟢 UPGRADE
+
+     Compact header clearance on phones.
+  */
+
+  river-header{
+
+    height:4.5rem;
+
+  }
+
+
+  .header{
+
+    height:4.5rem;
+
+  }
+
+
+  .header-container{
+
+    width:
+      calc(100% - 1rem);
+
+    height:100%;
+
+  }
+
+
+  .menu-btn{
+
+    min-height:
+      2.7rem;
+
+    padding:
+      .45rem
+      0
+      .45rem
+      .5rem;
+
+  }
+
+
+  .menu-btn-label{
+
+    display:none;
+
+  }
+
+
+  .menu-btn-lines{
+
+    width:2rem;
+
+  }
+
+
+  .menu-btn-lines span:nth-child(1){
+
+    width:2rem;
+
+  }
+
+
+  .menu-btn-lines span:nth-child(2){
+
+    width:1.45rem;
+
+  }
+
+
+  .menu-btn-lines span:nth-child(3){
+
+    width:.95rem;
+
+  }
+
+
+  .menu-btn:hover
+  .menu-btn-lines span{
+
+    width:2rem;
+
+  }
+
+}
+
+
+/* ============================================================
+   🟢 VERY SMALL DEVICES
+   ============================================================ */
+
+@media (max-width:360px){
+
+  .logo-context{
+
+    display:none;
+
+  }
+
+}
+
+
+/* ============================================================
+   🟢 REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion:reduce){
+
+  .header,
+  .logo-mark,
+  .logo-image,
+  .menu-btn,
+  .menu-btn-lines span,
+  .menu-btn-label{
+
+    transition:none !important;
+
+  }
+
+}

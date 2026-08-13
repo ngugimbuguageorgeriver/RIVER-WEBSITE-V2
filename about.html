@@ -1,25 +1,27 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About River. | River IT Solutions</title>
 
-  <!-- Main Styles -->
+  <title>About River. | River - Software Engineering & Technology</title>
+  <meta
+    name="description"
+    content="Discover why River exists, the people behind it, where it came from, what it believes, and what it is building today."
+  />
+
+  <!-- ============================================================
+       MAIN STYLES
+  ============================================================ -->
 
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/styling.css" />
 
-  <!-- Favicon -->
-
-  <link rel="icon" class="favicon" type="image" href="assets/Media/riverWebsiteLogos/r logo.png"/>
-
-  <!-- Intro -->
+  <!-- ============================================================
+       COMPONENT STYLES
+  ============================================================ -->
 
   <link rel="stylesheet" href="css/components/intro/intro.css" />
-
-  <!-- Components -->
-
   <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
   <link rel="stylesheet" href="css/components/backToTop/backToTop.css" />
   <link rel="stylesheet" href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css" />
@@ -29,164 +31,844 @@
   <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
   <link rel="stylesheet" href="css/components/projects/projects.css" />
   <link rel="stylesheet" href="css/components/footer/footer.css" />
+
+  <!-- 🟢 UPGRADE — ABOUT PAGE STYLES -->
+  <link rel="stylesheet" href="css/components/about/about.css" />
+
+  <!-- ============================================================
+       FAVICON
+  ============================================================ -->
+
+  <link
+    rel="icon"
+    class="favicon"
+    type="image"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
 </head>
 
 <body>
 
-  <!-- PAGE TRANSITION -->
+  <!-- ============================================================
+       PAGE TRANSITION
+  ============================================================ -->
 
   <div id="pageTransition"></div>
 
-  <!-- BACKGROUND -->
+  <!-- ============================================================
+       BACKGROUND
+  ============================================================ -->
 
   <div class="bg-system">
     <img
       id="bgImage"
       src="assets/Media/BGI/BGI1.jpg"
-      alt="background"
+      alt=""
     />
     <div class="bg-gradient"></div>
   </div>
 
-  <!-- HEADER -->
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
 
   <river-header></river-header>
 
-    <!-- MAIN CONTENT -->
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
 
-  <main class="main-container">
+  <main class="main-container about-page">
 
-    <!-- HERO-SECTION -->
+    <!-- ==========================================================
+         HERO
+    =========================================================== -->
+
     <hero-section
-    title="River — About River."
-    subtitle="Company history, team and values."
+      title="River — About River."
+      subtitle="Why we exist. Who we are. Where we came from. What we believe."
     ></hero-section>
 
     <div class="empty-div-one"></div>
 
+    <!-- ==========================================================
+         🟢 UPGRADE
+         ABOUT JOURNEY INTRO
+    =========================================================== -->
 
+    <section class="about-introduction">
+      <div class="container about-introduction-grid">
 
+        <div class="about-section-marker">
+          <span>ABOUT RIVER</span>
+          <strong>The story behind the system.</strong>
+        </div>
 
+        <div class="about-introduction-content">
+          <p class="about-eyebrow">More than an About Us page.</p>
 
-      <!-- MISSION & TEAM -->
-      <section>
-        <div class="container grid-2">
-          
-          <div class="card">
-            <h2>Our Mission</h2>
+          <h1>
+            There is a reason we are called River.
+          </h1>
+
+          <p class="about-lead">
+            River exists because technology is most valuable when it is
+            deliberately engineered around the problems people and
+            organizations actually need to solve.
+          </p>
+
+          <p>
+            Our story starts with a name, but it does not end there.
+            It moves through a mission, a particular kind of team,
+            an engineering background, a set of principles and the
+            systems we are building today.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         01 — WHY RIVER
+    =========================================================== -->
+
+    <section
+      id="why-river"
+      class="about-story-section about-why-river"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">01</span>
+
+          <div>
+            <p class="about-eyebrow">Why River</p>
+
+            <h2>
+              A river keeps moving.
+            </h2>
+          </div>
+        </div>
+
+        <div class="about-story-grid">
+
+          <div class="about-story-statement">
             <p>
-              To empower Businesses & Organizations to be more resilient,
-              scalable, productive, and efficient through our resilient,
-              maintainable, and efficient software and systems.
+              We chose the name River because a river is always moving.
             </p>
 
-            <h3>Values</h3>
-            <ul>
-              <li>Quality</li>
-              <li>Security</li>
-              <li>Scalability</li>
-              <li>Hustle-Free Monitoring & Measuring</li>
-              <li>Real-Time Data Processing & Analytics</li>
-            </ul>
+            <p>
+              It adapts to its environment, finds a way around obstacles
+              and continues toward its destination.
+            </p>
           </div>
 
-          <div class="card">
-            <h2>Our Team</h2>
-            <p class="small">
-              Multidisciplinary engineers, product designers, and data scientists.
+          <div class="about-story-copy">
+
+            <p>
+              A river sustains life. It creates possibilities. It changes
+              the landscape around it without needing to stop being what
+              it is.
             </p>
+
+            <p>
+              Those ideas describe the kind of company we want River to be.
+            </p>
+
+            <p>
+              <strong>Essential.</strong>
+              <strong>Adaptive.</strong>
+              <strong>Persistent.</strong>
+              <strong>Purposeful.</strong>
+              <strong>Relentless.</strong>
+            </p>
+
           </div>
 
         </div>
 
-        <div class="empty-div-two"></div>
-      </section>
+        <!-- 🟢 UPGRADE — RIVER METAPHOR SYSTEM -->
 
+        <div class="about-principle-grid">
 
-      <div class="empty-div-two"></div>
+          <article class="about-principle-card">
+            <span>01</span>
+            <h3>Water</h3>
+            <p>
+              Essential, adaptable and fundamental to life.
+              Technology should serve a real purpose.
+            </p>
+          </article>
 
+          <article class="about-principle-card">
+            <span>02</span>
+            <h3>Life</h3>
+            <p>
+              Rivers sustain communities and ecosystems.
+              Our systems should create useful outcomes for people.
+            </p>
+          </article>
 
+          <article class="about-principle-card">
+            <span>03</span>
+            <h3>Movement</h3>
+            <p>
+              A river does not remain still. We believe good engineering
+              creates forward movement.
+            </p>
+          </article>
 
+          <article class="about-principle-card">
+            <span>04</span>
+            <h3>Adaptability</h3>
+            <p>
+              Obstacles change the path, not the destination.
+              We design for changing environments.
+            </p>
+          </article>
 
-      <!-- LINKS -->
-      <section>
-        <div class="grid-3">
+          <article class="about-principle-card">
+            <span>05</span>
+            <h3>Persistence</h3>
+            <p>
+              Complex problems rarely yield immediately.
+              We keep working toward the outcome.
+            </p>
+          </article>
 
-          <div class="card">
-            <h3>Meet the Team</h3>
-            <p class="small">Learn more about this topic.</p>
-            <p><a class="btn" href="about-team.html">Open</a></p>
+          <article class="about-principle-card">
+            <span>06</span>
+            <h3>Renewal</h3>
+            <p>
+              Technology should open new possibilities,
+              improve existing ones and create room to grow.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         02 — OUR MISSION
+    =========================================================== -->
+
+    <section
+      id="mission"
+      class="about-story-section about-mission"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">02</span>
+
+          <div>
+            <p class="about-eyebrow">Our Mission</p>
+
+            <h2>
+              We don't build technology for technology's sake.
+            </h2>
+          </div>
+        </div>
+
+        <div class="about-mission-intro">
+
+          <p class="about-large-statement">
+            We help organizations solve problems, improve how they operate
+            and create better outcomes through technology.
+          </p>
+
+          <p>
+            Websites, applications, software platforms, integrations,
+            infrastructure and digital products are outputs.
+            The real work begins before any of them exists.
+          </p>
+
+        </div>
+
+        <!-- 🟢 UPGRADE — PROBLEM-LED MISSION -->
+
+        <div class="about-mission-grid">
+
+          <article class="about-mission-card">
+            <span>01</span>
+            <h3>Build</h3>
+            <p>
+              We build when something does not exist.
+            </p>
+          </article>
+
+          <article class="about-mission-card">
+            <span>02</span>
+            <h3>Improve</h3>
+            <p>
+              We improve when something exists but is not performing
+              as well as it should.
+            </p>
+          </article>
+
+          <article class="about-mission-card">
+            <span>03</span>
+            <h3>Move</h3>
+            <p>
+              We move when technology or data needs to change environments.
+            </p>
+          </article>
+
+          <article class="about-mission-card">
+            <span>04</span>
+            <h3>Connect</h3>
+            <p>
+              We connect when systems, services or data need to work together.
+            </p>
+          </article>
+
+          <article class="about-mission-card">
+            <span>05</span>
+            <h3>Protect</h3>
+            <p>
+              We protect when systems need stronger security,
+              resilience or continuity.
+            </p>
+          </article>
+
+          <article class="about-mission-card">
+            <span>06</span>
+            <h3>Assess</h3>
+            <p>
+              We assess when the right answer is not yet clear.
+            </p>
+          </article>
+
+        </div>
+
+        <!-- 🟢 UPGRADE — OUTCOMES -->
+
+        <div class="about-outcomes">
+
+          <div>
+            <p class="about-eyebrow">The result</p>
+
+            <h3>
+              Technology should leave something better than it found it.
+            </h3>
           </div>
 
-          <div class="card">
-            <h3>Our History</h3>
-            <p class="small">Learn more about this topic.</p>
-            <p><a class="btn" href="about-history.html">Open</a></p>
+          <div class="about-outcome-list">
+            <span>Better systems.</span>
+            <span>Better operations.</span>
+            <span>Better experiences.</span>
+            <span>Greater resilience.</span>
+            <span>New capabilities.</span>
+            <span>Measurable progress.</span>
           </div>
 
         </div>
 
-        
-      </section>
+      </div>
 
-      <div class="empty-div-three"></div>
+    </section>
 
+    <div class="empty-div-two"></div>
 
+    <!-- ==========================================================
+         03 — OUR TEAM
+    =========================================================== -->
+
+    <section
+      id="our-team"
+      class="about-story-section about-team-philosophy"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">03</span>
+
+          <div>
+            <p class="about-eyebrow">Our Team</p>
+
+            <h2>
+              What kind of people build River?
+            </h2>
+          </div>
+        </div>
+
+        <div class="about-team-intro">
+
+          <p class="about-large-statement">
+            We care less about sounding like a technology company
+            and more about thinking like engineers.
+          </p>
+
+          <p>
+            River is built around people who ask questions, understand
+            systems, challenge assumptions and take responsibility for
+            what they build.
+          </p>
+
+        </div>
+
+        <!-- 🟢 UPGRADE — PEOPLE PHILOSOPHY -->
+
+        <div class="about-character-grid">
+
+          <article class="about-character-card">
+            <span>01</span>
+            <h3>Curious</h3>
+            <p>
+              We want to understand how things actually work.
+            </p>
+          </article>
+
+          <article class="about-character-card">
+            <span>02</span>
+            <h3>Analytical</h3>
+            <p>
+              We don't jump to solutions before understanding the problem.
+            </p>
+          </article>
+
+          <article class="about-character-card">
+            <span>03</span>
+            <h3>Practical</h3>
+            <p>
+              Good engineering has to work in the real world.
+            </p>
+          </article>
+
+          <article class="about-character-card">
+            <span>04</span>
+            <h3>Responsible</h3>
+            <p>
+              We take ownership of what we build and the consequences
+              of our decisions.
+            </p>
+          </article>
+
+          <article class="about-character-card">
+            <span>05</span>
+            <h3>Persistent</h3>
+            <p>
+              Complex problems rarely yield immediately.
+            </p>
+          </article>
+
+          <article class="about-character-card">
+            <span>06</span>
+            <h3>Collaborative</h3>
+            <p>
+              Great systems are rarely created by one discipline
+              or one person.
+            </p>
+          </article>
+
+          <article class="about-character-card">
+            <span>07</span>
+            <h3>Always Learning</h3>
+            <p>
+              Technology changes. Our thinking has to change with it.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         04 — MEET THE TEAM
+    =========================================================== -->
+
+    <section
+      id="meet-the-team"
+      class="about-story-section about-team-preview"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">04</span>
+
+          <div>
+            <p class="about-eyebrow">Meet the Team</p>
+
+            <h2>
+              The people behind River.
+            </h2>
+          </div>
+        </div>
+
+        <div class="about-team-preview-intro">
+
+          <p>
+            River is not an abstract company.
+            It is built by people with different disciplines,
+            perspectives and ways of thinking.
+          </p>
+
+          <a
+            class="btn"
+            href="about-team.html"
+          >
+            Meet the people
+          </a>
+
+        </div>
+
+        <!-- 🟢 UPGRADE — TEAM REGISTRY PREVIEW -->
+
+        <div
+          id="aboutTeamPreview"
+          class="about-team-preview-grid"
+          data-team-preview="true"
+        ></div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         05 — OUR ORIGIN
+    =========================================================== -->
+
+    <section
+      id="origin"
+      class="about-story-section about-origin-preview"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">05</span>
+
+          <div>
+            <p class="about-eyebrow">Our Origin</p>
+
+            <h2>
+              Engineering came first.
+            </h2>
+          </div>
+        </div>
+
+        <div class="about-origin-grid">
+
+          <div>
+            <p class="about-large-statement">
+              River did not begin with the question:
+              “What should we sell?”
+            </p>
+          </div>
+
+          <div>
+            <p>
+              It began with engineering, experience and an observation:
+              organizations rarely need technology for technology's sake.
+            </p>
+
+            <p>
+              They need technology to solve something.
+            </p>
+
+            <a
+              class="btn"
+              href="about-history.html"
+            >
+              Explore our origin
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         06 — WHAT WE BELIEVE
+    =========================================================== -->
+
+    <section
+      id="beliefs"
+      class="about-story-section about-beliefs"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">06</span>
+
+          <div>
+            <p class="about-eyebrow">What We Believe</p>
+
+            <h2>
+              Principles before slogans.
+            </h2>
+          </div>
+        </div>
+
+        <!-- 🟢 UPGRADE — ENGINEERING BELIEFS -->
+
+        <div class="about-beliefs-grid">
+
+          <article class="about-belief-card">
+            <span>01</span>
+            <h3>Problems before technology.</h3>
+            <p>
+              We start by understanding what needs to change.
+            </p>
+          </article>
+
+          <article class="about-belief-card">
+            <span>02</span>
+            <h3>Purpose before complexity.</h3>
+            <p>
+              We don't add technology simply because we can.
+            </p>
+          </article>
+
+          <article class="about-belief-card">
+            <span>03</span>
+            <h3>Engineering over decoration.</h3>
+            <p>
+              A system should work well, not merely look impressive.
+            </p>
+          </article>
+
+          <article class="about-belief-card">
+            <span>04</span>
+            <h3>Evidence over assumptions.</h3>
+            <p>
+              We test, measure and learn.
+            </p>
+          </article>
+
+          <article class="about-belief-card">
+            <span>05</span>
+            <h3>Build for reality.</h3>
+            <p>
+              Solutions must work within actual budgets, people,
+              infrastructure and constraints.
+            </p>
+          </article>
+
+          <article class="about-belief-card">
+            <span>06</span>
+            <h3>Think beyond launch.</h3>
+            <p>
+              A system isn't finished simply because it has gone live.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-two"></div>
+
+    <!-- ==========================================================
+         07 — RIVER TODAY
+    =========================================================== -->
+
+    <section
+      id="river-today"
+      class="about-story-section about-river-today"
+    >
+
+      <div class="container">
+
+        <div class="about-section-heading">
+          <span class="about-number">07</span>
+
+          <div>
+            <p class="about-eyebrow">River Today</p>
+
+            <h2>
+              The philosophy became a company.
+            </h2>
+          </div>
+        </div>
+
+        <div class="about-today-intro">
+
+          <p class="about-large-statement">
+            Today, River brings together products, services,
+            projects and engineering capabilities to help
+            organizations solve real problems with technology.
+          </p>
+
+        </div>
+
+        <!-- 🟢 UPGRADE — WEBSITE ECOSYSTEM LINKS -->
+
+        <div class="about-today-grid">
+
+          <a
+            class="about-today-card"
+            href="products.html"
+          >
+            <span>01</span>
+            <h3>Products</h3>
+            <p>
+              What River can repeatedly package, deploy and scale.
+            </p>
+            <strong>Explore Products →</strong>
+          </a>
+
+          <a
+            class="about-today-card"
+            href="services.html"
+          >
+            <span>02</span>
+            <h3>Services</h3>
+            <p>
+              How River helps organizations build, improve,
+              move, connect, protect and assess technology.
+            </p>
+            <strong>Explore Services →</strong>
+          </a>
+
+          <a
+            class="about-today-card"
+            href="projects.html"
+          >
+            <span>03</span>
+            <h3>Projects</h3>
+            <p>
+              What River has actually built, solved and delivered.
+            </p>
+            <strong>See what we've built →</strong>
+          </a>
+
+          <a
+            class="about-today-card"
+            href="about-team.html"
+          >
+            <span>04</span>
+            <h3>People</h3>
+            <p>
+              The people and disciplines behind the work.
+            </p>
+            <strong>Meet the team →</strong>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-three"></div>
+
+    <!-- ==========================================================
+         🟢 UPGRADE — CLOSING STORY
+    =========================================================== -->
+
+    <section class="about-closing">
+
+      <div class="container">
+
+        <p class="about-eyebrow">
+          Keep moving.
+        </p>
+
+        <h2>
+          Problems change.
+          Technology changes.
+          We keep moving.
+        </h2>
+
+        <p>
+          That is River.
+        </p>
+
+      </div>
+
+    </section>
+
+    <div class="empty-div-three"></div>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
 
-<river-footer></river-footer>
+  <river-footer></river-footer>
 
-  <!-- BACK TO TOP -->
+  <!-- ============================================================
+       BACK TO TOP
+  ============================================================ -->
 
-<river-backtotop></river-backtotop>
+  <river-backtotop></river-backtotop>
 
-  <!-- GSAP -->
+  <!-- ============================================================
+       GSAP
+  ============================================================ -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"></script>
 
-  <!-- Core Scripts -->
+  <!-- ============================================================
+       CORE
+  ============================================================ -->
 
   <script src="js/main.js"></script>
-
   <script src="js/additionalfiles.js"></script>
 
-  <!-- Intro -->
+  <!-- ============================================================
+       INTRO
+  ============================================================ -->
 
   <script src="js/components/intro/intro.js"></script>
-
   <script src="js/components/intro/riverIntro.js"></script>
 
-  <!-- Header -->
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+
   <script src="js/components/header/riverHeader.js"></script>
 
-  <!-- HERO-SECTION -->
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+
   <script src="js/components/heroSection/heroSection.js"></script>
 
-
-  <!-- Components -->
+  <!-- ============================================================
+       COMPONENTS
+  ============================================================ -->
 
   <script src="js/components/footer/riverFooter.js"></script>
-
   <script src="js/components/backToTop/riverBackToTop.js"></script>
-
   <script src="js/components/header-logo/header-logo.js"></script>
-
   <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
-
   <script src="js/components/pageTransition/pageTransition.js"></script>
-
   <script src="js/components/whatWeDoSection/whatWeDoSection.js"></script>
-
   <script src="js/components/projectCard/projectCard.js"></script>
+
+  <!-- 🟢 UPGRADE — CENTRAL TEAM REGISTRY -->
+  <script src="js/components/about/teamRegistry.js"></script>
+  <script src="js/components/about/teamRenderer.js"></script>
 
 </body>
 </html>

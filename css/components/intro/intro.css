@@ -1,315 +1,1329 @@
-/* intro.css */
+/* ============================================================
+   RIVER — CINEMATIC INTRO
+   ============================================================
 
-/* ===============================
-   INTRO WRAPPER
-================================= */
-#intro{
-  position:fixed;
-  inset:0;
-  background:#000;
-  z-index:9999;
-  overflow:hidden;
-  opacity:0;
+   🟢 UPGRADE:
+   Rebuilt visual system around:
+
+   RIVER
+   WE FLOW
+   IDEAS → SYSTEMS → OUTCOMES
+   ENTER RIVER
+
+   The intro is deliberately minimal.
+   ============================================================ */
+
+
+/* ============================================================
+   ROOT INTRO
+============================================================ */
+
+#intro {
+
+  position: fixed;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: #000;
+
+  overflow: hidden;
+
+  z-index: 9999;
+
+  opacity: 0;
+
+  isolation: isolate;
+
+  color: #fff;
+
+  font-family: var(--font-mono, monospace);
+
+  /* 🟢 UPGRADE */
+  contain: layout paint style;
+
 }
 
-/* ===============================
+
+/* ============================================================
+   MEDIA CONTAINER
+============================================================ */
+
+.intro-media {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+}
+
+
+/* ============================================================
    SLIDES
-================================= */
-.slide{
-  position:absolute;
-  inset:0;
-  z-index:0;
+============================================================ */
 
-  background-size:cover;
-  background-position:center;
+.slides {
 
-  opacity:0;
-  transform:scale(1.1);
+  position: absolute;
 
-  /* 🟢 GREEN: unified smooth transition */
-  transition:opacity 1.2s ease, transform 1.2s ease;
+  inset: 0;
+
 }
 
-.slide.active{
-  transform:scale(1);
+
+.slide {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  transform: scale(1.06);
+
+  will-change: opacity, transform;
+
+  /* 🟢 UPGRADE */
+  transition:
+    opacity 1.4s cubic-bezier(.22, .61, .36, 1),
+    transform 2s cubic-bezier(.22, .61, .36, 1);
+
 }
 
-/* ===============================
-   VIDEO SUPPORT
-================================= */
+
+.slide.active {
+
+  opacity: 1;
+
+  transform: scale(1);
+
+}
+
+
+/* ============================================================
+   VIDEO
+============================================================ */
+
 .slide video {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
 
-  /* 🟢 GREEN */
-  transition: opacity 1.2s ease;
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: .9;
+
+  filter:
+    saturate(.8)
+    contrast(1.08)
+    brightness(.72);
+
+  transform: scale(1.01);
+
 }
 
-/* ===============================
-   SLIDE NAV BUTTONS
-================================= */
-.slide-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:10;
 
-  width: var(--space-md);
-  height: auto;
-  border-radius: var(--radius-full);
-  border:none;
+/* ============================================================
+   CINEMATIC VIGNETTE
+============================================================ */
 
-  background:var(--gray-500);
-  backdrop-filter:blur(12px);
-  color:#fff;
-  font-size: var(--fs-h3);
+/* 🟢 UPGRADE */
 
-  cursor:pointer;
-  transition:all 0.3s ease;
+.intro-vignette {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+
+    radial-gradient(
+      circle at center,
+      transparent 15%,
+      rgba(0, 0, 0, .18) 48%,
+      rgba(0, 0, 0, .82) 100%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, .62) 0%,
+      transparent 28%,
+      transparent 68%,
+      rgba(0, 0, 0, .78) 100%
+    );
+
 }
 
-.slide-btn:hover{
-  background: var(--gray-900);
-  transform:translateY(-50%) scale(1.1);
+
+/* ============================================================
+   LIQUID CANVAS
+============================================================ */
+
+#liquidCanvas {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  opacity: .34;
+
+  mix-blend-mode: screen;
+
 }
 
-.prev{ left: var(--space-xsm); }
-.next{ right: var(--space-xsm); }
 
-/* ===============================
-   CANVAS LAYERS
-================================= */
-#liquidCanvas{
-  position:absolute;
-  inset:0;
-  z-index:1;
+/* ============================================================
+   WEBGL / LIGHT CANVAS
+============================================================ */
+
+#webglCanvas {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  opacity: .28;
+
+  mix-blend-mode: screen;
+
 }
 
-#webglCanvas{
-  position:absolute;
-  inset:0;
-  z-index:2;
-  pointer-events:none;
-  mix-blend-mode:screen;
-  opacity:0.6;
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.intro-header {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding:
+    var(--space-sm, 1rem)
+    var(--space-md, 2rem);
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  pointer-events: none;
+
 }
 
-/* ===============================
-   CENTER CONTENT
-================================= */
-.intro-center{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:3;
-  text-align:center;
-  color:#fff;
+
+/* ============================================================
+   BRAND
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-brand {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .65rem;
+
+  color: #fff;
+
+  font-family: var(--font-mono, monospace);
+
+  font-size: .7rem;
+
+  letter-spacing: .16em;
+
 }
 
-/* ===============================
+
+.intro-brand-mark {
+
+  width: 1.7rem;
+  height: 1.7rem;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.45);
+
+  border-radius: 50%;
+
+  font-size: .62rem;
+
+}
+
+
+.intro-brand-name {
+
+  opacity: .86;
+
+}
+
+
+/* ============================================================
+   POSITIONING
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-positioning {
+
+  font-family: var(--font-mono, monospace);
+
+  font-size: .58rem;
+
+  letter-spacing: .16em;
+
+  color: rgba(255,255,255,.58);
+
+  text-align: right;
+
+}
+
+
+/* ============================================================
+   MAIN STAGE
+============================================================ */
+
+.intro-stage {
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 10;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  pointer-events: none;
+
+  padding: 7rem 1.5rem 8rem;
+
+}
+
+
+/* ============================================================
+   STAGE LABEL
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-stage-label {
+
+  position: absolute;
+
+  top: 50%;
+
+  left: var(--space-md, 2rem);
+
+  transform: translateY(-50%);
+
+  font-family: var(--font-mono, monospace);
+
+  font-size: .58rem;
+
+  letter-spacing: .16em;
+
+  color: rgba(255,255,255,.55);
+
+  writing-mode: vertical-rl;
+
+}
+
+
+/* ============================================================
    LOGO
-================================= */
-#introLogo{
-  width: 200px;
-  min-height: auto;
+============================================================ */
 
-  margin-bottom: var(--space-md);
+.intro-logo-wrap {
 
-  animation:float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: clamp(1.8rem, 4vh, 3rem);
+
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-8px);}
+
+#introLogo {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: clamp(105px, 11vw, 185px);
+
+  height: auto;
+
+  display: block;
+
+  filter:
+    drop-shadow(0 0 18px rgba(255,255,255,.12));
+
+  animation:
+    introLogoFloat 5s ease-in-out infinite;
+
 }
 
-@keyframes glow{
-  0%,100%{filter:drop-shadow(0 0 10px rgba(255,255,255,0.2));}
-  50%{filter:drop-shadow(0 0 30px rgba(255,255,255,0.4));}
+
+@keyframes introLogoFloat {
+
+  0%,
+  100% {
+
+    transform: translateY(0);
+
+  }
+
+  50% {
+
+    transform: translateY(-7px);
+
+  }
+
 }
 
-/* ===============================
-   TEXT + CARET
-================================= */
-#introTitle{
-  font-size: var(--fs-h1);
-  font-weight: var(--fw-bold);
-  letter-spacing: var(--space-xsm);
-  font-family: var(--font-mono);
+
+/* ============================================================
+   LOGO GLOW
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-logo-glow {
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.16),
+      transparent 68%
+    );
+
+  filter: blur(18px);
+
+  animation:
+    logoGlow 4s ease-in-out infinite;
+
 }
 
-#caret{
-  display:inline-block;
-  width:2px;
-  height:1em;
-  background:white;
-  margin-left:3px;
-  animation:blink 1s infinite;
+
+@keyframes logoGlow {
+
+  0%,
+  100% {
+
+    transform: scale(.9);
+
+    opacity: .45;
+
+  }
+
+  50% {
+
+    transform: scale(1.25);
+
+    opacity: .8;
+
+  }
+
 }
 
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0;}
+
+/* ============================================================
+   COPY
+============================================================ */
+
+.intro-copy {
+
+  width: min(1100px, 92vw);
+
 }
 
-/* ===============================
-   PROCEED BUTTON
-================================= */
-#proceedBtn{
-  position:absolute;
-  bottom: var(--space-xsm);
-  left:50%;
-  transform:translate(-50%,40px);
-  opacity:0;
 
-  padding: var(--space-md);
-  border-radius: var(--radius-full);
-  border:none;
+#introTitle {
 
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
+  margin: 0;
 
-  color:#fff;
-  font-size: var(--fs-small);
-  letter-spacing: var(--tracking-tight);
+  min-height: 1.25em;
 
-  cursor:pointer;
-  z-index:5;
+  font-family:
+    var(--font-mono, monospace);
+
+  font-size:
+    clamp(2.2rem, 6.2vw, 7rem);
+
+  line-height: .98;
+
+  font-weight:
+    var(--fw-semibold, 600);
+
+  letter-spacing:
+    -.045em;
+
+  color: #fff;
+
+  text-wrap: balance;
+
+}
+
+
+/* ============================================================
+   TYPED TEXT
+============================================================ */
+
+#typedText {
+
+  display: inline;
+
+}
+
+
+/* ============================================================
+   CARET
+============================================================ */
+
+#caret {
+
+  display: inline-block;
+
+  width: 2px;
+
+  height: .82em;
+
+  margin-left: .12em;
+
+  vertical-align: -.04em;
+
+  background: #fff;
+
+  opacity: .8;
+
+  animation:
+    blink 1s steps(1) infinite;
+
+}
+
+
+@keyframes blink {
+
+  0%,
+  45% {
+
+    opacity: 1;
+
+  }
+
+  46%,
+  100% {
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* ============================================================
+   HIGHLIGHTS
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.highlight {
+
+  color: var(--orange-500, #ff7800);
+
+  font-weight:
+    var(--fw-semibold, 600);
+
+  text-shadow:
+    0 0 30px
+    rgba(255,120,0,.22);
+
+}
+
+
+/* ============================================================
+   SUBTITLE
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-subtitle {
+
+  max-width: 520px;
+
+  margin:
+    1.4rem auto 0;
+
+  font-size:
+    clamp(.72rem, 1vw, .9rem);
+
+  line-height: 1.6;
+
+  letter-spacing: .05em;
+
+  color: rgba(255,255,255,.62);
+
+}
+
+
+/* ============================================================
+   PHILOSOPHY
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-philosophy {
+
+  position: absolute;
+
+  left: var(--space-md, 2rem);
+
+  bottom: var(--space-md, 2rem);
+
+  z-index: 20;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: .5rem;
+
+  max-width: 300px;
+
+}
+
+
+.intro-eyebrow {
+
+  font-size: .55rem;
+
+  letter-spacing: .18em;
+
+  color: rgba(255,255,255,.42);
+
+}
+
+
+.intro-philosophy-line {
+
+  font-size: .72rem;
+
+  letter-spacing: .03em;
+
+  color: rgba(255,255,255,.76);
+
+}
+
+
+/* ============================================================
+   PROGRESS
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-progress {
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: var(--space-md, 2rem);
+
+  transform: translateX(-50%);
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .55rem;
+
+}
+
+
+.intro-progress-item {
+
+  appearance: none;
+
+  border: 0;
+
+  background: transparent;
+
+  padding: 0;
+
+  margin: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .55rem;
+
+  cursor: pointer;
+
+  color: rgba(255,255,255,.32);
+
+}
+
+
+.progress-number {
+
+  font-family: var(--font-mono, monospace);
+
+  font-size: .55rem;
+
+  letter-spacing: .08em;
 
   transition:
-    transform 0.35s cubic-bezier(.25,.8,.25,1),
-    background 0.4s ease,
-    box-shadow 0.4s ease,
-    color 0.4s ease;
+    color .3s ease;
+
 }
 
-#proceedBtn:hover{
-  transform:translate(-50%, -4px) scale(1.08);
 
-  background:linear-gradient(
-    135deg,
-    rgba(255,120,0,0.85),
-    rgba(255,80,0,0.9)
-  );
+.progress-line {
 
-  box-shadow:
-    0 10px 30px rgba(255,100,0,0.35),
-    inset 0 0 20px rgba(255,255,255,0.15);
+  display: block;
+
+  width: clamp(24px, 3vw, 48px);
+
+  height: 1px;
+
+  background: rgba(255,255,255,.22);
+
+  transition:
+    width .45s ease,
+    background .3s ease;
+
 }
 
-/* ===============================
-   🟢 GREEN: DOT SYSTEM (CLEANED)
-================================= */
 
-/* 🟢 SINGLE SOURCE OF TRUTH */
-.intro-dots{
-  position:absolute;
-  bottom: var(--space-full);
-  left:50%;
-  transform:translateX(-50%);
+.intro-progress-item:hover,
+.intro-progress-item.active {
 
-  width: var(--space-sm);
-  height: var(--space-sm);
+  color: #fff;
 
-  z-index:6;
-
-  /* 🟢 smoother animation */
-  transform-origin:center;
 }
 
-/* 🟢 unified dot style */
-.intro-dots .dot{
-  position:absolute;
-  width: 1rem;
-  height: 2px;
-  border-radius:50%;
 
-  background:rgba(255,255,255,0.4);
-  cursor:pointer;
+.intro-progress-item.active .progress-line {
 
-  transition:all 0.3s ease;
+  width: clamp(38px, 5vw, 72px);
 
-  /* 🟢 performance boost */
-  will-change: transform;
+  background: rgba(255,255,255,.85);
+
 }
 
-/* 🟢 CORNERS */
-.dot.tl{ top:0; left:0; }
-.dot.tr{ top:0; right:0; }
-.dot.bl{ bottom:0; left:0; }
-.dot.br{ bottom:0; right:0; }
 
-/* 🟢 HOVER */
-.intro-dots .dot:hover{
-  background:#fff;
-  box-shadow:0 0 14px rgba(255,255,255,0.9);
+/* ============================================================
+   ENTER
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-enter {
+
+  position: absolute;
+
+  right: var(--space-md, 2rem);
+
+  bottom: var(--space-md, 2rem);
+
+  z-index: 20;
+
 }
 
-/* 🟢 DOT ANIMATION */
-@keyframes dotSpinZoom{
-  0%{ transform:scale(1) rotate(0deg); }
-  30%{ transform:scale(1.8) rotate(120deg); }
-  60%{ transform:scale(2.2) rotate(240deg); }
-  100%{ transform:scale(1) rotate(360deg); }
+
+#proceedBtn {
+
+  appearance: none;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #fff;
+
+  padding: .5rem 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .8rem;
+
+  font-family: var(--font-mono, monospace);
+
+  font-size: .68rem;
+
+  letter-spacing: .13em;
+
+  cursor: pointer;
+
+  opacity: 0;
+
+  transform: translateY(15px);
+
+  transition:
+    opacity .5s ease,
+    transform .5s ease,
+    gap .4s cubic-bezier(.22,.61,.36,1);
+
 }
 
-/* 🟢 TRIGGER ON BUTTON HOVER */
-#proceedBtn:hover ~ .intro-dots .dot{
-  animation:dotSpinZoom 1.2s cubic-bezier(.3,1.5,.5,1);
+
+#proceedBtn.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
 }
 
-/* 🟢 BOX ROTATION */
-@keyframes boxRotate{
-  0%{ transform:translateX(-50%) rotate(0deg); }
-  50%{ transform:translateX(-50%) rotate(180deg); }
-  100%{ transform:translateX(-50%) rotate(360deg); }
+
+.enter-label {
+
+  position: relative;
+
 }
 
-#proceedBtn:hover ~ .intro-dots{
-  animation:boxRotate 1.2s ease-in-out;
+
+.enter-label::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: -.35rem;
+
+  height: 1px;
+
+  background: rgba(255,255,255,.45);
+
+  transform:
+    scaleX(.25);
+
+  transform-origin: left;
+
+  transition:
+    transform .4s ease;
+
 }
 
-/* ===============================
-   HERO TRANSITION
-================================= */
-.hero{
-  opacity:0;
-  transform:scale(1.1);
+
+#proceedBtn:hover {
+
+  gap: 1.2rem;
+
 }
 
-.hero.reveal{
-  opacity:1;
-  transform:scale(1);
-  transition:all 1.2s ease;
+
+#proceedBtn:hover .enter-label::after {
+
+  transform: scaleX(1);
+
 }
 
-/* ===============================
-   TOP BRAND
-================================= */
-.intro-top-brand{
-  position:absolute;
-  top: var(--space-sm);
-  left:50%;
-  transform:translateX(-50%);
-  z-index:4;
-  color:#fff;
-  font-family: var(--font-mono);
-  font-size: var(--fs-h4);
-  letter-spacing: var(--tracking-wide);
-  opacity:0.8;
+
+.enter-arrow {
+
+  font-size: 1rem;
+
+  transition:
+    transform .4s cubic-bezier(.22,.61,.36,1);
+
 }
 
-/* ===============================
-   🟢 HIGHLIGHT
-================================= */
-.highlight {
-  color: var(--orange-500);
-  font-weight: var(--fw-bold);
-  text-shadow: 0 0 20rem var(--orange-200);
-  transition: all 0.3s ease;
+
+#proceedBtn:hover .enter-arrow {
+
+  transform: translateX(5px);
+
+}
+
+
+/* ============================================================
+   SLIDE NAV
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+.intro-slide-nav {
+
+  position: absolute;
+
+  top: 50%;
+
+  right: var(--space-md, 2rem);
+
+  transform: translateY(-50%);
+
+  z-index: 20;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: .4rem;
+
+}
+
+
+.slide-btn {
+
+  appearance: none;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.16);
+
+  backdrop-filter: blur(10px);
+
+  color: rgba(255,255,255,.65);
+
+  font-family: var(--font-mono, monospace);
+
+  font-size: .8rem;
+
+  cursor: pointer;
+
+  transition:
+    color .3s ease,
+    border-color .3s ease,
+    background .3s ease,
+    transform .3s ease;
+
+}
+
+
+.slide-btn:hover {
+
+  color: #fff;
+
+  border-color: rgba(255,255,255,.5);
+
+  background: rgba(255,255,255,.08);
+
+}
+
+
+.slide-btn:active {
+
+  transform: scale(.92);
+
+}
+
+
+/* ============================================================
+   FOCUS STATES
+============================================================ */
+
+#proceedBtn:focus-visible,
+.slide-btn:focus-visible,
+.intro-progress-item:focus-visible {
+
+  outline: 1px solid rgba(255,255,255,.85);
+
+  outline-offset: 5px;
+
+}
+
+
+/* ============================================================
+   INTRO EXIT
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+#intro.is-exiting {
+
+  pointer-events: none;
+
+}
+
+
+#intro.is-exiting .intro-stage {
+
+  transform: scale(.97);
+
+  opacity: 0;
+
+  transition:
+    transform 1s cubic-bezier(.22,.61,.36,1),
+    opacity .8s ease;
+
+}
+
+
+#intro.is-exiting .intro-header,
+#intro.is-exiting .intro-philosophy,
+#intro.is-exiting .intro-progress,
+#intro.is-exiting .intro-enter,
+#intro.is-exiting .intro-slide-nav {
+
+  opacity: 0;
+
+  transition:
+    opacity .5s ease;
+
+}
+
+
+/* ============================================================
+   HERO
+============================================================ */
+
+.hero {
+
+  opacity: 0;
+
+  transform: scale(1.04);
+
+}
+
+
+.hero.reveal {
+
+  opacity: 1;
+
+  transform: scale(1);
+
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET
+============================================================ */
+
+@media (max-width: 900px) {
+
+  .intro-header {
+
+    padding:
+      1.2rem
+      1.25rem;
+
+  }
+
+  .intro-positioning {
+
+    display: none;
+
+  }
+
+  .intro-stage-label {
+
+    left: 1.2rem;
+
+  }
+
+  .intro-philosophy {
+
+    left: 1.25rem;
+
+    bottom: 1.25rem;
+
+  }
+
+  .intro-enter {
+
+    right: 1.25rem;
+
+    bottom: 1.25rem;
+
+  }
+
+  .intro-progress {
+
+    bottom: 1.25rem;
+
+  }
+
+  .intro-slide-nav {
+
+    right: 1.2rem;
+
+  }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+============================================================ */
+
+@media (max-width: 640px) {
+
+  .intro-header {
+
+    padding:
+      1rem;
+
+  }
+
+
+  .intro-stage {
+
+    padding:
+      6rem 1rem 9rem;
+
+  }
+
+
+  #introLogo {
+
+    width: 105px;
+
+  }
+
+
+  #introTitle {
+
+    font-size:
+      clamp(
+        2rem,
+        11vw,
+        4rem
+      );
+
+    line-height: 1.02;
+
+  }
+
+
+  .intro-subtitle {
+
+    max-width: 290px;
+
+    font-size: .68rem;
+
+  }
+
+
+  .intro-stage-label {
+
+    top: 50%;
+
+    left: .8rem;
+
+    font-size: .5rem;
+
+  }
+
+
+  .intro-philosophy {
+
+    left: 1rem;
+
+    bottom: 4.7rem;
+
+  }
+
+
+  .intro-eyebrow {
+
+    font-size: .48rem;
+
+  }
+
+
+  .intro-philosophy-line {
+
+    font-size: .62rem;
+
+  }
+
+
+  .intro-enter {
+
+    right: 1rem;
+
+    bottom: 4.5rem;
+
+  }
+
+
+  #proceedBtn {
+
+    font-size: .58rem;
+
+  }
+
+
+  .intro-progress {
+
+    bottom: 1rem;
+
+  }
+
+
+  .progress-line {
+
+    width: 22px;
+
+  }
+
+
+  .intro-progress-item.active .progress-line {
+
+    width: 38px;
+
+  }
+
+
+  .intro-slide-nav {
+
+    top: auto;
+
+    right: 1rem;
+
+    bottom: 1rem;
+
+    transform: none;
+
+    flex-direction: row;
+
+  }
+
+
+  .slide-btn {
+
+    width: 32px;
+
+    height: 32px;
+
+    font-size: .7rem;
+
+  }
+
+}
+
+
+/* ============================================================
+   VERY SMALL DEVICES
+============================================================ */
+
+@media (max-width: 400px) {
+
+  .intro-philosophy {
+
+    display: none;
+
+  }
+
+  .intro-stage-label {
+
+    display: none;
+
+  }
+
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+/* 🟢 UPGRADE */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #introLogo,
+  .intro-logo-glow,
+  #caret {
+
+    animation: none;
+
+  }
+
+
+  .slide,
+  .hero,
+  #proceedBtn,
+  .intro-progress-item,
+  .progress-line {
+
+    transition-duration: .01ms !important;
+
+  }
+
 }

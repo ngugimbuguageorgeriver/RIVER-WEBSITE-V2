@@ -1,92 +1,689 @@
-<!-- menu.html -->
+<!--
+============================================================
+RIVER — MAIN NAVIGATION
+menu.html
 
+🟢 FULL UPGRADE
 
-<!doctype html> 
+The menu is intentionally treated as a navigation experience,
+not simply a list of links.
+
+Primary navigation:
+01 Home
+02 About
+03 Product Development
+04 Products
+05 Services
+06 Projects
+07 Blog
+08 Careers
+09 Contact
+============================================================
+-->
+
+<!doctype html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menu | River</title>
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/styling.css" />
-  <link rel="stylesheet" href="css/components/menuPage/menuPage.css" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
 
-  <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
+  <meta
+    name="description"
+    content="Explore River — Software Engineering & Technology."
+  />
+
+  <meta
+    name="theme-color"
+    content="#0b0b0c"
+  />
+
+  <title>Menu | River — Software Engineering & Technology</title>
 
 
+  <!-- ======================================================
+       CORE STYLES
+  ======================================================= -->
 
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/styling.css"
+  />
+
+
+  <!-- ======================================================
+       MENU
+  ======================================================= -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/menuPage/menuPage.css"
+  />
+
+
+  <!-- ======================================================
+       PAGE TRANSITION
+  ======================================================= -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/pageTransition/pageTransition.css"
+  />
+
+
+  <!-- ======================================================
+       FAVICON
+  ======================================================= -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
 
 </head>
 
+
 <body class="menu-page">
 
-    <canvas id="webglBg"></canvas>
+
+  <!-- ======================================================
+       BACKGROUND SYSTEM
+  ======================================================= -->
+
+  <canvas
+    id="webglBg"
+    aria-hidden="true"
+  ></canvas>
 
 
-    <!-- 🔥 VIDEO BACKGROUND -->
-    <div class="menu-bg">
-        <video class="bg-video active" src="assets/Media/BGV/BGV1.mp4" autoplay muted loop playsinline></video>
-        <video class="bg-video" src="assets/Media/BGV/BGV1.mp4" autoplay muted loop playsinline></video>
-        <video class="bg-video" src="assets/Media/BGV/BGV3.mp4" autoplay muted loop playsinline></video>
-    </div>
+  <!-- ======================================================
+       VIDEO BACKGROUND
+  ======================================================= -->
 
-    <!-- PAGE TRANSITION OVERLAY -->
-    <div id="pageTransition"></div>
+  <div
+    class="menu-bg"
+    aria-hidden="true"
+  >
 
-  <!-- HEADER -->
+    <video
+      class="bg-video active"
+      src="assets/Media/BGV/BGV1.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
+
+
+    <video
+      class="bg-video"
+      src="assets/Media/BGV/BGV1.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
+
+
+    <video
+      class="bg-video"
+      src="assets/Media/BGV/BGV3.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
+
+
+    <div class="menu-bg-noise"></div>
+
+    <div class="menu-bg-vignette"></div>
+
+  </div>
+
+
+  <!-- ======================================================
+       PAGE TRANSITION
+  ======================================================= -->
+
+  <div
+    id="pageTransition"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- ======================================================
+       HEADER
+  ======================================================= -->
+
   <header class="menu-header">
 
-    <!-- LEFT TEXT (REPLACES LOGO) -->
-    <div class="brand-text">
-      <span>Softwares By</span>
-      <strong class="brand-text-strong-color">River</strong>
-    </div>
 
-    <!-- MENU BUTTON (X STATE) -->
-    <a href="index.html" class="menu-btn close-btn">
+    <!-- ====================================================
+         BRAND
+    ===================================================== -->
+
+    <a
+      href="index.html"
+      class="menu-brand"
+      aria-label="Return to River home"
+    >
+
+      <span class="menu-brand-kicker">
+        Software Engineering
+      </span>
+
+      <span class="menu-brand-name">
+        River
+      </span>
+
+    </a>
+
+
+    <!-- ====================================================
+         MENU CLOSE BUTTON
+    ===================================================== -->
+
+    <a
+      href="index.html"
+      class="menu-btn close-btn"
+      aria-label="Close navigation menu"
+    >
+
       <span></span>
       <span></span>
       <span></span>
+
     </a>
 
   </header>
 
-  <!-- MAIN -->
+
+  <!-- ======================================================
+       MAIN NAVIGATION
+  ======================================================= -->
+
   <main class="menu-main">
 
-    <!-- LEFT LINKS -->
-    <div class="menu-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="productDevProcess.html">Product Development Process</a>
-      <a href="products.html">Our Products</a>
-      <a href="services.html">Our Services</a>
-      <a href="projects.html">Our Portfolio & Current Projects</a>
-      <a href="blog.html">Blog</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html">Contact</a>
-    </div>
 
-    <!-- RIGHT BOTTOM TEXT -->
-    <div class="menu-tagline">
-      <span>we</span>
-      <span>make</span>
-      <span class="menu-tagline-good">good</span>
-      <span>stuff</span>
-    </div>
+    <!-- ====================================================
+         NAVIGATION INTRO
+    ===================================================== -->
+
+    <section
+      class="menu-intro"
+      aria-labelledby="menu-title"
+    >
+
+      <div class="menu-intro-index">
+        00 / NAVIGATION
+      </div>
+
+
+      <h1
+        id="menu-title"
+        class="menu-title"
+      >
+
+        <span>Explore</span>
+
+        <span class="menu-title-accent">
+          River.
+        </span>
+
+      </h1>
+
+
+      <p class="menu-intro-copy">
+
+        Software, systems and technology
+        engineered to solve real problems.
+
+      </p>
+
+
+      <div class="menu-system-status">
+
+        <span class="status-dot"></span>
+
+        <span>
+          Systems online
+        </span>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ====================================================
+         NAVIGATION LINKS
+    ===================================================== -->
+
+    <nav
+      class="menu-navigation"
+      aria-label="River primary navigation"
+    >
+
+
+      <!-- ==================================================
+           01 HOME
+      =================================================== -->
+
+      <a
+        href="index.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          01
+        </span>
+
+        <span class="menu-link-main">
+          Home
+        </span>
+
+        <span class="menu-link-description">
+          Start here
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           02 ABOUT
+      =================================================== -->
+
+      <a
+        href="about.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          02
+        </span>
+
+        <span class="menu-link-main">
+          About
+        </span>
+
+        <span class="menu-link-description">
+          Why River exists
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           03 PRODUCT DEVELOPMENT
+      =================================================== -->
+
+      <a
+        href="productDevProcess.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          03
+        </span>
+
+        <span class="menu-link-main">
+          Product Development
+        </span>
+
+        <span class="menu-link-description">
+          From idea to operating product
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           04 PRODUCTS
+      =================================================== -->
+
+      <a
+        href="products.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          04
+        </span>
+
+        <span class="menu-link-main">
+          Products
+        </span>
+
+        <span class="menu-link-description">
+          Systems built by River
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           05 SERVICES
+      =================================================== -->
+
+      <a
+        href="services.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          05
+        </span>
+
+        <span class="menu-link-main">
+          Services
+        </span>
+
+        <span class="menu-link-description">
+          Engineering capabilities
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           06 PROJECTS
+      =================================================== -->
+
+      <a
+        href="projects.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          06
+        </span>
+
+        <span class="menu-link-main">
+          Projects
+        </span>
+
+        <span class="menu-link-description">
+          Problems solved in the real world
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           07 BLOG
+      =================================================== -->
+
+      <a
+        href="blog.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          07
+        </span>
+
+        <span class="menu-link-main">
+          Blog
+        </span>
+
+        <span class="menu-link-description">
+          Thinking, technology and ideas
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           08 CAREERS
+      =================================================== -->
+
+      <a
+        href="careers.html"
+        class="menu-link"
+      >
+
+        <span class="menu-link-number">
+          08
+        </span>
+
+        <span class="menu-link-main">
+          Careers
+        </span>
+
+        <span class="menu-link-description">
+          Build with River
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+      <!-- ==================================================
+           09 CONTACT
+      =================================================== -->
+
+      <a
+        href="contact.html"
+        class="menu-link menu-link-contact"
+      >
+
+        <span class="menu-link-number">
+          09
+        </span>
+
+        <span class="menu-link-main">
+          Contact
+        </span>
+
+        <span class="menu-link-description">
+          Start a conversation
+        </span>
+
+        <span
+          class="menu-link-arrow"
+          aria-hidden="true"
+        >
+          ↗
+        </span>
+
+      </a>
+
+
+    </nav>
+
+
+
+    <!-- ====================================================
+         RIGHT / BOTTOM STATEMENT
+    ===================================================== -->
+
+    <aside class="menu-statement">
+
+
+      <div class="menu-statement-line"></div>
+
+
+      <div class="menu-statement-label">
+        RIVER / 001
+      </div>
+
+
+      <p class="menu-statement-heading">
+
+        We don't just
+        <span>make websites.</span>
+
+      </p>
+
+
+      <p class="menu-statement-copy">
+
+        We understand problems,
+        design solutions,
+        engineer systems,
+        and keep them moving.
+
+      </p>
+
+
+      <a
+        href="projects.html"
+        class="menu-statement-link"
+      >
+
+        <span>
+          See what we have built
+        </span>
+
+        <span aria-hidden="true">
+          ↗
+        </span>
+
+      </a>
+
+
+    </aside>
+
 
   </main>
 
 
-  <script src="js/components/pageTransition/pageTransition.js"></script>
 
-  <script src="js/components/menuPage/menuBackground.js"></script>
+  <!-- ======================================================
+       FOOTER SYSTEM
+  ======================================================= -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r155/three.min.js"></script>
+  <footer class="menu-footer">
 
 
+    <span>
+      River — Software Engineering &amp; Technology
+    </span>
+
+
+    <span class="menu-footer-center">
+      Nairobi / Kenya
+    </span>
+
+
+    <span>
+      © <span id="menuYear"></span> River
+    </span>
+
+
+  </footer>
+
+
+
+  <!-- ======================================================
+       SCRIPTS
+  ======================================================= -->
+
+  <script
+    src="js/components/pageTransition/pageTransition.js"
+  ></script>
+
+
+  <script
+    src="js/components/menuPage/menuBackground.js"
+  ></script>
+
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r155/three.min.js"
+  ></script>
+
+
+  <!-- ======================================================
+       🟢 YEAR
+  ======================================================= -->
+
+  <script>
+
+    const year =
+      document.getElementById("menuYear");
+
+    if (year) {
+
+      year.textContent =
+        new Date().getFullYear();
+
+    }
+
+  </script>
 
 
 </body>
+
 </html>

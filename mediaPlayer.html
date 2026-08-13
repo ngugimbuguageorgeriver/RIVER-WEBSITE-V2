@@ -1,281 +1,468 @@
 <!-- ============================================================
      mediaPlayer.html
+     RIVER MEDIA EXPERIENCE
      ============================================================ -->
 
-<!doctype html>
-
-<html lang="en">
-
-
-<head>
-
-
-    <meta charset="utf-8" />
-
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    />
-
-
-    <title>
-        mediaPlayer | River
-    </title>
-
-
-
-    <!-- ========================================================
-         MAIN CSS
-         ======================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="./css/style.css"
-    />
-
-
-    <link
-        rel="stylesheet"
-        href="./css/styling.css"
-    />
-
-
-    <link
-        rel="stylesheet"
-        href="./css/components/mediaPlayer/mediaPlayer.css"
-    />
-
-
-    <link
-        rel="stylesheet"
-        href="./css/components/pageTransition/pageTransition.css"
-    />
-
-
-
-    <!-- ========================================================
-         SWIPER
-         ======================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-
-
-</head>
-
-
-
-<body class="media-page">
-
-
-
-    <!-- ========================================================
-         PAGE TRANSITION OVERLAY
-         ======================================================== -->
-
-    <div id="pageTransition"></div>
-
-
-
-    <!-- ========================================================
-         HEADER
-         ======================================================== -->
-
-    <header class="media-header">
-
-
-        <div class="brand-text">
-
-            <span>
-                Softwares By
-            </span>
-
-            <strong class="brand-text-strong-color">
-                River
-            </strong>
-
-            <strong id="projectTitle">
-                River
-            </strong>
-
-        </div>
-
-
-
-        <!-- ====================================================
-             MENU / CLOSE BUTTON
-             ==================================================== -->
-
-        <a
-            href="index.html"
-            class="media-btn media-close-btn"
-            onclick="goBack()"
-        >
-
-            <span></span>
-
-            <span></span>
-
-            <span></span>
-
-        </a>
-
-
-    </header>
-
-
-
-    <!-- ========================================================
-         MAIN
-         ======================================================== -->
-
-    <main class="media-main">
-
-
-        <!-- ====================================================
-             🟢 UPGRADE:
-             MEDIA QUEUE STATUS
-             ==================================================== -->
-
-        <div
-            id="mediaQueueStatus"
-            class="media-queue-status"
-            aria-live="polite"
-        >
-            Preparing media...
-        </div>
-
-
-
-        <!-- ====================================================
-             SWIPER
-             ==================================================== -->
-
-        <div class="swiper media-swiper">
-
-
-            <div
-                class="swiper-wrapper"
-                id="mediaWrapper"
-            ></div>
-
-
-
-            <!-- NAVIGATION -->
-
-            <div
-                class="swiper-button-next"
-            ></div>
-
-
-            <div
-                class="swiper-button-prev"
-            ></div>
-
-
-            <div
-                class="swiper-pagination"
-            ></div>
-
-
-        </div>
-
-
-
-        <!-- ====================================================
-             FULL DESCRIPTION
-             ==================================================== -->
-
-        <div
-            class="media-description"
-            id="mediaDescription"
-        ></div>
-
-
-
-        <!-- ====================================================
-             RIGHT BOTTOM TEXT
-             ==================================================== -->
-
-        <div class="media-tagline">
-
-            <span>
-                we
-            </span>
-
-            <span>
-                make
-            </span>
-
-            <span class="media-tagline-good">
-                good
-            </span>
-
-            <span>
-                stuff
-            </span>
-
-        </div>
-
-
-    </main>
-
-
-
-    <!-- ========================================================
-         SWIPER
-         ======================================================== -->
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-    ></script>
-
-
-
-    <!-- ========================================================
-         PAGE TRANSITION
-         ======================================================== -->
-
-    <script
-        src="./js/components/pageTransition/pageTransition.js"
-    ></script>
-
-
-
-    <!-- ========================================================
-         THREE.JS
-         ======================================================== -->
-
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r155/three.min.js"
-    ></script>
-
-
-
-    <!-- ========================================================
-         🟢 UPGRADE:
-         CENTRAL PROJECT DATA
-         MUST LOAD BEFORE MEDIA PLAYER
-         ======================================================== -->
-
-    <script
-        src="./js/components/mediaPlayer/mediaData.js"
-    ></script>
-
-
-
-    <!-- ========================================================
-         MEDIA PLAYER
-         ======================================================== -->
-
-    <script
-        src="./js/components/mediaPlayer/mediaPlayer.js"
-    ></script>
-
-
-</body>
-
-</html>
+     <!doctype html>
+
+     <html lang="en">
+     
+     <head>
+     
+         <meta charset="utf-8" />
+     
+         <meta
+             name="viewport"
+             content="width=device-width, initial-scale=1"
+         />
+     
+         <meta
+             name="theme-color"
+             content="#0b0b0c"
+         />
+     
+         <meta
+             name="description"
+             content="Explore River projects, products and software systems through interactive media."
+         />
+     
+         <title>
+             Media | River
+         </title>
+     
+     
+         <!-- ========================================================
+              MAIN CSS
+              ======================================================== -->
+     
+         <link
+             rel="stylesheet"
+             href="./css/style.css"
+         />
+     
+         <link
+             rel="stylesheet"
+             href="./css/styling.css"
+         />
+     
+         <link
+             rel="stylesheet"
+             href="./css/components/mediaPlayer/mediaPlayer.css"
+         />
+     
+         <link
+             rel="stylesheet"
+             href="./css/components/pageTransition/pageTransition.css"
+         />
+     
+     
+         <!-- ========================================================
+              SWIPER
+              ======================================================== -->
+     
+         <link
+             rel="stylesheet"
+             href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+         />
+     
+     </head>
+     
+     
+     <body class="media-page">
+     
+         <!-- ========================================================
+              PAGE TRANSITION
+              ======================================================== -->
+     
+         <div
+             id="pageTransition"
+             aria-hidden="true"
+         ></div>
+     
+     
+         <!-- ========================================================
+              HEADER
+              ======================================================== -->
+     
+         <header class="media-header">
+     
+             <div class="media-brand">
+     
+                 <span class="media-brand-kicker">
+                     Software by
+                 </span>
+     
+                 <strong class="media-brand-river">
+                     River
+                 </strong>
+     
+                 <strong
+                     id="projectTitle"
+                     class="media-brand-project"
+                 >
+                     River
+                 </strong>
+     
+             </div>
+     
+     
+             <div class="media-header-actions">
+     
+                 <!-- 🟢 UPGRADE: MEDIA COUNTER -->
+     
+                 <span
+                     id="mediaCounter"
+                     class="media-counter"
+                     aria-live="polite"
+                 >
+                     00 / 00
+                 </span>
+     
+     
+                 <!-- 🟢 UPGRADE: INFO BUTTON -->
+     
+                 <button
+                     id="mediaInfoButton"
+                     class="media-header-button"
+                     type="button"
+                     aria-label="Open project information"
+                     aria-expanded="false"
+                 >
+                     <span></span>
+                     <span></span>
+                     <span></span>
+                 </button>
+     
+     
+                 <!-- CLOSE -->
+     
+                 <a
+                     href="index.html"
+                     class="media-btn media-close-btn"
+                     aria-label="Close media player"
+                     id="mediaCloseButton"
+                 >
+     
+                     <span></span>
+                     <span></span>
+                     <span></span>
+     
+                 </a>
+     
+             </div>
+     
+         </header>
+     
+     
+         <!-- ========================================================
+              MAIN
+              ======================================================== -->
+     
+         <main class="media-main">
+     
+     
+             <!-- ====================================================
+                  LOADING / QUEUE STATUS
+                  ==================================================== -->
+     
+             <div
+                 id="mediaQueueStatus"
+                 class="media-queue-status"
+                 aria-live="polite"
+             >
+                 Preparing media...
+             </div>
+     
+     
+             <!-- ====================================================
+                  PLAYER
+                  ==================================================== -->
+     
+             <section
+                 class="media-player-shell"
+                 aria-label="River media player"
+             >
+     
+     
+                 <!-- =================================================
+                      SWIPER
+                      ================================================= -->
+     
+                 <div class="swiper media-swiper">
+     
+                     <div
+                         class="swiper-wrapper"
+                         id="mediaWrapper"
+                     ></div>
+     
+     
+                     <!-- NAVIGATION -->
+     
+                     <button
+                         type="button"
+                         class="swiper-button-prev media-navigation"
+                         aria-label="Previous media"
+                     ></button>
+     
+     
+                     <button
+                         type="button"
+                         class="swiper-button-next media-navigation"
+                         aria-label="Next media"
+                     ></button>
+     
+     
+                     <!-- PAGINATION -->
+     
+                     <div class="swiper-pagination"></div>
+     
+                 </div>
+     
+     
+                 <!-- =================================================
+                      🟢 UPGRADE: CENTER PLAY BUTTON
+                      ================================================= -->
+     
+                 <button
+                     id="mediaCenterPlay"
+                     class="media-center-play"
+                     type="button"
+                     aria-label="Play media"
+                     hidden
+                 >
+                     <span class="play-icon"></span>
+                 </button>
+     
+     
+                 <!-- =================================================
+                      🟢 UPGRADE: MEDIA META
+                      ================================================= -->
+     
+                 <div
+                     id="mediaMeta"
+                     class="media-meta"
+                 >
+     
+                     <span
+                         id="mediaCategory"
+                         class="media-meta-category"
+                     >
+                         MEDIA
+                     </span>
+     
+                     <strong
+                         id="mediaTitle"
+                         class="media-meta-title"
+                     >
+                         River
+                     </strong>
+     
+                 </div>
+     
+     
+                 <!-- =================================================
+                      🟢 UPGRADE: VIDEO CONTROL BAR
+                      ================================================= -->
+     
+                 <div
+                     id="videoControls"
+                     class="video-controls"
+                     hidden
+                 >
+     
+                     <button
+                         type="button"
+                         class="video-control-button"
+                         id="videoPlayButton"
+                         aria-label="Play"
+                     >
+                         ▶
+                     </button>
+     
+     
+                     <span
+                         id="videoCurrentTime"
+                         class="video-time"
+                     >
+                         00:00
+                     </span>
+     
+     
+                     <input
+                         type="range"
+                         id="videoProgress"
+                         class="video-progress"
+                         min="0"
+                         max="100"
+                         value="0"
+                         step="0.1"
+                         aria-label="Video progress"
+                     />
+     
+     
+                     <span
+                         id="videoDuration"
+                         class="video-time"
+                     >
+                         00:00
+                     </span>
+     
+     
+                     <button
+                         type="button"
+                         class="video-control-button"
+                         id="videoMuteButton"
+                         aria-label="Mute video"
+                     >
+                         🔇
+                     </button>
+     
+     
+                     <!-- 🟢 UPGRADE: VOLUME -->
+     
+                     <input
+                         type="range"
+                         id="videoVolume"
+                         class="video-volume"
+                         min="0"
+                         max="1"
+                         value="0"
+                         step="0.05"
+                         aria-label="Video volume"
+                     />
+     
+     
+                     <!-- 🟢 UPGRADE: FULLSCREEN -->
+     
+                     <button
+                         type="button"
+                         class="video-control-button"
+                         id="videoFullscreenButton"
+                         aria-label="Enter fullscreen"
+                     >
+                         ⛶
+                     </button>
+     
+                 </div>
+     
+             </section>
+     
+     
+             <!-- ====================================================
+                  DESCRIPTION
+                  ==================================================== -->
+     
+             <div
+                 id="mediaDescription"
+                 class="media-description"
+             ></div>
+     
+     
+             <!-- ====================================================
+                  🟢 UPGRADE: INFO DRAWER
+                  ==================================================== -->
+     
+             <aside
+                 id="mediaInfoPanel"
+                 class="media-info-panel"
+                 aria-hidden="true"
+             >
+     
+                 <div class="media-info-panel-inner">
+     
+                     <button
+                         id="mediaInfoClose"
+                         class="media-info-close"
+                         type="button"
+                         aria-label="Close information"
+                     >
+                         ×
+                     </button>
+     
+                     <div
+                         id="mediaInfoContent"
+                         class="media-info-content"
+                     ></div>
+     
+                 </div>
+     
+             </aside>
+     
+     
+             <!-- ====================================================
+                  🟢 UPGRADE: MOBILE SCRIM
+                  ==================================================== -->
+     
+             <div
+                 id="mediaInfoScrim"
+                 class="media-info-scrim"
+                 hidden
+             ></div>
+     
+     
+             <!-- ====================================================
+                  TAGLINE
+                  ==================================================== -->
+     
+             <div class="media-tagline">
+     
+                 <span>
+                     we
+                 </span>
+     
+                 <span>
+                     make
+                 </span>
+     
+                 <span class="media-tagline-good">
+                     good
+                 </span>
+     
+                 <span>
+                     stuff
+                 </span>
+     
+             </div>
+     
+         </main>
+     
+     
+         <!-- ========================================================
+              SWIPER
+              ======================================================== -->
+     
+         <script
+             src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+         ></script>
+     
+     
+         <!-- ========================================================
+              PAGE TRANSITION
+              ======================================================== -->
+     
+         <script
+             src="./js/components/pageTransition/pageTransition.js"
+         ></script>
+     
+     
+         <!-- ========================================================
+              CENTRAL REGISTRY
+              MUST LOAD BEFORE MEDIA PLAYER
+              ======================================================== -->
+     
+         <script
+             src="./js/components/mediaPlayer/mediaData.js"
+         ></script>
+     
+     
+         <!-- ========================================================
+              MEDIA PLAYER
+              ======================================================== -->
+     
+         <script
+             src="./js/components/mediaPlayer/mediaPlayer.js"
+         ></script>
+     
+     </body>
+     
+     </html>

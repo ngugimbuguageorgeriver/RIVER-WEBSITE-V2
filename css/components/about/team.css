@@ -1,0 +1,493 @@
+ /*
+============================================================
+RIVER — TEAM SYSTEM
+============================================================
+
+🟢 UPGRADE
+Styles for:
+- Dynamic team registry
+- Team cards
+- Team filtering
+- About team preview
+- Full team directory
+- Empty states
+- Responsive behavior
+============================================================
+*/
+
+/* ============================================================
+   🟢 UPGRADE — TEAM DIRECTORY
+============================================================ */
+
+.team-directory {
+    padding: 100px 0;
+  }
+  
+  .team-directory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 50px;
+    margin-bottom: 65px;
+  }
+  
+  .team-directory-header h2 {
+    margin: 0;
+    max-width: 850px;
+    font-size: clamp(2.4rem, 5vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — FILTERS
+  ============================================================ */
+  
+  .team-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .team-filter {
+    appearance: none;
+    border: 1px solid rgba(127, 127, 127, 0.3);
+    background: transparent;
+    color: inherit;
+    padding: 11px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    line-height: 1;
+    transition:
+      background 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+  
+  .team-filter:hover {
+    transform: translateY(-2px);
+  }
+  
+  .team-filter.active {
+    background: currentColor;
+    color: var(--background-color, #111);
+    border-color: currentColor;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — TEAM GRID
+  ============================================================ */
+  
+  .team-grid,
+  .about-team-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — TEAM CARD
+  ============================================================ */
+  
+  .team-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(127, 127, 127, 0.22);
+    background: rgba(127, 127, 127, 0.025);
+    transition:
+      transform 240ms ease,
+      border-color 240ms ease,
+      background 240ms ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(127, 127, 127, 0.45);
+    background: rgba(127, 127, 127, 0.06);
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — TEAM IMAGE
+  ============================================================ */
+  
+  .team-card-media {
+    position: relative;
+    aspect-ratio: 4 / 4.5;
+    overflow: hidden;
+    background: rgba(127, 127, 127, 0.1);
+  }
+  
+  .team-card-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+      transform 500ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  
+  .team-card:hover .team-card-media img {
+    transform: scale(1.035);
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — IMAGE FALLBACK
+  ============================================================ */
+  
+  .team-card-media.is-fallback {
+    display: grid;
+    place-items: center;
+  }
+  
+  .team-card-initials {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    opacity: 0.2;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — CARD BODY
+  ============================================================ */
+  
+  .team-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 26px;
+  }
+  
+  .team-card-name {
+    margin: 0;
+    font-size: 1.45rem;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+  }
+  
+  .team-card-role {
+    margin: 7px 0 0;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    opacity: 0.58;
+  }
+  
+  .team-card-discipline {
+    display: inline-flex;
+    align-self: flex-start;
+    margin-top: 17px;
+    padding: 7px 10px;
+    border: 1px solid rgba(127, 127, 127, 0.25);
+    border-radius: 999px;
+    font-size: 0.67rem;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  
+  .team-card-statement {
+    margin: 25px 0 0;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    opacity: 0.72;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — ASK ME ABOUT
+  ============================================================ */
+  
+  .team-card-ask {
+    margin-top: auto;
+    padding-top: 24px;
+  }
+  
+  .team-card-ask-label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.45;
+  }
+  
+  .team-card-ask-value {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — SOCIAL / PROFILE LINKS
+  ============================================================ */
+  
+  .team-card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 25px;
+  }
+  
+  .team-card-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 35px;
+    padding: 8px 12px;
+    border: 1px solid rgba(127, 127, 127, 0.25);
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.72rem;
+    transition:
+      transform 180ms ease,
+      background 180ms ease;
+  }
+  
+  .team-card-link:hover {
+    transform: translateY(-2px);
+    background: rgba(127, 127, 127, 0.08);
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — FEATURED TEAM CARD
+  ============================================================ */
+  
+  .team-card.is-featured {
+    grid-column: span 2;
+  }
+  
+  .team-card.is-featured .team-card-media {
+    aspect-ratio: 16 / 9;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — HIDDEN FILTER STATE
+  ============================================================ */
+  
+  .team-card.is-hidden {
+    display: none;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — CARD ENTER ANIMATION
+  ============================================================ */
+  
+  .team-card.is-entering {
+    animation: teamCardEnter 420ms ease both;
+  }
+  
+  @keyframes teamCardEnter {
+  
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — EMPTY STATE
+  ============================================================ */
+  
+  .team-empty-state {
+    grid-column: 1 / -1;
+    padding: 70px 35px;
+    border: 1px dashed rgba(127, 127, 127, 0.3);
+    text-align: center;
+  }
+  
+  .team-empty-state h3 {
+    margin: 0 0 12px;
+    font-size: 1.5rem;
+  }
+  
+  .team-empty-state p {
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+    opacity: 0.65;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — TEAM INTRODUCTION
+  ============================================================ */
+  
+  .team-introduction {
+    padding: 80px 0;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — TEAM PHILOSOPHY
+  ============================================================ */
+  
+  .team-philosophy {
+    padding: 100px 0;
+  }
+  
+  .team-philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+  
+  .team-philosophy-card {
+    min-height: 240px;
+    padding: 30px;
+    border: 1px solid rgba(127, 127, 127, 0.2);
+  }
+  
+  .team-philosophy-card > span {
+    display: block;
+    margin-bottom: 50px;
+    font-size: 0.7rem;
+    opacity: 0.5;
+  }
+  
+  .team-philosophy-card h3 {
+    margin-bottom: 12px;
+  }
+  
+  .team-philosophy-card p {
+    margin: 0;
+    line-height: 1.65;
+    opacity: 0.68;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — TEAM CLOSING
+  ============================================================ */
+  
+  .team-closing {
+    padding: 130px 0;
+    text-align: center;
+  }
+  
+  .team-closing h2 {
+    max-width: 900px;
+    margin: 0 auto 30px;
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.065em;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — LOADING STATE
+  ============================================================ */
+  
+  .team-loading {
+    grid-column: 1 / -1;
+    min-height: 300px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(127, 127, 127, 0.2);
+  }
+  
+  .team-loading-inner {
+    text-align: center;
+  }
+  
+  .team-loading-inner span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  
+  .team-loading-inner strong {
+    font-size: 1.1rem;
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — RESPONSIVE TABLET
+  ============================================================ */
+  
+  @media (max-width: 1100px) {
+  
+    .team-grid,
+    .about-team-preview-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .team-philosophy-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  
+    .team-card.is-featured {
+      grid-column: span 2;
+    }
+  
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — RESPONSIVE MOBILE
+  ============================================================ */
+  
+  @media (max-width: 760px) {
+  
+    .team-directory,
+    .team-philosophy {
+      padding: 70px 0;
+    }
+  
+    .team-directory-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 45px;
+    }
+  
+    .team-directory-header h2 {
+      font-size: clamp(2.4rem, 11vw, 4rem);
+    }
+  
+    .team-filters {
+      justify-content: flex-start;
+    }
+  
+    .team-grid,
+    .about-team-preview-grid,
+    .team-philosophy-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .team-card.is-featured {
+      grid-column: span 1;
+    }
+  
+    .team-card.is-featured .team-card-media {
+      aspect-ratio: 4 / 4.5;
+    }
+  
+  }
+  
+  /* ============================================================
+     🟢 UPGRADE — REDUCED MOTION
+  ============================================================ */
+  
+  @media (prefers-reduced-motion: reduce) {
+  
+    .team-card,
+    .team-card-media img,
+    .team-filter,
+    .team-card-link {
+      transition: none;
+    }
+  
+    .team-card.is-entering {
+      animation: none;
+    }
+  
+  }

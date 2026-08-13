@@ -1,0 +1,1518 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <title>Electronic Invoice | River - Software Engineering & Technology</title>
+
+  <!-- ============================================================
+       RIVER — CORE STYLES
+  ============================================================ -->
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ============================================================
+       RIVER — COMPONENT STYLES
+  ============================================================ -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/intro/intro.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/menuPage/menuPage.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/backToTop/backToTop.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/systemTheme/systemTheme.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/backgroundSystem/backgroundSystem.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/pageTransition/pageTransition.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/footer/footer.css"
+  />
+
+  <!-- ============================================================
+       🟢 UPGRADE — INVOICE COMPONENT
+  ============================================================ -->
+
+  <link
+    rel="stylesheet"
+    href="css/components/invoice/invoice.css"
+  />
+
+  <!-- ============================================================
+       FAVICON
+  ============================================================ -->
+
+  <link
+    rel="icon"
+    class="favicon"
+    type="image"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
+
+</head>
+
+
+<body>
+
+  <!-- ============================================================
+       PAGE TRANSITION
+  ============================================================ -->
+
+  <div id="pageTransition"></div>
+
+
+  <!-- ============================================================
+       BACKGROUND
+  ============================================================ -->
+
+  <div class="bg-system">
+
+    <img
+      id="bgImage"
+      src="assets/Media/BGI/BGI1.jpg"
+      alt=""
+    />
+
+    <div class="bg-gradient"></div>
+
+  </div>
+
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+
+  <river-header></river-header>
+
+
+  <!-- ============================================================
+       MAIN
+  ============================================================ -->
+
+  <main class="invoice-page">
+
+
+    <!-- ==========================================================
+         🟢 UPGRADE — INVOICE APPLICATION HEADER
+    ========================================================== -->
+
+    <section class="invoice-app-header">
+
+      <div class="invoice-app-header__inner">
+
+        <div>
+
+          <span class="invoice-eyebrow">
+            RIVER FINANCE
+          </span>
+
+          <h1>
+            Electronic Invoice
+          </h1>
+
+          <p>
+            Create, calculate and issue professional River invoices.
+          </p>
+
+        </div>
+
+
+        <div class="invoice-app-actions">
+
+          <button
+            type="button"
+            class="invoice-button invoice-button--secondary"
+            id="newInvoiceButton"
+          >
+            New Invoice
+          </button>
+
+          <button
+            type="button"
+            class="invoice-button invoice-button--secondary"
+            id="exportInvoiceButton"
+          >
+            Export Data
+          </button>
+
+          <button
+            type="button"
+            class="invoice-button invoice-button--primary"
+            id="printInvoiceButton"
+          >
+            Print / PDF
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================================
+         🟢 UPGRADE — INVOICE WORKSPACE
+    ========================================================== -->
+
+    <section class="invoice-workspace">
+
+
+      <!-- ========================================================
+           EDITOR
+      ======================================================== -->
+
+      <div class="invoice-editor">
+
+
+        <!-- ======================================================
+             INVOICE META
+        ====================================================== -->
+
+        <section class="invoice-editor-card">
+
+          <div class="invoice-card-heading">
+
+            <div>
+
+              <span class="invoice-section-number">
+                01
+              </span>
+
+              <h2>
+                Invoice Details
+              </h2>
+
+            </div>
+
+            <span
+              class="invoice-save-state"
+              id="invoiceSaveState"
+            >
+              Ready
+            </span>
+
+          </div>
+
+
+          <div class="invoice-form-grid">
+
+
+            <div class="invoice-field">
+
+              <label for="invoiceNumber">
+                Invoice Number
+              </label>
+
+              <input
+                id="invoiceNumber"
+                type="text"
+                readonly
+              />
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="invoiceStatus">
+                Status
+              </label>
+
+              <select id="invoiceStatus">
+
+                <option value="draft">
+                  Draft
+                </option>
+
+                <option value="issued" selected>
+                  Issued
+                </option>
+
+                <option value="paid">
+                  Paid
+                </option>
+
+                <option value="partially-paid">
+                  Partially Paid
+                </option>
+
+                <option value="overdue">
+                  Overdue
+                </option>
+
+                <option value="cancelled">
+                  Cancelled
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="invoiceCurrency">
+                Currency
+              </label>
+
+              <select id="invoiceCurrency">
+
+                <option value="KES" selected>
+                  KES — Kenyan Shilling
+                </option>
+
+                <option value="USD">
+                  USD — US Dollar
+                </option>
+
+                <option value="EUR">
+                  EUR — Euro
+                </option>
+
+                <option value="GBP">
+                  GBP — British Pound
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="paymentTerms">
+                Payment Terms
+              </label>
+
+              <select id="paymentTerms">
+
+                <option value="Due on receipt">
+                  Due on receipt
+                </option>
+
+                <option value="Net 7">
+                  Net 7
+                </option>
+
+                <option value="Net 14" selected>
+                  Net 14
+                </option>
+
+                <option value="Net 30">
+                  Net 30
+                </option>
+
+                <option value="Net 60">
+                  Net 60
+                </option>
+
+                <option value="Custom">
+                  Custom
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="issueDate">
+                Issue Date
+              </label>
+
+              <input
+                id="issueDate"
+                type="date"
+              />
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="dueDate">
+                Due Date
+              </label>
+
+              <input
+                id="dueDate"
+                type="date"
+              />
+
+            </div>
+
+
+          </div>
+
+
+          <!-- ====================================================
+               🟢 UPGRADE — TIMEZONE INFORMATION
+          ===================================================== -->
+
+          <div class="invoice-time-information">
+
+            <div>
+
+              <span>
+                Issued At
+              </span>
+
+              <strong id="issueDateTime">
+                —
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                Time Zone
+              </span>
+
+              <strong>
+                Africa/Nairobi · EAT · UTC+03:00
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                UTC Timestamp
+              </span>
+
+              <strong id="utcTimestamp">
+                —
+              </strong>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ======================================================
+             SELLER / CLIENT
+        ====================================================== -->
+
+        <section class="invoice-editor-card">
+
+          <div class="invoice-card-heading">
+
+            <div>
+
+              <span class="invoice-section-number">
+                02
+              </span>
+
+              <h2>
+                Parties
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="invoice-parties-grid">
+
+
+            <!-- ==================================================
+                 SELLER
+            ================================================== -->
+
+            <div class="invoice-party">
+
+              <div class="invoice-party-heading">
+
+                <span>
+                  FROM
+                </span>
+
+                <strong>
+                  River - Software Engineering & Technology
+                </strong>
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="sellerName">
+                  Business Name
+                </label>
+
+                <input
+                  id="sellerName"
+                  type="text"
+                  value="River - S.E & T"
+                />
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="sellerAddress">
+                  Address
+                </label>
+
+                <textarea
+                  id="sellerAddress"
+                  rows="3"
+                >Nairobi, Kenya</textarea>
+
+              </div>
+
+
+              <div class="invoice-form-grid invoice-form-grid--two">
+
+                <div class="invoice-field">
+
+                  <label for="sellerEmail">
+                    Email
+                  </label>
+
+                  <input
+                    id="sellerEmail"
+                    type="email"
+                    placeholder="accounts@river.co.ke"
+                  />
+
+                </div>
+
+
+                <div class="invoice-field">
+
+                  <label for="sellerPhone">
+                    Phone
+                  </label>
+
+                  <input
+                    id="sellerPhone"
+                    type="tel"
+                    placeholder="+254 ..."
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="sellerTaxNumber">
+                  Tax / Registration Number
+                </label>
+
+                <input
+                  id="sellerTaxNumber"
+                  type="text"
+                  placeholder="Optional"
+                />
+
+              </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 CLIENT
+            ================================================== -->
+
+            <div class="invoice-party">
+
+              <div class="invoice-party-heading">
+
+                <span>
+                  BILL TO
+                </span>
+
+                <strong>
+                  Client
+                </strong>
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="clientName">
+                  Client / Company Name
+                </label>
+
+                <input
+                  id="clientName"
+                  type="text"
+                  placeholder="Client company"
+                />
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="clientContact">
+                  Contact Person
+                </label>
+
+                <input
+                  id="clientContact"
+                  type="text"
+                  placeholder="Contact person"
+                />
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="clientAddress">
+                  Address
+                </label>
+
+                <textarea
+                  id="clientAddress"
+                  rows="3"
+                  placeholder="Client address"
+                ></textarea>
+
+              </div>
+
+
+              <div class="invoice-form-grid invoice-form-grid--two">
+
+                <div class="invoice-field">
+
+                  <label for="clientEmail">
+                    Email
+                  </label>
+
+                  <input
+                    id="clientEmail"
+                    type="email"
+                    placeholder="client@example.com"
+                  />
+
+                </div>
+
+
+                <div class="invoice-field">
+
+                  <label for="clientPhone">
+                    Phone
+                  </label>
+
+                  <input
+                    id="clientPhone"
+                    type="tel"
+                    placeholder="+254 ..."
+                  />
+
+                </div>
+
+              </div>
+
+
+              <div class="invoice-field">
+
+                <label for="clientTaxNumber">
+                  Tax / Registration Number
+                </label>
+
+                <input
+                  id="clientTaxNumber"
+                  type="text"
+                  placeholder="Optional"
+                />
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ======================================================
+             LINE ITEMS
+        ====================================================== -->
+
+        <section class="invoice-editor-card">
+
+          <div class="invoice-card-heading">
+
+            <div>
+
+              <span class="invoice-section-number">
+                03
+              </span>
+
+              <h2>
+                Invoice Items
+              </h2>
+
+            </div>
+
+            <button
+              type="button"
+              class="invoice-button invoice-button--small"
+              id="addItemButton"
+            >
+              + Add Item
+            </button>
+
+          </div>
+
+
+          <div class="invoice-items-editor">
+
+            <div class="invoice-items-header">
+
+              <span>
+                Description
+              </span>
+
+              <span>
+                Qty
+              </span>
+
+              <span>
+                Unit Price
+              </span>
+
+              <span>
+                Tax %
+              </span>
+
+              <span>
+                Amount
+              </span>
+
+              <span>
+                &nbsp;
+              </span>
+
+            </div>
+
+
+            <div id="invoiceItems">
+
+              <!-- JavaScript renders items -->
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ======================================================
+             TAX / DISCOUNT / PAYMENT
+        ====================================================== -->
+
+        <section class="invoice-editor-card">
+
+          <div class="invoice-card-heading">
+
+            <div>
+
+              <span class="invoice-section-number">
+                04
+              </span>
+
+              <h2>
+                Charges & Payment
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="invoice-form-grid">
+
+
+            <div class="invoice-field">
+
+              <label for="globalDiscount">
+                Discount
+              </label>
+
+              <div class="invoice-input-with-prefix">
+
+                <span id="discountCurrency">
+                  KES
+                </span>
+
+                <input
+                  id="globalDiscount"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value="0"
+                />
+
+              </div>
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="amountPaid">
+                Amount Paid
+              </label>
+
+              <div class="invoice-input-with-prefix">
+
+                <span id="paidCurrency">
+                  KES
+                </span>
+
+                <input
+                  id="amountPaid"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value="0"
+                />
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="invoice-payment-grid">
+
+
+            <div class="invoice-field">
+
+              <label for="paymentMethod">
+                Payment Method
+              </label>
+
+              <select id="paymentMethod">
+
+                <option value="Bank Transfer">
+                  Bank Transfer
+                </option>
+
+                <option value="M-PESA">
+                  M-PESA
+                </option>
+
+                <option value="Card">
+                  Card
+                </option>
+
+                <option value="Cash">
+                  Cash
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="invoice-field">
+
+              <label for="paymentReference">
+                Payment Reference
+              </label>
+
+              <input
+                id="paymentReference"
+                type="text"
+                placeholder="Optional"
+              />
+
+            </div>
+
+
+            <div class="invoice-field invoice-field--wide">
+
+              <label for="paymentInstructions">
+                Payment Instructions
+              </label>
+
+              <textarea
+                id="paymentInstructions"
+                rows="3"
+                placeholder="Enter bank, M-PESA or other payment instructions..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- ======================================================
+             NOTES
+        ====================================================== -->
+
+        <section class="invoice-editor-card">
+
+          <div class="invoice-card-heading">
+
+            <div>
+
+              <span class="invoice-section-number">
+                05
+              </span>
+
+              <h2>
+                Notes
+              </h2>
+
+            </div>
+
+          </div>
+
+
+          <div class="invoice-field">
+
+            <label for="invoiceNotes">
+              Invoice Notes
+            </label>
+
+            <textarea
+              id="invoiceNotes"
+              rows="5"
+              placeholder="Additional information, delivery details, project references, etc."
+            ></textarea>
+
+          </div>
+
+
+          <div class="invoice-field">
+
+            <label for="invoiceTerms">
+              Terms & Conditions
+            </label>
+
+            <textarea
+              id="invoiceTerms"
+              rows="5"
+              placeholder="Payment terms and conditions..."
+            >Payment is due according to the terms stated on this invoice. Please use the invoice number as the payment reference.</textarea>
+
+          </div>
+
+        </section>
+
+
+      </div>
+
+
+
+      <!-- ========================================================
+           LIVE INVOICE
+      ======================================================== -->
+
+      <div class="invoice-preview-wrapper">
+
+        <div class="invoice-preview-label">
+
+          <span>
+            LIVE PREVIEW
+          </span>
+
+          <span id="previewStatus">
+            ISSUED
+          </span>
+
+        </div>
+
+
+        <article
+          class="invoice-document"
+          id="invoiceDocument"
+        >
+
+
+          <!-- ====================================================
+               DOCUMENT HEADER
+          ==================================================== -->
+
+          <header class="invoice-document-header">
+
+
+            <div class="invoice-brand">
+
+              <div class="invoice-brand-mark">
+
+                <img
+                  src="assets/Media/riverWebsiteLogos/r logo.png"
+                  alt="River"
+                />
+
+              </div>
+
+
+              <div>
+
+                <div class="invoice-brand-name">
+                  RIVER
+                </div>
+
+                <div class="invoice-brand-description">
+                    Software Engineering & Technology
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="invoice-document-title">
+
+              <span>
+                ELECTRONIC
+              </span>
+
+              <h2>
+                INVOICE
+              </h2>
+
+            </div>
+
+          </header>
+
+
+
+          <!-- ====================================================
+               META
+          ==================================================== -->
+
+          <section class="invoice-document-meta">
+
+            <div>
+
+              <span>
+                INVOICE NO.
+              </span>
+
+              <strong id="previewInvoiceNumber">
+                —
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                STATUS
+              </span>
+
+              <strong
+                id="previewInvoiceStatus"
+                class="invoice-status-badge"
+              >
+                ISSUED
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                ISSUED
+              </span>
+
+              <strong id="previewIssueDate">
+                —
+              </strong>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                DUE
+              </span>
+
+              <strong id="previewDueDate">
+                —
+              </strong>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- ====================================================
+               PARTIES
+          ==================================================== -->
+
+          <section class="invoice-document-parties">
+
+
+            <div>
+
+              <span class="invoice-document-label">
+                FROM
+              </span>
+
+              <h3 id="previewSellerName">
+                River - S.E. & T
+              </h3>
+
+              <p id="previewSellerAddress">
+                Nairobi, Kenya
+              </p>
+
+              <p id="previewSellerContact">
+                —
+              </p>
+
+              <p id="previewSellerTax">
+                —
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span class="invoice-document-label">
+                BILL TO
+              </span>
+
+              <h3 id="previewClientName">
+                Client
+              </h3>
+
+              <p id="previewClientContact">
+                —
+              </p>
+
+              <p id="previewClientAddress">
+                —
+              </p>
+
+              <p id="previewClientEmail">
+                —
+              </p>
+
+              <p id="previewClientTax">
+                —
+              </p>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- ====================================================
+               ITEMS
+          ==================================================== -->
+
+          <section class="invoice-document-items">
+
+            <table>
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    DESCRIPTION
+                  </th>
+
+                  <th>
+                    QTY
+                  </th>
+
+                  <th>
+                    UNIT PRICE
+                  </th>
+
+                  <th>
+                    TAX
+                  </th>
+
+                  <th>
+                    AMOUNT
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody id="previewItems">
+
+                <!-- JavaScript -->
+
+              </tbody>
+
+            </table>
+
+          </section>
+
+
+
+          <!-- ====================================================
+               TOTALS
+          ==================================================== -->
+
+          <section class="invoice-document-total-section">
+
+
+            <div class="invoice-document-payment">
+
+              <span>
+                PAYMENT TERMS
+              </span>
+
+              <strong id="previewPaymentTerms">
+                Net 14
+              </strong>
+
+
+              <span>
+                PAYMENT METHOD
+              </span>
+
+              <strong id="previewPaymentMethod">
+                Bank Transfer
+              </strong>
+
+
+              <span>
+                PAYMENT REFERENCE
+              </span>
+
+              <strong id="previewPaymentReference">
+                —
+              </strong>
+
+            </div>
+
+
+            <div class="invoice-totals">
+
+              <div>
+
+                <span>
+                  SUBTOTAL
+                </span>
+
+                <strong id="previewSubtotal">
+                  KES 0.00
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  DISCOUNT
+                </span>
+
+                <strong id="previewDiscount">
+                  KES 0.00
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  TAX
+                </span>
+
+                <strong id="previewTax">
+                  KES 0.00
+                </strong>
+
+              </div>
+
+
+              <div class="invoice-total-grand">
+
+                <span>
+                  TOTAL
+                </span>
+
+                <strong id="previewTotal">
+                  KES 0.00
+                </strong>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  PAID
+                </span>
+
+                <strong id="previewPaid">
+                  KES 0.00
+                </strong>
+
+              </div>
+
+
+              <div class="invoice-balance">
+
+                <span>
+                  BALANCE DUE
+                </span>
+
+                <strong id="previewBalance">
+                  KES 0.00
+                </strong>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- ====================================================
+               PAYMENT INSTRUCTIONS
+          ==================================================== -->
+
+          <section class="invoice-document-payment-instructions">
+
+            <div>
+
+              <span>
+                PAYMENT INSTRUCTIONS
+              </span>
+
+              <p id="previewPaymentInstructions">
+                —
+              </p>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                NOTES
+              </span>
+
+              <p id="previewNotes">
+                —
+              </p>
+
+            </div>
+
+          </section>
+
+
+
+          <!-- ====================================================
+               FOOTER
+          ==================================================== -->
+
+          <footer class="invoice-document-footer">
+
+
+            <div>
+
+              <strong>
+                River - Software Engineering & Technology
+              </strong>
+
+              <span>
+                Engineering technology for real-world problems.
+              </span>
+
+            </div>
+
+
+            <div class="invoice-footer-time">
+
+              <span>
+                ISSUED
+              </span>
+
+              <strong id="previewTimestamp">
+                —
+              </strong>
+
+              <small>
+                Africa/Nairobi · EAT · UTC+03:00
+              </small>
+
+            </div>
+
+          </footer>
+
+
+        </article>
+
+      </div>
+
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+
+  <river-footer></river-footer>
+
+
+  <!-- ============================================================
+       BACK TO TOP
+  ============================================================ -->
+
+  <river-backtotop></river-backtotop>
+
+
+
+  <!-- ============================================================
+       GSAP
+  ============================================================ -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/InertiaPlugin.min.js"
+  ></script>
+
+
+
+  <!-- ============================================================
+       CORE
+  ============================================================ -->
+
+  <script src="/js/main.js"></script>
+
+  <script src="/js/additionalfiles.js"></script>
+
+
+
+  <!-- ============================================================
+       INTRO
+  ============================================================ -->
+
+  <script src="js/components/intro/intro.js"></script>
+
+  <script src="js/components/intro/riverIntro.js"></script>
+
+
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+
+  <script src="js/components/header/riverHeader.js"></script>
+
+
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+
+  <!-- Not required on invoice page -->
+
+
+
+  <!-- ============================================================
+       COMPONENTS
+  ============================================================ -->
+
+  <script src="js/components/footer/riverFooter.js"></script>
+
+  <script src="js/components/backToTop/riverBackToTop.js"></script>
+
+  <script src="js/components/header-logo/header-logo.js"></script>
+
+  <script src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"></script>
+
+  <script src="js/components/pageTransition/pageTransition.js"></script>
+
+
+
+  <!-- ============================================================
+       🟢 UPGRADE — INVOICE ENGINE
+  ============================================================ -->
+
+  <script src="js/components/invoice/invoice.js"></script>
+
+</body>
+
+</html>

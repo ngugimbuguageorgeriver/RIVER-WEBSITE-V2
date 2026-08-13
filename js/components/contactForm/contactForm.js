@@ -1689,7 +1689,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const lines = [
 
-          "Hi, I'm interested in working with River IT Solutions.",
+          "Hi, I'm interested in working with River - Software Engineering & Technology.",
 
           "",
 
@@ -1935,7 +1935,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const lines = [
 
-          "Hi, I'd like to book a consultation with River IT Solutions.",
+          "Hi, I'd like to book a consultation with River - Software Engineering & Technology.",
 
           "",
 

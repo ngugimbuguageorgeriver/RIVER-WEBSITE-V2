@@ -4,6 +4,9 @@
  * 🟢 UPGRADE: Keyboard support and mobile-safe panel switching.
  */
 (() => {
+
+
+
   const tabs = [...document.querySelectorAll(".category")];
   const panels = [...document.querySelectorAll(".faq-panel")];
   if (!tabs.length) return;
@@ -48,3 +51,22 @@
   const initial = new URLSearchParams(location.search).get("category");
   show(tabs.some(t => t.dataset.category === initial) ? initial : "work", false);
 })();
+
+
+
+const generalApplication =
+  window.RiverCareers?.getGeneralApplication();
+
+if (generalApplication) {
+
+  const link =
+    document.getElementById("general-application-link");
+
+  if (link) {
+
+    link.href =
+      generalApplication.url;
+
+  }
+
+}

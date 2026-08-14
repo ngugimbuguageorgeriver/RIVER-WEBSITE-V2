@@ -5,9 +5,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Questions about joining River. Learn about our people, work, growth, interviews, internships and remote work.">
   <title>Questions About Joining River | River Careers</title>
+
+
+  <link rel="stylesheet" href="css/components/pageTransition/pageTransition.css" />
+
   <link rel="stylesheet" href="css/components/hiringFaq/hiring-faq.css">
+
+
+
+
 </head>
 <body>
+
+
+
+    <!-- ==========================================================
+       PAGE TRANSITION
+       ========================================================== -->
+
+    <div id="pageTransition"></div>
+
+
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -137,11 +156,19 @@
       <p class="eyebrow">Still have questions?</p>
       <h2>You don't have to apply today.</h2>
       <p>If you're curious about River, we'd love to hear from you.</p>
-      <a class="primary-button" href="contact.html">Come say hello <span>→</span></a>
+      <a class="primary-button"   id="general-application-link"  href="jobApplication.html?role=general">Come say hello <span>→</span></a>
     </section>
   </main>
 
   <footer class="site-footer"><span>River — Software Engineering & Technology</span><a href="careers.html">Back to Careers ↑</a></footer>
+
+
+  <script src="js/components/careersPage/careersData.js" defer></script>
+  <script src="js/components/pageTransition/pageTransition.js"defer></script>
   <script src="js/components/hiringFaq/hiring-faq.js" defer></script>
+
+
+
+
 </body>
 </html>

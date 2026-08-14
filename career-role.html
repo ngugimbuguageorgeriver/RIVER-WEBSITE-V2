@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <!-- 🟢 UPGRADE — Dynamic SEO values are populated by careerRole.js -->
+  <title>
+    Career Opportunity | River — Software Engineering & Technology
+  </title>
+
+  <meta
+    name="description"
+    content="Explore a career opportunity at River."
+  />
+
+  <meta
+    name="robots"
+    content="index, follow"
+  />
+
+  <meta
+    name="theme-color"
+    content="#f7f5ef"
+  />
+
+  <!-- 🟢 UPGRADE — Canonical is updated dynamically -->
+  <link
+    rel="canonical"
+    href="career-role.html"
+  />
+
+
+  <!-- Styles -->
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/styling.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/intro/intro.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/menuPage/menuPage.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/backToTop/backToTop.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/header-NavigationBarMenuAndHeaderLogo/header-NavigationBarMenuAndHeaderLogo.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/systemTheme/systemTheme.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/backgroundSystem/backgroundSystem.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/info-trust/infoTrust.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/pageTransition/pageTransition.css"
+  />
+
+  <link
+    rel="stylesheet"
+    href="css/components/footer/footer.css"
+  />
+
+  <!-- 🟢 UPGRADE — Dedicated reusable role-page stylesheet -->
+  <link
+    rel="stylesheet"
+    href="css/components/careersPage/careerRole.css"
+  />
+
+
+  <!-- Favicon -->
+
+  <link
+    rel="icon"
+    class="favicon"
+    type="image/png"
+    href="assets/Media/riverWebsiteLogos/r logo.png"
+  />
+
+</head>
+
+
+<body>
+
+
+  <!-- ==========================================================
+       PAGE TRANSITION
+       ========================================================== -->
+
+  <div id="pageTransition"></div>
+
+
+  <!-- ==========================================================
+       BACKGROUND
+       ========================================================== -->
+
+  <div class="bg-system">
+
+    <img
+      id="bgImage"
+      src="assets/images/pexels-david-sams-2162820829-38499298.jpg"
+      alt=""
+      aria-hidden="true"
+    />
+
+    <div class="bg-gradient"></div>
+
+  </div>
+
+
+  <!-- ==========================================================
+       HEADER
+       ========================================================== -->
+
+  <river-header></river-header>
+
+
+  <!-- ==========================================================
+       MAIN
+       ========================================================== -->
+
+  <main
+    id="main-content"
+    class="main-container river-career-role"
+  >
+
+
+    <!-- ========================================================
+         🟢 UPGRADE — ROLE PAGE APPLICATION MOUNT
+
+         careerRole.js owns the content.
+
+         The HTML remains completely reusable.
+         ======================================================== -->
+
+    <div
+      id="careerRoleApp"
+      class="career-role-app"
+      aria-live="polite"
+    >
+
+      <div class="career-role-loading">
+
+        <span
+          class="career-role-loading__spinner"
+          aria-hidden="true"
+        ></span>
+
+        <p>
+          Loading opportunity…
+        </p>
+
+      </div>
+
+    </div>
+
+
+  </main>
+
+
+  <!-- ==========================================================
+       FOOTER
+       ========================================================== -->
+
+  <river-footer></river-footer>
+
+
+  <!-- ==========================================================
+       BACK TO TOP
+       ========================================================== -->
+
+  <river-backtotop></river-backtotop>
+
+
+  <!-- ==========================================================
+       GSAP
+       ========================================================== -->
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    defer
+  ></script>
+
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+    defer
+  ></script>
+
+
+  <!-- ==========================================================
+       CORE
+       ========================================================== -->
+
+  <script
+    src="js/main.js"
+    defer
+  ></script>
+
+  <script
+    src="js/additionalfiles.js"
+    defer
+  ></script>
+
+
+  <!-- ==========================================================
+       INTRO
+       ========================================================== -->
+
+  <script
+    src="js/components/intro/intro.js"
+    defer
+  ></script>
+
+  <script
+    src="js/components/intro/riverIntro.js"
+    defer
+  ></script>
+
+
+  <!-- ==========================================================
+       HEADER
+       ========================================================== -->
+
+  <script
+    src="js/components/header/riverHeader.js"
+    defer
+  ></script>
+
+
+  <!-- ==========================================================
+       GLOBAL COMPONENTS
+       ========================================================== -->
+
+  <script
+    src="js/components/footer/riverFooter.js"
+    defer
+  ></script>
+
+  <script
+    src="js/components/backToTop/riverBackToTop.js"
+    defer
+  ></script>
+
+  <script
+    src="js/components/header-logo/header-logo.js"
+    defer
+  ></script>
+
+  <script
+    src="js/components/systemThemeAndLogoChange/systemThemeAndLogoChange.js"
+    defer
+  ></script>
+
+  <script
+    src="js/components/pageTransition/pageTransition.js"
+    defer
+  ></script>
+
+
+  <!-- ==========================================================
+       🟢 UPGRADE — CENTRAL CAREERS DATA
+
+       Must load BEFORE careerRole.js.
+       ========================================================== -->
+
+  <script
+    src="js/components/careersPage/careersData.js"
+    defer
+  ></script>
+
+
+  <!-- ==========================================================
+       🟢 UPGRADE — REUSABLE ROLE RENDERER
+
+       One renderer for every River opportunity.
+       ========================================================== -->
+
+  <script
+    src="js/components/careersPage/careerRole.js"
+    defer
+  ></script>
+
+
+</body>
+
+</html>

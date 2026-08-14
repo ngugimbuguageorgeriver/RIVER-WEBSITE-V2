@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <meta
+    name="description"
+    content="Start a conversation with River. Tell us about yourself, your work and what you'd like to build."
+  >
+
+  <title>
+    We'd Love to Get to Know You | River Careers
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="css/components/jobApplication/jobApplication.css"
+  >
+
+</head>
+
+
+<body>
+
+  <a
+    class="skip-link"
+    href="#main"
+  >
+    Skip to application
+  </a>
+
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+
+  <header class="apply-header">
+
+    <a
+      class="brand"
+      href="index.html"
+      aria-label="River home"
+    >
+
+
+
+      River.
+
+    </a>
+
+
+    <a
+      href="careers.html"
+    >
+      ← Careers
+    </a>
+
+  </header>
+
+
+
+  <main id="main">
+
+
+    <!-- ==========================================================
+         🟢 UPGRADE — HERO
+         ========================================================== -->
+
+    <section
+      class="apply-hero"
+      aria-labelledby="applicationTitle"
+    >
+
+      <div>
+
+        <p class="eyebrow">
+          Let's start a conversation.
+        </p>
+
+
+        <h1 id="applicationTitle">
+
+          👋 We'd love to
+          <br>
+
+          <span>
+            get to know you.
+          </span>
+
+        </h1>
+
+
+        <p
+          class="hero-role"
+          id="heroRole"
+        >
+          Loading role…
+        </p>
+
+
+        <p>
+          You don't need to have everything figured out.
+          Tell us a little about yourself.
+        </p>
+
+      </div>
+
+
+      <div
+        class="hero-illustration"
+        aria-hidden="true"
+      >
+
+        <div class="orbit orbit-one">
+          ✦
+        </div>
+
+
+        <div class="big-laptop">
+          💻
+        </div>
+
+
+        <div class="orbit orbit-two">
+          💡
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================================
+         🟢 UPGRADE — APPLICATION PROGRESS
+         ========================================================== -->
+
+    <div
+      class="progress-wrap"
+      aria-label="Application progress"
+    >
+
+      <div class="progress-line">
+
+        <span id="progressBar"></span>
+
+      </div>
+
+
+      <ol class="progress-steps">
+
+        <li
+          class="current"
+          data-step="1"
+        >
+          🙂
+          <span>
+            About you
+          </span>
+        </li>
+
+
+        <li
+          data-step="2"
+        >
+          💻
+          <span>
+            Your work
+          </span>
+        </li>
+
+
+        <li
+          data-step="3"
+        >
+          🧠
+          <span>
+            Questions
+          </span>
+        </li>
+
+
+        <li
+          data-step="4"
+        >
+          🚀
+          <span>
+            Ready?
+          </span>
+        </li>
+
+      </ol>
+
+    </div>
+
+
+
+    <!-- ==========================================================
+         APPLICATION FORM
+         ========================================================== -->
+
+    <form
+      id="applicationForm"
+      novalidate
+    >
+
+      <!-- 🟢 UPGRADE — ROLE IS DATA-DRIVEN -->
+      <input
+        type="hidden"
+        name="role"
+        id="roleSlug"
+      >
+
+
+
+      <!-- ========================================================
+           STEP 1
+           ======================================================== -->
+
+      <section
+        class="form-section"
+        data-step-section="1"
+        aria-labelledby="basicsTitle"
+      >
+
+        <div class="section-title">
+
+          <span>
+            01
+          </span>
+
+
+          <div>
+
+            <p class="eyebrow">
+              Meet
+            </p>
+
+            <h2 id="basicsTitle">
+              Let's start with the basics.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- 🟢 UPGRADE — DYNAMIC ROLE SNAPSHOT -->
+
+        <div
+          class="role-card"
+          id="roleCard"
+        >
+
+          <div>
+
+            <strong id="roleTitle">
+              Role
+            </strong>
+
+
+            <span id="roleMeta">
+              Loading…
+            </span>
+
+          </div>
+
+
+          <p id="roleSummary"></p>
+
+
+          <a
+            id="roleLink"
+            href="career-role.html"
+          >
+            View role →
+          </a>
+
+        </div>
+
+
+
+        <div class="field-grid">
+
+          <label>
+
+            First name
+
+            <input
+              name="firstName"
+              autocomplete="given-name"
+              required
+            >
+
+          </label>
+
+
+          <label>
+
+            Last name
+
+            <input
+              name="lastName"
+              autocomplete="family-name"
+              required
+            >
+
+          </label>
+
+
+          <label>
+
+            Email
+
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+            >
+
+          </label>
+
+
+          <label>
+
+            Phone
+            <span class="optional">
+              (optional)
+            </span>
+
+            <input
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+            >
+
+          </label>
+
+
+          <label>
+
+            LinkedIn
+            <span class="optional">
+              (optional)
+            </span>
+
+            <input
+              type="url"
+              name="linkedin"
+              placeholder="https://linkedin.com/in/…"
+            >
+
+          </label>
+
+
+          <label>
+
+            Portfolio
+            <span class="optional">
+              (optional)
+            </span>
+
+            <input
+              type="url"
+              name="portfolio"
+              placeholder="https://…"
+            >
+
+          </label>
+
+        </div>
+
+
+
+        <label class="full-field">
+
+          What's your story?
+
+          <span class="field-help">
+
+            What are you interested in?
+            What kinds of things do you enjoy building?
+            What made you apply?
+
+          </span>
+
+
+          <textarea
+            name="story"
+            rows="7"
+            required
+            placeholder="Tell us a little about yourself…"
+          ></textarea>
+
+        </label>
+
+      </section>
+
+
+
+      <!-- ========================================================
+           STEP 2
+           ======================================================== -->
+
+      <section
+        class="form-section"
+        data-step-section="2"
+        aria-labelledby="projectsTitle"
+      >
+
+        <div class="section-title">
+
+          <span>
+            02
+          </span>
+
+
+          <div>
+
+            <p class="eyebrow">
+              Share
+            </p>
+
+            <h2 id="projectsTitle">
+              What are you proud of?
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <p class="section-copy">
+
+          A polished portfolio isn't required.
+
+          A small experiment, school project,
+          client project, GitHub repository or
+          something you built because you were
+          curious all counts.
+
+        </p>
+
+
+        <div id="projects"></div>
+
+
+        <button
+          type="button"
+          class="secondary-button"
+          id="addProject"
+        >
+          ＋ Add another project
+        </button>
+
+      </section>
+
+
+
+      <!-- ========================================================
+           STEP 3
+           ======================================================== -->
+
+      <section
+        class="form-section"
+        data-step-section="3"
+        aria-labelledby="questionsTitle"
+      >
+
+        <div class="section-title">
+
+          <span>
+            03
+          </span>
+
+
+          <div>
+
+            <p class="eyebrow">
+              Think
+            </p>
+
+            <h2 id="questionsTitle">
+              A few questions that actually matter.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <!-- 🟢 UPGRADE — QUESTIONS COME FROM CAREERS DATA -->
+
+        <div
+          id="applicationQuestions"
+        ></div>
+
+      </section>
+
+
+
+      <!-- ========================================================
+           STEP 4
+           ======================================================== -->
+
+      <section
+        class="form-section before-submit"
+        data-step-section="4"
+        aria-labelledby="readyTitle"
+      >
+
+        <div class="section-title">
+
+          <span>
+            04
+          </span>
+
+
+          <div>
+
+            <p class="eyebrow">
+              Ready?
+            </p>
+
+            <h2 id="readyTitle">
+              Before you send this into the world…
+            </h2>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="heart-note">
+
+          <span aria-hidden="true">
+            ❤️
+          </span>
+
+
+          <div>
+
+            <strong>
+              You don't need to be perfect.
+            </strong>
+
+
+            <p>
+
+              We know job applications can be stressful.
+
+              We're interested in people.
+
+              Experience matters.
+              Portfolios matter.
+
+              But curiosity, kindness, growth,
+              and a willingness to learn matter too.
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <label class="consent">
+
+          <input
+            type="checkbox"
+            name="consent"
+            required
+          >
+
+
+          <span>
+
+            I confirm that the information I've shared
+            is accurate and I'm happy for River to use
+            it to consider my application.
+
+          </span>
+
+        </label>
+
+
+
+        <div class="submit-row">
+
+          <button
+            class="submit-button"
+            type="submit"
+          >
+            🚀 Send it
+          </button>
+
+
+          <p>
+            Take a breath.
+            There is no perfect answer.
+          </p>
+
+        </div>
+
+      </section>
+
+    </form>
+
+
+
+    <!-- ==========================================================
+         🟢 UPGRADE — CELEBRATION
+         ========================================================== -->
+
+    <section
+      class="celebration"
+      id="success"
+      hidden
+      aria-live="polite"
+    >
+
+      <div
+        class="celebration-art"
+        aria-hidden="true"
+      >
+        🎉
+      </div>
+
+
+      <p class="eyebrow">
+        Application received
+      </p>
+
+
+      <h2>
+        Thanks for reaching out!
+      </h2>
+
+
+      <p>
+
+        We're excited to learn more about you.
+
+        We'll review your application and
+        get back to you as soon as we can.
+
+      </p>
+
+
+      <div class="keep-going">
+
+        <span>
+          ☕ Grab a coffee.
+        </span>
+
+        <span>
+          🚀 Keep building.
+        </span>
+
+        <span>
+          💡 Keep learning.
+        </span>
+
+        <span>
+          🙂 Keep being curious.
+        </span>
+
+      </div>
+
+
+      <p>
+        We'll talk soon.
+      </p>
+
+
+      <a
+        class="secondary-button inline"
+        href="careers.html"
+      >
+        ← Return to Careers
+      </a>
+
+    </section>
+
+  </main>
+
+
+
+  <footer class="apply-footer">
+    River — Software Engineering & Technology
+  </footer>
+
+
+
+  <!-- ============================================================
+       🟢 UPGRADE — SINGLE CAREER DATA SOURCE
+
+       IMPORTANT:
+       Do NOT load both careersData.js and careers-data.js.
+
+       This application page uses careersData.js as the
+       single source of truth.
+       ============================================================ -->
+
+  <script src="js/components/careersPage/careersData.js"></script>
+
+
+  <script
+    src="js/components/jobApplication/jobApplication.js"
+    defer
+  ></script>
+
+</body>
+
+</html>
